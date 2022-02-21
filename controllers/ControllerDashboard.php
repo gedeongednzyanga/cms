@@ -13,7 +13,7 @@ class ControllerDashboard
 
     private function home()
     {
-        $this->_view = new View('Home');
+        $this->_view = new View('Dashboard');
         $this->_view->generate1();
     }
 }
