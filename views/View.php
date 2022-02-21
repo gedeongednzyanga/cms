@@ -10,7 +10,7 @@
             if (file_exists('views/pages/' . $action . '.php'))
                 $this->_file = 'views/pages/' . $action . '.php';
             else
-                $this->_file = 'views/administration/' . $action . '.php';
+                $this->_file = 'views/admin/' . $action . '.php';
         }
 
         //Recuperation du fichier et les données avec la fonction generateFile dans le dossier views
