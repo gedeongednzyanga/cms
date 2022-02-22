@@ -289,11 +289,12 @@
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                                <form id="form-talerte">
+                                <form id="form-category">
                                     <div class="form-group">
-                                        <input type="hidden" name="action" value="typea" />
-                                        <input type="hidden" name="idtypealerte" value="0" />
-                                        <input class="form-control" type="text" id="designationa" name="designation"
+                                        <input type="hidden" name="action" value="category" />
+                                        <input type="hidden" name="actionu" value="1" />
+                                        <input type="hidden" name="id" value="0" />
+                                        <input class="form-control" type="text" id="designationc" name="designation"
                                             required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
@@ -338,11 +339,12 @@
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                                <form id="form-talerte">
+                                <form id="form-unite">
                                     <div class="form-group">
-                                        <input type="hidden" name="action" value="typea" />
-                                        <input type="hidden" name="idtypealerte" value="0" />
-                                        <input class="form-control" type="text" id="designationa" name="designation"
+                                        <input type="hidden" name="action" value="unite" />
+                                        <input type="hidden" name="actionu" value="1" />
+                                        <input type="hidden" name="id" value="0" />
+                                        <input class="form-control" type="text" id="designationu" name="designation"
                                             required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
@@ -405,7 +407,7 @@
     </script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
-
+    <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">
@@ -458,20 +460,20 @@
     })
     </script>
     <script>
-    function triggerClick() {
-        document.querySelector("#image-agent").click();
-    }
+    // function triggerClick() {
+    //     document.querySelector("#image-agent").click();
+    // }
 
-    function displayImage(e) {
-        if (e.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                document.querySelector("#image-display").setAttribute("src", e.target.result);
-                document.querySelector("#image-display").setAttribute("height", "292px");
-            };
-            reader.readAsDataURL(e.files[0]);
-        }
-    }
+    // function displayImage(e) {
+    //     if (e.files[0]) {
+    //         var reader = new FileReader();
+    //         reader.onload = function(e) {
+    //             document.querySelector("#image-display").setAttribute("src", e.target.result);
+    //             document.querySelector("#image-display").setAttribute("height", "292px");
+    //         };
+    //         reader.readAsDataURL(e.files[0]);
+    //     }
+    // }
     </script>
 </body>
 

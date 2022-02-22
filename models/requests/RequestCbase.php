@@ -13,7 +13,7 @@ spl_autoload_register(function ($class) {
 });
 
 $managerCategory = new ManagerCategory();
-$managerUnit = new ManagerUnite();
+$managerUnite = new ManagerUnite();
 $managerProject = new ManagerProduct();
 $action = $_POST['action'];
 
@@ -21,16 +21,19 @@ switch ($action) {
     case 'category':
         $category = new Category($_POST);
         $managerCategory->createObj($_POST['actionu'], 'obj_category', $category);
+        echo 'Bien enregistrée';
         break;
 
     case 'unite':
         $unite = new Unite($_POST);
         $managerUnite->createObj($_POST['actionu'], 'obj_unite', $unite);
+        echo 'Bien enregistrée';
         break;
 
     case 'product':
         $product = new Product($_POST);
         $managerUnite->createObj($_POST['actionu'], 'obj_product', $product);
+        echo 'Bien enregistrée';
         break;
 
     default:
