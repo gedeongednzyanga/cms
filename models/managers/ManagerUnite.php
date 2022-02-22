@@ -1,9 +1,9 @@
 <?php
-class ManagerCategory extends Model
+class ManagerUnite extends Model
 {
-    public function getCategories()
+    public function getUnites()
     {
-        return $this->getAll('', 'Category');
+        return $this->getAll('', 'Unite');
     }
 
     public function createObj($action, $procedure, $object)

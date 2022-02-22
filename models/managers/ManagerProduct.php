@@ -1,9 +1,9 @@
 <?php
-class ManagerCategory extends Model
+class ManagerProduct extends Model
 {
-    public function getCategories()
+    public function getProducts()
     {
-        return $this->getAll('', 'Category');
+        return $this->getAll('', 'Product');
     }
 
     public function createObj($action, $procedure, $object)
