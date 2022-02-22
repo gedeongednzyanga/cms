@@ -1,5 +1,5 @@
 <?php
-class ControllerDashboard
+class ControllerProduct
 {
     private $_view;
 
@@ -13,7 +13,7 @@ class ControllerDashboard
 
     private function show()
     {
-        $this->_view = new View('Dashboard');
+        $this->_view = new View('Product');
         $this->_view->generate1();
     }
 }

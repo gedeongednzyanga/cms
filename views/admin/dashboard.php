@@ -89,7 +89,7 @@
                             <span class="nav-label">Productions</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="colors.html">Ajouter un produit </a>
+                                <a href="product">Ajouter un produit </a>
                             </li>
                             <li>
                                 <a href="colors.html">Production </a>
@@ -139,7 +139,7 @@
                     </li>
                     <li class="heading">CONFIGURATIONS</li>
                     <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-sitemap"></i>
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-cog"></i>
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
