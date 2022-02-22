@@ -12,8 +12,13 @@ class ManagerProduct extends Model
         $query->execute(
             array(
                 $action,
-                $object->getId(),
-                $object->getDesignation()
+                $object->getIdprod(),
+                $object->getDesignationprod(),
+                $object->getQuantitest(),
+                $object->getStalert(),
+                $object->getPrixprod(),
+                $object->getRefcat(),
+                $object->getRefunit(),
             )
         );
     }

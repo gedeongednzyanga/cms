@@ -123,4 +123,44 @@ class Product
 
         return $this;
     }
+
+    /**
+     * Get the value of refcat
+     */
+    public function getRefcat()
+    {
+        return $this->refcat;
+    }
+
+    /**
+     * Set the value of refcat
+     *
+     * @return  self
+     */
+    public function setRefcat($refcat)
+    {
+        $this->refcat = $refcat;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of refunit
+     */
+    public function getRefunit()
+    {
+        return $this->refunit;
+    }
+
+    /**
+     * Set the value of refunit
+     *
+     * @return  self
+     */
+    public function setRefunit($refunit)
+    {
+        $this->refunit = $refunit;
+
+        return $this;
+    }
 }

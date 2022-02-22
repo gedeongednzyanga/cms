@@ -182,40 +182,42 @@
                     </div>
                     <div class="ibox-body">
                         <div class="container">
-                            <form class="row form-agent" id="form-sample-1" class="form-horizontal"
-                                enctype="multipart/form-data" method="post" novalidate="novalidate">
+                            <form id="form-product" class="row form-horizontal" method="post" novalidate="novalidate">
                                 <div class="col-md-8">
-                                    <input type="hidden" name="action" value="create" />
-                                    <input type="hidden" name="idAgent" value="0" />
+                                    <input type="hidden" name="action" value="product" />
+                                    <input type="hidden" name="actionu" value="1" />
+                                    <input type="hidden" name="id" value="0" />
+                                    <input type="hidden" name="quantitest" value="0" />
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Désignation</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="nom" required
-                                                placeholder="Désignation">
+                                            <input class="form-control" type="text" id="designationprod"
+                                                name="designationprod" required placeholder="Désignation">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Prix de vente</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="postnom" required
+                                            <input class="form-control" type="number" name="prixprod" required
                                                 placeholder="Prix">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Stock alerte</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="prenom" required
+                                            <input class="form-control" type="text" name="stalert" required
                                                 placeholder="Stock alert">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Catégorie</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="grade" required>
-                                                <optgroup label="Grades">
-                                                    <option value="Lietenant">Lietenant</option>
-                                                    <option value="Major">Major</option>
-                                                    <option value="Capitaine">Capitaine</option>
+                                            <select class="form-control select2_demo_1" name="refcat" required>
+                                                <optgroup label="Catégories">
+                                                    <?php foreach ($categories as $category) : ?>
+                                                    <option value="<?= $category->getIdcat() ?>">
+                                                        <?= $category->getDesignationcat() ?></option>
+                                                    <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
                                         </div>
@@ -223,10 +225,12 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Uni. de mesure</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="fonction" required>
-                                                <optgroup label="Fonctions">
-                                                    <option value="Fonction 1">Fonction 1</option>
-                                                    <option value="Fonction 2">Fonction 2</option>
+                                            <select class="form-control select2_demo_1" name="refunit" required>
+                                                <optgroup label="Unité de mesure">
+                                                    <?php foreach ($unites as $unite) : ?>
+                                                    <option value="<?= $unite->getIdu() ?>">
+                                                        <?= $unite->getDesignationu() ?></option>
+                                                    <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
                                         </div>
@@ -234,7 +238,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">En Stock</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="text" name="prenom" required
+                                            <input class="form-control" disabled type="text" required
                                                 placeholder="Stock" value="0">
                                         </div>
                                     </div>
@@ -245,7 +249,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label>Profil de l'agent</label>
                                         <input type="file" required name="image" onchange="displayImage(this)"
                                             id="image-agent" style="display:none;" accept="image/*">
@@ -256,7 +260,7 @@
                                                 class="img-responsive img-circle mb-2 ml-5" width="292px"
                                                 height="292px" />
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <button class="btn btn-default btn-sm" onclick="triggerClick()" type="button"
                                             style="width:90px; margin:auto;">Parcourrir</button>

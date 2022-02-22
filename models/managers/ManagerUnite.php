@@ -3,7 +3,7 @@ class ManagerUnite extends Model
 {
     public function getUnites()
     {
-        return $this->getAll('', 'Unite');
+        return $this->getAll('get_unite', 'Unite');
     }
 
     public function createObj($action, $procedure, $object)

@@ -1,6 +1,9 @@
 <?php
 class Category extends Cbase
 {
+    private $idcat;
+    private $designationcat;
+
     public function __construct(array $data)
     {
         $this->hydrate($data);
@@ -14,5 +17,45 @@ class Category extends Cbase
                 $this->$method($value);
             }
         }
+    }
+
+    /**
+     * Get the value of idcat
+     */
+    public function getIdcat()
+    {
+        return $this->idcat;
+    }
+
+    /**
+     * Set the value of idcat
+     *
+     * @return  self
+     */
+    public function setIdcat($idcat)
+    {
+        $this->idcat = $idcat;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of designationcat
+     */
+    public function getDesignationcat()
+    {
+        return $this->designationcat;
+    }
+
+    /**
+     * Set the value of designationcat
+     *
+     * @return  self
+     */
+    public function setDesignationcat($designationcat)
+    {
+        $this->designationcat = $designationcat;
+
+        return $this;
     }
 }

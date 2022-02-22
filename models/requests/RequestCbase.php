@@ -14,7 +14,7 @@ spl_autoload_register(function ($class) {
 
 $managerCategory = new ManagerCategory();
 $managerUnite = new ManagerUnite();
-$managerProject = new ManagerProduct();
+$managerProduct = new ManagerProduct();
 $action = $_POST['action'];
 
 switch ($action) {
@@ -32,7 +32,8 @@ switch ($action) {
 
     case 'product':
         $product = new Product($_POST);
-        $managerUnite->createObj($_POST['actionu'], 'obj_product', $product);
+        // $product->setQuantitest(0);
+        $managerProduct->createObj($_POST['actionu'], 'obj_product', $product);
         echo 'Bien enregistrée';
         break;
 

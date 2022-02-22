@@ -3,7 +3,7 @@ class ManagerCategory extends Model
 {
     public function getCategories()
     {
-        return $this->getAll('', 'Category');
+        return $this->getAll('get_category', 'Category');
     }
 
     public function createObj($action, $procedure, $object)
