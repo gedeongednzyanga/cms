@@ -95,7 +95,7 @@
                                 <a href="colors.html">Production </a>
                             </li>
                             <li>
-                                <a href="typography.html">En Stock </a>
+                                <a href="stock">En Stock </a>
                             </li>
                         </ul>
                     </li>

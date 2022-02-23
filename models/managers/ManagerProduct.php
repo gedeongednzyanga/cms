@@ -6,6 +6,11 @@ class ManagerProduct extends Model
         return $this->getAll('', 'Product');
     }
 
+    public function get8Products()
+    {
+        return $this->getAll('get_8product', 'Product');
+    }
+
     public function createObj($action, $procedure, $object)
     {
         $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?, ?, ?, ?, ?, ?)');

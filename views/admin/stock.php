@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>CMS - Product</title>
+    <title>CMS - Stock</title>
     <!-- INCONS -->
     <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
     <!-- GLOBAL MAINLY STYLES-->
@@ -91,13 +91,13 @@
                             <span class="nav-label">Productions</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a class="active" href="product">Ajouter un produit </a>
+                                <a href="product">Ajouter un produit </a>
                             </li>
                             <li>
                                 <a href="colors.html">Production </a>
                             </li>
                             <li>
-                                <a href="stock">En Stock </a>
+                                <a class="active" href="stock">En Stock </a>
                             </li>
                         </ul>
                     </li>

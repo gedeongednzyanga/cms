@@ -8,6 +8,8 @@ class Product
     private $prixprod;
     private $refcat;
     private $refunit;
+    private $designationcat;
+    private $designationu;
 
     public function __construct(array $data)
     {
@@ -160,6 +162,46 @@ class Product
     public function setRefunit($refunit)
     {
         $this->refunit = $refunit;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of designationcat
+     */
+    public function getDesignationcat()
+    {
+        return $this->designationcat;
+    }
+
+    /**
+     * Set the value of designationcat
+     *
+     * @return  self
+     */
+    public function setDesignationcat($designationcat)
+    {
+        $this->designationcat = $designationcat;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of designationu
+     */
+    public function getDesignationu()
+    {
+        return $this->designationu;
+    }
+
+    /**
+     * Set the value of designationu
+     *
+     * @return  self
+     */
+    public function setDesignationu($designationu)
+    {
+        $this->designationu = $designationu;
 
         return $this;
     }

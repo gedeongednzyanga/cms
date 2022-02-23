@@ -1,5 +1,5 @@
 <?php
-class ControllerProduct
+class ControllerStock
 {
     private $_view;
     private $_productManager;
@@ -24,7 +24,7 @@ class ControllerProduct
         $unites = $this->_uniteManager->getUnites();
         $product8 = $this->_productManager->get8Products();
 
-        $this->_view = new View('Product');
+        $this->_view = new View('Stock');
         $this->_view->generate(array(
             'categories' => $categories,
             'unites' => $unites,
