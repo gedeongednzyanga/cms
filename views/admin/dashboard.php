@@ -92,7 +92,7 @@
                                 <a href="product">Ajouter un produit </a>
                             </li>
                             <li>
-                                <a href="colors.html">Production </a>
+                                <a href="production">Production </a>
                             </li>
                             <li>
                                 <a href="stock">En Stock </a>

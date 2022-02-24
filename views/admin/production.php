@@ -185,9 +185,9 @@ session_start();
                     </div>
                     <div class="ibox-body">
                         <div class="container">
-                            <form id="form-production" class="row form-horizontal" method="post"
-                                novalidate="novalidate">
-                                <div class="col-md-8">
+                            <div class="row ">
+                                <form id="form-production" class="col-md-8 form-horizontal" method="post"
+                                    novalidate="novalidate">
                                     <input type="hidden" name="action" value="add" />
                                     <input type="hidden" name="actionu" value="1" />
                                     <input type="hidden" name="id" value="0" />
@@ -240,7 +240,7 @@ session_start();
                                                 Ajouter</button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="col-sm-12 col-form-label">Production totale : <span
@@ -255,7 +255,8 @@ session_start();
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10">
-                                            <button class="btn btn-success btn-sm" type="submit">Enregistrer</button>
+                                            <button class="btn btn-success btn-sm"
+                                                id="save-production">Enregistrer</button>
                                         </div>
                                     </div>
                                     <hr>
@@ -263,14 +264,14 @@ session_start();
 
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Nos produits</div>
+                        <div class="ibox-title">Production</div>
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">

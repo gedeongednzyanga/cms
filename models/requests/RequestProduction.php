@@ -13,8 +13,7 @@ spl_autoload_register(function ($class) {
     }
 });
 
-$managerCategory = new ManagerCategory();
-$managerUnite = new ManagerUnite();
+$managerProduction = new ManagerProduction();
 $managerProduct = new ManagerProduct();
 $action = $_POST['action'];
 
@@ -50,26 +49,29 @@ switch ($action) {
                 $item_array['carburant'] = $_POST['carburant'];
             endforeach;
             $_SESSION['production'][0] = $item_array;
-            // echo "Production ajoutée";
-            /// echo ($_SESSION['production']['designationprod']);
         }
         foreach ($_SESSION['production'] as $key) :
-            echo "<option value=" . $key['refprod'] . ">" . $key['designationprod'] . ' ' . $key['designationprod'] . "</option>";
+            echo "<option value=" . $key['refprod'] . ">" . $key['designationprod'] . "</option>";
         endforeach;
         break;
 
-    case 'unite':
-        $unite = new Unite($_POST);
-        $managerUnite->createObj($_POST['actionu'], 'obj_unite', $unite);
-        echo 'Bien enregistrée';
+    case 'save':
+        $production = new Production($_POST);
+        $production->setTotprod(count($_SESSION['production']));
+        $managerProduction->inertEntete($_POST['actionu'], 'inert_entprod ', $production);
+        foreach ($_SESSION['production'] as $key => $value) :
+            $productionsave = new Production($value);
+            $managerProduction->createObj($_POST['actionu'], 'obj_production', $productionsave);
+        endforeach;
+        echo 'Bien enregistrée.';
         break;
 
-    case 'product':
-        $product = new Product($_POST);
-        // $product->setQuantitest(0);
-        $managerProduct->createObj($_POST['actionu'], 'obj_product', $product);
-        echo 'Bien enregistrée';
-        break;
+        // case 'product':
+        //     $product = new Product($_POST);
+        //     // $product->setQuantitest(0);
+        //     $managerProduct->createObj($_POST['actionu'], 'obj_product', $product);
+        //     echo 'Bien enregistrée';
+        //     break;
 
     default:
         # code...

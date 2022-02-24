@@ -7,19 +7,27 @@ class ManagerProduction extends Model
         return $this->getAll('get_production', 'Production');
     }
 
+    public function inertEntete($action, $procedure, $objet)
+    {
+        try {
+            $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?)');
+            $query->execute(array($action, $objet->getEntp(), $objet->getTotprod()));
+        } catch (Exception $ex) {
+            die($ex->getMessage());
+        }
+    }
+
     public function createObj($action, $procedure, $object)
     {
-        $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?, ?, ?, ?, ?, ?)');
+        $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?, ?, ?, ?)');
         $query->execute(
             array(
                 $action,
-                $object->getIdprod(),
-                $object->getDesignationprod(),
-                $object->getQuantitest(),
-                $object->getStalert(),
-                $object->getPrixprod(),
-                $object->getRefcat(),
-                $object->getRefunit(),
+                $object->getIddetprod(),
+                $object->getQuantiteprod(),
+                $object->getQuantiteperd(),
+                $object->getCarburant(),
+                $object->getRefprod()
             )
         );
     }
