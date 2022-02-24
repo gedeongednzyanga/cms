@@ -1,19 +1,10 @@
 <?php
-class ManagerProduct extends Model
+class ManagerProduction extends Model
 {
-    public function getProducts()
-    {
-        return $this->getAll('get_product', 'Product');
-    }
 
-    public function get8Products()
+    public function getProductions()
     {
-        return $this->getAll('get_8product', 'Product');
-    }
-
-    public function getOnePoduct($id)
-    {
-        return $this->getOne('get_oneproduct', $id, 'Product');
+        return $this->getAll('get_production', 'Production');
     }
 
     public function createObj($action, $procedure, $object)

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>CMS - Stock</title>
+    <title>CMS - Production</title>
     <!-- INCONS -->
     <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
     <!-- GLOBAL MAINLY STYLES-->
@@ -16,7 +19,6 @@
     <link href="views/admin/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
     <script src="views/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript">
     </script>
-    <link href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
     <link href="views/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
@@ -95,10 +97,10 @@
                                 <a href="product">Ajouter un produit </a>
                             </li>
                             <li>
-                                <a href="production">Production </a>
+                                <a class="active" href="production">Production </a>
                             </li>
                             <li>
-                                <a class="active" href="stock">En Stock </a>
+                                <a href="stock">En Stock </a>
                             </li>
                         </ul>
                     </li>
@@ -160,18 +162,18 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title">Nos produits</h1>
+                <h1 class="page-title">Production</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html"><i class="la la-home font-20"></i></a>
                     </li>
-                    <li class="breadcrumb-item">Produits enregistrés</li>
+                    <li class="breadcrumb-item">Enregistrer une production</li>
                 </ol>
             </div>
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Produits enregistrés</div>
+                        <div class="ibox-title">Enregistrer une production</div>
                         <div class="ibox-tools">
                             <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
@@ -182,12 +184,101 @@
                         </div>
                     </div>
                     <div class="ibox-body">
+                        <div class="container">
+                            <form id="form-production" class="row form-horizontal" method="post"
+                                novalidate="novalidate">
+                                <div class="col-md-8">
+                                    <input type="hidden" name="action" value="add" />
+                                    <input type="hidden" name="actionu" value="1" />
+                                    <input type="hidden" name="id" value="0" />
+                                    <input type="hidden" name="quantitest" value="0" />
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Production de</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2_demo_1" name="refprod" required>
+                                                <optgroup label="Catégories">
+                                                    <?php foreach ($products as $product) : ?>
+                                                    <option value="<?= $product->getIdprod() ?>">
+                                                        <?= $product->getDesignationprod() ?></option>
+                                                    <?php endforeach; ?>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Qté produite</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="number" name="quantiteprod" required
+                                                placeholder="Quantité produite">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Qté perdue</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="number" name="quantiteperd" required
+                                                placeholder="Quantité perdue">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Carburant cos.</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="number" name="carburant" required
+                                                placeholder="Carburant consommé">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Total prod.</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" disabled type="text" required
+                                                placeholder="Stock" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10 ml-sm-auto">
+                                            <button class="btn btn-info btn-sm" type="submit"><i
+                                                    class="fa fa-search"></i>
+                                                Ajouter</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 col-form-label">Production totale : <span
+                                                class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['production'])) ? count($_SESSION['production']) : 0 ?></span></label>
+                                        <select class="form-control" multiple="" id="lst-agent" style="height:194px">
+                                            <?php foreach ($_SESSION['production'] as $key) : ?>
+                                            <option value="<?= $key['refprod'] ?>">
+                                                <?= $key['designationprod'] . ' (' . $key['quantiteprod1'] . ') ' ?>
+                                            </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <button class="btn btn-success btn-sm" type="submit">Enregistrer</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="div-message" style="height:40px;">
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Nos produits</div>
+                    </div>
+                    <div class="ibox-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="example-table"
-                                cellspacing="0" width="100%">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>N°</th>
+                                        <th width="50px"></th>
+                                        <th style="display:none">Idp</th>
                                         <th>Désignation</th>
                                         <th>Catégorie</th>
                                         <th>En Stock</th>
@@ -196,23 +287,16 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>N°</th>
-                                        <th>Désignation</th>
-                                        <th>Catégorie</th>
-                                        <th>En Stock</th>
-                                        <th>Stock alert</th>
-                                        <th>Prix vetnte</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </tfoot>
                                 <tbody>
-                                    <?php $counter = 0;
-                                    foreach ($product8 as $product) :  $counter++; ?>
+                                    <!-- <?php foreach ($product8 as $product) : ?>
                                     <tr>
                                         <td style="display:none"><?= $product->getIdprod() ?></td>
-                                        <td><?= $counter ?></td>
+                                        <td>
+                                            <label class="ui-checkbox">
+                                                <input type="checkbox">
+                                                <span class="input-span"></span>
+                                            </label>
+                                        </td>
                                         <td><?= $product->getDesignationprod() ?></td>
                                         <td><?= $product->getDesignationcat() ?></td>
                                         <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
@@ -226,17 +310,10 @@
                                                     class="fa fa-trash font-14"></i></button>
                                         </td>
                                     </tr>
-                                    <?php endforeach; ?>
-
+                                    <?php endforeach; ?> -->
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
-
-                <div class="ibox">
-                    <div class="ibox-head">
-                        <div class="ibox-title">Nos produits</div>
                     </div>
                 </div>
 
@@ -377,12 +454,11 @@
     <script src="views/admin/assets/js/scripts/form-plugins.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript">
     </script>
-    <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js" type="text/javascript">
     </script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/productionRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">
@@ -449,21 +525,6 @@
     //         reader.readAsDataURL(e.files[0]);
     //     }
     // }
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 10,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
-        });
-    })
     </script>
 </body>
 

@@ -94,7 +94,7 @@
                                 <a class="active" href="product">Ajouter un produit </a>
                             </li>
                             <li>
-                                <a href="colors.html">Production </a>
+                                <a href="production">Production </a>
                             </li>
                             <li>
                                 <a href="stock">En Stock </a>
@@ -196,7 +196,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Prix de vente</label>
+                                        <label class="col-sm-2 col-form-label">PA/PV</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" type="number" name="prixprod" required
                                                 placeholder="Prix">
