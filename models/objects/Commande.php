@@ -6,6 +6,7 @@ class Commande
     private $numcom;
     private $datecom;
     private $customer;
+    private $totcom;
 
     //Detail
     private $iddetcom;
@@ -184,6 +185,26 @@ class Commande
     public function setRefentcom($refentcom)
     {
         $this->refentcom = $refentcom;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of totcom
+     */
+    public function getTotcom()
+    {
+        return $this->totcom;
+    }
+
+    /**
+     * Set the value of totcom
+     *
+     * @return  self
+     */
+    public function setTotcom($totcom)
+    {
+        $this->totcom = $totcom;
 
         return $this;
     }

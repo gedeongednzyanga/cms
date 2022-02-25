@@ -11,7 +11,7 @@ class ManagerCommande extends Model
     {
         try {
             $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?, ?)');
-            $query->execute(array($action, $objet->getIdentc(), $objet->getQuantitecom(), $objet->getCustomer()));
+            $query->execute(array($action, $objet->getIdentc(), $objet->getTotcom(), $objet->getCustomer()));
         } catch (Exception $ex) {
             die($ex->getMessage());
         }
@@ -25,7 +25,6 @@ class ManagerCommande extends Model
                 $action,
                 $object->getIddetcom(),
                 $object->getQuantitecom(),
-                $object->getQuantitecmd(),
                 $object->getRefprodc()
             )
         );

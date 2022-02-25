@@ -275,11 +275,11 @@ session_start();
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped table-bordered table-hover" id="example-table"
+                                cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th width="50px"></th>
-                                        <th style="display:none">Idp</th>
+                                        <th>N°</th>
                                         <th>Désignation</th>
                                         <th>Catégorie</th>
                                         <th>En Stock</th>
@@ -288,16 +288,23 @@ session_start();
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>N°</th>
+                                        <th>Désignation</th>
+                                        <th>Catégorie</th>
+                                        <th>En Stock</th>
+                                        <th>Stock alert</th>
+                                        <th>Prix vetnte</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </tfoot>
                                 <tbody>
-                                    <!-- <?php foreach ($product8 as $product) : ?>
+                                    <?php $counter = 0;
+                                    foreach ($product8 as $product) :  $counter++; ?>
                                     <tr>
                                         <td style="display:none"><?= $product->getIdprod() ?></td>
-                                        <td>
-                                            <label class="ui-checkbox">
-                                                <input type="checkbox">
-                                                <span class="input-span"></span>
-                                            </label>
-                                        </td>
+                                        <td><?= $counter ?></td>
                                         <td><?= $product->getDesignationprod() ?></td>
                                         <td><?= $product->getDesignationcat() ?></td>
                                         <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
@@ -311,7 +318,8 @@ session_start();
                                                     class="fa fa-trash font-14"></i></button>
                                         </td>
                                     </tr>
-                                    <?php endforeach; ?> -->
+                                    <?php endforeach; ?>
+
                                 </tbody>
                             </table>
                         </div>

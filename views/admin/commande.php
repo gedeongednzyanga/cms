@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>CMS - Purchases</title>
+    <title>CMS - Commande</title>
     <!-- INCONS -->
     <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
     <!-- GLOBAL MAINLY STYLES-->
@@ -186,14 +186,14 @@ session_start();
                     <div class="ibox-body">
                         <div class="container">
                             <div class="row ">
-                                <form id="form-production" class="col-md-8 form-horizontal" method="post"
+                                <form id="form-commande" class="col-md-8 form-horizontal" method="post"
                                     novalidate="novalidate">
                                     <input type="hidden" name="action" value="add" />
                                     <input type="hidden" name="actionu" value="1" />
                                     <input type="hidden" name="id" value="0" />
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Achat de</label>
+                                        <label class="col-sm-2 col-form-label">Vente de</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" name="refprodc" required>
                                                 <optgroup label="Catégories">
@@ -206,22 +206,21 @@ session_start();
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Qté entrée</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantiteapp" required
-                                                placeholder="Quantité achetée">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté cmdée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantitecmd" required
+                                            <input class="form-control" type="number" name="quantitecom" required
                                                 placeholder="Quantité commandée">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Total Ach.</label>
+                                        <label class="col-sm-2 col-form-label">En Stock</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" disabled type="text" required
+                                                placeholder="Stock" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">St. Restant</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" disabled type="text" required
                                                 placeholder="Stock" value="0">
@@ -236,13 +235,20 @@ session_start();
                                     </div>
                                 </form>
                                 <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Client</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="client" id="client" required
+                                                placeholder="Nom complet du client">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
-                                        <label class="col-sm-12 col-form-label">Achat de : <span
-                                                class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['production'])) ? count($_SESSION['production']) . ' articles' : 0 ?></span></label>
-                                        <select class="form-control" multiple="" id="lst-agent" style="height:145px">
-                                            <?php foreach ($_SESSION['production'] as $key) : ?>
-                                            <option value="<?= $key['refprod'] ?>">
-                                                <?= $key['designationprod'] . ' (' . $key['quantiteprod1'] . ') ' ?>
+                                        <label class="col-sm-12 col-form-label">Vente de : <span
+                                                class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['commande'])) ? count($_SESSION['commande']) . ' articles' : 0 ?></span></label>
+                                        <select class="form-control" multiple="" id="lst-agent" style="height:100px">
+                                            <?php foreach ($_SESSION['commande'] as $key) : ?>
+                                            <option value="<?= $key['refprodc'] ?>">
+                                                <?= $key['designationprod'] . ' (' . $key['quantitecom1'] . ') ' ?>
                                             </option>
                                             <?php endforeach; ?>
                                         </select>
@@ -250,7 +256,7 @@ session_start();
                                     <div class="form-group row">
                                         <div class="col-sm-10">
                                             <button class="btn btn-success btn-sm"
-                                                id="save-production">Enregistrer</button>
+                                                id="save-commande">Enregistrer</button>
                                         </div>
                                     </div>
                                     <hr>
@@ -453,7 +459,7 @@ session_start();
     </script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/js/request/productionRequest.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/commandeRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">

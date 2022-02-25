@@ -186,7 +186,7 @@ session_start();
                     <div class="ibox-body">
                         <div class="container">
                             <div class="row ">
-                                <form id="form-production" class="col-md-8 form-horizontal" method="post"
+                                <form id="form-purchase" class="col-md-8 form-horizontal" method="post"
                                     novalidate="novalidate">
                                     <input type="hidden" name="action" value="add" />
                                     <input type="hidden" name="actionu" value="1" />
@@ -238,11 +238,11 @@ session_start();
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="col-sm-12 col-form-label">Achat de : <span
-                                                class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['production'])) ? count($_SESSION['production']) . ' articles' : 0 ?></span></label>
+                                                class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['purchase'])) ? count($_SESSION['purchase']) . ' articles' : 0 ?></span></label>
                                         <select class="form-control" multiple="" id="lst-agent" style="height:145px">
-                                            <?php foreach ($_SESSION['production'] as $key) : ?>
-                                            <option value="<?= $key['refprod'] ?>">
-                                                <?= $key['designationprod'] . ' (' . $key['quantiteprod1'] . ') ' ?>
+                                            <?php foreach ($_SESSION['purchase'] as $key) : ?>
+                                            <option value="<?= $key['refprodc'] ?>">
+                                                <?= $key['designationprod'] . ' (' . $key['quantiteapp1'] . ') ' ?>
                                             </option>
                                             <?php endforeach; ?>
                                         </select>
@@ -250,7 +250,7 @@ session_start();
                                     <div class="form-group row">
                                         <div class="col-sm-10">
                                             <button class="btn btn-success btn-sm"
-                                                id="save-production">Enregistrer</button>
+                                                id="save-purchase">Enregistrer</button>
                                         </div>
                                     </div>
                                     <hr>
@@ -453,7 +453,7 @@ session_start();
     </script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/js/request/productionRequest.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/purchaseRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">
