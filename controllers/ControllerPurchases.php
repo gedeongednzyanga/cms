@@ -5,6 +5,7 @@ class ControllerPurchases
     private $_productManager;
     private $_categoryManager;
     private $_uniteManager;
+    private $_managerPurchase;
 
     public function __construct($url)
     {
@@ -19,16 +20,19 @@ class ControllerPurchases
         $this->_categoryManager = new ManagerCategory();
         $this->_uniteManager = new ManagerUnite();
         $this->_productManager = new ManagerProduct();
+        $this->_managerPurchase = new ManagerPurchase();
 
         $categories = $this->_categoryManager->getCategories();
         $unites = $this->_uniteManager->getUnites();
         $products = $this->_productManager->getProducts();
+        $purchases = $this->_managerPurchase->getPurchases();
 
         $this->_view = new View('Purchases');
         $this->_view->generate(array(
             'categories' => $categories,
             'unites' => $unites,
             'products' => $products,
+            'purchases' => $purchases,
         ));
     }
 }

@@ -282,9 +282,10 @@ session_start();
                                         <th>N°</th>
                                         <th>Désignation</th>
                                         <th>Catégorie</th>
-                                        <th>En Stock</th>
-                                        <th>Stock alert</th>
-                                        <th>Prix vetnte</th>
+                                        <th>Qté produite</th>
+                                        <th>Qté perdue</th>
+                                        <th>Cons. Carb.</th>
+                                        <th>Date. Prod.</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -293,23 +294,26 @@ session_start();
                                         <th>N°</th>
                                         <th>Désignation</th>
                                         <th>Catégorie</th>
-                                        <th>En Stock</th>
-                                        <th>Stock alert</th>
-                                        <th>Prix vetnte</th>
+                                        <th>Qté produite</th>
+                                        <th>Qté perdue</th>
+                                        <th>Cons. Carb.</th>
+                                        <th>Date. Prod.</th>
                                         <th>Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     <?php $counter = 0;
-                                    foreach ($product8 as $product) :  $counter++; ?>
+                                    foreach ($productions as $production) : ?>
                                     <tr>
-                                        <td style="display:none"><?= $product->getIdprod() ?></td>
-                                        <td><?= $counter ?></td>
-                                        <td><?= $product->getDesignationprod() ?></td>
-                                        <td><?= $product->getDesignationcat() ?></td>
-                                        <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getPrixprod() . '$' ?></td>
+                                        <td style="display:none"><?= $production->getIdentp() ?></td>
+                                        <td><?= $production->getNumprod() ?></td>
+                                        <td><?= $production->getDesignationprod() ?></td>
+                                        <td><?= $production->getDesignationcat() ?></td>
+                                        <td><?= $production->getQuantiteprod() . '' . $production->getDesignationu() ?>
+                                        </td>
+                                        <td><?= $production->getQuantiteperd() . $production->getDesignationu() ?></td>
+                                        <td><?= $production->getCarburant() . 'L' ?></td>
+                                        <td><?= $production->getDateprod()  ?></td>
                                         <td>
                                             <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
                                                 data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>

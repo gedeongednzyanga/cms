@@ -11,7 +11,7 @@ class ManagerProduction extends Model
     {
         try {
             $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?)');
-            $query->execute(array($action, $objet->getEntp(), $objet->getTotprod()));
+            $query->execute(array($action, $objet->getIdentp(), $objet->getTotprod()));
         } catch (Exception $ex) {
             die($ex->getMessage());
         }

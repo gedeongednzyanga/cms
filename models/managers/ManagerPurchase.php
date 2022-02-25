@@ -2,9 +2,9 @@
 class ManagerPurchase extends Model
 {
 
-    public function getProductions()
+    public function getPurchases()
     {
-        return $this->getAll('get_approvisionnement', 'Purchase');
+        return $this->getAll('get_purchase', 'Purchase');
     }
 
     public function inertApprov($action, $procedure, $objet)

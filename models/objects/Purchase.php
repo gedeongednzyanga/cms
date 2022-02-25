@@ -1,9 +1,9 @@
 <?php
-class Purchase
+class Purchase extends Product
 {
     //Entete
     private $idapprov;
-    private $numapprov;
+    private $numapp;
     private $quantiteapp;
     private $dateapprov;
 
@@ -33,9 +33,9 @@ class Purchase
     /**
      * Get the value of numapprov
      */
-    public function getNumapprov()
+    public function getNumapp()
     {
-        return $this->numapprov;
+        return $this->numapp;
     }
 
     /**
@@ -43,9 +43,9 @@ class Purchase
      *
      * @return  self
      */
-    public function setNumapprov($numapprov)
+    public function setNumapp($numapprov)
     {
-        $this->numapprov = $numapprov;
+        $this->numapp = $numapprov;
 
         return $this;
     }

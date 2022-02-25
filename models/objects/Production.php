@@ -1,8 +1,8 @@
 <?php
-class Production
+class Production extends Product
 {
     //entete
-    private $entp;
+    private $identp;
     private $numprod;
     private $totprod;
     private $dateprod;
@@ -33,9 +33,9 @@ class Production
     /**
      * Get the value of entp
      */
-    public function getEntp()
+    public function getIdentp()
     {
-        return $this->entp;
+        return $this->identp;
     }
 
     /**
@@ -43,9 +43,9 @@ class Production
      *
      * @return  self
      */
-    public function setEntp($entp)
+    public function setIdentp($entp)
     {
-        $this->entp = $entp;
+        $this->identp = $entp;
 
         return $this;
     }

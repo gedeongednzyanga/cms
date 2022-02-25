@@ -269,34 +269,42 @@ session_start();
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped table-bordered table-hover" id="example-table"
+                                cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th width="50px"></th>
-                                        <th style="display:none">Idp</th>
+                                        <th>N°</th>
                                         <th>Désignation</th>
                                         <th>Catégorie</th>
-                                        <th>En Stock</th>
-                                        <th>Stock alert</th>
-                                        <th>Prix vetnte</th>
+                                        <th>Qté Entrée</th>
+                                        <th>Qté cmdée</th>
+                                        <th>Date. Entrée.</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <!-- <?php foreach ($product8 as $product) : ?>
+                                <tfoot>
                                     <tr>
-                                        <td style="display:none"><?= $product->getIdprod() ?></td>
-                                        <td>
-                                            <label class="ui-checkbox">
-                                                <input type="checkbox">
-                                                <span class="input-span"></span>
-                                            </label>
+                                        <th>N°</th>
+                                        <th>Désignation</th>
+                                        <th>Catégorie</th>
+                                        <th>Qté Entrée</th>
+                                        <th>Qté cmdée</th>
+                                        <th>Date. Entrée.</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <?php $counter = 0;
+                                    foreach ($purchases as $purchase) : ?>
+                                    <tr>
+                                        <td style="display:none"><?= $purchase->getIdapprov() ?></td>
+                                        <td><?= $purchase->getNumapp() ?></td>
+                                        <td><?= $purchase->getDesignationprod() ?></td>
+                                        <td><?= $purchase->getDesignationcat() ?></td>
+                                        <td><?= $purchase->getQuantiteapp() . '' . $purchase->getDesignationu() ?>
                                         </td>
-                                        <td><?= $product->getDesignationprod() ?></td>
-                                        <td><?= $product->getDesignationcat() ?></td>
-                                        <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getPrixprod() . '$' ?></td>
+                                        <td><?= $purchase->getQuantitecmd() . $purchase->getDesignationu() ?></td>
+                                        <td><?= $purchase->getDateapprov()  ?></td>
                                         <td>
                                             <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
                                                 data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
@@ -305,7 +313,8 @@ session_start();
                                                     class="fa fa-trash font-14"></i></button>
                                         </td>
                                     </tr>
-                                    <?php endforeach; ?> -->
+                                    <?php endforeach; ?>
+
                                 </tbody>
                             </table>
                         </div>
