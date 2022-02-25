@@ -113,7 +113,7 @@ session_start();
                             <span class="nav-label">Commandes <i class="fa fa-angle-left arrow"></i></span> </a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="colors.html">Commande client</a>
+                                <a href="commande">Commande client</a>
                             </li>
                             <li>
                                 <a href="typography.html">Livraisons</a>
