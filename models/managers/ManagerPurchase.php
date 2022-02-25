@@ -1,5 +1,5 @@
 <?php
-class ManagerProduction extends Model
+class ManagerPurchase extends Model
 {
 
     public function getProductions()
