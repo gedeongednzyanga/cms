@@ -5,6 +5,7 @@ class ControllerCommande
     private $_productManager;
     private $_categoryManager;
     private $_uniteManager;
+    private $_managerCommanade;
 
     public function __construct($url)
     {
@@ -19,16 +20,19 @@ class ControllerCommande
         $this->_categoryManager = new ManagerCategory();
         $this->_uniteManager = new ManagerUnite();
         $this->_productManager = new ManagerProduct();
+        $this->_managerCommanade = new ManagerCommande();
 
         $categories = $this->_categoryManager->getCategories();
         $unites = $this->_uniteManager->getUnites();
         $products = $this->_productManager->getProducts();
+        $commandes = $this->_managerCommanade->getCommandes();
 
         $this->_view = new View('Commande');
         $this->_view->generate(array(
             'categories' => $categories,
             'unites' => $unites,
             'products' => $products,
+            'commandes' => $commandes
         ));
     }
 }

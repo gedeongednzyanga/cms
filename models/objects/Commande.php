@@ -1,5 +1,5 @@
 <?php
-class Commande
+class Commande extends Product
 {
     //Entete
     private $identc;

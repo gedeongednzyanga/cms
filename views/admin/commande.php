@@ -104,16 +104,16 @@ session_start();
                             </li>
                         </ul>
                     </li>
-                    <li class="active">
-                        <a class="active" href="purchases"><i class="sidebar-item-icon fa fa-shopping-bag"></i>
+                    <li>
+                        <a href="purchases"><i class="sidebar-item-icon fa fa-shopping-bag"></i>
                             <span class="nav-label">Approvisionnement</span></a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-shopping-basket"></i>
                             <span class="nav-label">Commandes <i class="fa fa-angle-left arrow"></i></span> </a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="commande">Commande client</a>
+                                <a class="active" href="commande">Commande client</a>
                             </li>
                             <li>
                                 <a href="typography.html">Livraisons</a>
@@ -274,35 +274,40 @@ session_start();
                         <div class="ibox-title">Production</div>
                     </div>
                     <div class="ibox-body">
+
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped table-bordered table-hover" id="example-table"
+                                cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th width="50px"></th>
-                                        <th style="display:none">Idp</th>
+                                        <th>N°</th>
                                         <th>Désignation</th>
                                         <th>Catégorie</th>
-                                        <th>En Stock</th>
-                                        <th>Stock alert</th>
-                                        <th>Prix vetnte</th>
+                                        <th>Qté commandée</th>
+                                        <th>Client</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <!-- <?php foreach ($product8 as $product) : ?>
+                                <tfoot>
                                     <tr>
-                                        <td style="display:none"><?= $product->getIdprod() ?></td>
-                                        <td>
-                                            <label class="ui-checkbox">
-                                                <input type="checkbox">
-                                                <span class="input-span"></span>
-                                            </label>
-                                        </td>
-                                        <td><?= $product->getDesignationprod() ?></td>
-                                        <td><?= $product->getDesignationcat() ?></td>
-                                        <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getPrixprod() . '$' ?></td>
+                                        <th>N°</th>
+                                        <th>Désignation</th>
+                                        <th>Catégorie</th>
+                                        <th>Qté commandée</th>
+                                        <th>Client</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <?php foreach ($commandes as $commande) : ?>
+                                    <tr>
+                                        <td style="display:none"><?= $commande->getIddetcom() ?></td>
+                                        <td><?= $commande->getNumcom() ?></td>
+                                        <td><?= $commande->getDesignationprod() ?></td>
+                                        <td><?= $commande->getDesignationcat() ?></td>
+                                        <td><?= $commande->getQuantitecom() . '' . $commande->getDesignationu() ?></td>
+                                        <td><?= $commande->getCustomer() ?></td>
+
                                         <td>
                                             <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
                                                 data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
@@ -311,7 +316,7 @@ session_start();
                                                     class="fa fa-trash font-14"></i></button>
                                         </td>
                                     </tr>
-                                    <?php endforeach; ?> -->
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
