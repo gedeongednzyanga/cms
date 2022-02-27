@@ -3,7 +3,7 @@ class ManagerProduct extends Model
 {
     public function getProducts()
     {
-        return $this->getAll('get_product', 'Product');
+        return $this->getAll('get_products', 'Product');
     }
 
     public function get8Products()

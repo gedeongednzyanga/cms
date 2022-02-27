@@ -12,10 +12,9 @@
     <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
+    <ink href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
     <link href="views/admin/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="views/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript">
-    </script>
     <!-- THEME STYLES-->
     <link href="views/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
@@ -249,23 +248,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+
                                     <!-- <div class="form-group">
-                                        <label>Profil de l'agent</label>
-                                        <input type="file" required name="image" onchange="displayImage(this)"
-                                            id="image-agent" style="display:none;" accept="image/*">
-                                        <div class="form-group">
-                                            <img src="views/assets/img/default/avatar00.png" id="image-display"
-                                                alt="Profil Agent" onclick="triggerClick()"
-                                                style=" margin:auto; border:2px solid gray; box-shadow:gray 3px 4px 10px;"
-                                                class="img-responsive img-circle mb-2 ml-5" width="292px"
-                                                height="292px" />
-                                        </div>
-                                    </div> -->
-                                    <div class="form-group">
                                         <button class="btn btn-default btn-sm" onclick="triggerClick()" type="button"
                                             style="width:90px; margin:auto;">Parcourrir</button>
                                     </div>
-                                    <hr>
+                                    <hr> -->
                                     <div class="div-message" style="height:53px;">
 
                                     </div>
@@ -421,6 +409,7 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                <span id="message-mesure"></span>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -463,6 +452,7 @@
     </script>
     <script src="views/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js" type="text/javascript">
     </script>
+    <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
@@ -515,6 +505,21 @@
     <script type="text/javascript">
     $(function() {
         $('#ex-phone2').mask('+243 999 999 999');
+    })
+    </script>
+    <script type="text/javascript">
+    $(function() {
+        $('#example-table').DataTable({
+            pageLength: 10,
+            //"ajax": './assets/demo/data/table_data.json',
+            /*"columns": [
+                { "data": "name" },
+                { "data": "office" },
+                { "data": "extn" },
+                { "data": "start_date" },
+                { "data": "salary" }
+            ]*/
+        });
     })
     </script>
     <script>

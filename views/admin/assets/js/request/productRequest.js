@@ -10,7 +10,8 @@ $(function() {
                 processData: false,
                 cache: false,
                 success: function(data) {
-                    alert(data)
+                    $('#message-mesure').html('<small class="alert alert-success">' + data + '</small>');
+                    $('#form-category')[0].reset();
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");
@@ -50,7 +51,9 @@ $(function() {
                 processData: false,
                 cache: false,
                 success: function(data) {
-                    alert(data)
+                    $(".div-message").hide();
+                    $(".div-message").html("<div class='alert alert-success'><strong>Produit enregistré avec succès.</div >").show('slow', 'linear');
+                    $('#form-product')[0].reset();
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");

@@ -8,18 +8,17 @@
     <title>CMS - Stock</title>
     <!-- INCONS -->
     <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
+
     <!-- GLOBAL MAINLY STYLES-->
     <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
-    <link href="views/admin/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="views/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript">
-    </script>
     <link href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
     <link href="views/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
+
 </head>
 
 <body class="fixed-navbar fixed-layout">
@@ -160,7 +159,7 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title">Nos produits</h1>
+                <h1 class="page-title">Produits en Stock</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html"><i class="la la-home font-20"></i></a>
@@ -171,7 +170,7 @@
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Produits enregistrés</div>
+                        <div class="ibox-title">Produits en Stock</div>
                         <div class="ibox-tools">
                             <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
@@ -208,11 +207,10 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <?php $counter = 0;
-                                    foreach ($product8 as $product) :  $counter++; ?>
+                                    <?php
+                                    foreach ($products as $product) : ?>
                                     <tr>
-                                        <td style="display:none"><?= $product->getIdprod() ?></td>
-                                        <td><?= $counter ?></td>
+                                        <td><?= $product->getIdprod() ?></td>
                                         <td><?= $product->getDesignationprod() ?></td>
                                         <td><?= $product->getDesignationcat() ?></td>
                                         <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
@@ -237,6 +235,9 @@
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Nos produits</div>
+                    </div>
+                    <div class="ibox-body">
+                        <h2>Hello ged</h2>
                     </div>
                 </div>
 
@@ -365,91 +366,16 @@
     </div>
     <!-- END PAGA BACKDROPS-->
 
-    <!-- CORE PLUGINS-->
     <script src="views/admin/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
-    <script src="views/admin/assets/js/requests/agent.js"></script>
-    <script src="views/admin/assets/vendors/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/js/scripts/form-plugins.js" type="text/javascript"></script>
-    <script src="views/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript">
-    </script>
     <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js" type="text/javascript">
-    </script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
-
-    <script type="text/javascript">
-    $("#form-sample-1").validate({
-        rules: {
-            name: {
-                minlength: 2,
-                required: !0
-            },
-            email: {
-                required: !0,
-                email: !0
-            },
-            url: {
-                required: !0,
-                url: !0
-            },
-            number: {
-                required: !0,
-                number: !0
-            },
-            min: {
-                required: !0,
-                minlength: 3
-            },
-            max: {
-                required: !0,
-                maxlength: 4
-            },
-            password: {
-                required: !0
-            },
-            password_confirmation: {
-                required: !0,
-                equalTo: "#password"
-            }
-        },
-        errorClass: "help-block error",
-        highlight: function(e) {
-            $(e).closest(".form-group.row").addClass("has-error")
-        },
-        unhighlight: function(e) {
-            $(e).closest(".form-group.row").removeClass("has-error")
-        },
-    });
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $('#ex-phone2').mask('+243 999 999 999');
-    })
-    </script>
-    <script>
-    // function triggerClick() {
-    //     document.querySelector("#image-agent").click();
-    // }
-
-    // function displayImage(e) {
-    //     if (e.files[0]) {
-    //         var reader = new FileReader();
-    //         reader.onload = function(e) {
-    //             document.querySelector("#image-display").setAttribute("src", e.target.result);
-    //             document.querySelector("#image-display").setAttribute("height", "292px");
-    //         };
-    //         reader.readAsDataURL(e.files[0]);
-    //     }
-    // }
-    </script>
     <script type="text/javascript">
     $(function() {
         $('#example-table').DataTable({
