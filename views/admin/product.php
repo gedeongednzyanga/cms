@@ -197,15 +197,15 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">PA/PV</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="prixprod" required
-                                                placeholder="Prix">
+                                            <input class="form-control" type="number" name="prixprod" id="prixprod"
+                                                required placeholder="Prix">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Stock alerte</label>
+                                        <label class="col-sm-2 col-form-label">Stock alert</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="stalert" required
-                                                placeholder="Stock alert">
+                                            <input class="form-control" type="number" name="stalert" id="stalert"
+                                                required placeholder="Stock alert">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -248,12 +248,17 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-
-                                    <!-- <div class="form-group">
-                                        <button class="btn btn-default btn-sm" onclick="triggerClick()" type="button"
-                                            style="width:90px; margin:auto;">Parcourrir</button>
+                                    <div class="form-group">
+                                        <label class="col-sm-12 col-form-label">Historique Sortie en stock de <span
+                                                class="text-xl-center pull-right">...</span></label>
+                                        <select class="form-control" multiple="" id="lst-agent" style="height:235px">
+                                            <?php foreach ($_SESSION['production'] as $key) : ?>
+                                            <option value="<?= $key['refprod'] ?>">
+                                                <?= $key['designationprod'] . ' (' . $key['quantiteprod1'] . ') ' ?>
+                                            </option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
-                                    <hr> -->
                                     <div class="div-message" style="height:53px;">
 
                                     </div>
@@ -265,7 +270,7 @@
 
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Nos produits</div>
+                        <div class="ibox-title">Produits récemment enregistrés</div>
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
@@ -273,7 +278,7 @@
                                 <thead>
                                     <tr>
                                         <th width="50px"></th>
-                                        <th style="display:none">Idp</th>
+                                        <th>N°</th>
                                         <th>Désignation</th>
                                         <th>Catégorie</th>
                                         <th>En Stock</th>
@@ -282,24 +287,28 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tab-product">
                                     <?php foreach ($product8 as $product) : ?>
                                     <tr>
-                                        <td style="display:none"><?= $product->getIdprod() ?></td>
                                         <td>
                                             <label class="ui-checkbox">
                                                 <input type="checkbox">
                                                 <span class="input-span"></span>
                                             </label>
                                         </td>
+                                        <td><?= $product->getIdprod() ?></td>
                                         <td><?= $product->getDesignationprod() ?></td>
                                         <td><?= $product->getDesignationcat() ?></td>
                                         <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
                                         <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
                                         <td><?= $product->getPrixprod() . '$' ?></td>
+                                        <td style="display:none;"><?= $product->getPrixprod() ?></td>
+                                        <td style="display:none;"><?= $product->getStalert() ?></td>
+                                        <td style="display:none;"><?= $product->getQuantitest() ?></td>
                                         <td>
-                                            <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
-                                                data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
+                                            <button class="btn btn-default btn-xs m-r-5" data-toggle="modal"
+                                                title="Edit" data-target="#modal-update"><i
+                                                    class="fa fa-pencil font-14"></i></button>
                                             <button class="btn btn-default btn-xs" data-toggle="tooltip"
                                                 data-original-title="Delete"><i
                                                     class="fa fa-trash font-14"></i></button>
@@ -365,6 +374,109 @@
                 </div>
                 <!-- End Modal Category -->
 
+                <!-- Modal Update -->
+                <div class="modal fade" id="modal-update">
+                    <div class="modal-dialog">
+                        <div class="modal-content ibox">
+                            <div class="modal-header ibox-head">
+                                <div class="modal-title ibox-title">Modifier Produit</div>
+                                <div class="ibox-tools">
+                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
+                                            class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item">Supprimer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal"
+                                            aria-label="Close">Fermer</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-body ibox-body">
+                                <form id="form-product2" class="row form-horizontal" method="post"
+                                    novalidate="novalidate">
+                                    <div class="col-md-12">
+                                        <input type="hidden" name="action" value="product" />
+                                        <input type="hidden" name="actionu" value="2" />
+                                        <input type="hidden" id="idprod" name="idprod" value="0" />
+                                        <input type="hidden" id="quantitest2" name="quantitest" value="0" />
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Désignation</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" id="designationprod2"
+                                                    name="designationprod" required placeholder="Désignation">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">PA/PV</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="number" name="prixprod" id="prixprod2"
+                                                    required placeholder="Prix">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Stock alert</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="number" name="stalert" id="stalert2"
+                                                    required placeholder="Stock alert">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Catégorie</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control select2_demo_1" style="width:100%"
+                                                    name="refcat" required>
+                                                    <optgroup label="Catégories">
+                                                        <?php foreach ($categories as $category) : ?>
+                                                        <option value="<?= $category->getIdcat() ?>">
+                                                            <?= $category->getDesignationcat() ?></option>
+                                                        <?php endforeach; ?>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Uni. mesure</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control select2_demo_1" style="width:100%"
+                                                    name="refunit" required>
+                                                    <optgroup label="Unité de mesure">
+                                                        <?php foreach ($unites as $unite) : ?>
+                                                        <option value="<?= $unite->getIdu() ?>">
+                                                            <?= $unite->getDesignationu() ?></option>
+                                                        <?php endforeach; ?>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">En Stock</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" disabled type="text" id="stock2"
+                                                    name="stock" required placeholder="Stock" value="0">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label"></label>
+                                            <div class="col-sm-9">
+                                                <button class="btn btn-info btn-block"
+                                                    type="submit">Enregistrer</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                <span id="message2"></span>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- End Modal Update -->
+
                 <!-- Modal Mesure -->
                 <div class="modal fade" id="modal-mesure">
                     <div class="modal-dialog">
@@ -416,7 +528,7 @@
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
-                <!-- End Modal alert -->
+                <!-- End Modal Mesure -->
                 <!-- END MODALS -->
             </div>
             <!-- END PAGE CONTENT-->
@@ -424,7 +536,7 @@
                 <div class="font-13">
                     <script>
                     document.write(new Date().getFullYear());
-                    </script> © <b>PoliceAlert</b> - All rights reserved.
+                    </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
             </footer>
@@ -523,21 +635,19 @@
     })
     </script>
     <script>
-    // function triggerClick() {
-    //     document.querySelector("#image-agent").click();
-    // }
-
-    // function displayImage(e) {
-    //     if (e.files[0]) {
-    //         var reader = new FileReader();
-    //         reader.onload = function(e) {
-    //             document.querySelector("#image-display").setAttribute("src", e.target.result);
-    //             document.querySelector("#image-display").setAttribute("height", "292px");
-    //         };
-    //         reader.readAsDataURL(e.files[0]);
-    //     }
-    // }
+    table = document.getElementById("tab-product");
+    for (i = 0; i < table.rows.length; i++) {
+        table.rows[i].onclick = function() {
+            document.getElementById("idprod").value = this.cells[1].innerText;
+            document.getElementById("designationprod2").value = this.cells[2].innerText;
+            document.getElementById("prixprod2").value = this.cells[7].innerText;
+            document.getElementById("stalert2").value = this.cells[8].innerText;;
+            document.getElementById("stock2").value = this.cells[4].innerText;
+            document.getElementById("quantitest").value = this.cells[9].innerText;
+        }
+    }
     </script>
+
 </body>
 
 </html>

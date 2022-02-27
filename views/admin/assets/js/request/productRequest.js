@@ -42,7 +42,7 @@ $(function() {
 
     $('#form-product').submit(function(e) {
         e.preventDefault();
-        if ($('#designationprod').val() != '') {
+        if ($('#designationprod').val() != '' && $('#prixprod').val() != '' && $('#stalert').val() != '') {
             $.ajax({
                 url: "models/requests/RequestCbase.php",
                 type: "POST",
@@ -52,13 +52,41 @@ $(function() {
                 cache: false,
                 success: function(data) {
                     $(".div-message").hide();
-                    $(".div-message").html("<div class='alert alert-success'><strong>Produit enregistré avec succès.</div >").show('slow', 'linear');
+                    $(".div-message").html("<div class='alert alert-success'><small>Produit enregistré avec succès.</small></div >").show('slow', 'linear');
                     $('#form-product')[0].reset();
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");
                 }
             });
-        } else alert('Champs vide')
+        } else {
+            $(".div-message").hide();
+            $(".div-message").html("<div class='alert alert-danger'><small>Complètez tous les champs svp.</small></div>").show('slow', 'linear');
+        }
+    });
+
+    $('#form-product2').submit(function(e) {
+        e.preventDefault();
+        if ($('#designationprod2').val() != '' && $('#prixprod2').val() != '' && $('#stalert2').val() != '') {
+            $.ajax({
+                url: "models/requests/RequestCbase.php",
+                type: "POST",
+                data: new FormData(this),
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function(data) {
+                    $("#message2").hide();
+                    $("#message2").html("<div class='alert alert-success'><small>Produit enregistré avec succès.</small></div >").show('slow', 'linear');
+                    $('#form-product2')[0].reset();
+                },
+                error: function() {
+                    alert("Echec de la requête sur le serveur.");
+                }
+            });
+        } else {
+            $("#message2").hide();
+            $("#message2").html("<div class='alert alert-danger'><small>Complètez tous les champs svp.</small></div>").show('slow', 'linear');
+        }
     });
 })
