@@ -19,7 +19,7 @@ $action = $_POST['action'];
 
 switch ($action) {
     case 'add':
-        $product = $managerProduct->getOnePoduct($_POST['refprodc']);
+        $product = $managerProduct->getOneProduct($_POST['refprodc']);
         if (isset($_SESSION['purchase'])) {
             $item_array_id = array_column($_SESSION['purchase'], 'refprodc');
             if (!in_array($_POST['refprodc'], $item_array_id)) {

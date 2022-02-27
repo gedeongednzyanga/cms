@@ -61,5 +61,21 @@ abstract class Model
         }
     }
 
+    protected function getTrie($procedure, $actionu, $id, $object)
+    {
+        try {
+            $obj = [];
+            $query = $this->getBdd()->prepare("CALL " . $procedure . " (?, ?)");
+            $query->execute(array($actionu, $id));
+            while ($data = $query->fetch(PDO::FETCH_ASSOC)) {
+                $obj[] = new $object($data);
+            }
+            $query->closeCursor();
+            return $obj;
+        } catch (PDOException $ex) {
+            throw new Exception("Error " . $ex);
+        }
+    }
+
     protected abstract function createObj($action, $procedure, $object);
 }

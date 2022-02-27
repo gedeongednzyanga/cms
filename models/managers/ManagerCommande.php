@@ -7,6 +7,11 @@ class ManagerCommande extends Model
         return $this->getAll('get_commandes', 'Commande');
     }
 
+    public function getOneProduct($id)
+    {
+        return $this->getTrie('get_oneProduct', 4, $id, 'Commande');
+    }
+
     public function inertCommande($action, $procedure, $objet)
     {
         try {

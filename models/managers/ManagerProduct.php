@@ -11,9 +11,9 @@ class ManagerProduct extends Model
         return $this->getAll('get_8product', 'Product');
     }
 
-    public function getOnePoduct($id)
+    public function getOneProduct($id)
     {
-        return $this->getOne('get_oneproduct', $id, 'Product');
+        return $this->getTrie('get_oneProduct', 1, $id, 'Product');
     }
 
     public function createObj($action, $procedure, $object)

@@ -251,12 +251,9 @@
                                     <div class="form-group">
                                         <label class="col-sm-12 col-form-label">Historique Sortie en stock de <span
                                                 class="text-xl-center pull-right">...</span></label>
-                                        <select class="form-control" multiple="" id="lst-agent" style="height:235px">
-                                            <?php foreach ($_SESSION['production'] as $key) : ?>
-                                            <option value="<?= $key['refprod'] ?>">
-                                                <?= $key['designationprod'] . ' (' . $key['quantiteprod1'] . ') ' ?>
-                                            </option>
-                                            <?php endforeach; ?>
+                                        <select class="form-control" multiple="" id="historiquecommande"
+                                            style="height:235px">
+                                            <option value="0">Séléctionner un produit</option>
                                         </select>
                                     </div>
                                     <div class="div-message" style="height:53px;">
@@ -638,6 +635,7 @@
     table = document.getElementById("tab-product");
     for (i = 0; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
+            getOneDetail(this.cells[1].innerText);
             document.getElementById("idprod").value = this.cells[1].innerText;
             document.getElementById("designationprod2").value = this.cells[2].innerText;
             document.getElementById("prixprod2").value = this.cells[7].innerText;
@@ -646,8 +644,24 @@
             document.getElementById("quantitest").value = this.cells[9].innerText;
         }
     }
-    </script>
 
+    function getOneDetail(idprod) {
+        $.ajax({
+            url: "models/requests/RequestCommande.php",
+            type: "POST",
+            data: {
+                action: 'historique',
+                idprod: idprod
+            },
+            success: function(data) {
+                $('#historiquecommande').html(data);
+            },
+            error: function() {
+                alert("Echec de la requête sur le serveur.");
+            }
+        });
+    }
+    </script>
 </body>
 
 </html>

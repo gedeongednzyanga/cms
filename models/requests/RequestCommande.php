@@ -19,7 +19,7 @@ $action = $_POST['action'];
 
 switch ($action) {
     case 'add':
-        $product = $managerProduct->getOnePoduct($_POST['refprodc']);
+        $product = $managerProduct->getOneProduct($_POST['refprodc']);
         if (isset($_SESSION['commande'])) {
             $item_array_id = array_column($_SESSION['commande'], 'refprodc');
             if (!in_array($_POST['refprodc'], $item_array_id)) {
@@ -64,6 +64,18 @@ switch ($action) {
         echo 'Bien enregistrée.';
         break;
 
+    case 'historique':
+        $data = $managerCommande->getOneProduct($_POST['idprod']);
+        if (count($data) == 0) {
+            echo '<option value="0">Aucune sortie pour ce produit</option>';
+        } else {
+            $productinfo = '<option value="0">' . count($data) . ' sortie(s) pour ce produit</option>';
+            foreach ($data as $data) :
+                $productinfo .= '<option value="0">' . $data->getCustomer() . '(' . $data->getQuantitecom() . $data->getDesignationu() . ' le ' . $data->getDatecom() . ')</option>';
+            endforeach;
+            echo $productinfo;
+        }
+        break;
     default:
         # code...
         break;
