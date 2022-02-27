@@ -47,7 +47,7 @@ switch ($action) {
             $_SESSION['commande'][0] = $item_array;
         }
         foreach ($_SESSION['commande'] as $key) :
-            echo "<option value=" . $key['refprodc'] . ">" . $key['designationprod'] . "</option>";
+            echo "<option value=" . $key['refprodc'] . ">" . $key['designationprod'] . ' (' . $key['quantitecom1'] . ')' . "</option>";
         endforeach;
         break;
 
@@ -61,7 +61,8 @@ switch ($action) {
             $commandesave = new Commande($value);
             $managerCommande->createObj($_POST['actionu'], 'obj_commande', $commandesave);
         endforeach;
-        echo 'Bien enregistrée.';
+        unset($_SESSION['commande']);
+        echo 'Commande enregistrée avec succès.';
         break;
 
     case 'historique':

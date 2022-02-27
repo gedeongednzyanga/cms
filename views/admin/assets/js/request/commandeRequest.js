@@ -11,7 +11,8 @@ $(function() {
                 processData: false,
                 cache: false,
                 success: function(data) {
-                    alert(data)
+                    $('#lst-commande').html(data);
+                    $('#form-commande')[0].reset();
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");
@@ -27,7 +28,8 @@ $(function() {
                 type: "POST",
                 data: { action: 'save', actionu: 1, customer: $('#client').val() },
                 success: function(data) {
-                    alert(data)
+                    $(".div-message").hide();
+                    $(".div-message").html("<div class='alert alert-success'><small>" + data + ".</small></div >").show('slow', 'linear');
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");

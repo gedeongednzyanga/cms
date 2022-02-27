@@ -560,7 +560,7 @@
     </script>
     <script src="views/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js" type="text/javascript">
     </script>
-    <link href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
+
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>

@@ -244,7 +244,7 @@ session_start();
                                     <div class="form-group">
                                         <label class="col-sm-12 col-form-label">Vente de : <span
                                                 class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['commande'])) ? count($_SESSION['commande']) . ' articles' : 0 ?></span></label>
-                                        <select class="form-control" multiple="" id="lst-agent" style="height:100px">
+                                        <select class="form-control" multiple="" id="lst-commande" style="height:100px">
                                             <?php foreach ($_SESSION['commande'] as $key) : ?>
                                             <option value="<?= $key['refprodc'] ?>">
                                                 <?= $key['designationprod'] . ' (' . $key['quantitecom1'] . ') ' ?>
@@ -258,8 +258,7 @@ session_start();
                                                 id="save-commande">Enregistrer</button>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="div-message" style="height:40px;">
+                                    <div class="div-message" style="height:30px;">
 
                                     </div>
                                 </div>
@@ -300,7 +299,7 @@ session_start();
                                 <tbody>
                                     <?php foreach ($commandes as $commande) : ?>
                                     <tr>
-                                        <td style="display:none"><?= $commande->getIddetcom() ?></td>
+
                                         <td><?= $commande->getNumcom() ?></td>
                                         <td><?= $commande->getDesignationprod() ?></td>
                                         <td><?= $commande->getDesignationcat() ?></td>
@@ -515,6 +514,7 @@ session_start();
         $('#ex-phone2').mask('+243 999 999 999');
     })
     </script>
+
     <script type="text/javascript">
     $(function() {
         $('#example-table').DataTable({
@@ -530,6 +530,7 @@ session_start();
         });
     })
     </script>
+
 </body>
 
 </html>
