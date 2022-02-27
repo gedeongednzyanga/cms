@@ -554,14 +554,13 @@
     <script src="views/admin/assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
-    <script src="views/admin/assets/js/requests/agent.js"></script>
     <script src="views/admin/assets/vendors/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/scripts/form-plugins.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript">
     </script>
     <script src="views/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js" type="text/javascript">
     </script>
-    <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
+    <link href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>

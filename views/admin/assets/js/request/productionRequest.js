@@ -11,7 +11,8 @@ $(function() {
                 processData: false,
                 cache: false,
                 success: function(data) {
-                    alert(data)
+                    $('#lst-production').html(data);
+                    $('#form-production')[0].reset();
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");
@@ -21,18 +22,17 @@ $(function() {
     });
 
     $('#save-production').click(function() {
-        // if ($('#quantiteprod').val() != '') {
         $.ajax({
             url: "models/requests/RequestProduction.php",
             type: "POST",
             data: { action: 'save', actionu: 1 },
             success: function(data) {
-                alert(data)
+                $(".div-message").hide();
+                $(".div-message").html("<div class='alert alert-success'><small>" + data + ".</small></div >").show('slow', 'linear');
             },
             error: function() {
                 alert("Echec de la requête sur le serveur.");
             }
         });
-        // } else alert('Champs vide')
     });
 })

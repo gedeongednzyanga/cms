@@ -49,7 +49,7 @@ switch ($action) {
             $_SESSION['purchase'][0] = $item_array;
         }
         foreach ($_SESSION['purchase'] as $key) :
-            echo "<option value=" . $key['refprodc'] . ">" . $key['designationprod'] . "</option>";
+            echo "<option value=" . $key['refprodc'] . ">" . $key['designationprod'] . ' (' . $key['quantiteapp1'] . ')' . "</option>";
         endforeach;
         break;
 
@@ -61,7 +61,8 @@ switch ($action) {
             $purchasesave = new Purchase($value);
             $managerPurchase->createObj($_POST['actionu'], 'obj_approvisionnement', $purchasesave);
         endforeach;
-        echo 'Bien enregistrée.';
+        unset($_SESSION['purchase']);
+        echo 'Approvisionnement enregistré avec succès.';
         break;
 
     default:

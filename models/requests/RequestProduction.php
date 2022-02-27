@@ -19,7 +19,7 @@ $action = $_POST['action'];
 
 switch ($action) {
     case 'add':
-        $product = $managerProduct->getOnePoduct($_POST['refprod']);
+        $product = $managerProduct->getOneProduct($_POST['refprod']);
         if (isset($_SESSION['production'])) {
             $item_array_id = array_column($_SESSION['production'], 'refprod');
             if (!in_array($_POST['refprod'], $item_array_id)) {
@@ -51,7 +51,7 @@ switch ($action) {
             $_SESSION['production'][0] = $item_array;
         }
         foreach ($_SESSION['production'] as $key) :
-            echo "<option value=" . $key['refprod'] . ">" . $key['designationprod'] . "</option>";
+            echo "<option value=" . $key['refprod'] . ">" . $key['designationprod'] . ' ' . '( ' . $key['quantiteprod1'] . ' )' . "</option>";
         endforeach;
         break;
 
@@ -63,7 +63,8 @@ switch ($action) {
             $productionsave = new Production($value);
             $managerProduction->createObj($_POST['actionu'], 'obj_production', $productionsave);
         endforeach;
-        echo 'Bien enregistrée.';
+        unset($_SESSION['production']);
+        echo 'Production enregistrée avec succès.';
         break;
 
         // case 'product':

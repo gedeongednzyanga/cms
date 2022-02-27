@@ -17,8 +17,7 @@ session_start();
     <link href="views/admin/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
     <link href="views/admin/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="views/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript">
-    </script>
+    <link href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
     <link href="views/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
@@ -239,7 +238,7 @@ session_start();
                                     <div class="form-group">
                                         <label class="col-sm-12 col-form-label">Achat de : <span
                                                 class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['purchase'])) ? count($_SESSION['purchase']) . ' articles' : 0 ?></span></label>
-                                        <select class="form-control" multiple="" id="lst-agent" style="height:145px">
+                                        <select class="form-control" multiple="" id="lst-approv" style="height:145px">
                                             <?php foreach ($_SESSION['purchase'] as $key) : ?>
                                             <option value="<?= $key['refprodc'] ?>">
                                                 <?= $key['designationprod'] . ' (' . $key['quantiteapp1'] . ') ' ?>
@@ -253,8 +252,7 @@ session_start();
                                                 id="save-purchase">Enregistrer</button>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="div-message" style="height:40px;">
+                                    <div class="div-message" style="height:30px;">
 
                                     </div>
                                 </div>
@@ -297,7 +295,7 @@ session_start();
                                     <?php $counter = 0;
                                     foreach ($purchases as $purchase) : ?>
                                     <tr>
-                                        <td style="display:none"><?= $purchase->getIdapprov() ?></td>
+                                        <!-- <td style="display:none"><?= $purchase->getIdapprov() ?></td> -->
                                         <td><?= $purchase->getNumapp() ?></td>
                                         <td><?= $purchase->getDesignationprod() ?></td>
                                         <td><?= $purchase->getDesignationcat() ?></td>
@@ -432,7 +430,7 @@ session_start();
                 <div class="font-13">
                     <script>
                     document.write(new Date().getFullYear());
-                    </script> © <b>PoliceAlert</b> - All rights reserved.
+                    </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
             </footer>
@@ -453,13 +451,13 @@ session_start();
     <script src="views/admin/assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
-    <script src="views/admin/assets/js/requests/agent.js"></script>
     <script src="views/admin/assets/vendors/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/scripts/form-plugins.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript">
     </script>
     <script src="views/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js" type="text/javascript">
     </script>
+    <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/purchaseRequest.js" type="text/javascript"></script>
@@ -514,21 +512,20 @@ session_start();
         $('#ex-phone2').mask('+243 999 999 999');
     })
     </script>
-    <script>
-    // function triggerClick() {
-    //     document.querySelector("#image-agent").click();
-    // }
-
-    // function displayImage(e) {
-    //     if (e.files[0]) {
-    //         var reader = new FileReader();
-    //         reader.onload = function(e) {
-    //             document.querySelector("#image-display").setAttribute("src", e.target.result);
-    //             document.querySelector("#image-display").setAttribute("height", "292px");
-    //         };
-    //         reader.readAsDataURL(e.files[0]);
-    //     }
-    // }
+    <script type="text/javascript">
+    $(function() {
+        $('#example-table').DataTable({
+            pageLength: 10,
+            //"ajax": './assets/demo/data/table_data.json',
+            /*"columns": [
+                { "data": "name" },
+                { "data": "office" },
+                { "data": "extn" },
+                { "data": "start_date" },
+                { "data": "salary" }
+            ]*/
+        });
+    })
     </script>
 </body>
 
