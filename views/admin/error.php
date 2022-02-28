@@ -28,7 +28,7 @@
             again.
             <a class="color-green" href="<?= URL ?>">Go to homepage</a>
         </p>
-        <h2>YARAZAK BUSINESS</h3>
+        <h2>CMS</h3>
     </div>
     <style>
     .content {

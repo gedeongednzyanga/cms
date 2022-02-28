@@ -11,13 +11,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>YARAZAK BUSINESS | Error page</title>
+    <title>CMS | Error page</title>
     <!-- INCONS -->
-    <link href="views/assets/img/logos/yarazak.jpg" rel="icon">
+    <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
     <!-- GLOBAL MAINLY STYLES-->
-    <link href="views/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
-    <link href="views/assets/css/main.css" rel="stylesheet" />
+    <link href="views/admin/assets/css/main.css" rel="stylesheet" />
 </head>
 
 <body class="bg-silver-100">
@@ -28,7 +28,7 @@
             again.
             <a class="color-green" href="<?= URL ?>">Go to homepage</a>
         </p>
-        <h2>YARAZAK BUSINESS</h3>
+        <h2>CMS</h3>
     </div>
     <style>
     .content {
@@ -54,11 +54,11 @@
     </div>
     <!-- END PAGA BACKDROPS-->
     <!-- CORE PLUGINS -->
-    <script src="views/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="views/assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
-    <script src="views/assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
-    <script src="views/assets/js/app.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/app.js" type="text/javascript"></script>
 </body>
 
 </html>

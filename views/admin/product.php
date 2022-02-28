@@ -112,12 +112,12 @@
                                 <a href="commande">Commande client</a>
                             </li>
                             <li>
-                                <a href="typography.html">Livraisons</a>
+                                <a href="delivery">Livraisons</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="factures"><i class="sidebar-item-icon fa fa-building-o"></i>
+                        <a href="billing"><i class="sidebar-item-icon fa fa-building-o"></i>
                             <span class="nav-label">Facturation</span>
                         </a>
                     </li>
