@@ -146,28 +146,28 @@
                                 <div id="navbar-collapse" class="collapse navbar-collapse">
                                     <ul class="nav navbar-nav mr-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="contact.html">Accueil</a>
+                                            <a class="nav-link" href="<?= URL ?>">Accueil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="services.html" class="nav-link">Nos Services</a>
+                                            <a href="services" class="nav-link">Nos Services</a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CMS -
                                                 SARL <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="about.html">A propos</a></li>
-                                                <li><a href="faq.html">Faq</a></li>
+                                                <li><a href="about">A propos</a></li>
+                                                <li><a href="faq">Faq</a></li>
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="projects.html" class="nav-link">Nos Projets</a>
+                                            <a href="projects" class="nav-link">Nos Projets</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="news-right-sidebar.html" class="nav-link">News
+                                            <a href="news" class="nav-link">News
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="contact.html">Contact</a>
+                                            <a class="nav-link" href="contact">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
