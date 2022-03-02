@@ -269,7 +269,7 @@ session_start();
 
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Production</div>
+                        <div class="ibox-title">Commandes Client</div>
                     </div>
                     <div class="ibox-body">
 
