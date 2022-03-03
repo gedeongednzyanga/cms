@@ -28,7 +28,7 @@ session_start();
         <!-- START HEADER-->
         <header class="header">
             <div class="page-brand">
-                <a class="link" href="home">
+                <a class="link" href="dashboard">
                     <span class="brand">
                         <span class="brand-tip"> CMS</span>
                     </span>

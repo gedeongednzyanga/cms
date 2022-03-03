@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>CMS - Dashboard</title>
     <!-- INCONS -->
-    <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
+    <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
     <!-- GLOBAL MAINLY STYLES-->
     <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -25,10 +25,10 @@
         <header class="header">
             <div class="page-brand">
                 <a class="link" href="home">
-                    <span class="brand">Global
-                        <span class="brand-tip"> Business</span>
+                    <span class="brand">CMS
+                        <span class="brand-tip"> CMS</span>
                     </span>
-                    <span class="brand-mini">GB</span>
+                    <span class="brand-mini">CMS</span>
                 </a>
             </div>
             <div class="flexbox flex-1">
@@ -79,7 +79,7 @@
                 </div>
                 <ul class="side-menu metismenu">
                     <li>
-                        <a class="active" href="home"><i class="sidebar-item-icon fa fa-th-large"></i>
+                        <a class="active" href="dashboard"><i class="sidebar-item-icon fa fa-th-large"></i>
                             <span class="nav-label">Dashboard</span>
                         </a>
                     </li>
@@ -161,20 +161,17 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="ibox bg-success color-white widget-stat">
                             <div class="ibox-body">
-                                <?php //$modelVente = new ModelVente(); 
-                                ?>
-                                <h2 class="m-b-5 font-strong"> <?= /*$modelVente->countVente()*/ 809 ?></h2>
-                                <div class="m-b-5">PRODUCT SALES</div><i class="ti-shopping-cart widget-stat-icon"></i>
-                                <div><i class="fa fa-level-up m-r-5"></i><small>25% higher</small></div>
+                                <h2 class="m-b-5 font-strong"> <?= count($productions) ?></h2>
+                                <div class="m-b-5">PRODUCTION</div><i class="ti-shopping-cart widget-stat-icon"></i>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="ibox bg-info color-white widget-stat">
                             <div class="ibox-body">
-                                <h2 class="m-b-5 font-strong"><?= /*count($operations)*/ 47467 ?></h2>
-                                <div class="m-b-5">NEW OPERATIONS</div><i class="ti-bar-chart widget-stat-icon"></i>
-                                <div><i class="fa fa-level-up m-r-5"></i><small>17% higher</small></div>
+                                <h2 class="m-b-5 font-strong"><?= count($commandes) ?></h2>
+                                <div class="m-b-5">COMMANDES</div><i class="ti-bar-chart widget-stat-icon"></i>
+                                <!-- <div><i class="fa fa-level-up m-r-5"></i><small>17% higher</small></div> -->
                             </div>
                         </div>
                     </div>
@@ -184,8 +181,8 @@
                                 <?php //$modelVente = new ModelVente(); 
                                 ?>
                                 <h2 class="m-b-5 font-strong">$<?= /*round($modelVente->sumVente(), 2)*/ 23  ?></h2>
-                                <div class="m-b-5">TOTAL INCOME</div><i class="fa fa-money widget-stat-icon"></i>
-                                <div><i class="fa fa-level-up m-r-5"></i><small>22% higher</small></div>
+                                <div class="m-b-5">ACHAT</div><i class="fa fa-money widget-stat-icon"></i>
+                                <!-- <div><i class="fa fa-level-up m-r-5"></i><small>22% higher</small></div> -->
                             </div>
                         </div>
                     </div>
@@ -193,20 +190,20 @@
                         <div class="ibox bg-danger color-white widget-stat">
                             <div class="ibox-body">
                                 <h2 class="m-b-5 font-strong"><?= /*count($succursales)*/ 490 ?></h2>
-                                <div class="m-b-5">SUCCURSALES</div><i class="ti-user widget-stat-icon"></i>
-                                <div><i class="fa fa-level-down m-r-5"></i><small>-12% Lower</small></div>
+                                <div class="m-b-5">USERS</div><i class="ti-user widget-stat-icon"></i>
+                                <!-- <div><i class="fa fa-level-down m-r-5"></i><small>-12% Lower</small></div> -->
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="ibox">
                             <div class="ibox-body">
                                 <div class="flexbox mb-4">
                                     <div>
                                         <h3 class="m-0">Statistics</h3>
-                                        <div>Your shop sales analytics</div>
+                                        <div>Stat. productions et commandes</div>
                                     </div>
                                     <div class="d-inline-flex">
                                         <div class="px-3" style="border-right: 1px solid rgba(0,0,0,.1);">
@@ -233,48 +230,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="ibox">
-                            <div class="ibox-head">
-                                <div class="ibox-title">Statistics</div>
-                            </div>
-                            <div class="ibox-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-6">
-                                        <canvas id="doughnut_chart" style="height:160px;"></canvas>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="m-b-20 text-success"><i class="fa fa-circle-o m-r-10"></i>Boutique 1
-                                            52%</div>
-                                        <div class="m-b-20 text-info"><i class="fa fa-circle-o m-r-10"></i>Boutique 2
-                                            27%
-                                        </div>
-                                        <div class="m-b-20 text-warning"><i
-                                                class="fa fa-circle-o m-r-10"></i>Alimentation 21%
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="list-group list-group-divider list-group-full">
-                                    <li class="list-group-item">Souliers
-                                        <span class="float-right text-success"><i class="fa fa-caret-up"></i> 24%</span>
-                                    </li>
-                                    <li class="list-group-item">Boisson
-                                        <span class="float-right text-success"><i class="fa fa-caret-up"></i> 12%</span>
-                                    </li>
-                                    <li class="list-group-item">Opera
-                                        <span class="float-right text-danger"><i class="fa fa-caret-down"></i> 4%</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title">Latest Sales</div>
+                                <div class="ibox-title">Productions récentes</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                                     <a class="dropdown-toggle" data-toggle="dropdown"><i
@@ -289,29 +251,33 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Sale ID</th>
-                                            <th>Article</th>
-                                            <th>Quantité</th>
-                                            <th>P.U</th>
-                                            <th>P.T</th>
-                                            <th width="100px">Date</th>
+                                            <th>N°</th>
+                                            <th>Désignation</th>
+                                            <th>Catégorie</th>
+                                            <th>Qté produite</th>
+                                            <th>Qté perdue</th>
+                                            <th>Cons. Carb.</th>
+                                            <th>Date. Prod.</th>
                                         </tr>
                                     </thead>
-                                    <!-- <tbody>
-                                        <?php foreach ($latestVente as $vente) : ?>
+                                    <tbody>
+                                        <?php $counter = 0;
+                                        foreach ($lastProductions as $production) : ?>
                                         <tr>
-                                            <td>
-                                                <a href="#"><?= $vente->getCode() ?></a>
+                                            <!-- <td style="display:none"><?= $production->getIdentp() ?></td> -->
+                                            <td><?= $production->getNumprod() ?></td>
+                                            <td><?= $production->getDesignationprod() ?></td>
+                                            <td><?= $production->getDesignationcat() ?></td>
+                                            <td><?= $production->getQuantiteprod() . '' . $production->getDesignationu() ?>
                                             </td>
-                                            <td><?= ucfirst(strtolower($vente->getDesignation())) ?></td>
-                                            <td><?= $vente->getQte() ?></td>
-                                            <td><?= $vente->getPu() . '' . $vente->getDevise() ?></td>
-                                            <td><?= $vente->getMontantTotal() . '' . $vente->getDevise() ?></td>
-                                            <td><?= $vente->getDateadd() ?></td>
+                                            <td><?= $production->getQuantiteperd() . $production->getDesignationu() ?>
+                                            </td>
+                                            <td><?= $production->getCarburant() . 'L' ?></td>
+                                            <td><?= $production->getDateprod()  ?></td>
+
                                         </tr>
                                         <?php endforeach; ?>
-
-                                    </tbody> -->
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -319,31 +285,32 @@
                     <div class="col-lg-4">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title">Latest Operations</div>
+                                <div class="ibox-title">Commandes récentes</div>
                             </div>
                             <div class="ibox-body">
                                 <ul class="media-list media-list-divider m-0">
-                                    <!-- <?php foreach ($latestOperation as $operation) : ?>
+                                    <?php foreach ($lastCommandes as $commande) : ?>
                                     <li class="media">
                                         <a class="media-img" href="javascript:;">
-                                            <img src="views/assets/img/image.jpg" width="50px;" />
+                                            <img src="views/admin/assets/img/image.jpg" width="50px;" />
                                         </a>
                                         <div class="media-body">
                                             <div class="media-heading">
-                                                <a href="javascript:;"><?= $operation->getNom_complet() ?></a>
-                                                <span
-                                                    class="font-16 float-right"><?= $operation->getMontant() ?>$</span>
+                                                <a href="javascript:;"><?= $commande->getCustomer() ?></a>
+                                                <span class="font-16 float-right"><?= $commande->getTotcom() ?>
+                                                    arts</span>
                                             </div>
                                             <div class="font-13">
-                                                <?= $operation->getMotif()  ?></div>
+                                                <?= $commande->getDatecom() . ' (<a href="#">' . $commande->getNumcom() . '</a>)' ?>
+                                            </div>
                                         </div>
                                     </li>
-                                    <?php endforeach; ?> -->
+                                    <?php endforeach; ?>
 
                                 </ul>
                             </div>
                             <div class="ibox-footer text-center">
-                                <a href="operation">View All Operations</a>
+                                <a href="commande">Voir plus</a>
                             </div>
                         </div>
                     </div>
@@ -370,7 +337,7 @@
                 <div class="font-13">
                     <script>
                     document.write(new Date().getFullYear());
-                    </script> © <b>GlobalBusiness</b> - All rights reserved.
+                    </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
             </footer>

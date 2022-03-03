@@ -7,6 +7,10 @@ class ManagerProduction extends Model
         return $this->getAll('get_production', 'Production');
     }
 
+    public function getLastProductions()
+    {
+        return $this->getAll('get_last_production', 'Production');
+    }
     public function inertEntete($action, $procedure, $objet)
     {
         try {
