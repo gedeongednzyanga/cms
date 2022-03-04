@@ -12,6 +12,11 @@ class ManagerCommande extends Model
         return $this->getAll('get_last_commande', 'Commande');
     }
 
+    public function getOneCommande($id)
+    {
+        return $this->getOne('get_one_commande',  $id, 'Commande');
+    }
+
     public function getOneProduct($id)
     {
         return $this->getTrie('get_oneProduct', 4, $id, 'Commande');

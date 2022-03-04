@@ -77,6 +77,24 @@ switch ($action) {
             echo $productinfo;
         }
         break;
+
+    case 'facture':
+        $data = $managerCommande->getOneCommande($_POST['numcom']);
+        $rows = '';
+        foreach ($data as $com) :
+            $rows .= '
+            <tr>
+                <td>
+                    <div><strong>' . $com->getDesignationprod() . '</strong></div><small>
+                </td>
+                <td>' . $com->getQuantitecom() . '' . $com->getDesignationu() . '</td>
+                <td>' . $com->getPrixprod() . '$ </td>
+                <td>' . $com->getPrixprod() * $com->getQuantitecom() . '$ </td>
+            </tr>
+            ';
+        endforeach;
+        echo $rows;
+        break;
     default:
         # code...
         break;

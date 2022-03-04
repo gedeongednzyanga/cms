@@ -196,7 +196,7 @@ session_start();
                                         <th>Actions</th>
                                     </tr>
                                 </tfoot>
-                                <tbody>
+                                <tbody id="tab-facture">
                                     <?php foreach ($commandes as $commande) : ?>
                                     <tr>
                                         <td><?= $commande->getNumcom() ?></td>
@@ -215,12 +215,12 @@ session_start();
                         </div>
                     </div>
                 </div>
-
+                <!-- 
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Commandes Client</div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- MODALS -->
                 <!-- Modal Mesure -->
@@ -235,17 +235,17 @@ session_start();
                                         </div>
                                         <div>
                                             <div class="m-b-5 font-bold">Facture de :</div>
-                                            <div>Github, Inc.</div>
+                                            <div class="font-strong">Construction Metal Service</div>
                                             <ul class="list-unstyled m-t-10">
                                                 <li class="m-b-5">
-                                                    <span class="font-strong">A:</span> San Francisco, CA 94103 Market
-                                                    Street
+                                                    <span class="font-strong">Adresse :</span> Commune de Goma, Quartier
+                                                    Lac Vert, Avenue Kabande, le long de la route Goma-Sake
                                                 </li>
                                                 <li class="m-b-5">
-                                                    <span class="font-strong">W:</span> adminca@exmail.com
+                                                    <span class="font-strong">E-mail :</span> balufaustin@gmail.com
                                                 </li>
                                                 <li>
-                                                    <span class="font-strong">P:</span> (123) 456-2112
+                                                    <span class="font-strong">Phone :</span> (+243) 819 240 025
                                                 </li>
                                             </ul>
                                         </div>
@@ -254,20 +254,21 @@ session_start();
                                         <div class="clf" style="margin-bottom:30px;">
                                             <dl class="row pull-right" style="width:250px;">
                                                 <dt class="col-sm-6">Facturée le</dt>
-                                                <dd class="col-sm-6">10 April 2017</dd>
+                                                <dd class="col-sm-6" id="datecom">10 April 2017</dd>
                                                 <dt class="col-sm-6">Emise le</dt>
-                                                <dd class="col-sm-6">30 April 2017</dd>
+                                                <dd class="col-sm-6"><?= date('d-m-Y') ?></dd>
                                                 <dt class="col-sm-6">Facture N°</dt>
-                                                <dd class="col-sm-6">1450012</dd>
+                                                <dd class="col-sm-6" id="numfact">1450012</dd>
                                             </dl>
                                         </div>
                                         <div>
                                             <div class="m-b-5 font-bold">Facturée à :</div>
-                                            <div>Emma Johnson</div>
+                                            <div id="customerid">Emma Johnson</div>
                                             <ul class="list-unstyled m-t-10">
-                                                <li class="m-b-5">San Francisco, 548 Market St.</li>
-                                                <li class="m-b-5">emma.johnson@exmail.com</li>
-                                                <li>(123) 279-4058</li>
+                                                <li class="m-b-5">Les marchandises vendues ne sont ni reprises ni
+                                                    échangées.
+                                                </li>
+                                                <li class="m-b-5">Merci d’avoir choisi la Maison C.M.S</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -282,7 +283,7 @@ session_start();
                                         <th class="text-right">Prix Total</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="invoice-cl">
                                     <tr>
                                         <td>
                                             <div><strong>Flat Design</strong></div><small>
@@ -332,8 +333,12 @@ session_start();
                                 </tbody>
                             </table>
                             <div class="text-right">
+                                <button class="btn btn-success" type="button" onclick="javascript:window.print();"><i
+                                        class="fa fa-print"></i> Export to Excel</button>
+                                <button class="btn btn-warning" type="button" onclick="javascript:window.print();"><i
+                                        class="fa fa-print"></i> Export to PDF</button>
                                 <button class="btn btn-info" type="button" onclick="javascript:window.print();"><i
-                                        class="fa fa-print"></i> Print</button>
+                                        class="fa fa-print"></i> Imprimer</button>
                             </div>
                         </div>
 
@@ -470,6 +475,35 @@ session_start();
             ]*/
         });
     })
+    </script>
+    <script>
+    table = document.getElementById("tab-facture");
+    for (i = 0; i < table.rows.length; i++) {
+        table.rows[i].onclick = function() {
+            getFacture(this.cells[0].innerText);
+            document.getElementById("numfact").innerHTML = this.cells[0].innerHTML;
+            document.getElementById("datecom").innerHTML = this.cells[2].innerHTML;
+            document.getElementById("customerid").innerHTML = this.cells[3].innerHTML;
+        }
+    }
+
+    function getFacture(numfact) {
+        $.ajax({
+            url: "models/requests/RequestCommande.php",
+            type: "POST",
+            data: {
+                action: 'facture',
+                numcom: numfact,
+            },
+            timeout: 3000,
+            success: function(data) {
+                $('#invoice-cl').html(data);
+            },
+            error: function() {
+                alert('Echec de la requete sur le serveur.')
+            }
+        })
+    }
     </script>
 
 </body>
