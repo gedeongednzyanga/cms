@@ -10,7 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>CMS - Production</title>
     <!-- INCONS -->
-    <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
+    <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
     <!-- GLOBAL MAINLY STYLES-->
     <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />

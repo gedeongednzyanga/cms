@@ -10,7 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>CMS - Facturation</title>
     <!-- INCONS -->
-    <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
+    <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
     <!-- GLOBAL MAINLY STYLES-->
     <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -204,8 +204,8 @@ session_start();
                                         <td><?= $commande->getDatecom() ?></td>
                                         <td><?= $commande->getCustomer() ?></td>
                                         <td>
-                                            <a class="btn btn-success btn-xs m-r-5" data-toggle="tooltip"
-                                                data-original-title="Voir plus">Facture client <i
+                                            <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
+                                                data-toggle="modal" data-target="#modal-facture">Facture client <i
                                                     class="fa fa-eye font-14"></i></a>
                                         </td>
                                     </tr>
@@ -223,121 +223,161 @@ session_start();
                 </div>
 
                 <!-- MODALS -->
-                <!-- Modal Category -->
-                <div class="modal fade" id="modal-category">
-                    <div class="modal-dialog">
-                        <div class="modal-content ibox">
-                            <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Ajouter Catégorie</div>
-                                <div class="ibox-tools">
-                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-body ibox-body">
-                                <form id="form-category">
-                                    <div class="form-group">
-                                        <input type="hidden" name="action" value="category" />
-                                        <input type="hidden" name="actionu" value="1" />
-                                        <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationc" name="designation"
-                                            required placeholder="Désignation">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
-                                        </button>
-                                    </div>
-                                </form>
-                                <div class="form-group">
-                                    <label>Catégorie produit</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
-                                        <?php foreach ($categories as $category) : ?>
-                                        <option value="<?= $category->getIdcat() ?>">
-                                            <?= $category->getDesignationcat() ?> </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- End Modal Category -->
-
                 <!-- Modal Mesure -->
-                <div class="modal fade" id="modal-mesure">
-                    <div class="modal-dialog">
-                        <div class="modal-content ibox">
-                            <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Ajouter Mesure</div>
-                                <div class="ibox-tools">
-                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                <div class="modal  fade" id="modal-facture">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content ibox invoice">
+                            <div class="invoice-header">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="invoice-logo">
+                                            <img src="views/pages/assets/images/cms.png" height="65px" />
+                                        </div>
+                                        <div>
+                                            <div class="m-b-5 font-bold">Facture de :</div>
+                                            <div>Github, Inc.</div>
+                                            <ul class="list-unstyled m-t-10">
+                                                <li class="m-b-5">
+                                                    <span class="font-strong">A:</span> San Francisco, CA 94103 Market
+                                                    Street
+                                                </li>
+                                                <li class="m-b-5">
+                                                    <span class="font-strong">W:</span> adminca@exmail.com
+                                                </li>
+                                                <li>
+                                                    <span class="font-strong">P:</span> (123) 456-2112
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <div class="clf" style="margin-bottom:30px;">
+                                            <dl class="row pull-right" style="width:250px;">
+                                                <dt class="col-sm-6">Facturée le</dt>
+                                                <dd class="col-sm-6">10 April 2017</dd>
+                                                <dt class="col-sm-6">Emise le</dt>
+                                                <dd class="col-sm-6">30 April 2017</dd>
+                                                <dt class="col-sm-6">Facture N°</dt>
+                                                <dd class="col-sm-6">1450012</dd>
+                                            </dl>
+                                        </div>
+                                        <div>
+                                            <div class="m-b-5 font-bold">Facturée à :</div>
+                                            <div>Emma Johnson</div>
+                                            <ul class="list-unstyled m-t-10">
+                                                <li class="m-b-5">San Francisco, 548 Market St.</li>
+                                                <li class="m-b-5">emma.johnson@exmail.com</li>
+                                                <li>(123) 279-4058</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-body ibox-body">
-                                <form id="form-unite">
-                                    <div class="form-group">
-                                        <input type="hidden" name="action" value="unite" />
-                                        <input type="hidden" name="actionu" value="1" />
-                                        <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationu" name="designation"
-                                            required placeholder="Désignation">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
-                                        </button>
-                                    </div>
-                                </form>
-                                <div class="form-group">
-                                    <label>Unité de Mesure</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
-                                        <?php foreach ($unites as $unite) : ?>
-                                        <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
-                                        </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                            <table class="table table-striped no-margin table-invoice">
+                                <thead>
+                                    <tr>
+                                        <th>Désignation</th>
+                                        <th>Quantité</th>
+                                        <th>Prix Unitaire</th>
+                                        <th class="text-right">Prix Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div><strong>Flat Design</strong></div><small>
+                                        </td>
+                                        <td>2</td>
+                                        <td>$220.00</td>
+                                        <td>$440.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div><strong>Bootstrap theme</strong></div>
+                                        </td>
+                                        <td>1</td>
+                                        <td>$500.00</td>
+                                        <td>$500.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div><strong>Invoice Design</strong></div>
+                                        </td>
+                                        <td>3</td>
+                                        <td>$300.00</td>
+                                        <td>$900.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table no-border">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th width="15%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-right">
+                                        <td>Sous-Total:</td>
+                                        <td>$1840</td>
+                                    </tr>
+                                    <tr class="text-right">
+                                        <td>TAX 5%:</td>
+                                        <td>$92</td>
+                                    </tr>
+                                    <tr class="text-right">
+                                        <td class="font-bold font-18">TOTAL:</td>
+                                        <td class="font-bold font-18">$1748</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-right">
+                                <button class="btn btn-info" type="button" onclick="javascript:window.print();"><i
+                                        class="fa fa-print"></i> Print</button>
                             </div>
                         </div>
-                        <!-- /.modal-content -->
+
+                        <style>
+                        .invoice {
+                            padding: 20px
+                        }
+
+                        .invoice-header {
+                            margin-bottom: 20px
+                        }
+
+                        .invoice-logo {
+                            margin-bottom: 30px;
+                        }
+
+                        .table-invoice tr td:last-child {
+                            text-align: right;
+                        }
+                        </style>
+
+                        <!-- <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                        </div> -->
                     </div>
-                    <!-- /.modal-dialog -->
+                    <!-- /.modal-content -->
                 </div>
-                <!-- End Modal alert -->
-                <!-- END MODALS -->
+                <!-- /.modal-dialog -->
             </div>
-            <!-- END PAGE CONTENT-->
-            <footer class="page-footer">
-                <div class="font-13">
-                    <script>
-                    document.write(new Date().getFullYear());
-                    </script> © <b>CMS</b> - All rights reserved.
-                </div>
-                <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
-            </footer>
+            <!-- End Modal alert -->
+            <!-- END MODALS -->
         </div>
+
+
+        <!-- END PAGE CONTENT-->
+        <footer class="page-footer">
+            <div class="font-13">
+                <script>
+                document.write(new Date().getFullYear());
+                </script> © <b>CMS</b> - All rights reserved.
+            </div>
+            <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
+        </footer>
+    </div>
     </div>
 
     <!-- BEGIN PAGA BACKDROPS-->
