@@ -118,7 +118,7 @@
                                         </div>
                                     </li>
                                     <li class="header-get-a-quote">
-                                        <a class="btn btn-primary" href="contact.html">Contactez-nous</a>
+                                        <a class="btn btn-primary" href="javascript:;">Contactez-nous</a>
                                     </li>
                                 </ul>
                                 <!-- Ul end -->
@@ -149,25 +149,32 @@
                                             <a class="nav-link" href="<?= URL ?>">Accueil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="services" class="nav-link">Nos Services</a>
+                                            <!-- <a href="services" class="nav-link">Nos Services</a> -->
+                                            <a href="javascript:;" class="nav-link">Nos Services</a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CMS -
                                                 SARL <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="about">A propos</a></li>
-                                                <li><a href="faq">Faq</a></li>
+                                                <!-- <li><a href="about">A propos</a></li> -->
+                                                <li><a href="javascript:;">A propos</a></li>
+                                                <li><a href="javascript:;">Faq</a></li>
+                                                <!-- <li><a href="faq">Faq</a></li> -->
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="projects" class="nav-link">Nos Projets</a>
+                                            <!-- <a href="projects" class="nav-link">Nos Projets</a> -->
+                                            <a href="javascript:;" class="nav-link">Nos Projets</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="news" class="nav-link">News
+                                            <!-- <a href="news" class="nav-link">News
+                                            </a> -->
+                                            <a href="javascript:;" class="nav-link">News
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="contact">Contact</a>
+                                            <!-- <a class="nav-link" href="contact">Contact</a> -->
+                                            <a class="nav-link" href="javascript:;">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -199,7 +206,7 @@
 
         <div class="banner-carousel banner-carousel-1 mb-0">
             <div class="banner-carousel-item"
-                style="background-image: url(views/pages/assets/images/slider-main/bg1.jpg)">
+                style="background-image: url(views/pages/assets/images/slider-main/bag001.jpg)">
                 <div class="slider-content">
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
@@ -224,7 +231,7 @@
             </div>
 
             <div class="banner-carousel-item"
-                style="background-image: url(views/pages/assets/images/slider-main/bg2.jpg)">
+                style="background-image: url(views/pages/assets/images/slider-main/bag002.jpg)">
                 <div class="slider-content text-left">
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
@@ -248,7 +255,7 @@
             </div>
 
             <div class="banner-carousel-item"
-                style="background-image: url(views/pages/assets/images/slider-main/bg3.jpg)">
+                style="background-image: url(views/pages/assets/images/slider-main/bag003.jpg)">
                 <div class="slider-content text-right">
                     <div class="container h-100">
                         <div class="row align-items-center sh-100">
@@ -263,9 +270,9 @@
                                     We will deal with your failure that determines how you achieve success.
                                 </p>
                                 <div data-animation-in="slideInLeft">
-                                    <a href="contact.html" class="slider btn btn-primary"
+                                    <a href="javascript:;" class="slider btn btn-primary"
                                         aria-label="contact-with-us">Obtenir un devis gratuit</a>
-                                    <a href="about.html" class="slider btn btn-primary border"
+                                    <a href="javascript:;" class="slider btn btn-primary border"
                                         aria-label="learn-more-about-us">Learn
                                         more</a>
                                 </div>
@@ -518,7 +525,7 @@
 
                     <div class="col-lg-4 text-center">
                         <img loading="lazy" class="img-fluid"
-                            src="views/pages/assets/images/services/service-center.jpg" alt="service-avater-image" />
+                            src="views/pages/assets/images/services/service-center00.jpg" alt="service-avater-image" />
                     </div>
                     <!-- Col end -->
 
@@ -594,8 +601,7 @@
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/testimonial1.png"
-                                            alt="testimonial" />
+                                            src="views/pages/assets/images/clients/avatar00.png" alt="testimonial" />
                                         <div class="quote-item-info">
                                             <h3 class="quote-author">Gabriel Denis</h3>
                                             <span class="quote-subtext">Chairman, OKT</span>
@@ -617,8 +623,7 @@
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/testimonial2.png"
-                                            alt="testimonial" />
+                                            src="views/pages/assets/images/clients/avatar00.png" alt="testimonial" />
                                         <div class="quote-item-info">
                                             <h3 class="quote-author">Weldon Cash</h3>
                                             <span class="quote-subtext">CFO, First Choice</span>
@@ -640,8 +645,7 @@
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/testimonial3.png"
-                                            alt="testimonial" />
+                                            src="views/pages/assets/images/clients/avatar00.png" alt="testimonial" />
                                         <div class="quote-item-info">
                                             <h3 class="quote-author">Minter Puchan</h3>
                                             <span class="quote-subtext">Director, AKT</span>
@@ -777,20 +781,19 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="latest-post">
                             <div class="latest-post-media">
-                                <a href="news-single.html" class="latest-post-img">
+                                <a href="javascript:;" class="latest-post-img">
                                     <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news1.jpg"
                                         alt="img" />
                                 </a>
                             </div>
                             <div class="post-body">
                                 <h4 class="post-title">
-                                    <a href="news-single.html" class="d-inline-block">We Just Completes $17.6 million
-                                        Medical Clinic in
-                                        Mid-Missouri</a>
+                                    <a href="javascript:;" class="d-inline-block">XXXXXXXXXXXXXXXXXXXXXXXX
+                                        XXXXXXXXXXXXXXXXXXXXXXXXXXX</a>
                                 </h4>
                                 <div class="latest-post-meta">
                                     <span class="post-item-date">
-                                        <i class="fa fa-clock-o"></i> July 20, 2017
+                                        <i class="fa fa-clock-o"></i> 20 Fév. 2022
                                     </span>
                                 </div>
                             </div>
@@ -802,17 +805,15 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="latest-post">
                             <div class="latest-post-media">
-                                <a href="news-single.html" class="latest-post-img">
+                                <a href="javascript:;" class="latest-post-img">
                                     <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news2.jpg"
                                         alt="img" />
                                 </a>
                             </div>
                             <div class="post-body">
                                 <h4 class="post-title">
-                                    <a href="news-single.html" class="d-inline-block">Thandler Airport Water Reclamation
-                                        Facility
-                                        Expansion
-                                        Project Named</a>
+                                    <a href="javascript:;" class="d-inline-block">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                        XXXXXXXXXXXXXXXXXXXXXXXXXX</a>
                                 </h4>
                                 <div class="latest-post-meta">
                                     <span class="post-item-date">
@@ -828,20 +829,19 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="latest-post">
                             <div class="latest-post-media">
-                                <a href="news-single.html" class="latest-post-img">
+                                <a href="javascript:;" class="latest-post-img">
                                     <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news3.jpg"
                                         alt="img" />
                                 </a>
                             </div>
                             <div class="post-body">
                                 <h4 class="post-title">
-                                    <a href="news-single.html" class="d-inline-block">Silicon Bench and Cornike Begin
-                                        Construction Solar
-                                        Facilities</a>
+                                    <a href="javascript:;" class="d-inline-block">XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a>
                                 </h4>
                                 <div class="latest-post-meta">
                                     <span class="post-item-date">
-                                        <i class="fa fa-clock-o"></i> Aug 13, 2017
+                                        <i class="fa fa-clock-o"></i> 31 Janv. 2022
                                     </span>
                                 </div>
                             </div>
@@ -853,7 +853,7 @@
                 <!--/ Content row end -->
 
                 <div class="general-btn text-center mt-4">
-                    <a class="btn btn-primary" href="news-left-sidebar.html">Plus d'informations</a>
+                    <a class="btn btn-primary" href="javascript:;">Plus d'informations</a>
                 </div>
             </div>
             <!--/ Container end -->
@@ -914,17 +914,17 @@
                         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
                             <h3 class="widget-title">Services</h3>
                             <ul class="list-arrow">
-                                <li><a href="service-single.html">Construction industrielle</a></li>
-                                <li><a href="service-single.html">Construction des bâtiments</a></li>
-                                <li><a href="service-single.html">Travaux hydroliques et publics</a></li>
+                                <li><a href="javascript:;">Construction industrielle</a></li>
+                                <li><a href="javascript:;">Construction des bâtiments</a></li>
+                                <li><a href="javascript:;">Travaux hydroliques et publics</a></li>
                                 <li>
-                                    <a href="service-single.html">Production des peintures et blocs</a>
+                                    <a href="javascript:;">Production des peintures et blocs</a>
                                 </li>
                                 <li>
-                                    <a href="service-single.html">Pave de toutes sortes</a>
+                                    <a href="javascript:;">Pave de toutes sortes</a>
                                 </li>
                                 <li>
-                                    <a href="service-single.html">Expertise en BTP</a>
+                                    <a href="javascript:;">Expertise en BTP</a>
                                 </li>
 
                             </ul>
@@ -954,10 +954,10 @@
                         <div class="col-md-6">
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
-                                    <li><a href="about.html">A propos</a></li>
-                                    <li><a href="team.html">Notre équipe</a></li>
-                                    <li><a href="faq.html">Faq</a></li>
-                                    <li><a href="news-right-sidebar.html">News</a></li>
+                                    <li><a href="javascript:;">A propos</a></li>
+                                    <li><a href="javascript:;">Notre équipe</a></li>
+                                    <li><a href="javascript:;">Faq</a></li>
+                                    <li><a href="javascript:;">News</a></li>
                                 </ul>
                             </div>
                         </div>
