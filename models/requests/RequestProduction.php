@@ -67,13 +67,6 @@ switch ($action) {
         echo 'Production enregistrée avec succès.';
         break;
 
-        // case 'product':
-        //     $product = new Product($_POST);
-        //     // $product->setQuantitest(0);
-        //     $managerProduct->createObj($_POST['actionu'], 'obj_product', $product);
-        //     echo 'Bien enregistrée';
-        //     break;
-
     default:
         # code...
         break;

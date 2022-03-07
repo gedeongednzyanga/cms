@@ -190,7 +190,7 @@ session_start();
                                     <input type="hidden" name="action" value="add" />
                                     <input type="hidden" name="actionu" value="1" />
                                     <input type="hidden" name="id" value="0" />
-                                    <input type="hidden" name="quantitest" value="0" />
+                                    <!-- <input type="hidden" name="quantiteets" id="quantiteets" value="0" /> -->
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Production de</label>
                                         <div class="col-sm-10">
@@ -207,15 +207,15 @@ session_start();
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté produite</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantiteprod" required
-                                                placeholder="Quantité produite">
+                                            <input class="form-control" type="number" name="quantiteprod"
+                                                id="quantiteprod" required placeholder="Quantité produite">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté perdue</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantiteperd" required
-                                                placeholder="Quantité perdue">
+                                            <input class="form-control" type="number" name="quantiteperd"
+                                                id="quantiteperd" required placeholder="Quantité perdue">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -228,8 +228,8 @@ session_start();
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Total prod.</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="text" required
-                                                placeholder="Stock" value="0">
+                                            <input class="form-control" disabled name="quantitentra" type="number"
+                                                required placeholder="Stock" id="quantitentra">
                                         </div>
                                     </div>
                                     <div class="form-group row">

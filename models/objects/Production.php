@@ -14,6 +14,7 @@ class Production extends Product
     private $carburant;
     private $refprod;
     private $refentprod;
+    private $quantiteets;
 
     public function __construct(array $data)
     {
@@ -226,6 +227,26 @@ class Production extends Product
     public function setRefentprod($refentprod)
     {
         $this->refentprod = $refentprod;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of quantiteets
+     */
+    public function getQuantiteets()
+    {
+        return $this->quantiteets;
+    }
+
+    /**
+     * Set the value of quantiteets
+     *
+     * @return  self
+     */
+    public function setQuantiteets($quantiteets)
+    {
+        $this->quantiteets = $quantiteets;
 
         return $this;
     }

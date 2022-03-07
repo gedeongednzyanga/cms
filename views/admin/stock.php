@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>CMS - Stock</title>
     <!-- INCONS -->
-    <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
+    <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
 
     <!-- GLOBAL MAINLY STYLES-->
     <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -352,7 +352,7 @@
                 <div class="font-13">
                     <script>
                     document.write(new Date().getFullYear());
-                    </script> © <b>PoliceAlert</b> - All rights reserved.
+                    </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
             </footer>

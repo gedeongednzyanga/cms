@@ -31,7 +31,7 @@ class ManagerProduction extends Model
                 $object->getQuantiteprod(),
                 $object->getQuantiteperd(),
                 $object->getCarburant(),
-                $object->getRefprod()
+                $object->getRefprod(),
             )
         );
     }

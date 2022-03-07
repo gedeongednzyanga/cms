@@ -1,5 +1,13 @@
 $(function() {
 
+    $('#quantiteprod').on('keyup', function() {
+        $('#quantitentra').val($(this).val() - $('#quantiteperd').val());
+    });
+
+    $('#quantiteperd').on('keyup', function() {
+        $('#quantitentra').val($('#quantiteprod').val() - $(this).val());
+    });
+
     $('#form-production').submit(function(e) {
         e.preventDefault();
         if ($('#quantiteprod').val() != '') {
