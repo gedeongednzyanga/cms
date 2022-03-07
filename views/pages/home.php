@@ -81,7 +81,7 @@
                     <div class="logo-area">
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                                <a class="d-block" href="index.html">
+                                <a class="d-block" href="<?= URL ?>">
                                     <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="Constra" />
                                 </a>
                             </div>
@@ -118,7 +118,7 @@
                                         </div>
                                     </li>
                                     <li class="header-get-a-quote">
-                                        <a class="btn btn-primary" href="javascript:;">Contactez-nous</a>
+                                        <a class="btn btn-primary" href="contact">Contactez-nous</a>
                                     </li>
                                 </ul>
                                 <!-- Ul end -->
@@ -192,7 +192,7 @@
                     <div class="search-block" style="display: none">
                         <label for="search-field" class="w-100 mb-0">
                             <input type="text" class="form-control" id="search-field"
-                                placeholder="Type what you want and enter" />
+                                placeholder="Tapez votre texte..." />
                         </label>
                         <span class="search-close">&times;</span>
                     </div>
