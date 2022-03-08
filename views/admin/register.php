@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>CMS - Product</title>
+    <title>CMS - User</title>
     <!-- INCONS -->
     <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
     <!-- GLOBAL MAINLY STYLES-->
@@ -85,12 +85,12 @@
                         </a>
                     </li>
                     <li class="heading">MENUS</li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-product-hunt"></i>
                             <span class="nav-label">Productions</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a class="active" href="product">Ajouter un produit </a>
+                                <a href="product">Ajouter un produit </a>
                             </li>
                             <li>
                                 <a href="production">Production </a>
@@ -139,12 +139,12 @@
                             <span class="nav-label">Informations</span></a>
                     </li>
                     <li class="heading">CONFIGURATIONS</li>
-                    <li>
+                    <li class="active">
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-cog"></i>
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a class="active" href="mailbox.html">Utilisateurs</a>
                             </li>
                             <li>
                                 <a href="mail_compose.html">Composer un mail</a>
@@ -158,18 +158,18 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title">Nos produits</h1>
+                <h1 class="page-title">Utilisateurs</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html"><i class="la la-home font-20"></i></a>
                     </li>
-                    <li class="breadcrumb-item">Ajouter un produit</li>
+                    <li class="breadcrumb-item">Ajouter un utilisateur</li>
                 </ol>
             </div>
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Enregistrer un produit</div>
+                        <div class="ibox-title">Créer un compte utilisateur</div>
                         <div class="ibox-tools">
                             <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
@@ -181,85 +181,105 @@
                     </div>
                     <div class="ibox-body">
                         <div class="container">
-                            <form id="form-product" class="row form-horizontal" method="post" novalidate="novalidate">
+                            <form id="form-register" class="row form-horizontal" method="post" novalidate="novalidate">
                                 <div class="col-md-8">
-                                    <input type="hidden" name="action" value="product" />
+                                    <input type="hidden" name="action" value="create" />
                                     <input type="hidden" name="actionu" value="1" />
-                                    <input type="hidden" name="id" value="0" />
-                                    <input type="hidden" name="quantitest" value="0" />
+                                    <input type="hidden" name="iduser" value="0" />
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Désignation</label>
+                                        <label class="col-sm-2 col-form-label">Nom</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" id="designationprod"
-                                                name="designationprod" required placeholder="Désignation">
+                                            <input class="form-control" type="text" id="nomuser" name="nomuser" required
+                                                placeholder="Nom">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">PA/PV</label>
+                                        <label class="col-sm-2 col-form-label">Prénom</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="prixprod" id="prixprod"
-                                                required placeholder="Prix">
+                                            <input class="form-control" type="text" name="prenomuser" id="prenomuser"
+                                                required placeholder="Prénom">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Stock alert</label>
+                                        <label class="col-sm-2 col-form-label">Username</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="stalert" id="stalert"
-                                                required placeholder="Stock alert">
+                                            <input class="form-control" type="text" name="username" id="username"
+                                                required placeholder="Nom d'utilisateur">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Catégorie</label>
+                                        <label class="col-sm-2 col-form-label">Password</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="refcat" required>
-                                                <optgroup label="Catégories">
-                                                    <?php foreach ($categories as $category) : ?>
-                                                    <option value="<?= $category->getIdcat() ?>">
-                                                        <?= $category->getDesignationcat() ?></option>
-                                                    <?php endforeach; ?>
+                                            <input class="form-control" type="password" name="passuser" id="passuser"
+                                                required placeholder="Mot de passe">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Type Compte</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2_demo_1" name="compteuser"
+                                                id="compteuser" required>
+                                                <optgroup label="Type de Compte">
+                                                    <option value="Administrateur">Administrateur</option>
+                                                    <option value="Utilisateur">Utilisateur</option>
                                                 </optgroup>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Uni. de mesure</label>
-                                        <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="refunit" required>
-                                                <optgroup label="Unité de mesure">
-                                                    <?php foreach ($unites as $unite) : ?>
-                                                    <option value="<?= $unite->getIdu() ?>">
-                                                        <?= $unite->getDesignationu() ?></option>
-                                                    <?php endforeach; ?>
-                                                </optgroup>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">En Stock</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" disabled type="text" required
-                                                placeholder="Stock" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
-                                            <button class="btn btn-info" type="submit">Enregistrer</button>
+                                            <button class="btn btn-info" type="submit"><i class="fa fa-check"></i>
+                                                Enregistrer</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="col-sm-12 col-form-label">Historique Sortie en stock de <span
-                                                class="text-xl-center pull-right">...</span></label>
-                                        <select class="form-control" multiple="" id="historiquecommande"
-                                            style="height:235px">
-                                            <option value="0">Séléctionner un produit</option>
-                                        </select>
-                                    </div>
-                                    <div class="div-message" style="height:53px;">
+                                        <label class="col-form-label">Niveau d'accès</label><br>
+                                        <div class="row">
+                                            <div class="col-6 m-b-20">
+                                                <div class="check-list">
+                                                    <label class="ui-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="input-span"></span>Checkbox</label>
+                                                    <label class="ui-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="input-span"></span>Checkbox</label>
+                                                    <label class="ui-checkbox">
+                                                        <input type="checkbox" checked="">
+                                                        <span class="input-span"></span>Checked</label>
+                                                    <label class="ui-checkbox ui-checkbox-gray">
+                                                        <input type="checkbox">
+                                                        <span class="input-span"></span>Checkbox gray</label>
+                                                    <label class="ui-checkbox disabled">
+                                                        <input type="checkbox" disabled="">
+                                                        <span class="input-span"></span>Disabled</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-b-20">
+                                                <div class="check-list">
+                                                    <label class="ui-checkbox ui-checkbox-primary">
+                                                        <input type="checkbox">
+                                                        <span class="input-span"></span>Primary</label>
+                                                    <label class="ui-checkbox ui-checkbox-success">
+                                                        <input type="checkbox">
+                                                        <span class="input-span"></span>Success</label>
+                                                    <label class="ui-checkbox ui-checkbox-info">
+                                                        <input type="checkbox">
+                                                        <span class="input-span"></span>Info</label>
+                                                    <label class="ui-checkbox ui-checkbox-warning">
+                                                        <input type="checkbox">
+                                                        <span class="input-span"></span>Warning</label>
+                                                    <label class="ui-checkbox ui-checkbox-danger">
+                                                        <input type="checkbox">
+                                                        <span class="input-span"></span>Danger</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="div-message" style="height:53px;">
 
+                                        </div>
                                     </div>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -267,7 +287,7 @@
 
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Produits récemment enregistrés</div>
+                        <div class="ibox-title">Utilisateurs enregistrés</div>
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
@@ -563,7 +583,7 @@
 
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/login.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">

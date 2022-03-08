@@ -24,7 +24,7 @@ class ControllerRegister
         $unites = $this->_uniteManager->getUnites();
         $product8 = $this->_productManager->get8Products();
 
-        $this->_view = new View('Product');
+        $this->_view = new View('Register');
         $this->_view->generate(array(
             'categories' => $categories,
             'unites' => $unites,

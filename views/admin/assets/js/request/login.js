@@ -22,7 +22,7 @@ $(function() {
         });
     });
 
-    $("#form-operation").submit(function(e) {
+    $("#form-register").submit(function(e) {
         e.preventDefault();
         $.ajax({
             url: "models/requests/RequestUser.php",
@@ -33,7 +33,9 @@ $(function() {
             cache: false,
             timeout: 3000,
             success: function(data) {
-                alert(data)
+                $(".div-message").hide();
+                $(".div-message").html("<div class='alert alert-success'><small>" + data + "</small></div >").show('slow', 'linear');
+                $('.form-register')[0].reset();
             },
             error: function() {
                 alert('Failled to post the request.');
