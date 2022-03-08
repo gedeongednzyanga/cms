@@ -143,7 +143,7 @@
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
                                 <a href="mail_compose.html">Composer un mail</a>
