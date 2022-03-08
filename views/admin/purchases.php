@@ -10,7 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>CMS - Purchases</title>
     <!-- INCONS -->
-    <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
+    <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
     <!-- GLOBAL MAINLY STYLES-->
     <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -205,32 +205,32 @@ session_start();
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Qté entrée</label>
+                                        <label class="col-sm-2 col-form-label">Qté cmdée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantiteapp" required
-                                                placeholder="Quantité achetée">
+                                            <input class="form-control" type="number" name="quantitecmd"
+                                                id="quantitecmd" required placeholder="Quantité commandée">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Qté cmdée</label>
+                                        <label class="col-sm-2 col-form-label">Qté entrée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantitecmd" required
-                                                placeholder="Quantité commandée">
+                                            <input class="form-control" type="number" name="quantiteapp"
+                                                id="quantiteapp" required placeholder="Quantité achetée">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Total Ach.</label>
+                                        <label class="col-sm-2 col-form-label">Restant Ach.</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="text" required
+                                            <input class="form-control" disabled id="totachat" type="text" required
                                                 placeholder="Stock" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
                                             <button class="btn btn-info btn-sm" type="submit"><i
-                                                    class="fa fa-search"></i>
-                                                Ajouter</button>
+                                                    class="fa fa-check"></i>
+                                                Ajouter au panier</button>
                                         </div>
                                     </div>
                                 </form>
@@ -263,7 +263,7 @@ session_start();
 
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Production</div>
+                        <div class="ibox-title">Entrée en Stock</div>
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">

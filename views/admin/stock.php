@@ -43,7 +43,7 @@
                         <form class="navbar-search" action="javascript:;">
                             <div class="rel">
                                 <span class="search-icon"><i class="ti-search"></i></span>
-                                <input class="form-control" placeholder="Search here...">
+                                <input class="form-control" placeholder="Rechercher...">
                             </div>
                         </form>
                     </li>
@@ -192,6 +192,7 @@
                                         <th>En Stock</th>
                                         <th>Stock alert</th>
                                         <th>Prix vetnte</th>
+                                        <th>Alerte Stock</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -203,6 +204,7 @@
                                         <th>En Stock</th>
                                         <th>Stock alert</th>
                                         <th>Prix vetnte</th>
+                                        <th>Alerte Stock</th>
                                         <th>Actions</th>
                                     </tr>
                                 </tfoot>
@@ -216,6 +218,10 @@
                                         <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
                                         <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
                                         <td><?= $product->getPrixprod() . '$' ?></td>
+                                        <td
+                                            class="alert text-center <?= $product->getQuantitest() < $product->getStalert() ? 'alert-danger' : 'alert-success' ?>">
+                                            <span><?= $product->getQuantitest() < $product->getStalert() ? 'Pénurie Stock' : 'Stock Suffisant' ?></span>
+                                        </td>
                                         <td>
                                             <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
                                                 data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
@@ -232,14 +238,14 @@
                     </div>
                 </div>
 
-                <div class="ibox">
+                <!-- <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Nos produits</div>
                     </div>
                     <div class="ibox-body">
                         <h2>Hello ged</h2>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- MODALS -->
                 <!-- Modal Category -->
@@ -379,7 +385,7 @@
     <script type="text/javascript">
     $(function() {
         $('#example-table').DataTable({
-            pageLength: 10,
+            pageLength: 15,
             //"ajax": './assets/demo/data/table_data.json',
             /*"columns": [
                 { "data": "name" },

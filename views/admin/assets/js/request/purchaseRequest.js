@@ -1,5 +1,13 @@
 $(function() {
 
+    $('#quantitecmd').on('keyup', function() {
+        $('#totachat').val($(this).val() - $('#quantiteapp').val());
+    });
+
+    $('#quantiteapp').on('keyup', function() {
+        $('#totachat').val($('#quantitecmd').val() - $(this).val());
+    });
+
     $('#form-purchase').submit(function(e) {
         e.preventDefault();
         if ($('#quantiteprod').val() != '') {

@@ -1,5 +1,24 @@
 $(function() {
 
+    $('#quantitecom').on('keyup', function() {
+        $('#enstock').val($('#rstock').val() - $(this).val());
+    });
+
+    $('#refprodc').on('change', function() {
+        $.ajax({
+            url: "models/requests/RequestCbase.php",
+            type: "POST",
+            data: { action: "loading", refprodc: $(this).val() },
+            success: function(data) {
+                // alert(data);
+                $('#rstock').val(data);
+            },
+            error: function() {
+                alert("Echec de la requête sur le serveur.");
+            }
+        });
+    });
+
     $('#form-commande').submit(function(e) {
         e.preventDefault();
         if ($('#quantiteprod').val() != '') {

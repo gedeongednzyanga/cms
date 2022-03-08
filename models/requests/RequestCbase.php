@@ -32,9 +32,16 @@ switch ($action) {
 
     case 'product':
         $product = new Product($_POST);
-        // $product->setQuantitest(0);
         $managerProduct->createObj($_POST['actionu'], 'obj_product', $product);
         echo 'Bien enregistrée';
+        break;
+
+    case 'loading':
+        $product = $managerProduct->getOneProduct($_POST['refprodc']);
+        foreach ($product as $prod) :
+            echo $prod->getQuantitest();
+        endforeach;
+        // echo 49;
         break;
 
     default:

@@ -10,7 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>CMS - Commande</title>
     <!-- INCONS -->
-    <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
+    <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
     <!-- GLOBAL MAINLY STYLES-->
     <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -45,7 +45,7 @@ session_start();
                         <form class="navbar-search" action="javascript:;">
                             <div class="rel">
                                 <span class="search-icon"><i class="ti-search"></i></span>
-                                <input class="form-control" placeholder="Search here...">
+                                <input class="form-control" placeholder="Rechercher...">
                             </div>
                         </form>
                     </li>
@@ -77,7 +77,7 @@ session_start();
                         <img src="views/admin/assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong"><?=/* $_SESSION['telephone'] */ 'Gedeon Nzyanga' ?></div>
+                        <div class="font-strong"><?=/* $_SESSION['telephone'] */ 'Barbuto Coder' ?></div>
                         <small>Administrator</small>
                     </div>
                 </div>
@@ -194,7 +194,8 @@ session_start();
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Vente de</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="refprodc" required>
+                                            <select class="form-control select2_demo_1" name="refprodc" id="refprodc"
+                                                required>
                                                 <optgroup label="Catégories">
                                                     <?php foreach ($products as $product) : ?>
                                                     <option value="<?= $product->getIdprod() ?>">
@@ -207,39 +208,36 @@ session_start();
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté cmdée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantitecom" required
-                                                placeholder="Quantité commandée">
+                                            <input class="form-control" type="number" name="quantitecom"
+                                                id="quantitecom" required placeholder="Quantité commandée">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">En Stock</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="text" required
-                                                placeholder="Stock" value="0">
+                                            <input class="form-control" disabled type="number" required
+                                                placeholder="Stock" id="rstock" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">St. Restant</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="text" required
+                                            <input class="form-control" disabled type="number" id="enstock" required
                                                 placeholder="Stock" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
                                             <button class="btn btn-info btn-sm" type="submit"><i
-                                                    class="fa fa-search"></i>
-                                                Ajouter</button>
+                                                    class="fa fa-check"></i>
+                                                Ajouter au panier</button>
                                         </div>
                                     </div>
                                 </form>
                                 <div class="col-md-4">
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Client</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="client" id="client" required
-                                                placeholder="Nom complet du client">
-                                        </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="client" id="client" required
+                                            placeholder="Nom du client">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-12 col-form-label">Vente de : <span
