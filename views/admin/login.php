@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -29,14 +33,14 @@
                 <div class="input-group-icon right">
                     <div class="input-icon"><i class="fa fa-user"></i></div>
                     <input type="hidden" name="action" value="connexion" />
-                    <input class="form-control" type="text" name="telephone" required placeholder="Nom d'utilisateur"
+                    <input class="form-control" type="text" name="username" required placeholder="Nom d'utilisateur"
                         autocomplete="off">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group-icon right">
                     <div class="input-icon"><i class="fa fa-lock font-16"></i></div>
-                    <input class="form-control" type="password" name="pswd" required placeholder="Mot de passe">
+                    <input class="form-control" type="password" name="password" required placeholder="Mot de passe">
                 </div>
             </div>
             <div class="form-group d-flex justify-content-between">
@@ -71,7 +75,7 @@
     </script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.js" type="text/javascript"></script>
-    <!-- <script src="views/admin/assets/js/request/login.js"></script> -->
+    <script src="views/admin/assets/js/request/login.js"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
     $(function() {

@@ -11,10 +11,12 @@ $(function() {
             cache: false,
             timeout: 3000,
             success: function(data) {
-                if (data !== "Incorrect")
-                    window.location = data;
-                else
-                    $("#error-message").addClass("text-danger").html("Nom d'utilisateur ou mot de passe incorrect.");
+                if (data == 1)
+                    window.location = 'dashboard';
+                else {
+                    $("#error-message").hide();
+                    $("#error-message").addClass("alert alert-danger").html("Nom d'utilisateur ou mot de passe incorrect.").show('slow', 'linear');
+                }
             },
             error: function() {
                 alert('Failled to post the request.');
