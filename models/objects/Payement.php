@@ -2,9 +2,9 @@
 
 class Payement
 {
-    private $idpaye, $montantpaye, $restepaye, $datepaye, $refentc;
+    private $idpaye, $montantpaye, $restepaye, $datepaye, $refentc, $statc;
 
-    private function __construct(array $data)
+    public function __construct(array $data)
     {
         $this->hydrate($data);
     }
@@ -115,6 +115,26 @@ class Payement
     public function setRefentc($refentc)
     {
         $this->refentc = $refentc;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of statc
+     */
+    public function getStatc()
+    {
+        return $this->statc;
+    }
+
+    /**
+     * Set the value of statc
+     *
+     * @return  self
+     */
+    public function setStatc($statc)
+    {
+        $this->statc = $statc;
 
         return $this;
     }

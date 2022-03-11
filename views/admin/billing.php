@@ -186,12 +186,12 @@ if (!isset($_SESSION['user']))
                     </div>
                     <div class="ibox-body">
                         <div class="container">
-                            <form id="form-product" class="row form-horizontal" method="post" novalidate="novalidate">
+                            <form id="form-payement" class="row form-horizontal" method="post" novalidate="novalidate">
                                 <div class="col-md-8">
-                                    <input type="hidden" name="action" value="product" />
+                                    <input type="hidden" name="action" value="payement" />
                                     <input type="hidden" name="actionu" value="1" />
-                                    <input type="hidden" name="id" value="0" />
-                                    <input type="hidden" name="quantitest" value="0" />
+                                    <input type="hidden" name="refentc" id="refentc" value="0" />
+                                    <input type="hidden" name="restepaye" id="restepaye" value="0" />
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Client</label>
                                         <div class="col-sm-10">
@@ -209,23 +209,22 @@ if (!isset($_SESSION['user']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Montant total</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="montant" id="montant" required
-                                                placeholder="Montant total">
+                                            <input class="form-control" type="number" name="montant" id="montant"
+                                                required placeholder="Montant total">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Montant payé</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" required
-                                                placeholder="Montant payé">
+                                            <input class="form-control" type="number" name="montantpaye"
+                                                id="montantpaye" required placeholder="Montant payé">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Reste à payer</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="text" required
-                                                placeholder="Montant à payer" value="0">
+                                            <input class="form-control" disabled type="number" name="reste" id="reste"
+                                                required placeholder="Montant à payer" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -300,7 +299,7 @@ if (!isset($_SESSION['user']))
                                         <td><?= $commande->getNumcom() ?></td>
                                         <td><?= $commande->getCustomer() ?></td>
                                         <td><?= $commande->getTotcom() ?></td>
-                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) . '$' ?>
+                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc())  ?>
                                         </td>
                                         <td><?= $commande->getDatecom() ?></td>
                                         <td
@@ -511,7 +510,7 @@ if (!isset($_SESSION['user']))
     <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/js/request/commandeRequest.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/payementRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
     $(function() {
@@ -539,6 +538,7 @@ if (!isset($_SESSION['user']))
     for (i = 0; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             getFacture(this.cells[1].innerText);
+            document.getElementById('refentc').value = this.cells[0].innerText;
             document.getElementById("numfact").innerHTML = this.cells[1].innerHTML;
             document.getElementById("client").value = this.cells[2].innerText;
             document.getElementById("commande").value = this.cells[3].innerText;
