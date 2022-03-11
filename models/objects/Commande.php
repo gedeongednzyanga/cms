@@ -7,6 +7,7 @@ class Commande extends Product
     private $datecom;
     private $customer;
     private $totcom;
+    private $statcom;
 
     //Detail
     private $iddetcom;
@@ -205,6 +206,26 @@ class Commande extends Product
     public function setTotcom($totcom)
     {
         $this->totcom = $totcom;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of statcom
+     */
+    public function getStatcom()
+    {
+        return $this->statcom;
+    }
+
+    /**
+     * Set the value of statcom
+     *
+     * @return  self
+     */
+    public function setStatcom($statcom)
+    {
+        $this->statcom = $statcom;
 
         return $this;
     }

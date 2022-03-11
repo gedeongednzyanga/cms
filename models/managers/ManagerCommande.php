@@ -27,6 +27,19 @@ class ManagerCommande extends Model
         return $this->getAll('get_ent_commande', 'Commande');
     }
 
+    public function calculSommetotcommande($id)
+    {
+        $sum  = 0;
+        try {
+            $query = $this->getBdd()->prepare('CALL calcul_totalmc (?)');
+            $query->execute(array($id));
+            $sum = $query->fetchColumn();
+            return round((float) $sum, 2);
+        } catch (PDOException $ex) {
+            throw new Exception('Error : ' . $ex->getMessage());
+        }
+    }
+
     public function inertCommande($action, $procedure, $objet)
     {
         try {

@@ -1,5 +1,7 @@
 <?php
 session_start();
+if (!isset($_SESSION['user']))
+    header("Location:login");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +47,7 @@ session_start();
                         <form class="navbar-search" action="javascript:;">
                             <div class="rel">
                                 <span class="search-icon"><i class="ti-search"></i></span>
-                                <input class="form-control" placeholder="Search here...">
+                                <input class="form-control" placeholder="Rechercher...">
                             </div>
                         </form>
                     </li>
@@ -77,8 +79,8 @@ session_start();
                         <img src="views/admin/assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong"><?=/* $_SESSION['telephone'] */ 'Gedeon Nzyanga' ?></div>
-                        <small>Administrator</small>
+                        <div class="font-strong"><?= $_SESSION['user']  ?></div>
+                        <small><?= $_SESSION['compte']  ?></small>
                     </div>
                 </div>
                 <ul class="side-menu metismenu">
@@ -166,13 +168,100 @@ session_start();
                     <li class="breadcrumb-item">
                         <a href="index.html"><i class="la la-home font-20"></i></a>
                     </li>
-                    <li class="breadcrumb-item">Commande client</li>
+                    <li class="breadcrumb-item">Facturation Commande Client</li>
                 </ol>
             </div>
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Commandes Client</div>
+                        <div class="ibox-title">Enregistrer un payement</div>
+                        <div class="ibox-tools">
+                            <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a data-toggle="modal" data-target="#modal-category" class="dropdown-item">Catégorie</a>
+                                <a data-toggle="modal" data-target="#modal-mesure" class="dropdown-item">Mesure</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ibox-body">
+                        <div class="container">
+                            <form id="form-product" class="row form-horizontal" method="post" novalidate="novalidate">
+                                <div class="col-md-8">
+                                    <input type="hidden" name="action" value="product" />
+                                    <input type="hidden" name="actionu" value="1" />
+                                    <input type="hidden" name="id" value="0" />
+                                    <input type="hidden" name="quantitest" value="0" />
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Client</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" id="client" name="client" required
+                                                placeholder="Nom du client">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Qté cmdée</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="number" name="commande" id="commande"
+                                                required placeholder="Qté commandée">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Montant total</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="montant" id="montant" required
+                                                placeholder="Montant total">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Montant payé</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="number" required
+                                                placeholder="Montant payé">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Reste à payer</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" disabled type="text" required
+                                                placeholder="Montant à payer" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10 ml-sm-auto">
+                                            <button class="btn btn-info" type="submit">Enregistrer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 col-form-label">Historique Sortie en stock de <span
+                                                class="text-xl-center pull-right">...</span></label>
+                                        <select class="form-control" multiple="" id="historiquecommande"
+                                            style="height:235px">
+                                            <option value="0">Séléctionner un produit</option>
+                                        </select>
+                                    </div>
+                                    <div class="div-message" style="height:53px;">
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Factures Client</div>
+                        <div class="ibox-tools">
+                            <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a data-toggle="modal" data-target="#modal-category" class="dropdown-item">Catégorie</a>
+                                <a data-toggle="modal" data-target="#modal-mesure" class="dropdown-item">Mesure</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
@@ -180,29 +269,43 @@ session_start();
                                 cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
+                                        <th>N°</th>
                                         <th>Facture</th>
-                                        <th>Total Commande</th>
-                                        <th>Date Commande</th>
                                         <th>Client</th>
+                                        <th>Total Commande</th>
+                                        <th>Montant à payer</th>
+                                        <th>Date Commande</th>
+                                        <th>Observation</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
+                                        <th>N°</th>
                                         <th>Facture</th>
-                                        <th>Total Commande</th>
-                                        <th>Date Commande</th>
                                         <th>Client</th>
+                                        <th>Total Commande</th>
+                                        <th>Montant à payer</th>
+                                        <th>Date Commande</th>
+                                        <th>Observation</th>
                                         <th>Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody id="tab-facture">
-                                    <?php foreach ($commandes as $commande) : ?>
+                                    <?php
+                                    $managerCommande = new ManagerCommande();
+                                    foreach ($commandes as $commande) : ?>
                                     <tr>
+                                        <td><?= $commande->getIdentc() ?></td>
                                         <td><?= $commande->getNumcom() ?></td>
-                                        <td><?= $commande->getTotcom() ?></td>
-                                        <td><?= $commande->getDatecom() ?></td>
                                         <td><?= $commande->getCustomer() ?></td>
+                                        <td><?= $commande->getTotcom() ?></td>
+                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) . '$' ?>
+                                        </td>
+                                        <td><?= $commande->getDatecom() ?></td>
+                                        <td
+                                            class="alert text-center <?= $commande->getStatcom() == 0 ? 'alert-danger' : 'alert-success' ?>">
+                                            <?= $commande->getStatcom() == 0 ? 'Non payéé' : 'Payé' ?></td>
                                         <td>
                                             <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
                                                 data-toggle="modal" data-target="#modal-facture">Facture client <i
@@ -318,17 +421,17 @@ session_start();
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="text-right">
+                                    <!-- <tr class="text-right">
                                         <td>Sous-Total:</td>
                                         <td>$1840</td>
                                     </tr>
                                     <tr class="text-right">
                                         <td>TAX 5%:</td>
                                         <td>$92</td>
-                                    </tr>
+                                    </tr> -->
                                     <tr class="text-right">
-                                        <td class="font-bold font-18">TOTAL:</td>
-                                        <td class="font-bold font-18">$1748</td>
+                                        <td class="font-bold font-18">TOTAL A PAYER :</td>
+                                        <td class="font-bold font-18" id="s-total">$1748</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -410,51 +513,6 @@ session_start();
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/commandeRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
-
-    <script type="text/javascript">
-    $("#form-sample-1").validate({
-        rules: {
-            name: {
-                minlength: 2,
-                required: !0
-            },
-            email: {
-                required: !0,
-                email: !0
-            },
-            url: {
-                required: !0,
-                url: !0
-            },
-            number: {
-                required: !0,
-                number: !0
-            },
-            min: {
-                required: !0,
-                minlength: 3
-            },
-            max: {
-                required: !0,
-                maxlength: 4
-            },
-            password: {
-                required: !0
-            },
-            password_confirmation: {
-                required: !0,
-                equalTo: "#password"
-            }
-        },
-        errorClass: "help-block error",
-        highlight: function(e) {
-            $(e).closest(".form-group.row").addClass("has-error")
-        },
-        unhighlight: function(e) {
-            $(e).closest(".form-group.row").removeClass("has-error")
-        },
-    });
-    </script>
     <script type="text/javascript">
     $(function() {
         $('#ex-phone2').mask('+243 999 999 999');
@@ -480,10 +538,14 @@ session_start();
     table = document.getElementById("tab-facture");
     for (i = 0; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
-            getFacture(this.cells[0].innerText);
-            document.getElementById("numfact").innerHTML = this.cells[0].innerHTML;
-            document.getElementById("datecom").innerHTML = this.cells[2].innerHTML;
-            document.getElementById("customerid").innerHTML = this.cells[3].innerHTML;
+            getFacture(this.cells[1].innerText);
+            document.getElementById("numfact").innerHTML = this.cells[1].innerHTML;
+            document.getElementById("client").value = this.cells[2].innerText;
+            document.getElementById("commande").value = this.cells[3].innerText;
+            document.getElementById("customerid").innerHTML = this.cells[2].innerHTML;
+            document.getElementById("datecom").innerHTML = this.cells[5].innerHTML;
+            document.getElementById("s-total").innerHTML = this.cells[4].innerHTML;
+            document.getElementById("montant").value = this.cells[4].innerText;
         }
     }
 
