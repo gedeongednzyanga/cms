@@ -22,7 +22,7 @@ switch ($action) {
         if ($payement->getRestepaye() == 0)
             $payement->setStatc(1);
         $managerPayement->createObj($_POST['actionu'], 'obj_payement', $payement);
-        echo 'Bien enregistrée';
+        echo 'Payement enregistré avec succès.';
         break;
     default:
         # code...

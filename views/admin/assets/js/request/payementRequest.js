@@ -15,9 +15,9 @@ $(function() {
                 processData: false,
                 cache: false,
                 success: function(data) {
-                    // $('#lst-commande').html(data);
                     $('#form-payement')[0].reset();
-                    alert(data);
+                    $(".div-message").html("<div class='alert alert-success'><small>" + data + ".</small></div >").show('slow', 'linear');
+
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");

@@ -806,7 +806,7 @@
                         <div class="latest-post">
                             <div class="latest-post-media">
                                 <a href="javascript:;" class="latest-post-img">
-                                    <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news2.jpg"
+                                    <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news1.jpg"
                                         alt="img" />
                                 </a>
                             </div>
@@ -830,7 +830,7 @@
                         <div class="latest-post">
                             <div class="latest-post-media">
                                 <a href="javascript:;" class="latest-post-img">
-                                    <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news3.jpg"
+                                    <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news1.jpg"
                                         alt="img" />
                                 </a>
                             </div>
