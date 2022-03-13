@@ -4,7 +4,7 @@ class Customer
     private $idc;
     private $customerName;
 
-    private function __construct(array $data)
+    public function __construct(array $data)
     {
         $this->hydrate($data);
     }
