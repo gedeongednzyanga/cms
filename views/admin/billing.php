@@ -472,19 +472,16 @@ if (!isset($_SESSION['user']))
             </div>
             <!-- End Modal alert -->
             <!-- END MODALS -->
+            <!-- END PAGE CONTENT-->
+            <footer class="page-footer">
+                <div class="font-13">
+                    <script>
+                    document.write(new Date().getFullYear());
+                    </script> © <b>CMS</b> - All rights reserved.
+                </div>
+                <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
+            </footer>
         </div>
-
-
-        <!-- END PAGE CONTENT-->
-        <footer class="page-footer">
-            <div class="font-13">
-                <script>
-                document.write(new Date().getFullYear());
-                </script> © <b>CMS</b> - All rights reserved.
-            </div>
-            <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
-        </footer>
-    </div>
     </div>
 
     <!-- BEGIN PAGA BACKDROPS-->

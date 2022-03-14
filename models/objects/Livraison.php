@@ -12,6 +12,13 @@ class Livraison
     private $plaque;
     private $date_liv;
 
+    //Detatil Livraison
+    private $id_detl;
+    private $quantite_liv;
+    private $quantite_rest;
+    private $ref_detcom;
+    private $ref_entli;
+
     public function __construct(array $data)
     {
         $this->hydrate($data);
@@ -183,6 +190,106 @@ class Livraison
     public function setDate_liv($date_liv)
     {
         $this->date_liv = $date_liv;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_detl
+     */
+    public function getId_detl()
+    {
+        return $this->id_detl;
+    }
+
+    /**
+     * Set the value of id_detl
+     *
+     * @return  self
+     */
+    public function setId_detl($id_detl)
+    {
+        $this->id_detl = $id_detl;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of quantite_liv
+     */
+    public function getQuantite_liv()
+    {
+        return $this->quantite_liv;
+    }
+
+    /**
+     * Set the value of quantite_liv
+     *
+     * @return  self
+     */
+    public function setQuantite_liv($quantite_liv)
+    {
+        $this->quantite_liv = $quantite_liv;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of quantite_rest
+     */
+    public function getQuantite_rest()
+    {
+        return $this->quantite_rest;
+    }
+
+    /**
+     * Set the value of quantite_rest
+     *
+     * @return  self
+     */
+    public function setQuantite_rest($quantite_rest)
+    {
+        $this->quantite_rest = $quantite_rest;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ref_detcom
+     */
+    public function getRef_detcom()
+    {
+        return $this->ref_detcom;
+    }
+
+    /**
+     * Set the value of ref_detcom
+     *
+     * @return  self
+     */
+    public function setRef_detcom($ref_detcom)
+    {
+        $this->ref_detcom = $ref_detcom;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ref_entli
+     */
+    public function getRef_entli()
+    {
+        return $this->ref_entli;
+    }
+
+    /**
+     * Set the value of ref_entli
+     *
+     * @return  self
+     */
+    public function setRef_entli($ref_entli)
+    {
+        $this->ref_entli = $ref_entli;
 
         return $this;
     }

@@ -24,5 +24,9 @@ class ManagerLivraison extends Model
 
     public function createObj($action, $procedure, $object)
     {
+        $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?, ?, ?, ?, ?)');
+        $query->execute(
+            array()
+        );
     }
 }
