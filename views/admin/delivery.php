@@ -190,43 +190,49 @@ if (!isset($_SESSION['user']))
                                 <div class="col-md-8">
                                     <input type="hidden" name="action" value="payement" />
                                     <input type="hidden" name="actionu" value="1" />
-                                    <input type="hidden" name="refentc" id="refentc" value="0" />
+                                    <input type="hidden" name="refentc" id="jdjd" value="0" />
+                                    <!-- <input type="hidden" name="facture" id="facture" value=""> -->
                                     <input type="hidden" name="restepaye" id="restepaye" value="0" />
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Client</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" style="width:100%" name="refcat"
-                                                required>
-                                                <option value="0">Trover un client...</option>
-                                                <?php
-                                                $managerCommande = new ManagerCommande();
-                                                foreach ($commandes as $commande) : ?>
-                                                <option value="<?= $commande->getIdentc() ?>">
-                                                    <?= $commande->getCustomer() ?> </option>
-                                                <?php endforeach; ?>
+                                            <select class="form-control select2_demo_1" style="width:100%"
+                                                name="refentc" id="refentc" required>
+                                                <optgroup label="Rechercher un client">
+                                                    <?php
+                                                    $managerCommande = new ManagerCommande();
+                                                    foreach ($commandes as $commande) : ?>
+                                                    <option value="<?= $commande->getNumcom() ?>">
+                                                        <?= $commande->getCustomer() ?> </option>
+                                                    <?php endforeach; ?>
+                                                </optgroup>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Cmdée Client</label>
+                                        <label class="col-sm-2 col-form-label">Facture</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" style="width:100%" name="refcat"
-                                                required>
-                                                <option value="0">Trover un client...</option>
-                                                <?php
-                                                $managerCommande = new ManagerCommande();
-                                                foreach ($commandes as $commande) : ?>
-                                                <option value="<?= $commande->getIdentc() ?>">
-                                                    <?= $commande->getCustomer() ?> </option>
-                                                <?php endforeach; ?>
+                                            <input class="form-control" disabled type="text" name="facture" id="facture"
+                                                required placeholder="Facture client">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Cmnde Client</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2_demo_1" style="width:100%"
+                                                name="iddetcom" id="iddetcom" required>
+                                                <optgroup label="Produits commandés">
+                                                    <option value="434">Data Empty</option>
+                                                    <option value="434">Data OK</option>
+                                                </optgroup>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté Cmdée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="montant" id="montant"
-                                                required placeholder="Quantité commandée">
+                                            <input class="form-control" disabled type="number" name="quatinte_com"
+                                                id="quatinte_com" required placeholder="Quantité commandée">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -523,7 +529,7 @@ if (!isset($_SESSION['user']))
     <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/js/request/payementRequest.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/livraisonRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
     $(function() {
