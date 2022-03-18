@@ -198,13 +198,13 @@
         </header>
         <!--/ Header end -->
         <div id="banner-area" class="banner-area"
-            style="background-image:url(views/pages/assets/images/banner/banner1.jpg)">
+            style="background-image:url(views/pages/assets/images/banner/bnner1.jpg)">
             <div class="banner-text">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="banner-heading">
-                                <h1 class="banner-title">Service</h1>
+                                <h1 class="banner-title">Services</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb justify-content-center">
                                         <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -235,7 +235,8 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Zero Harm Everyday</a>
+                                    <h3 class="service-box-title"><a href="service-single.html">Construction des
+                                            Bâtiments</a>
                                     </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
@@ -258,7 +259,7 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="services">Virtual Construction</a>
+                                    <h3 class="service-box-title"><a href="services">Construction Industrielle</a>
                                     </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
@@ -281,7 +282,8 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Build To Last</a></h3>
+                                    <h3 class="service-box-title"><a href="service-single.html">Travaux Hydrauliques</a>
+                                    </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
@@ -303,7 +305,7 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">EXTERIOR DESIGN</a></h3>
+                                    <h3 class="service-box-title"><a href="service-single.html">Travaux Publics</a></h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
@@ -325,7 +327,8 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">RENOVATION</a></h3>
+                                    <h3 class="service-box-title"><a href="service-single.html">Production des
+                                            Peintures</a></h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
@@ -347,7 +350,79 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">SAFETY MANAGEMENT</a>
+                                    <h3 class="service-box-title"><a href="service-single.html">Blocs de toutes
+                                            Mesures</a>
+                                    </h3>
+                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
+                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
+                                    <a class="learn-more d-inline-block" href="service-single.html"
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                </div>
+                            </div>
+                        </div><!-- Service3 end -->
+                    </div><!-- Col 6 end -->
+
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="ts-service-box">
+                            <div class="ts-service-image-wrapper">
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service6.jpg"
+                                    alt="service-image">
+                            </div>
+                            <div class="d-flex">
+                                <div class="ts-service-box-img">
+                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon6.png"
+                                        alt="service-icon">
+                                </div>
+                                <div class="ts-service-info">
+                                    <h3 class="service-box-title"><a href="service-single.html">Hourdis ou Blocs de
+                                            Dalle</a>
+                                    </h3>
+                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
+                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
+                                    <a class="learn-more d-inline-block" href="service-single.html"
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                </div>
+                            </div>
+                        </div><!-- Service3 end -->
+                    </div><!-- Col 6 end -->
+
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="ts-service-box">
+                            <div class="ts-service-image-wrapper">
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service6.jpg"
+                                    alt="service-image">
+                            </div>
+                            <div class="d-flex">
+                                <div class="ts-service-box-img">
+                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon6.png"
+                                        alt="service-icon">
+                                </div>
+                                <div class="ts-service-info">
+                                    <h3 class="service-box-title"><a href="service-single.html">Pave de toutes
+                                            sortes</a>
+                                    </h3>
+                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
+                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
+                                    <a class="learn-more d-inline-block" href="service-single.html"
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                </div>
+                            </div>
+                        </div><!-- Service3 end -->
+                    </div><!-- Col 6 end -->
+
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="ts-service-box">
+                            <div class="ts-service-image-wrapper">
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service6.jpg"
+                                    alt="service-image">
+                            </div>
+                            <div class="d-flex">
+                                <div class="ts-service-box-img">
+                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon6.png"
+                                        alt="service-icon">
+                                </div>
+                                <div class="ts-service-info">
+                                    <h3 class="service-box-title"><a href="service-single.html">Expertise en BTP</a>
                                     </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>

@@ -150,15 +150,15 @@
                                         </li>
                                         <li class="nav-item">
                                             <!-- <a href="services" class="nav-link">Nos Services</a> -->
-                                            <a href="javascript:;" class="nav-link">Nos Services</a>
+                                            <a href="services" class="nav-link">Nos Services</a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CMS -
                                                 SARL <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <!-- <li><a href="about">A propos</a></li> -->
-                                                <li><a href="javascript:;">A propos</a></li>
-                                                <li><a href="javascript:;">Faq</a></li>
+                                                <li><a href="about">A propos</a></li>
+                                                <li><a href="faq">Faq</a></li>
                                                 <!-- <li><a href="faq">Faq</a></li> -->
                                             </ul>
                                         </li>
@@ -174,7 +174,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <!-- <a class="nav-link" href="contact">Contact</a> -->
-                                            <a class="nav-link" href="javascript:;">Contact</a>
+                                            <a class="nav-link" href="contact">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -221,8 +221,8 @@
                                     Construction Industrielle
                                 </h3>
                                 <p data-animation-in="slideInLeft" data-duration-in="1.2">
-                                    <a href="services.html" class="slider btn btn-primary">Nos Services</a>
-                                    <a href="contact.html" class="slider btn btn-primary border">Contactez-nous</a>
+                                    <a href="services" class="slider btn btn-primary">Nos Services</a>
+                                    <a href="contact" class="slider btn btn-primary border">Contactez-nous</a>
                                 </p>
                             </div>
                         </div>

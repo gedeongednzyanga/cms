@@ -1,4 +1,11 @@
 $(function() {
+
+    $('#quantite_liv').on('keyup', function() {
+        $('#quantite_rest').val($('#quatinte_com').val() - $(this).val());
+    });
+
+
+
     $('#refentc').on('change', function() {
         facture = $('#refentc').val();
         $('#facture').val(facture);

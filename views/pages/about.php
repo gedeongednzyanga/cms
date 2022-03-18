@@ -198,7 +198,7 @@
         </header>
         <!--/ Header end -->
         <div id="banner-area" class="banner-area"
-            style="background-image:url(views/pages/assets/images/banner/banner1.jpg)">
+            style="background-image:url(views/pages/assets/images/banner/bnner1.jpg)">
             <div class="banner-text">
                 <div class="container">
                     <div class="row">
@@ -248,7 +248,7 @@
                         <div id="page-slider" class="page-slider small-bg">
 
                             <div class="item"
-                                style="background-image:url(views/pages/assets/images/slider-pages/slide-page1.jpg)">
+                                style="background-image:url(views/pages/assets/images/slider-pages/slide1.jpg)">
                                 <div class="container">
                                     <div class="box-slider-content">
                                         <div class="box-slider-text">
@@ -260,7 +260,7 @@
                             <!-- Item 1 end -->
 
                             <div class="item"
-                                style="background-image:url(views/pages/assets/images/slider-pages/slide-page2.jpg)">
+                                style="background-image:url(views/pages/assets/images/slider-pages/slide3.jpg)">
                                 <div class="container">
                                     <div class="box-slider-content">
                                         <div class="box-slider-text">
@@ -272,7 +272,7 @@
                             <!-- Item 1 end -->
 
                             <div class="item"
-                                style="background-image:url(views/pages/assets/images/slider-pages/slide-page3.jpg)">
+                                style="background-image:url(views/pages/assets/images/slider-pages/slide2.jpg)">
                                 <div class="container">
                                     <div class="box-slider-content">
                                         <div class="box-slider-text">
@@ -308,7 +308,7 @@
                             </div>
                             <div class="ts-facts-content">
                                 <h2 class="ts-facts-num"><span class="counterUp" data-count="1789">0</span></h2>
-                                <h3 class="ts-facts-title">Total Projects</h3>
+                                <h3 class="ts-facts-title">Projets</h3>
                             </div>
                         </div>
                         <!-- Col end -->

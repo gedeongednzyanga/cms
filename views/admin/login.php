@@ -25,7 +25,7 @@ session_destroy();
 <body class="bg-silver-300">
     <div class="content">
         <div class="brand">
-            <a class="link" href="login">CMS</a>
+            <a class="link" href="<?= URL ?>">CMS</a>
         </div>
         <form id="login-form" action="dashboard" method="GET">
             <h2 class="login-title">Connexion</h2>

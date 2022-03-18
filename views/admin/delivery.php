@@ -238,15 +238,15 @@ if (!isset($_SESSION['user']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté Livrée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="montantpaye"
-                                                id="montantpaye" required placeholder="Quantité livrée">
+                                            <input class="form-control" type="number" name="quantite_liv"
+                                                id="quantite_liv" required placeholder="Quantité livrée">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Reste à livrer</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="number" name="reste" id="reste"
-                                                required placeholder="Montant à payer" value="0">
+                                            <input class="form-control" disabled type="number" name="quantite_rest"
+                                                id="quantite_rest" required placeholder="Montant à payer" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
