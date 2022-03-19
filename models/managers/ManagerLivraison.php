@@ -13,7 +13,7 @@ class ManagerLivraison extends Model
                     $object->getExpediteur(),
                     $object->getDestinateur(),
                     $object->getTransporteur(),
-                    $object->setNum_camion(),
+                    $object->getNum_camion(),
                     $object->getPlaque()
                 )
             );
@@ -26,7 +26,15 @@ class ManagerLivraison extends Model
     {
         $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?, ?, ?, ?, ?)');
         $query->execute(
-            array()
+            array(
+                $action,
+                $object->getId_detl(),
+                $object->getQuantite_liv(),
+                $object->getQuantite_rest(),
+                $object->getRef_detcom(),
+                $object->getRef_entl(),
+                $object->getIdprod()
+            )
         );
     }
 }

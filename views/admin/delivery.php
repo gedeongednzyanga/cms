@@ -186,13 +186,11 @@ if (!isset($_SESSION['user']))
                     </div>
                     <div class="ibox-body">
                         <div class="container">
-                            <form id="form-payement" class="row form-horizontal" method="post" novalidate="novalidate">
-                                <div class="col-md-8">
-                                    <input type="hidden" name="action" value="payement" />
-                                    <input type="hidden" name="actionu" value="1" />
+                            <div class="row form-horizontal">
+                                <form id="form-livraison" method="post" novalidate="novalidate" class="col-md-8">
+                                    <input type="hidden" name="action" value="add" />
                                     <input type="hidden" name="refentc" id="jdjd" value="0" />
-                                    <!-- <input type="hidden" name="facture" id="facture" value=""> -->
-                                    <input type="hidden" name="restepaye" id="restepaye" value="0" />
+                                    <input type="hidden" name="quantite_rest" id="quantite_rest" value="0" />
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Client</label>
                                         <div class="col-sm-10">
@@ -220,10 +218,9 @@ if (!isset($_SESSION['user']))
                                         <label class="col-sm-2 col-form-label">Cmnde Client</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" style="width:100%"
-                                                name="iddetcom" id="iddetcom" required>
+                                                name="ref_detcom" id="iddetcom" required>
                                                 <optgroup label="Produits commandés">
-                                                    <option value="434">Data Empty</option>
-                                                    <option value="434">Data OK</option>
+                                                    <option value="434">Pas d'article</option>
                                                 </optgroup>
                                             </select>
                                         </div>
@@ -246,29 +243,47 @@ if (!isset($_SESSION['user']))
                                         <label class="col-sm-2 col-form-label">Reste à livrer</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" disabled type="number" name="quantite_rest"
-                                                id="quantite_rest" required placeholder="Montant à payer" value="0">
+                                                id="quantite_rest1" required placeholder="Qté restante" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
-                                            <button class="btn btn-info" type="submit">Enregistrer</button>
+                                            <button class="btn btn-info" type="submit"><i class="fa fa-check"></i>
+                                                Ajouter au panier</button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                                 <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="col-sm-12 col-form-label">Historique Sortie en stock de <span
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-form-label">Commandes à livrer<span
                                                 class="text-xl-center pull-right">...</span></label>
-                                        <select class="form-control" multiple="" id="historiquecommande"
-                                            style="height:235px">
-                                            <option value="0">Séléctionner un produit</option>
+                                        <select class="form-control" multiple="" id="livraison-list"
+                                            style="height:190px;">
+                                            <?php if (isset($_SESSION['livraison'])) {
+                                                foreach ($_SESSION['livraison'] as $livraison) :
+                                            ?>
+                                            <option value="0">
+                                                <?= $livraison['produit'] . '( ' . $livraison['quantite_liv'] . ' )' ?>
+                                            </option>
+                                            <?php
+                                                endforeach;
+                                            } ?>
                                         </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 ">
+                                            <button class="btn btn-success" id="btn-save-liv"
+                                                type="submit">Enregistrer</button>
+                                            <button class="btn btn-info" data-toggle="modal"
+                                                data-target="#modal-livraison" style="float:right;" type="submit">Autres
+                                                Informations</button>
+                                        </div>
                                     </div>
                                     <div class="div-message" style="height:53px;">
 
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -280,7 +295,7 @@ if (!isset($_SESSION['user']))
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a data-toggle="modal" data-target="#modal-category" class="dropdown-item">Catégorie</a>
-                                <a data-toggle="modal" data-target="#modal-mesure" class="dropdown-item">Mesure</a>
+                                <a class="dropdown-item">Mesure</a>
                             </div>
                         </div>
                     </div>
@@ -348,145 +363,51 @@ if (!isset($_SESSION['user']))
 
                 <!-- MODALS -->
                 <!-- Modal Mesure -->
-                <div class="modal  fade" id="modal-facture">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content ibox invoice">
-                            <div class="invoice-header">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="invoice-logo">
-                                            <img src="views/pages/assets/images/cms.png" height="65px" />
-                                        </div>
-                                        <div>
-                                            <div class="m-b-5 font-bold">Facture de :</div>
-                                            <div class="font-strong">Construction Metal Service</div>
-                                            <ul class="list-unstyled m-t-10">
-                                                <li class="m-b-5">
-                                                    <span class="font-strong">Adresse :</span> Commune de Goma, Quartier
-                                                    Lac Vert, Avenue Kabande, le long de la route Goma-Sake
-                                                </li>
-                                                <li class="m-b-5">
-                                                    <span class="font-strong">E-mail :</span> balufaustin@gmail.com
-                                                </li>
-                                                <li>
-                                                    <span class="font-strong">Phone :</span> (+243) 819 240 025
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 text-right">
-                                        <div class="clf" style="margin-bottom:30px;">
-                                            <dl class="row pull-right" style="width:250px;">
-                                                <dt class="col-sm-6">Facturée le</dt>
-                                                <dd class="col-sm-6" id="datecom">10 April 2017</dd>
-                                                <dt class="col-sm-6">Emise le</dt>
-                                                <dd class="col-sm-6"><?= date('d-m-Y') ?></dd>
-                                                <dt class="col-sm-6">Facture N°</dt>
-                                                <dd class="col-sm-6" id="numfact">1450012</dd>
-                                            </dl>
-                                        </div>
-                                        <div>
-                                            <div class="m-b-5 font-bold">Facturée à :</div>
-                                            <div id="customerid">Emma Johnson</div>
-                                            <ul class="list-unstyled m-t-10">
-                                                <li class="m-b-5">Les marchandises vendues ne sont ni reprises ni
-                                                    échangées.
-                                                </li>
-                                                <li class="m-b-5">Merci d’avoir choisi la Maison C.M.S</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="modal  fade" id="modal-livraison">
+                    <div class="modal-dialog">
+                        <div class="modal-content ibox">
+                            <div class="modal-header ibox-head">
+                                <div class="modal-title ibox-title">Autres Informations</div>
                             </div>
-                            <table class="table table-striped no-margin table-invoice">
-                                <thead>
-                                    <tr>
-                                        <th>Désignation</th>
-                                        <th>Quantité</th>
-                                        <th>Prix Unitaire</th>
-                                        <th class="text-right">Prix Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="invoice-cl">
-                                    <tr>
-                                        <td>
-                                            <div><strong>Flat Design</strong></div><small>
-                                        </td>
-                                        <td>2</td>
-                                        <td>$220.00</td>
-                                        <td>$440.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div><strong>Bootstrap theme</strong></div>
-                                        </td>
-                                        <td>1</td>
-                                        <td>$500.00</td>
-                                        <td>$500.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div><strong>Invoice Design</strong></div>
-                                        </td>
-                                        <td>3</td>
-                                        <td>$300.00</td>
-                                        <td>$900.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table class="table no-border">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th width="15%"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- <tr class="text-right">
-                                        <td>Sous-Total:</td>
-                                        <td>$1840</td>
-                                    </tr>
-                                    <tr class="text-right">
-                                        <td>TAX 5%:</td>
-                                        <td>$92</td>
-                                    </tr> -->
-                                    <tr class="text-right">
-                                        <td class="font-bold font-18">TOTAL A PAYER :</td>
-                                        <td class="font-bold font-18" id="s-total">$1748</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="text-right">
-                                <button class="btn btn-success" type="button" onclick="javascript:window.print();"><i
-                                        class="fa fa-print"></i> Export to Excel</button>
-                                <button class="btn btn-warning" type="button" onclick="javascript:window.print();"><i
-                                        class="fa fa-print"></i> Export to PDF</button>
-                                <button class="btn btn-info" type="button" onclick="javascript:window.print();"><i
-                                        class="fa fa-print"></i> Imprimer</button>
+                            <div class="modal-body ibox-body">
+                                <form id="form-save-livraison">
+                                    <div class="form-group">
+                                        <input type="hidden" name="action" id="action" value="save" />
+                                        <input type="hidden" name="actionu" id="actionu" value="1" />
+                                        <input type="hidden" name="id_entl" id="id_entl" value="0" />
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" id="expediteur" name="expediteur"
+                                                required placeholder="Expéditeur">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" id="destinataire" name="destinateur"
+                                            required placeholder="Destinataire">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" id="transporteur" name="transporteur"
+                                            required placeholder="Transporteur">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" id="num_camion" name="num_camion"
+                                            required placeholder="Numéro camion">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" id="plaque" name="plaque" required
+                                            placeholder="Plaque">
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <button type="submit" id="add-quartier"
+                                            class="btn btn-primary form-control">Enregistrer
+                                        </button>
+                                    </div> -->
+                                </form>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
                             </div>
                         </div>
-
-                        <style>
-                        .invoice {
-                            padding: 20px
-                        }
-
-                        .invoice-header {
-                            margin-bottom: 20px
-                        }
-
-                        .invoice-logo {
-                            margin-bottom: 30px;
-                        }
-
-                        .table-invoice tr td:last-child {
-                            text-align: right;
-                        }
-                        </style>
-
-                        <!-- <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                        </div> -->
+                        <!-- /.modal-content -->
                     </div>
                     <!-- /.modal-content -->
                 </div>

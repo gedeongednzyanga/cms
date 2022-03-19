@@ -1,5 +1,5 @@
 <?php
-class Livraison
+class Livraison extends Product
 {
     //Entete Livraison
 
@@ -18,6 +18,7 @@ class Livraison
     private $quantite_rest;
     private $ref_detcom;
     private $ref_entli;
+    private $ref_entl;
 
     public function __construct(array $data)
     {
@@ -290,6 +291,26 @@ class Livraison
     public function setRef_entli($ref_entli)
     {
         $this->ref_entli = $ref_entli;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ref_entl
+     */
+    public function getRef_entl()
+    {
+        return $this->ref_entl;
+    }
+
+    /**
+     * Set the value of ref_entl
+     *
+     * @return  self
+     */
+    public function setRef_entl($ref_entl)
+    {
+        $this->ref_entl = $ref_entl;
 
         return $this;
     }
