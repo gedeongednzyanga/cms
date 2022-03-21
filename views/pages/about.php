@@ -3,23 +3,12 @@
 
 <head>
 
-    <!-- Basic Page Needs
-================================================== -->
     <meta charset="utf-8">
     <title>CMS - A propos</title>
-
-    <!-- Mobile Specific Metas
-================================================== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Construction Html5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-
-    <!-- Favicon
-================================================== -->
     <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png">
-
-    <!-- CSS
-================================================== -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="views/pages/assets/plugins/bootstrap/bootstrap.min.css">
     <!-- FontAwesome -->
@@ -207,8 +196,8 @@
                                 <h1 class="banner-title">A propos</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                                        <li class="breadcrumb-item"><a href="#">CMS SARL</a></li>
+                                        <li class="breadcrumb-item"><a href="<?= URL ?>">Accueil</a></li>
+                                        <li class="breadcrumb-item"><a href="<?= URL ?>">CMS SARL</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">A propos</li>
                                     </ol>
                                 </nav>
@@ -229,17 +218,15 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <h3 class="column-title">Qui sommes-nous</h3>
-                        <p>when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a
-                            horrible vermin.</p>
+                        <p>Construction Metal Service (CMS) est une société à résponsabilité limité de construction
+                            œuvrant dans la province du Nord-Kivu/Ville de Goma.</p>
                         <blockquote>
-                            <p>Semporibus autem quibusdam et aut officiis debitis aut rerum est aut optio cumque nihil
-                                necessitatibus autemn ec tincidunt nunc posuere ut</p>
+                            <p>Nous considérons nos clients comme des invités, à une fêtes où nous sommes les hôtes.
+                                C'est notre job d'améliorer leur expérience chaque jour. </p>
                         </blockquote>
-                        <p>He lay on his armour-like back, and if he lifted. ultrices ultrices sapien, nec tincidunt
-                            nunc posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. If you are going
-                            to use a passage of Lorem Ipsum, you need to be
-                            sure there isn’t anything embarrassing.</p>
-
+                        <p>Avec plus de 6ans d'expérience dans la construction industrielle, CMS intervient dans le
+                            développement communautaire en offrant ses services de qualité à la population dans la
+                            construction des bâtiments, production de toute sorte de peinture, pave, bloc etc... </p>
                     </div>
                     <!-- Col end -->
 
@@ -307,7 +294,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="1789">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="189">0</span></h2>
                                 <h3 class="ts-facts-title">Projets</h3>
                             </div>
                         </div>
@@ -320,7 +307,7 @@
                             </div>
                             <div class="ts-facts-content">
                                 <h2 class="ts-facts-num"><span class="counterUp" data-count="647">0</span></h2>
-                                <h3 class="ts-facts-title">Staff Members</h3>
+                                <h3 class="ts-facts-title">Membres du Personnel</h3>
                             </div>
                         </div>
                         <!-- Col end -->
@@ -362,8 +349,8 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col-lg-12">
-                        <h2 class="section-title">Quality Service</h2>
-                        <h3 class="section-sub-title">Professional Team</h3>
+                        <h2 class="section-title">Services de Qualité</h2>
+                        <h3 class="section-sub-title">Equipe professionelle</h3>
                     </div>
                 </div>
                 <!--/ Title row end -->
@@ -374,14 +361,16 @@
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team1.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Nats Stenman</h3>
-                                        <p class="ts-designation">Chief Operating Officer</p>
-                                        <p class="ts-description">Nats Stenman began his career in construction with
-                                            boots on the ground</p>
+                                        <h3 class="ts-name">Alexis Buesha</h3>
+                                        <p class="ts-designation">Superviseurr</p>
+                                        <p class="ts-description">
+                                            Nats Stenman began his career in construction with
+                                            boots on the ground
+                                        </p>
                                         <div class="team-social-icons">
                                             <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
@@ -398,17 +387,20 @@
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team2.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Angela Lyouer</h3>
-                                        <p class="ts-designation">Innovation Officer</p>
-                                        <p class="ts-description">Nats Stenman began his career in construction with
-                                            boots on the ground</p>
+                                        <h3 class="ts-name">Alexis Buesha</h3>
+                                        <p class="ts-designation">Superviseurr</p>
+                                        <p class="ts-description">
+                                            Nats Stenman began his career in construction with
+                                            boots on the ground
+                                        </p>
                                         <div class="team-social-icons">
                                             <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
+                                            <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
                                         </div>
                                         <!--/ social-icons-->
@@ -421,15 +413,18 @@
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team3.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Mark Conter</h3>
-                                        <p class="ts-designation">Safety Officer</p>
-                                        <p class="ts-description">Nats Stenman began his career in construction with
-                                            boots on the ground</p>
+                                        <h3 class="ts-name">Alexis Buesha</h3>
+                                        <p class="ts-designation">Superviseurr</p>
+                                        <p class="ts-description">
+                                            Nats Stenman began his career in construction with
+                                            boots on the ground
+                                        </p>
                                         <div class="team-social-icons">
+                                            <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
@@ -444,14 +439,16 @@
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team4.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Ayesha Stewart</h3>
-                                        <p class="ts-designation">Finance Officer</p>
-                                        <p class="ts-description">Nats Stenman began his career in construction with
-                                            boots on the ground</p>
+                                        <h3 class="ts-name">Alexis Buesha</h3>
+                                        <p class="ts-designation">Superviseurr</p>
+                                        <p class="ts-description">
+                                            Nats Stenman began his career in construction with
+                                            boots on the ground
+                                        </p>
                                         <div class="team-social-icons">
                                             <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
@@ -468,15 +465,18 @@
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team5.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Dave Clarkte</h3>
-                                        <p class="ts-designation">Civil Engineer</p>
-                                        <p class="ts-description">Nats Stenman began his career in construction with
-                                            boots on the ground</p>
+                                        <h3 class="ts-name">Alexis Buesha</h3>
+                                        <p class="ts-designation">Superviseurr</p>
+                                        <p class="ts-description">
+                                            Nats Stenman began his career in construction with
+                                            boots on the ground
+                                        </p>
                                         <div class="team-social-icons">
+                                            <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
@@ -491,14 +491,16 @@
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team6.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Elton Joe</h3>
-                                        <p class="ts-designation">Site Supervisor</p>
-                                        <p class="ts-description">Nats Stenman began his career in construction with
-                                            boots on the ground</p>
+                                        <h3 class="ts-name">Alexis Buesha</h3>
+                                        <p class="ts-designation">Superviseurr</p>
+                                        <p class="ts-description">
+                                            Nats Stenman began his career in construction with
+                                            boots on the ground
+                                        </p>
                                         <div class="team-social-icons">
                                             <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
                                             <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
@@ -511,7 +513,6 @@
                                 <!--/ Team wrapper end -->
                             </div>
                             <!-- Team 6 end -->
-
                         </div>
                         <!-- Team slide end -->
                     </div>
