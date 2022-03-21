@@ -127,10 +127,10 @@
                             <span class="nav-label">Messages</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Boîte de reception</a>
+                                <a href="mailbox">Boîte de reception</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="mail_compose">Composer un mail</a>
                             </li>
                         </ul>
                     </li>

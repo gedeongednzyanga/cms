@@ -1,5 +1,7 @@
 <?php
 session_start();
+if (!isset($_SESSION['user']))
+    header("Location:login");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +47,7 @@ session_start();
                         <form class="navbar-search" action="javascript:;">
                             <div class="rel">
                                 <span class="search-icon"><i class="ti-search"></i></span>
-                                <input class="form-control" placeholder="Search here...">
+                                <input class="form-control" placeholder="Rechercher...">
                             </div>
                         </form>
                     </li>
@@ -77,8 +79,8 @@ session_start();
                         <img src="views/admin/assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong"><?=/* $_SESSION['telephone'] */ 'Gedeon Nzyanga' ?></div>
-                        <small>Administrator</small>
+                        <div class="font-strong"><?= $_SESSION['user'] ?></div>
+                        <small><?= $_SESSION['compte'] ?></small>
                     </div>
                 </div>
                 <ul class="side-menu metismenu">
@@ -130,10 +132,10 @@ session_start();
                             <span class="nav-label">Messages</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Boîte de reception</a>
+                                <a href="mailbox">Boîte de reception</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="mailcompose">Composer un mail</a>
                             </li>
                         </ul>
                     </li>
@@ -221,8 +223,8 @@ session_start();
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Carburant cos.</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="carburant" required
-                                                placeholder="Carburant consommé">
+                                            <input class="form-control" type="number" name="carburant" id="carburant"
+                                                required placeholder="Carburant consommé">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -234,8 +236,7 @@ session_start();
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
-                                            <button class="btn btn-info btn-sm" type="submit"><i
-                                                    class="fa fa-search"></i>
+                                            <button class="btn btn-info" type="submit"><i class="fa fa-check"></i>
                                                 Ajouter</button>
                                         </div>
                                     </div>
@@ -255,8 +256,7 @@ session_start();
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10">
-                                            <button class="btn btn-success btn-sm"
-                                                id="save-production">Enregistrer</button>
+                                            <button class="btn btn-success" id="save-production">Enregistrer</button>
                                         </div>
                                     </div>
                                     <div class="div-message" style="height:40px;">

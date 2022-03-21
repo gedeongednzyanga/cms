@@ -10,7 +10,12 @@ $(function() {
 
     $('#form-production').submit(function(e) {
         e.preventDefault();
-        if ($('#quantiteprod').val() != '') {
+        if ($('#quantiteprod').val() == '' || $('#quantiteperd').val() == '' || $('#carburant').val() == '') {
+            $(".div-message").hide();
+            $(".div-message").html("<div class='alert alert-warning'><small>Complètez tous les champs svp.</small></div >").show('slow', 'linear');
+
+        } else {
+
             $.ajax({
                 url: "models/requests/RequestProduction.php",
                 type: "POST",
@@ -26,7 +31,7 @@ $(function() {
                     alert("Echec de la requête sur le serveur.");
                 }
             });
-        } else alert('Champs vide')
+        }
     });
 
     $('#save-production').click(function() {

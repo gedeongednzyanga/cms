@@ -10,7 +10,10 @@ $(function() {
 
     $('#form-purchase').submit(function(e) {
         e.preventDefault();
-        if ($('#quantiteprod').val() != '') {
+        if ($('#quantitecmd').val() == '' || $('#quantiteapp').val() == '' || $('#totachat').val() == '') {
+            $(".div-message").hide();
+            $(".div-message").html("<div class='alert alert-warning'><small>Complètez tous les champs svp.</small></div >").show('slow', 'linear');
+        } else {
             $.ajax({
                 url: "models/requests/RequestPurchase.php",
                 type: "POST",
@@ -26,7 +29,7 @@ $(function() {
                     alert("Echec de la requête sur le serveur.");
                 }
             });
-        } else alert('Champs vide')
+        }
     });
 
     $('#save-purchase').click(function() {

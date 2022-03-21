@@ -1,5 +1,7 @@
 <?php
 session_start();
+if (!isset($_SESSION['user']))
+    header("Location:login");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,8 +79,8 @@ session_start();
                         <img src="views/admin/assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong"><?=/* $_SESSION['telephone'] */ 'Barbuto Coder' ?></div>
-                        <small>Administrator</small>
+                        <div class="font-strong"><?= $_SESSION['user']  ?></div>
+                        <small><?= $_SESSION['compte'] ?></small>
                     </div>
                 </div>
                 <ul class="side-menu metismenu">
@@ -130,10 +132,10 @@ session_start();
                             <span class="nav-label">Messages</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Boîte de reception</a>
+                                <a href="mailbox">Boîte de reception</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="mailcompose">Composer un mail</a>
                             </li>
                         </ul>
                     </li>
@@ -228,8 +230,7 @@ session_start();
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
-                                            <button class="btn btn-info btn-sm" type="submit"><i
-                                                    class="fa fa-check"></i>
+                                            <button class="btn btn-info" type="submit"><i class="fa fa-check"></i>
                                                 Ajouter au panier</button>
                                         </div>
                                     </div>
@@ -242,7 +243,8 @@ session_start();
                                     <div class="form-group">
                                         <label class="col-sm-12 col-form-label">Vente de : <span
                                                 class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['commande'])) ? count($_SESSION['commande']) . ' articles' : 0 ?></span></label>
-                                        <select class="form-control" multiple="" id="lst-commande" style="height:100px">
+                                        <select class="form-control" multiple="" id="lst-commande"
+                                            style="height:100px;">
                                             <?php foreach ($_SESSION['commande'] as $key) : ?>
                                             <option value="<?= $key['refprodc'] ?>">
                                                 <?= $key['designationprod'] . ' (' . $key['quantitecom1'] . ') ' ?>
@@ -252,8 +254,7 @@ session_start();
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10">
-                                            <button class="btn btn-success btn-sm"
-                                                id="save-commande">Enregistrer</button>
+                                            <button class="btn btn-success" id="save-commande">Enregistrer</button>
                                         </div>
                                     </div>
                                     <div class="div-message" style="height:30px;">

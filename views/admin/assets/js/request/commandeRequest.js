@@ -21,7 +21,10 @@ $(function() {
 
     $('#form-commande').submit(function(e) {
         e.preventDefault();
-        if ($('#quantiteprod').val() != '') {
+        if ($('#quantitecom').val() == '') {
+            $(".div-message").hide();
+            $(".div-message").html("<div class='alert alert-warning'><small>Complètez tous les champs svp.</small></div >").show('slow', 'linear');
+        } else {
             $.ajax({
                 url: "models/requests/RequestCommande.php",
                 type: "POST",
@@ -37,11 +40,14 @@ $(function() {
                     alert("Echec de la requête sur le serveur.");
                 }
             });
-        } else alert('Champs vide')
+        }
     });
 
     $('#save-commande').click(function() {
-        if ($('#client').val() != '') {
+        if ($('#client').val() == '') {
+            $(".div-message").hide();
+            $(".div-message").html("<div class='alert alert-warning'><small>Complètez le nom du client.</small></div >").show('slow', 'linear');
+        } else {
             $.ajax({
                 url: "models/requests/RequestCommande.php",
                 type: "POST",
@@ -54,6 +60,6 @@ $(function() {
                     alert("Echec de la requête sur le serveur.");
                 }
             });
-        } else alert('Champs vide')
+        }
     });
 })

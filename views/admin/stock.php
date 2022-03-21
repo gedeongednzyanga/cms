@@ -128,10 +128,10 @@
                             <span class="nav-label">Messages</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Boîte de reception</a>
+                                <a href="mailbox">Boîte de reception</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="mailcompose">Composer un mail</a>
                             </li>
                         </ul>
                     </li>
@@ -220,7 +220,7 @@
                                         <td><?= $product->getPrixprod() . '$' ?></td>
                                         <td
                                             class="alert text-center <?= $product->getQuantitest() < $product->getStalert() ? 'alert-danger' : 'alert-success' ?>">
-                                            <span><?= $product->getQuantitest() < $product->getStalert() ? 'Pénurie Stock' : 'Stock Suffisant' ?></span>
+                                            <span><?= $product->getQuantitest() < $product->getStalert() ? 'Stock Insuffisant' : 'Stock Suffisant' ?></span>
                                         </td>
                                         <td>
                                             <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"

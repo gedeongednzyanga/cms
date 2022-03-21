@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (!isset($_SESSION['user']))
+    header("Location:login");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,8 +79,8 @@
                         <img src="views/admin/assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong"><?=/* $_SESSION['telephone'] */ 'Gedeon Nzyanga' ?></div>
-                        <small>Administrator</small>
+                        <div class="font-strong"><?= $_SESSION['user']  ?></div>
+                        <small><?= $_SESSION['compte']  ?></small>
                     </div>
                 </div>
                 <ul class="side-menu metismenu">
@@ -127,10 +132,10 @@
                             <span class="nav-label">Messages</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Boîte de reception</a>
+                                <a href="mailbox">Boîte de reception</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="mailcompose">Composer un mail</a>
                             </li>
                         </ul>
                     </li>

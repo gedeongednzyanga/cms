@@ -6,7 +6,11 @@ $(function() {
 
     $('#form-payement').submit(function(e) {
         e.preventDefault();
-        if ($('#montantpaye').val() != '') {
+        if ($('#montantpaye').val() == '') {
+            $(".div-message").hide();
+            $(".div-message").html("<div class='alert alert-warning'><small>Complètez le montant payé.</small></div >").show('slow', 'linear');
+
+        } else {
             $.ajax({
                 url: "models/requests/RequestPayement.php",
                 type: "POST",
@@ -23,7 +27,7 @@ $(function() {
                     alert("Echec de la requête sur le serveur.");
                 }
             });
-        } else alert('Champs vide')
+        }
     });
 
 })
