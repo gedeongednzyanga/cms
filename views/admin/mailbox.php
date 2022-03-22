@@ -173,17 +173,21 @@ if (!isset($_SESSION['user']))
             <div class="page-content fade-in-up">
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
-                        <a class="btn btn-info btn-block" href="mail_compose.html"><i class="fa fa-edit"></i>
-                            Compose</a><br>
-                        <h6 class="m-t-10 m-b-10">FOLDERS</h6>
+                        <a class="btn btn-info btn-block" href="mailcompose"><i class="fa fa-edit"></i>
+                            Envoyer un mail</a><br>
+                        <h6 class="m-t-10 m-b-10">Tous les libellés</h6>
                         <ul class="list-group list-group-divider inbox-list">
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-inbox"></i> Inbox (6)
+                                <a href="mailbox"><i class="fa fa-envelope-open-o"></i> Tous les messages
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="javascript:;"><i class="fa fa-envelope-o"></i> Reçus (6)
                                     <span class="badge badge-warning badge-square pull-right">17</span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-envelope-o"></i> Sent</a>
+                                <a href="javascript:;"><i class="fa fa-send-o"></i> Envoyés</a>
                             </li>
                             <li class="list-group-item">
                                 <a href="javascript:;"><i class="fa fa-star-o"></i> Important
@@ -191,14 +195,14 @@ if (!isset($_SESSION['user']))
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-file-text-o"></i> Drafts</a>
+                                <a href="javascript:;"><i class="fa fa-file-text-o"></i> Brouillons</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-trash-o"></i> Trash</a>
+                                <a href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille</a>
                             </li>
                         </ul>
-                        <h6 class="m-t-10 m-b-10">LABELS</h6>
-                        <ul class="list-group list-group-divider inbox-list">
+                        <!-- <h6 class="m-t-10 m-b-10">LABELS</h6> -->
+                        <!-- <ul class="list-group list-group-divider inbox-list">
                             <li class="list-group-item">
                                 <a href="javascript:;"><i class="fa fa-circle-o font-13 text-success"></i> Support</a>
                             </li>
@@ -214,19 +218,20 @@ if (!isset($_SESSION['user']))
                             <li class="list-group-item">
                                 <a href="javascript:;"><i class="fa fa-circle-o font-13 text-muted"></i> Social</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="col-lg-9 col-md-8">
                         <div class="ibox" id="mailbox-container">
                             <div class="mailbox-header">
                                 <div class="d-flex justify-content-between">
-                                    <h5 class="d-none d-lg-block inbox-title"><i class="fa fa-envelope-o m-r-5"></i>
-                                        Inbox (15)</h5>
+                                    <h5 class="d-none d-lg-block inbox-title"><i
+                                            class="fa fa-envelope-open-o m-r-5"></i>
+                                        Tous les messages (15)</h5>
                                     <form class="mail-search" action="javascript:;">
                                         <div class="input-group">
-                                            <input class="form-control" type="text" placeholder="Search email">
+                                            <input class="form-control" type="text" placeholder="Rechercher un mail...">
                                             <div class="input-group-btn">
-                                                <button class="btn btn-info">Search</button>
+                                                <button class="btn btn-info">Rechercher</button>
                                             </div>
                                         </div>
                                     </form>
@@ -264,6 +269,26 @@ if (!isset($_SESSION['user']))
                             <div class="mailbox clf">
                                 <table class="table table-hover table-inbox" id="table-inbox">
                                     <tbody class="rowlinkx" data-link="row">
+                                        <?php foreach ($messages as $message) : ?>
+                                        <tr class="unread" data-id="2">
+                                            <td class="check-cell">
+                                                <label class="ui-checkbox ui-checkbox-info">
+                                                    <input class="mail-check" type="checkbox">
+                                                    <span class="input-span"></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <a
+                                                    href="mailview-<?= $message->getIdmsg() ?>"><?= $message->getSender() ?></a>
+                                            </td>
+                                            <td class="mail-message"><?= $message->getSujet() ?></td>
+                                            <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
+                                            <td class="mail-label hidden-xs"><i class="fa fa-circle text-warning"></i>
+                                            </td>
+                                            <td class="text-right"><?= cal_time_ago($message->getDatemsg())  ?></td>
+                                        </tr>
+                                        <?php endforeach; ?>
+
                                         <tr data-id="1">
                                             <td class="check-cell rowlink-skip">
                                                 <label class="ui-checkbox ui-checkbox-info check-single">

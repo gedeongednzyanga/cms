@@ -173,17 +173,21 @@ if (!isset($_SESSION['user']))
             <div class="page-content fade-in-up">
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
-                        <a class="btn btn-info btn-block" href="mail_compose.html"><i class="fa fa-edit"></i>
-                            Compose</a><br>
-                        <h6 class="m-t-10 m-b-10">FOLDERS</h6>
+                        <a class="btn btn-info btn-block" href="mailcompose"><i class="fa fa-edit"></i>
+                            Envoyer un mail</a><br>
+                        <h6 class="m-t-10 m-b-10">Tous les libellés</h6>
                         <ul class="list-group list-group-divider inbox-list">
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-inbox"></i> Inbox (6)
+                                <a href="mailbox"><i class="fa fa-envelope-open-o"></i> Tous les messages
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="javascript:;"><i class="fa fa-envelope-o"></i> Reçus (6)
                                     <span class="badge badge-warning badge-square pull-right">17</span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-envelope-o"></i> Sent</a>
+                                <a href="javascript:;"><i class="fa fa-send-o"></i> Envoyés</a>
                             </li>
                             <li class="list-group-item">
                                 <a href="javascript:;"><i class="fa fa-star-o"></i> Important
@@ -191,14 +195,14 @@ if (!isset($_SESSION['user']))
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-file-text-o"></i> Drafts</a>
+                                <a href="javascript:;"><i class="fa fa-file-text-o"></i> Brouillons</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-trash-o"></i> Trash</a>
+                                <a href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille</a>
                             </li>
                         </ul>
-                        <h6 class="m-t-10 m-b-10">LABELS</h6>
-                        <ul class="list-group list-group-divider inbox-list">
+                        <!-- <h6 class="m-t-10 m-b-10">LABELS</h6> -->
+                        <!-- <ul class="list-group list-group-divider inbox-list">
                             <li class="list-group-item">
                                 <a href="javascript:;"><i class="fa fa-circle-o font-13 text-success"></i> Support</a>
                             </li>
@@ -214,19 +218,23 @@ if (!isset($_SESSION['user']))
                             <li class="list-group-item">
                                 <a href="javascript:;"><i class="fa fa-circle-o font-13 text-muted"></i> Social</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="col-lg-9 col-md-8">
+                        <?php
+                        $managerMessage = new ManagerMessage();
+                        foreach ($managerMessage->getOneMessage($_GET['number']) as $message) :
+                        ?>
                         <div class="ibox" id="mailbox-container">
                             <div class="mailbox-header d-flex justify-content-between"
                                 style="border-bottom: 1px solid #e8e8e8;">
                                 <div>
-                                    <h5 class="inbox-title">Save your time. Choose the best.</h5>
+                                    <h5 class="inbox-title"><?= $message->getSujet() ?></h5>
                                     <div class="m-t-5 font-13">
-                                        <span class="font-strong">Olivia Smith</span>
-                                        <a class="text-muted m-l-5" href="javascript:;">olivia.smith@gmail.com</a>
+                                        <span class="font-strong"><?= $message->getSender() ?></span>
+                                        <a class="text-muted m-l-5" href="javascript:;"><?= $message->getEmails() ?></a>
                                     </div>
-                                    <div class="p-r-10 font-13">Mar 26</div>
+                                    <div class="p-r-10 font-13"><?= $message->getDatemsg() ?></div>
                                 </div>
                                 <div class="inbox-toolbar m-l-20">
                                     <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip"
@@ -240,22 +248,9 @@ if (!isset($_SESSION['user']))
                                 </div>
                             </div>
                             <div class="mailbox-body">
-                                <p>Hello admin. Can you help me?</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to
-                                    make a type specimen book. <strong>It has survived</strong> not only five centuries.
-                                </p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley</p>
-                                <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-                                    1500s, when an unknown printer took a galley of type and
-                                    scrambled it to make a type specimen book. It has survived not only five centuries.
-                                </p>
+                                <p><?= $message->getMessage() ?></p>
                             </div>
-                            <div class="mailbox-body">
+                            <!-- <div class="mailbox-body">
                                 <div class="d-flex justify-content-between m-b-10">
                                     <span class="font-strong"><i class="fa fa-paperclip"></i> 3 attachments</span>
                                     <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip"
@@ -296,8 +291,9 @@ if (!isset($_SESSION['user']))
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>

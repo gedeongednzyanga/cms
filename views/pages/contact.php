@@ -298,29 +298,33 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3 class="column-title">Laissez-nous votre message</h3>
-                        <!-- contact form works with formspree.io  -->
-                        <!-- contact form activation doc: https://docs.themefisher.com/constra/contact-form/ -->
                         <form id="contact-form" action="#" method="post" role="form">
                             <div class="error-container"></div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Nom complet</label>
-                                        <input class="form-control form-control-name" name="name" id="name"
+                                        <input type="hidden" name="action" value="send">
+                                        <input type="hidden" name="actionu" value="1">
+                                        <input type="hidden" name="idmsg" value="0">
+                                        <input type="hidden" name="receiver" value="CMS SARL">
+                                        <input type="hidden" name="typemsg" value="sent">
+                                        <input type="hidden" name="statutmsg" value="0">
+                                        <input class="form-control form-control-name" name="sender" id="sender"
                                             placeholder="Ex : Barbuto Coder" type="text" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>E-mail</label>
-                                        <input class="form-control form-control-email" name="email" id="email"
+                                        <input class="form-control form-control-email" name="emails" id="emails"
                                             placeholder="Ex : barbutocoder@gmail.com" type="email" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Sujet</label>
-                                        <input class="form-control form-control-subject" name="subject" id="subject"
+                                        <input class="form-control form-control-subject" name="sujet" id="sujet"
                                             placeholder="Ex : Sujet" required>
                                     </div>
                                 </div>
@@ -331,6 +335,7 @@
                                     placeholder="Tapez votre texte ici..." rows="10" required></textarea>
                             </div>
                             <div class="text-right"><br>
+                                <span class="error-message" style="margin-right:20px;"></span>
                                 <button class="btn btn-primary solid blank" type="submit">Envoyer Message</button>
                             </div>
                         </form>

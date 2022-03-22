@@ -1,7 +1,7 @@
 <?php
 class Message
 {
-    private $idmsg, $sender, $receiver, $emails, $sujet, $message, $typemsg, $statutmsg;
+    private $idmsg, $sender, $receiver, $emails, $sujet, $message, $typemsg, $statutmsg, $datemsg;
 
     public function __construct(array $data)
     {
@@ -174,6 +174,26 @@ class Message
     public function setStatutmsg($statutmsg)
     {
         $this->statutmsg = $statutmsg;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of datemsg
+     */
+    public function getDatemsg()
+    {
+        return $this->datemsg;
+    }
+
+    /**
+     * Set the value of datemsg
+     *
+     * @return  self
+     */
+    public function setDatemsg($datemsg)
+    {
+        $this->datemsg = $datemsg;
 
         return $this;
     }
