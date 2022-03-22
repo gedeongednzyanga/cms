@@ -479,6 +479,7 @@
 
         <!-- Template custom -->
         <script src="views/pages/assets/js/script.js"></script>
+        <script src="views/pages/assets/js/requests/contactRequest.js"></script>
 
     </div>
     <!-- Body inner end -->
