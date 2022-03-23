@@ -306,9 +306,12 @@ if (!isset($_SESSION['user']))
                                             class="alert text-center <?= $commande->getStatcom() == 0 ? 'alert-danger' : 'alert-success' ?>">
                                             <?= $commande->getStatcom() == 0 ? 'Non payéé' : 'Payé' ?></td>
                                         <td>
-                                            <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
-                                                data-toggle="modal" data-target="#modal-facture">Facture client <i
+                                            <a href="invoice" class="btn btn-success btn-xs m-r-5"
+                                                data-original-title="Voir plus">Facture client <i
                                                     class="fa fa-eye font-14"></i></a>
+                                            <!-- <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
+                                                data-toggle="modal" data-target="#modal-facture">Facture client <i
+                                                    class="fa fa-eye font-14"></i></a> -->
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
