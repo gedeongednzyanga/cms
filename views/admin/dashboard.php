@@ -140,7 +140,7 @@ if (!isset($_SESSION['user']))
                         </ul>
                     </li>
                     <li>
-                        <a href="operations"><i class="sidebar-item-icon fa fa-info"></i>
+                        <a href="publish"><i class="sidebar-item-icon fa fa-info"></i>
                             <span class="nav-label">Informations</span></a>
                     </li>
                     <li class="heading">CONFIGURATIONS</li>
@@ -169,6 +169,7 @@ if (!isset($_SESSION['user']))
                             <div class="ibox-body">
                                 <h2 class="m-b-5 font-strong"> <?= count($productions) ?></h2>
                                 <div class="m-b-5">PRODUCTION</div><i class="ti-shopping-cart widget-stat-icon"></i>
+                                <div><i class="fa fa-level-up m-r-5"></i><small>22% higher</small></div>
                             </div>
                         </div>
                     </div>
@@ -177,7 +178,7 @@ if (!isset($_SESSION['user']))
                             <div class="ibox-body">
                                 <h2 class="m-b-5 font-strong"><?= count($commandes) ?></h2>
                                 <div class="m-b-5">COMMANDES</div><i class="ti-bar-chart widget-stat-icon"></i>
-                                <!-- <div><i class="fa fa-level-up m-r-5"></i><small>17% higher</small></div> -->
+                                <div><i class="fa fa-level-up m-r-5"></i><small>17% higher</small></div>
                             </div>
                         </div>
                     </div>
@@ -188,7 +189,7 @@ if (!isset($_SESSION['user']))
                                 ?>
                                 <h2 class="m-b-5 font-strong">$<?= /*round($modelVente->sumVente(), 2)*/ 23  ?></h2>
                                 <div class="m-b-5">ACHAT</div><i class="fa fa-money widget-stat-icon"></i>
-                                <!-- <div><i class="fa fa-level-up m-r-5"></i><small>22% higher</small></div> -->
+                                <div><i class="fa fa-level-up m-r-5"></i><small>22% higher</small></div>
                             </div>
                         </div>
                     </div>
@@ -197,7 +198,7 @@ if (!isset($_SESSION['user']))
                             <div class="ibox-body">
                                 <h2 class="m-b-5 font-strong"><?= /*count($succursales)*/ 490 ?></h2>
                                 <div class="m-b-5">USERS</div><i class="ti-user widget-stat-icon"></i>
-                                <!-- <div><i class="fa fa-level-down m-r-5"></i><small>-12% Lower</small></div> -->
+                                <div><i class="fa fa-level-down m-r-5"></i><small>-12% Lower</small></div>
                             </div>
                         </div>
                     </div>

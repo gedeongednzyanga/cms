@@ -10,7 +10,7 @@ if (!isset($_SESSION['user']))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>CMS - Mail View</title>
+    <title>CMS - Information</title>
 
     <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
     <!-- GLOBAL MAINLY STYLES-->
@@ -18,6 +18,7 @@ if (!isset($_SESSION['user']))
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
+    <link href="views/admin/assets/vendors/summernote/dist/summernote.css" rel="stylesheet" />
     <!-- THEME STYLES-->
     <link href="views/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
@@ -131,15 +132,15 @@ if (!isset($_SESSION['user']))
                             <span class="nav-label">Messages</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a class="active" href="mailbox">Boîte de reception</a>
+                                <a href="mailbox">Boîte de reception</a>
                             </li>
                             <li>
-                                <a href="mailcompose">Composer un mail</a>
+                                <a class="active" href="mailcompose">Composer un mail</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="publish"><i class="sidebar-item-icon fa fa-info"></i>
+                        <a href="operations"><i class="sidebar-item-icon fa fa-info"></i>
                             <span class="nav-label">Informations</span></a>
                     </li>
                     <li class="heading">CONFIGURATIONS</li>
@@ -148,10 +149,10 @@ if (!isset($_SESSION['user']))
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox">Utilisateurs</a>
+                                <a href="mailbox.html">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mailcompose">Composer un mail</a>
+                                <a href="mail_compose.html">Composer un mail</a>
                             </li>
                         </ul>
                     </li>
@@ -162,12 +163,12 @@ if (!isset($_SESSION['user']))
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title">Mail View</h1>
+                <h1 class="page-title">Ecrire un mail</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html"><i class="la la-home font-20"></i></a>
                     </li>
-                    <li class="breadcrumb-item">Mail View</li>
+                    <li class="breadcrumb-item">Envoyer un mail</li>
                 </ol>
             </div>
             <div class="page-content fade-in-up">
@@ -221,80 +222,40 @@ if (!isset($_SESSION['user']))
                         </ul> -->
                     </div>
                     <div class="col-lg-9 col-md-8">
-                        <?php
-                        $managerMessage = new ManagerMessage();
-                        foreach ($managerMessage->getOneMessage($_GET['number']) as $message) :
-                            $message->getStatutmsg() == 0 ? $managerMessage->changeMsgStatus(1, $_GET['number']) : $managerMessage->changeMsgStatus(0, $_GET['number']);
-                        ?>
                         <div class="ibox" id="mailbox-container">
-                            <div class="mailbox-header d-flex justify-content-between"
-                                style="border-bottom: 1px solid #e8e8e8;">
-                                <div>
-                                    <h5 class="inbox-title"><?= $message->getSujet() ?></h5>
-                                    <div class="m-t-5 font-13">
-                                        <span class="font-strong"><?= $message->getSender() ?></span>
-                                        <a class="text-muted m-l-5" href="javascript:;"><?= $message->getEmails() ?></a>
-                                    </div>
-                                    <div class="p-r-10 font-13"><?= $message->getDatemsg() ?></div>
-                                </div>
+                            <div class="mailbox-header d-flex justify-content-between">
+                                <h5 class="inbox-title">Envoyer un mail</h5>
                                 <div class="inbox-toolbar m-l-20">
                                     <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip"
                                         data-original-title="Reply"><i class="fa fa-reply"></i></button>
-                                    <button class="btn btn-default btn-sm" data-toggle="tooltip"
+                                    <button class="btn btn-default btn-sm" data-action="delete" data-toggle="tooltip"
                                         data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
-                                    <button class="btn btn-default btn-sm" data-toggle="tooltip"
-                                        data-original-title="Mark as important"><i class="fa fa-star-o"></i></button>
-                                    <button class="btn btn-default btn-sm" data-toggle="tooltip"
-                                        data-original-title="Reply"><i class="fa fa-print"></i></button>
                                 </div>
                             </div>
                             <div class="mailbox-body">
-                                <p><?= $message->getMessage() ?></p>
+                                <form class="form-horizontal" action="javascript:void(0)" method="POST"
+                                    if="compose_form">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 control-label">A :</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="to" value="example@gmail.com">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 control-label">Sujet :</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="subject">
+                                        </div>
+                                    </div>
+                                    <textarea id="summernote" name="message">
+                                        <h4>Thank you for your attention</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur velit, corporis iste. Dolorem sapiente at, quibusdam fuga ea voluptatem iste. Cupiditate dignissimos, iure impedit, perferendis in beatae fuga
+                                            voluptate, sapiente pariatur, libero ab odit. Placeat saepe sunt ipsam laboriosam temporibus nostrum ea optio, dolore soluta.</p>
+                                    </textarea>
+                                    <input class="btn btn-info m-t-20" type="submit">
+                                </form>
                             </div>
-                            <!-- <div class="mailbox-body">
-                                <div class="d-flex justify-content-between m-b-10">
-                                    <span class="font-strong"><i class="fa fa-paperclip"></i> 3 attachments</span>
-                                    <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip"
-                                        data-original-title="Download all"><i class="fa fa-download"></i></button>
-                                </div>
-                                <div class="mail-attachments d-flex">
-                                    <div class="card">
-                                        <div>
-                                            <img class="card-img-top file-image"
-                                                src="views/admin/assets/img/file.png" />
-                                        </div>
-                                        <div class="card-body">
-                                            <span>storm.jpg</span>
-                                            <a class="btn btn-default btn-xs float-right" href="javascript:;"><i
-                                                    class="fa fa-download"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div>
-                                            <img class="card-img-top file-image"
-                                                src="views/admin/assets/img/file.png" />
-                                        </div>
-                                        <div class="card-body">
-                                            <span>horse.jpg</span>
-                                            <a class="btn btn-default btn-xs float-right" href="javascript:;"><i
-                                                    class="fa fa-download"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="text-center">
-                                            <img class="card-img-top file-image" src="views/admin/assets/img/file.png"
-                                                height="160px" />
-                                        </div>
-                                        <div class="card-body">
-                                            <span>document.txt</span>
-                                            <a class="btn btn-default btn-xs float-right" href="javascript:;"><i
-                                                    class="fa fa-download"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
-                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -323,9 +284,18 @@ if (!isset($_SESSION['user']))
     <script src="views/admin/assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
+    <script src="views/admin/assets/vendors/summernote/dist/summernote.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
+    <script type="text/javascript">
+    $(function() {
+        $('#summernote').summernote();
+        $('.note-popover').css({
+            'display': 'none'
+        });
+    })
+    </script>
 </body>
 
 </html>

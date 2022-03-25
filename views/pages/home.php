@@ -169,7 +169,7 @@
                                         <li class="nav-item">
                                             <!-- <a href="news" class="nav-link">News
                                             </a> -->
-                                            <a href="javascript:;" class="nav-link">News
+                                            <a href="news" class="nav-link">News
                                             </a>
                                         </li>
                                         <li class="nav-item">

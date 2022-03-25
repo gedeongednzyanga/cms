@@ -140,7 +140,7 @@ if (!isset($_SESSION['user']))
                         </ul>
                     </li>
                     <li>
-                        <a href="operations"><i class="sidebar-item-icon fa fa-info"></i>
+                        <a href="publish"><i class="sidebar-item-icon fa fa-info"></i>
                             <span class="nav-label">Informations</span></a>
                     </li>
                     <li class="heading">CONFIGURATIONS</li>
@@ -549,8 +549,7 @@ if (!isset($_SESSION['user']))
             document.getElementById("s-total").innerHTML = this.cells[4].innerHTML + '$';
             document.getElementById("montant").value = this.cells[4].innerText;
             document.getElementById("tva").innerHTML = (this.cells[4].innerText * 0.05);
-            document.getElementById("total-p").innerHTML = (this.cells[4].innerText * 0.05) + this
-                .cells[4].innerText;
+            document.getElementById("total-p").innerHTML = this.cells[4].innerText;
         }
     }
 

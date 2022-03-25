@@ -140,7 +140,7 @@ if (!isset($_SESSION['user']))
                         </ul>
                     </li>
                     <li>
-                        <a href="operations"><i class="sidebar-item-icon fa fa-info"></i>
+                        <a href="publish"><i class="sidebar-item-icon fa fa-info"></i>
                             <span class="nav-label">Informations</span></a>
                     </li>
                     <li class="heading">CONFIGURATIONS</li>

@@ -85,7 +85,7 @@
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                                 <a class="d-block" href="index.html">
-                                    <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="Constra" />
+                                    <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="CMS" />
                                 </a>
                             </div>
                             <!-- logo end -->
@@ -200,7 +200,7 @@
         </header>
         <!--/ Header end -->
         <div id="banner-area" class="banner-area"
-            style="background-image:url(views/pages/assets/images/banner/banner1.jpg)">
+            style="background-image:url(views/pages/assets/images/banner/bnner1.jpg)">
             <div class="banner-text">
                 <div class="container">
                     <div class="row">
