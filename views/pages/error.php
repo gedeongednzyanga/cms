@@ -11,9 +11,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>CMS | Error page</title>
+    <title>CMS - Error page</title>
     <!-- INCONS -->
-    <link href="views/admin/assets/img/logos/yarazak.jpg" rel="icon">
+    <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
     <!-- GLOBAL MAINLY STYLES-->
     <link href="views/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->

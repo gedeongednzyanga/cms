@@ -179,6 +179,7 @@ if (!isset($_SESSION['user']))
                         <ul class="list-group list-group-divider inbox-list">
                             <li class="list-group-item">
                                 <a href="mailbox"><i class="fa fa-envelope-open-o"></i> Tous les messages
+                                    <span class="badge badge-default badge-square pull-right">17</span>
                                 </a>
                             </li>
                             <li class="list-group-item">
@@ -270,7 +271,7 @@ if (!isset($_SESSION['user']))
                                 <table class="table table-hover table-inbox" id="table-inbox">
                                     <tbody class="rowlinkx" data-link="row">
                                         <?php foreach ($messages as $message) : ?>
-                                        <tr class="unread" data-id="2">
+                                        <tr class="<?= $message->getStatutmsg() == 0 ? "unread" : "" ?>" data-id="2">
                                             <td class="check-cell">
                                                 <label class="ui-checkbox ui-checkbox-info">
                                                     <input class="mail-check" type="checkbox">
@@ -282,30 +283,16 @@ if (!isset($_SESSION['user']))
                                                     href="mailview-<?= $message->getIdmsg() ?>"><?= $message->getSender() ?></a>
                                             </td>
                                             <td class="mail-message"><?= $message->getSujet() ?></td>
-                                            <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                            <td class="mail-label hidden-xs"><i class="fa fa-circle text-warning"></i>
+                                            <!-- <td class="hidden-xs"><i class="fa fa-paperclip"></i></td> -->
+                                            <td class="mail-label hidden-xs"><i
+                                                    class="fa <?= $message->getStatutmsg() == 0 ? "fa-circle text-warning" : "" ?> "></i>
                                             </td>
                                             <td class="text-right"><?= cal_time_ago($message->getDatemsg())  ?></td>
                                         </tr>
                                         <?php endforeach; ?>
 
-                                        <tr data-id="1">
-                                            <td class="check-cell rowlink-skip">
-                                                <label class="ui-checkbox ui-checkbox-info check-single">
-                                                    <input class="mail-check" type="checkbox">
-                                                    <span class="input-span"></span>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <a href="mailview">Emma Johnson</a>
-                                            </td>
-                                            <td class="mail-message">Fusce suscipit semper erat, vel solo.</td>
-                                            <td class="hidden-xs"></td>
-                                            <td class="mail-label hidden-xs"><i class="fa fa-circle text-success"></i>
-                                            </td>
-                                            <td class="text-right">5.22 AM</td>
-                                        </tr>
-                                        <tr class="unread" data-id="2">
+
+                                        <!-- <tr class="unread" data-id="2">
                                             <td class="check-cell">
                                                 <label class="ui-checkbox ui-checkbox-info">
                                                     <input class="mail-check" type="checkbox">
@@ -320,86 +307,8 @@ if (!isset($_SESSION['user']))
                                             <td class="mail-label hidden-xs"><i class="fa fa-circle text-warning"></i>
                                             </td>
                                             <td class="text-right">4.10 AM</td>
-                                        </tr>
-                                        <tr class="unread" data-id="3">
-                                            <td class="check-cell">
-                                                <label class="ui-checkbox ui-checkbox-info">
-                                                    <input class="mail-check" type="checkbox">
-                                                    <span class="input-span"></span>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <a href="mailview">Noah Williams</a>
-                                            </td>
-                                            <td class="mail-message">Neque porro quisquam est qui dolorem ipsum quia
-                                            </td>
-                                            <td class="hidden-xs"></td>
-                                            <td class="mail-label hidden-xs"></td>
-                                            <td class="text-right">1.20 AM</td>
-                                        </tr>
-                                        <tr data-id="4">
-                                            <td class="check-cell">
-                                                <label class="ui-checkbox ui-checkbox-info">
-                                                    <input class="mail-check" type="checkbox">
-                                                    <span class="input-span"></span>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <a href="mailview">Sophia Jones</a>
-                                            </td>
-                                            <td class="mail-message">Lorem ipsum dolor sit.</td>
-                                            <td class="hidden-xs"></td>
-                                            <td class="mail-label hidden-xs"></td>
-                                            <td class="text-right">Jan 10</td>
-                                        </tr>
-                                        <tr data-id="5">
-                                            <td class="check-cell">
-                                                <label class="ui-checkbox ui-checkbox-info">
-                                                    <input class="mail-check" type="checkbox">
-                                                    <span class="input-span"></span>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <a href="mailview">Jacob Brown</a>
-                                            </td>
-                                            <td class="mail-message">Nam vitae magna sollicitudin, fringilla neque sit.
-                                            </td>
-                                            <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                            <td class="mail-label hidden-xs"></td>
-                                            <td class="text-right">Dec 18</td>
-                                        </tr>
-                                        <tr data-id="6">
-                                            <td class="check-cell">
-                                                <label class="ui-checkbox ui-checkbox-info">
-                                                    <input class="mail-check" type="checkbox">
-                                                    <span class="input-span"></span>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <a href="mailview">James Davis</a>
-                                            </td>
-                                            <td class="mail-message">Donec eget diam quis lectus auctor.</td>
-                                            <td class="hidden-xs"></td>
-                                            <td class="mail-label hidden-xs"></td>
-                                            <td class="text-right">Dec 12</td>
-                                        </tr>
-                                        <tr class="unread" data-id="2">
-                                            <td class="check-cell">
-                                                <label class="ui-checkbox ui-checkbox-info">
-                                                    <input class="mail-check" type="checkbox">
-                                                    <span class="input-span"></span>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <a href="mailview">Olivia Smith</a>
-                                            </td>
-                                            <td class="mail-message">Mauris in sem at quam elementum sagittis vel.</td>
-                                            <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                            <td class="mail-label hidden-xs"><i class="fa fa-circle text-warning"></i>
-                                            </td>
-                                            <td class="text-right">4.10 AM</td>
-                                        </tr>
-                                        <tr data-id="7">
+                                        </tr> -->
+                                        <!-- <tr data-id="7">
                                             <td class="check-cell">
                                                 <label class="ui-checkbox ui-checkbox-info">
                                                     <input class="mail-check" type="checkbox">
@@ -446,9 +355,9 @@ if (!isset($_SESSION['user']))
                                             <td class="hidden-xs"></td>
                                             <td class="mail-label hidden-xs"></td>
                                             <td class="text-right">July 8</td>
-                                        </tr>
-                                        <tr data-id="10">
-                                            <td class="check-cell">
+                                        </tr> -->
+                                        <!-- <tr data-id="10"> -->
+                                        <!-- <td class="check-cell">
                                                 <label class="ui-checkbox ui-checkbox-info">
                                                     <input class="mail-check" type="checkbox">
                                                     <span class="input-span"></span>
@@ -462,8 +371,8 @@ if (!isset($_SESSION['user']))
                                             <td class="hidden-xs"></td>
                                             <td class="mail-label hidden-xs"></td>
                                             <td class="text-right">July 6</td>
-                                        </tr>
-                                        <tr data-id="11">
+                                        </tr> -->
+                                        <!-- <tr data-id="11">
                                             <td class="check-cell">
                                                 <label class="ui-checkbox ui-checkbox-info">
                                                     <input class="mail-check" type="checkbox">
@@ -541,7 +450,7 @@ if (!isset($_SESSION['user']))
                                             <td class="hidden-xs"></td>
                                             <td class="mail-label hidden-xs"></td>
                                             <td class="text-right">April 25</td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                                 <ul class="pagination justify-content-end m-t-0 m-r-10">

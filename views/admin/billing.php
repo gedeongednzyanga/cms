@@ -306,12 +306,12 @@ if (!isset($_SESSION['user']))
                                             class="alert text-center <?= $commande->getStatcom() == 0 ? 'alert-danger' : 'alert-success' ?>">
                                             <?= $commande->getStatcom() == 0 ? 'Non payéé' : 'Payé' ?></td>
                                         <td>
-                                            <a href="invoice" class="btn btn-success btn-xs m-r-5"
+                                            <!-- <a href="invoice" class="btn btn-success btn-xs m-r-5"
                                                 data-original-title="Voir plus">Facture client <i
-                                                    class="fa fa-eye font-14"></i></a>
-                                            <!-- <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
-                                                data-toggle="modal" data-target="#modal-facture">Facture client <i
                                                     class="fa fa-eye font-14"></i></a> -->
+                                            <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
+                                                data-toggle="modal" data-target="#modal-facture">Facture client <i
+                                                    class="fa fa-eye font-14"></i></a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
@@ -334,13 +334,14 @@ if (!isset($_SESSION['user']))
                         <div class="modal-content ibox invoice">
                             <div class="invoice-header">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-6 text-left">
                                         <div class="invoice-logo">
-                                            <img src="views/pages/assets/images/cms.png" height="65px" />
+                                            <!-- <img src="views/pages/assets/images/cms.png" height="65px" /> -->
+                                            <h1 style="font-size:70px; font-weight:bold; color: #3498DB;">Facture </h1>
                                         </div>
                                         <div>
-                                            <div class="m-b-5 font-bold">Facture de :</div>
-                                            <div class="font-strong">Construction Metal Service</div>
+                                            <div class="font-strong" style="font-size:25px; font-weight:bold;">
+                                                Construction Metal Service</div>
                                             <ul class="list-unstyled m-t-10">
                                                 <li class="m-b-5">
                                                     <span class="font-strong">Adresse :</span> Commune de Goma, Quartier
@@ -356,7 +357,7 @@ if (!isset($_SESSION['user']))
                                         </div>
                                     </div>
                                     <div class="col-6 text-right">
-                                        <div class="clf" style="margin-bottom:30px;">
+                                        <div class="clf">
                                             <dl class="row pull-right" style="width:250px;">
                                                 <dt class="col-sm-6">Facturée le</dt>
                                                 <dd class="col-sm-6" id="datecom">10 April 2017</dd>
@@ -366,9 +367,11 @@ if (!isset($_SESSION['user']))
                                                 <dd class="col-sm-6" id="numfact">1450012</dd>
                                             </dl>
                                         </div>
+                                        <hr>
                                         <div>
-                                            <div class="m-b-5 font-bold">Facturée à :</div>
-                                            <div id="customerid">Emma Johnson</div>
+                                            <div class="m-b-5 font-bold" style="font-size:20px; font-weight:bold;">
+                                                Facturée à </div>
+                                            <div id="customerid" style="font-size:30px;">Emma Johnson</div>
                                             <ul class="list-unstyled m-t-10">
                                                 <li class="m-b-5">Les marchandises vendues ne sont ni reprises ni
                                                     échangées.
@@ -423,27 +426,26 @@ if (!isset($_SESSION['user']))
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- <tr class="text-right">
+                                    <tr class="text-right">
                                         <td>Sous-Total:</td>
-                                        <td>$1840</td>
+                                        <td id="s-total">$1840</td>
                                     </tr>
                                     <tr class="text-right">
                                         <td>TAX 5%:</td>
-                                        <td>$92</td>
-                                    </tr> -->
+                                        <td id="tva">$92</td>
+                                    </tr>
                                     <tr class="text-right">
                                         <td class="font-bold font-18">TOTAL A PAYER :</td>
-                                        <td class="font-bold font-18" id="s-total">$1748</td>
+                                        <td class="font-bold font-18" id="total-p">$1748</td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="text-right">
-                                <button class="btn btn-success" type="button" onclick="javascript:window.print();"><i
+                                <!-- <button class="btn btn-success" type="button" onclick="javascript:window.print();"><i
                                         class="fa fa-print"></i> Export to Excel</button>
                                 <button class="btn btn-warning" type="button" onclick="javascript:window.print();"><i
-                                        class="fa fa-print"></i> Export to PDF</button>
-                                <button class="btn btn-info" type="button" onclick="javascript:window.print();"><i
-                                        class="fa fa-print"></i> Imprimer</button>
+                                        class="fa fa-print"></i> Export to PDF</button> -->
+                                <a class="btn btn-info" href="invoice"><i class="fa fa-print"></i> Imprimer</a>
                             </div>
                         </div>
 
@@ -544,8 +546,11 @@ if (!isset($_SESSION['user']))
             document.getElementById("commande").value = this.cells[3].innerText;
             document.getElementById("customerid").innerHTML = this.cells[2].innerHTML;
             document.getElementById("datecom").innerHTML = this.cells[5].innerHTML;
-            document.getElementById("s-total").innerHTML = this.cells[4].innerHTML;
+            document.getElementById("s-total").innerHTML = this.cells[4].innerHTML + '$';
             document.getElementById("montant").value = this.cells[4].innerText;
+            document.getElementById("tva").innerHTML = (this.cells[4].innerText * 0.05);
+            document.getElementById("total-p").innerHTML = (this.cells[4].innerText * 0.05) + this
+                .cells[4].innerText;
         }
     }
 

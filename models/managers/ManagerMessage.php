@@ -12,6 +12,16 @@ class ManagerMessage extends Model
         return $this->getOne('get_one_message', $id, 'Message');
     }
 
+    public function changeMsgStatus($action, $id)
+    {
+        try {
+            $query = $this->getBdd()->prepare('call change_msg_status (?, ?)');
+            $query->execute(array($action, $id));
+        } catch (Exception $ex) {
+            throw new Exception($ex->getMessage());
+        }
+    }
+
     public function createObj($action, $procedure, $object)
     {
         $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?, ?, ?, ?, ?, ?, ?)');

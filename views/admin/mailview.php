@@ -224,6 +224,7 @@ if (!isset($_SESSION['user']))
                         <?php
                         $managerMessage = new ManagerMessage();
                         foreach ($managerMessage->getOneMessage($_GET['number']) as $message) :
+                            $message->getStatutmsg() == 0 ? $managerMessage->changeMsgStatus(1, $_GET['number']) : $managerMessage->changeMsgStatus(0, $_GET['number']);
                         ?>
                         <div class="ibox" id="mailbox-container">
                             <div class="mailbox-header d-flex justify-content-between"
