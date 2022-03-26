@@ -6,6 +6,10 @@ class ManagerNews extends Model
         return $this->getAll('get_informations', 'News');
     }
 
+    public function getInformationDateF()
+    {
+        return $this->getAll('get_informations_dateformat', 'News');
+    }
     public function getOneInformation($id)
     {
         return $this->getOne('get_one_information', $id, 'News');

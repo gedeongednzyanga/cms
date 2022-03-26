@@ -1,8 +1,7 @@
 <?php
-class ControllerNews
+class ControllerNew
 {
     private $_view;
-    private $_managerNews;
 
     public function __construct($url)
     {
@@ -14,9 +13,7 @@ class ControllerNews
 
     private function show()
     {
-        $this->_managerNews = new ManagerNews();
-        $news = $this->_managerNews->getInformationDateF();
-        $this->_view = new View('News');
-        $this->_view->generate(array('news' => $news));
+        $this->_view = new View('New');
+        $this->_view->generate1();
     }
 }

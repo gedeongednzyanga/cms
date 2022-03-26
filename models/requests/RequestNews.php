@@ -12,12 +12,27 @@ spl_autoload_register(function ($class) {
     }
 });
 
+$extension = array('image/jpeg', 'image/jpg', 'image/png');
 $managerNews = new ManagerNews();
 $action = $_POST['action'];
 
 switch ($action) {
     case 'publish':
         $news = new News($_POST);
+        if (in_array($_FILES['infoimage']['type'], $extension)) {
+            $infoimage = time() . '_' . $_FILES['infoimage']['name'];
+            $depot = "../../views/pages/assets/images/news/" . $infoimage;
+            $news->setInfoimage($infoimage);
+
+            if (move_uploaded_file($_FILES['infoimage']['tmp_name'], $depot)) {
+                $managerNews->createObj($_POST['actionu'], "obj_information", $news);
+                echo 'Information publiée avec succès.';
+            } else {
+                echo "Impossible de charger la photo.";
+            }
+        } else {
+            echo "Fichier image non autorisé. (.jpg, .jpeg et .png sont autorisés.)";
+        }
         break;
 
     default:

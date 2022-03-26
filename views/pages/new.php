@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <!-- Basic Page Needs
 ================================================== -->
     <meta charset="utf-8">
@@ -209,8 +208,8 @@
                                 <h1 class="banner-title">News</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="<?= URL ?>">Accueil</a></li>
-                                        <li class="breadcrumb-item"><a href="about">CMS SARL</a></li>
+                                        <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                                        <li class="breadcrumb-item"><a href="#">CMS SARL</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">NEWS</li>
                                     </ol>
                                 </nav>
@@ -231,17 +230,22 @@
                 <div class="row">
 
                     <div class="col-lg-8 mb-5 mb-lg-0">
-                        <?php foreach ($news as $new) : ?>
-                        <div class="post">
+                        <?php
+                        $managerNews = new ManagerNews();
+                        $news = $managerNews->getOneInformation($_GET['number']);
+                        foreach ($news as $new) :
+                        ?>
+                        <div class="post-content post-single">
                             <div class="post-media post-image">
                                 <img loading="lazy" src="views/pages/assets/images/news/<?= $new->getInfoimage() ?>"
                                     class="img-fluid" alt="post-image">
                             </div>
+
                             <div class="post-body">
                                 <div class="entry-header">
                                     <div class="post-meta">
                                         <span class="post-author">
-                                            <i class="far fa-user"></i><a href="home"> CMS</a>
+                                            <i class="far fa-user"></i><a href="#"> CMS</a>
                                         </span>
                                         <span class="post-cat">
                                             <i class="far fa-folder-open"></i><a href="new-<?= $new->getIdn() ?>">
@@ -254,8 +258,7 @@
                                                 class="comments-link">Comments</a></span>
                                     </div>
                                     <h2 class="entry-title">
-                                        <a href="news-single.html">We Just Completes $17.6 million Medical Clinic in
-                                            Mid-Missouri</a>
+                                        We Just Completes $17.6 million Medical Clinic in Mid-Missouri
                                     </h2>
                                 </div>
                                 <!-- header end -->
@@ -265,124 +268,194 @@
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                                         nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                        dolore eu fugiat nulla pariatur. Excepteur ...</p>
+                                        dolore eu fugiat nulla pariatur.</p>
+
+                                    <p>Kucididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                        cillum dolore eu fugiat nulla pariatur. Excepteur Lorem ipsum dolor sit amet,
+                                        consectetur adipisicing elit, sed do</p>
+
+                                    <p>Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                                        laborum. Sed ut perspiciatis unde omnis iste natus error sit
+                                        voluptatem accusantium doloremque laudantium. </p>
+
+                                    <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                        architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                                        voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                                        magni dolores eos quira tione voluptatem sequi nesciunt. Neque porro quisquam
+                                        est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
+                                        quia non numquam eius modi tempora incidunt ue magnam aliquam
+                                        quaerat voluptatem.</p>
                                 </div>
 
-                                <div class="post-footer">
-                                    <a href="new-<?= $new->getIdn() ?>" class="btn btn-primary">Continuer la Lecture</a>
+                                <div class="tags-area d-flex align-items-center justify-content-between">
+                                    <div class="post-tags">
+                                        <a href="#">Construction</a>
+                                        <a href="#">Safety</a>
+                                        <a href="#">Planning</a>
+                                    </div>
+                                    <div class="share-items">
+                                        <ul class="post-social-icons list-unstyled">
+                                            <li class="social-icons-head">Share:</li>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
 
                             </div>
                             <!-- post-body end -->
                         </div>
                         <?php endforeach; ?>
-                        <!-- 1st post end -->
+                        <!-- post content end -->
 
-                        <div class="post">
-                            <div class="post-media post-video">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <!-- Change the url -->
-                                    <iframe class="embed-responsive-item"
-                                        src="//player.vimeo.com/video/153089270?title=0&amp;byline=0&amp;portrait=0&amp;color=8aba56"
-                                        allowfullscreen></iframe>
-                                </div>
+                        <div class="author-box d-nlock d-sm-flex">
+                            <div class="author-img mb-4 mb-md-0">
+                                <img loading="lazy" src="views/pages/assets/images/news/avator1.png" alt="author">
                             </div>
-
-                            <div class="post-body">
-                                <div class="entry-header">
-                                    <div class="post-meta">
-                                        <span class="post-author">
-                                            <i class="far fa-user"></i><a href="#"> Admin</a>
-                                        </span>
-                                        <span class="post-cat">
-                                            <i class="far fa-folder-open"></i><a href="#"> News</a>
-                                        </span>
-                                        <span class="post-meta-date"><i class="far fa-calendar"></i> June 14,
-                                            2016</span>
-                                        <span class="post-comment"><i class="far fa-comment"></i> 03<a href="#"
-                                                class="comments-link">Comments</a></span>
-                                    </div>
-                                    <h2 class="entry-title">
-                                        <a href="news-single.html">Thandler Airport Water Reclamation Facility Expansion
-                                            Project Named</a>
-                                    </h2>
-                                </div>
-                                <!-- header end -->
-
-                                <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                        dolore eu fugiat nulla pariatur. Excepteur ...</p>
-                                </div>
-
-                                <div class="post-footer">
-                                    <a href="news-single.html" class="btn btn-primary">Continue Reading</a>
-                                </div>
+                            <div class="author-info">
+                                <h3>Elton Themen<span>Site Engineer</span></h3>
+                                <p class="mb-2">Lisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.
+                                    Ut enim ad vene minim veniam, quis nostrud exercitation nisi ex ea commodo.</p>
+                                <p class="author-url mb-0">Website: <span><a href="#">http://www.example.com</a></span>
+                                </p>
 
                             </div>
-                            <!-- post-body end -->
                         </div>
-                        <!-- 2nd post end -->
+                        <!-- Author box end -->
 
-                        <div class="post">
-                            <div class="post-media post-image">
-                                <img loading="lazy" src="views/pages/assets/images/news/news3.jpg" class="img-fluid"
-                                    alt="post-image">
-                            </div>
+                        <!-- Post comment start -->
+                        <div id="comments" class="comments-area">
+                            <h3 class="comments-heading">07 Comments</h3>
 
-                            <div class="post-body">
-                                <div class="entry-header">
-                                    <div class="post-meta">
-                                        <span class="post-author">
-                                            <i class="far fa-user"></i><a href="#"> Admin</a>
-                                        </span>
-                                        <span class="post-cat">
-                                            <i class="far fa-folder-open"></i><a href="#"> News</a>
-                                        </span>
-                                        <span class="post-meta-date"><i class="far fa-calendar"></i> June 14,
-                                            2016</span>
-                                        <span class="post-comment"><i class="far fa-comment"></i> 03<a href="#"
-                                                class="comments-link">Comments</a></span>
+                            <ul class="comments-list">
+                                <li>
+                                    <div class="comment d-flex">
+                                        <img loading="lazy" class="comment-avatar" alt="author"
+                                            src="views/pages/assets/images/news/avator1.png">
+                                        <div class="comment-body">
+                                            <div class="meta-data">
+                                                <span class="comment-author mr-3">Michelle Aimber</span>
+                                                <span class="comment-date float-right">January 17, 2016 at 1:38
+                                                    pm</span>
+                                            </div>
+                                            <div class="comment-content">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                    aliquip
+                                                    ex ea commodo consequat. Duis aute irure dolor in reprehen.</p>
+                                            </div>
+                                            <div class="text-left">
+                                                <a class="comment-reply font-weight-bold" href="#">Reply</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <h2 class="entry-title">
-                                        <a href="news-single.html">Silicon Bench and Cornike Begin Construction of
-                                            Large-Scale Solar Facilities
-                                            for Trade</a>
-                                    </h2>
-                                </div>
-                                <!-- header end -->
+                                    <!-- Comments end -->
 
-                                <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                        dolore eu fugiat nulla pariatur. Excepteur ...</p>
-                                </div>
-
-                                <div class="post-footer">
-                                    <a href="news-single.html" class="btn btn-primary">Continue Reading</a>
-                                </div>
-
-                            </div>
-                            <!-- post-body end -->
-                        </div>
-                        <!-- 3rd post end -->
-
-                        <nav class="paging" aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class="fas fa-angle-double-left"></i></a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class="fas fa-angle-double-right"></i></a></li>
+                                    <ul class="comments-reply">
+                                        <li>
+                                            <div class="comment d-flex">
+                                                <img loading="lazy" class="comment-avatar" alt="author"
+                                                    src="views/pages/assets/images/news/avator2.png">
+                                                <div class="comment-body">
+                                                    <div class="meta-data">
+                                                        <span class="comment-author mr-3">Tom Harnandez</span>
+                                                        <span class="comment-date float-right">January 17, 2016 at 1:38
+                                                            pm</span>
+                                                    </div>
+                                                    <div class="comment-content">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                            ullamco laboris nisi
+                                                            ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                            reprehen.</p>
+                                                    </div>
+                                                    <div class="text-left">
+                                                        <a class="comment-reply font-weight-bold" href="#">Reply</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Comments end -->
+                                        </li>
+                                    </ul>
+                                    <!-- comments-reply end -->
+                                    <div class="comment d-flex last">
+                                        <img loading="lazy" class="comment-avatar" alt="author"
+                                            src="views/pages/assets/images/news/avator3.png">
+                                        <div class="comment-body">
+                                            <div class="meta-data">
+                                                <span class="comment-author mr-3">Genelia Dusteen</span>
+                                                <span class="comment-date float-right">January 17, 2016 at 1:38
+                                                    pm</span>
+                                            </div>
+                                            <div class="comment-content">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                    aliquip
+                                                    ex ea commodo consequat. Duis aute irure dolor in reprehen.</p>
+                                            </div>
+                                            <div class="text-left">
+                                                <a class="comment-reply font-weight-bold" href="#">Reply</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Comments end -->
+                                </li>
+                                <!-- Comments-list li end -->
                             </ul>
-                        </nav>
+                            <!-- Comments-list ul end -->
+                        </div>
+                        <!-- Post comment end -->
 
+                        <div class="comments-form border-box">
+                            <h3 class="title-normal">Ajouter un commentaire</h3>
+
+                            <form role="form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="message" class="w-100"><textarea
+                                                    class="form-control required-field" id="message"
+                                                    placeholder="Votre Commentaire" rows="10"
+                                                    required></textarea></label>
+                                        </div>
+                                    </div>
+                                    <!-- Col 12 end -->
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name" class="w-100"><input class="form-control" name="name"
+                                                    id="name" placeholder="Votre Nom" type="text" required></label>
+                                        </div>
+                                    </div>
+                                    <!-- Col 4 end -->
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email" class="w-100"><input class="form-control" name="email"
+                                                    id="email" placeholder="Votre Email" type="email" required></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Form row end -->
+                                <div class="clearfix">
+                                    <button class="btn btn-primary" type="submit" aria-label="post-comment">Envoyer
+                                        commentaire</button>
+                                </div>
+                            </form>
+                            <!-- Form end -->
+                        </div>
+                        <!-- Comments form end -->
                     </div>
                     <!-- Content Col end -->
 
@@ -489,7 +562,7 @@
                 <!-- Main row end -->
 
             </div>
-            <!-- Container end -->
+            <!-- Conatiner end -->
         </section>
         <!-- Main container end -->
 
@@ -499,8 +572,8 @@
                     <div class="row justify-content-between">
                         <div class="col-lg-4 col-md-6 footer-widget footer-about">
                             <h3 class="widget-title">A propos</h3>
-                            <img loading="lazy" width="200px" class="footer-logo"
-                                src="views/pages/assets/images/logo_cm_footer.png" alt="Constra" />
+                            <img loading="lazy" width="200px" class="footer-logo" src="images/logo_cm_footer.png"
+                                alt="Constra" />
                             <p>
                                 CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons
                                 et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av.
@@ -587,10 +660,10 @@
                         <div class="col-md-6">
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
-                                    <li><a href="about">A propos</a></li>
-                                    <li><a href="team">Notre équipe</a></li>
-                                    <li><a href="faq">Faq</a></li>
-                                    <li><a href="news">News</a></li>
+                                    <li><a href="about.html">A propos</a></li>
+                                    <li><a href="team.html">Notre équipe</a></li>
+                                    <li><a href="faq.html">Faq</a></li>
+                                    <li><a href="news-right-sidebar.html">News</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -630,7 +703,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer>
         </script>
         <!-- Google Map Plugin-->
-        <script src="views/pages/assets/plugins/google-map/map.js" defer></script>
+        <script src="plugins/google-map/map.js" defer></script>
 
         <!-- Template custom -->
         <script src="views/pages/assets/js/script.js"></script>

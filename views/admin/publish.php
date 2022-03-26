@@ -235,30 +235,43 @@ if (!isset($_SESSION['user']))
                                 </div>
                             </div>
                             <div class="mailbox-body">
-                                <form class="form-horizontal" action="javascript:void(0)" method="POST"
-                                    if="compose_form">
+                                <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data"
+                                    id="form-new">
                                     <div class="form-group row">
                                         <label class="col-sm-3 control-label">Titre de l'Information</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" name="to">
+                                            <input class="form-control" type="hidden" name="action" value="publish">
+                                            <input class="form-control" type="hidden" name="actionu" value="1">
+                                            <input class="form-control" type="hidden" name="idn" value="0">
+                                            <input class="form-control" type="text" name="titleinfo" id="titleinfo">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 control-label">Type d'Information</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control select2_demo_1" name="refunit" required>
+                                            <select class="form-control select2_demo_1" name="infotype" id="infotype"
+                                                required>
                                                 <optgroup label="Type d'information">
-                                                    <option value="">Article</option>
-                                                    <option value="">Général</option>
-                                                    <option value="">Offre d'emplois</option>
+                                                    <option value="Article">Article</option>
+                                                    <option value="Général">Général</option>
+                                                    <option value="Emplois">Offre d'emplois</option>
                                                 </optgroup>
                                             </select>
                                         </div>
                                     </div>
-                                    <textarea id="summernote" name="message">
-
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 control-label">Choisir une Image</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="file" accept="image/*" name="infoimage"
+                                                id="infoimage">
+                                        </div>
+                                    </div>
+                                    <textarea id="summernote" name="information" id="information">
                                     </textarea>
+                                    <!-- <div class="form-group row"> -->
                                     <input class="btn btn-info m-t-20" value="Publier l'information" type="submit">
+                                    <small class="float-right m-t-20" id="div-message"></small>
+                                    <!-- </div> -->
                                 </form>
                             </div>
                         </div>
@@ -295,6 +308,7 @@ if (!isset($_SESSION['user']))
     <script src="views/admin/assets/vendors/summernote/dist/summernote.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/newsRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
     $(function() {
