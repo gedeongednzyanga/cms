@@ -282,8 +282,13 @@
                 <div class="gap-60"></div>
 
                 <div class="google-map">
-                    <div id="map" class="map" data-latitude="40.712776" data-longitude="-74.005974"
-                        data-marker="views/pages/assets/images/marker.png" data-marker-name="Constra"></div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14212.19252493202!2d29.223373790259043!3d-1.6511761434976253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dd08a598ffff03%3A0xe7d5dc9a56932ee!2zMcKwMzknMjcuMCJTIDI5wrAxMycyNi4xIkU!5e0!3m2!1sfr!2scd!4v1648272502511!5m2!1sfr!2scd"
+                        width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    <!-- <div id="map" class="map" data-latitude="40.712776" data-longitude="-74.005974"
+                        data-marker="views/pages/assets/images/marker.png" data-marker-name="Constra"></div> -->
                 </div>
 
                 <div class="gap-40"></div>
