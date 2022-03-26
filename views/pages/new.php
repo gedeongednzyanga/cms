@@ -232,6 +232,7 @@
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <?php
                         $managerNews = new ManagerNews();
+                        $managerCommentaire = new ManagerCommentaire();
                         $news = $managerNews->getOneInformation($_GET['number']);
                         foreach ($news as $new) :
                         ?>
@@ -253,9 +254,10 @@
                                         </span>
                                         <span class="post-meta-date"><i class="far fa-calendar"></i>
                                             <?= $new->getDateinfo() ?></span>
-                                        <span class="post-comment"><i class="far fa-comment"></i> 03<a
+                                        <span class="post-comment"><i class="far fa-comment"></i>
+                                            <?= '0' . count($managerCommentaire->getCommentaireForNew($new->getIdn())) ?><a
                                                 href="new-<?= $new->getIdn() ?>"
-                                                class="comments-link">Comments</a></span>
+                                                class="comments-link">Commentaires</a></span>
                                     </div>
                                     <h2 class="entry-title">
                                         We Just Completes $17.6 million Medical Clinic in Mid-Missouri
@@ -301,7 +303,7 @@
                                     </div>
                                     <div class="share-items">
                                         <ul class="post-social-icons list-unstyled">
-                                            <li class="social-icons-head">Share:</li>
+                                            <li class="social-icons-head">Partager sur :</li>
                                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                             <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
@@ -321,7 +323,7 @@
                                 <img loading="lazy" src="views/pages/assets/images/news/avator1.png" alt="author">
                             </div>
                             <div class="author-info">
-                                <h3>Elton Themen<span>Site Engineer</span></h3>
+                                <h3>CMS-Sarl<span>Construction Metal Service</span></h3>
                                 <p class="mb-2">Lisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.
                                     Ut enim ad vene minim veniam, quis nostrud exercitation nisi ex ea commodo.</p>
                                 <p class="author-url mb-0">Website: <span><a href="#">http://www.example.com</a></span>
@@ -333,34 +335,35 @@
 
                         <!-- Post comment start -->
                         <div id="comments" class="comments-area">
-                            <h3 class="comments-heading">07 Comments</h3>
+                            <h3 class="comments-heading">
+                                <?= '0' . count($managerCommentaire->getCommentaireForNew($_GET['number'])) ?>
+                                Commentaires</h3>
 
                             <ul class="comments-list">
                                 <li>
+                                    <?php foreach ($managerCommentaire->getCommentaireForNew($_GET['number']) as $commentaire) : ?>
                                     <div class="comment d-flex">
                                         <img loading="lazy" class="comment-avatar" alt="author"
                                             src="views/pages/assets/images/news/avator1.png">
                                         <div class="comment-body">
                                             <div class="meta-data">
-                                                <span class="comment-author mr-3">Michelle Aimber</span>
-                                                <span class="comment-date float-right">January 17, 2016 at 1:38
-                                                    pm</span>
+                                                <span class="comment-author mr-3"><?= $commentaire->getNomcm() ?></span>
+                                                <span
+                                                    class="comment-date float-right"><?= $commentaire->getDatecommentaire() ?>
+                                                </span>
                                             </div>
                                             <div class="comment-content">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip
-                                                    ex ea commodo consequat. Duis aute irure dolor in reprehen.</p>
+                                                <p><?= $commentaire->getCommentaire() ?></p>
                                             </div>
                                             <div class="text-left">
-                                                <a class="comment-reply font-weight-bold" href="#">Reply</a>
+                                                <a class="comment-reply font-weight-bold" href="#">Répondre</a>
                                             </div>
                                         </div>
                                     </div>
+                                    <?php endforeach; ?>
                                     <!-- Comments end -->
 
-                                    <ul class="comments-reply">
+                                    <!-- <ul class="comments-reply">
                                         <li>
                                             <div class="comment d-flex">
                                                 <img loading="lazy" class="comment-avatar" alt="author"
@@ -384,31 +387,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Comments end -->
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                     <!-- comments-reply end -->
-                                    <div class="comment d-flex last">
-                                        <img loading="lazy" class="comment-avatar" alt="author"
-                                            src="views/pages/assets/images/news/avator3.png">
-                                        <div class="comment-body">
-                                            <div class="meta-data">
-                                                <span class="comment-author mr-3">Genelia Dusteen</span>
-                                                <span class="comment-date float-right">January 17, 2016 at 1:38
-                                                    pm</span>
-                                            </div>
-                                            <div class="comment-content">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip
-                                                    ex ea commodo consequat. Duis aute irure dolor in reprehen.</p>
-                                            </div>
-                                            <div class="text-left">
-                                                <a class="comment-reply font-weight-bold" href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <!-- Comments end -->
                                 </li>
                                 <!-- Comments-list li end -->
@@ -420,13 +401,17 @@
                         <div class="comments-form border-box">
                             <h3 class="title-normal">Ajouter un commentaire</h3>
 
-                            <form role="form">
+                            <form id="comment-form" role="form">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="message" class="w-100"><textarea
-                                                    class="form-control required-field" id="message"
-                                                    placeholder="Votre Commentaire" rows="10"
+                                            <input type="hidden" name="idcmt" value="0">
+                                            <input type="hidden" name="action" value="comment">
+                                            <input type="hidden" name="actionu" value="1">
+                                            <input type="hidden" name="refnew" value="<?= $_GET['number'] ?>">
+                                            <label for="commentaire" class="w-100"><textarea style="resize:none;"
+                                                    class="form-control required-field" id="commentaire"
+                                                    name="commentaire" placeholder="Votre Commentaire" rows="10"
                                                     required></textarea></label>
                                         </div>
                                     </div>
@@ -434,16 +419,16 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="name" class="w-100"><input class="form-control" name="name"
-                                                    id="name" placeholder="Votre Nom" type="text" required></label>
+                                            <label for="nomcm" class="w-100"><input class="form-control" name="nomcm"
+                                                    id="nomcm" placeholder="Votre Nom" type="text" required></label>
                                         </div>
                                     </div>
                                     <!-- Col 4 end -->
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="email" class="w-100"><input class="form-control" name="email"
-                                                    id="email" placeholder="Votre Email" type="email" required></label>
+                                            <label for="mailcm" class="w-100"><input class="form-control" name="mailcm"
+                                                    id="mailcm" placeholder="Votre Email" type="email" required></label>
                                         </div>
                                     </div>
                                 </div>
@@ -451,6 +436,7 @@
                                 <div class="clearfix">
                                     <button class="btn btn-primary" type="submit" aria-label="post-comment">Envoyer
                                         commentaire</button>
+                                    <span class="error-message float-right" style="margin-right:20px;"></span>
                                 </div>
                             </form>
                             <!-- Form end -->
@@ -680,6 +666,7 @@
 
         <!-- Template custom -->
         <script src="views/pages/assets/js/script.js"></script>
+        <script src="views/pages/assets/js/requests/commentaireRequest.js"></script>
 
     </div>
     <!-- Body inner end -->

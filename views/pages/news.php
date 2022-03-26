@@ -231,7 +231,8 @@
                 <div class="row">
 
                     <div class="col-lg-8 mb-5 mb-lg-0">
-                        <?php foreach ($news as $new) : ?>
+                        <?php $managerCommentaire = new ManagerCommentaire();
+                        foreach ($news as $new) : ?>
                         <div class="post">
                             <div class="post-media post-image">
                                 <img loading="lazy" src="views/pages/assets/images/news/<?= $new->getInfoimage() ?>"
@@ -249,7 +250,8 @@
                                         </span>
                                         <span class="post-meta-date"><i class="far fa-calendar"></i>
                                             <?= $new->getDateinfo() ?></span>
-                                        <span class="post-comment"><i class="far fa-comment"></i> 03<a
+                                        <span class="post-comment"><i class="far fa-comment"></i>
+                                            <?= '0' . count($managerCommentaire->getCommentaireForNew($new->getIdn())) ?><a
                                                 href="new-<?= $new->getIdn() ?>"
                                                 class="comments-link">Commentaires</a></span>
                                     </div>

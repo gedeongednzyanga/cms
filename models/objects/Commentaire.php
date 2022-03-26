@@ -6,6 +6,7 @@ class Commentaire
     private $mailcm;
     private $commentaire;
     private $refnew;
+    private $datecommentaire;
 
     public function __construct(array $data)
     {
@@ -118,6 +119,26 @@ class Commentaire
     public function setRefnew($refnew)
     {
         $this->refnew = $refnew;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of datecommentaire
+     */
+    public function getDatecommentaire()
+    {
+        return $this->datecommentaire;
+    }
+
+    /**
+     * Set the value of datecommentaire
+     *
+     * @return  self
+     */
+    public function setDatecommentaire($datecommentaire)
+    {
+        $this->datecommentaire = $datecommentaire;
 
         return $this;
     }

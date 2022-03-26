@@ -40,6 +40,10 @@ switch ($action) {
     case 'comment':
         $commentaire = new Commentaire($_POST);
         $managerCommentaire->createObj($_POST['actionu'], 'obj_commentaire', $commentaire);
+        if ($_POST['actionu'] == 1)
+            echo 'Commentaire envoyé avec succès.';
+        else if ($_POST['actionu'] == 3)
+            echo 'Commentaire supprimé avec succès.';
         break;
 
     default:
