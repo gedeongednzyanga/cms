@@ -2,6 +2,7 @@
 class ControllerHome
 {
     private $_view;
+    private $_managerNews;
 
     public function __construct($url)
     {
@@ -13,7 +14,9 @@ class ControllerHome
 
     private function home()
     {
+        $this->_managerNews = new ManagerNews();
+        $recentNews = $this->_managerNews->getRecentInformations();
         $this->_view = new View('Home');
-        $this->_view->generate1();
+        $this->_view->generate(array('recentNews' => $recentNews));
     }
 }

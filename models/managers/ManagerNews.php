@@ -6,6 +6,11 @@ class ManagerNews extends Model
         return $this->getAll('get_informations', 'News');
     }
 
+    public function getRecentInformations()
+    {
+        return $this->getAll('get_recent_info', 'News');
+    }
+
     public function getInformationDateF()
     {
         return $this->getAll('get_informations_dateformat', 'News');

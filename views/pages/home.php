@@ -601,7 +601,8 @@
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/avatar00.png" alt="testimonial" />
+                                            src="views/pages/assets/images/clients/testimonial1.png"
+                                            alt="testimonial" />
                                         <div class="quote-item-info">
                                             <h3 class="quote-author">Gabriel Denis</h3>
                                             <span class="quote-subtext">Chairman, OKT</span>
@@ -623,7 +624,8 @@
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/avatar00.png" alt="testimonial" />
+                                            src="views/pages/assets/images/clients/testimonial2.png"
+                                            alt="testimonial" />
                                         <div class="quote-item-info">
                                             <h3 class="quote-author">Weldon Cash</h3>
                                             <span class="quote-subtext">CFO, First Choice</span>
@@ -645,7 +647,8 @@
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/avatar00.png" alt="testimonial" />
+                                            src="views/pages/assets/images/clients/testimonial3.png"
+                                            alt="testimonial" />
                                         <div class="quote-item-info">
                                             <h3 class="quote-author">Minter Puchan</h3>
                                             <span class="quote-subtext">Director, AKT</span>
@@ -778,82 +781,36 @@
                 <!--/ Title row end -->
 
                 <div class="row">
+                    <?php foreach ($recentNews as $new) : ?>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="latest-post">
                             <div class="latest-post-media">
-                                <a href="javascript:;" class="latest-post-img">
-                                    <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news1.jpg"
-                                        alt="img" />
+                                <a href="new-<?= $new->getIdn() ?>" class="latest-post-img">
+                                    <img loading="lazy" class="img-fluid"
+                                        src="views/pages/assets/images/news/<?= $new->getInfoimage() ?>" alt="img" />
                                 </a>
                             </div>
                             <div class="post-body">
                                 <h4 class="post-title">
-                                    <a href="javascript:;" class="d-inline-block">XXXXXXXXXXXXXXXXXXXXXXXX
-                                        XXXXXXXXXXXXXXXXXXXXXXXXXXX</a>
+                                    <a href="new-<?= $new->getIdn() ?>"
+                                        class="d-inline-block"><?= $new->getTitleinfo() ?></a>
                                 </h4>
                                 <div class="latest-post-meta">
                                     <span class="post-item-date">
-                                        <i class="fa fa-clock-o"></i> 20 Fév. 2022
+                                        <i class="fa fa-clock-o"></i> <?= $new->getDateinfo() ?>
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <!-- Latest post end -->
                     </div>
+                    <?php endforeach; ?>
                     <!-- 1st post col end -->
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="latest-post">
-                            <div class="latest-post-media">
-                                <a href="javascript:;" class="latest-post-img">
-                                    <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news1.jpg"
-                                        alt="img" />
-                                </a>
-                            </div>
-                            <div class="post-body">
-                                <h4 class="post-title">
-                                    <a href="javascript:;" class="d-inline-block">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                                        XXXXXXXXXXXXXXXXXXXXXXXXXX</a>
-                                </h4>
-                                <div class="latest-post-meta">
-                                    <span class="post-item-date">
-                                        <i class="fa fa-clock-o"></i> June 17, 2017
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Latest post end -->
-                    </div>
-                    <!-- 2nd post col end -->
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="latest-post">
-                            <div class="latest-post-media">
-                                <a href="javascript:;" class="latest-post-img">
-                                    <img loading="lazy" class="img-fluid" src="views/pages/assets/images/news/news1.jpg"
-                                        alt="img" />
-                                </a>
-                            </div>
-                            <div class="post-body">
-                                <h4 class="post-title">
-                                    <a href="javascript:;" class="d-inline-block">XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                                        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a>
-                                </h4>
-                                <div class="latest-post-meta">
-                                    <span class="post-item-date">
-                                        <i class="fa fa-clock-o"></i> 31 Janv. 2022
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Latest post end -->
-                    </div>
-                    <!-- 3rd post col end -->
                 </div>
                 <!--/ Content row end -->
 
                 <div class="general-btn text-center mt-4">
-                    <a class="btn btn-primary" href="javascript:;">Plus d'informations</a>
+                    <a class="btn btn-primary" href="news">Plus d'informations</a>
                 </div>
             </div>
             <!--/ Container end -->

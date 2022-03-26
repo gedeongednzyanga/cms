@@ -16,7 +16,8 @@ class ControllerNews
     {
         $this->_managerNews = new ManagerNews();
         $news = $this->_managerNews->getInformationDateF();
+        $rnews = $this->_managerNews->getRecentInformations();
         $this->_view = new View('News');
-        $this->_view->generate(array('news' => $news));
+        $this->_view->generate(array('news' => $news, 'rnews' => $rnews));
     }
 }

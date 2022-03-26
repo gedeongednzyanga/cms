@@ -465,47 +465,20 @@
                             <div class="widget recent-posts">
                                 <h3 class="widget-title">Recent Posts</h3>
                                 <ul class="list-unstyled">
+                                    <?php foreach ($rnews as $rnew) : ?>
                                     <li class="d-flex align-items-center">
                                         <div class="posts-thumb">
-                                            <a href="#"><img loading="lazy" alt="img"
-                                                    src="views/pages/assets/images/news/news1.jpg"></a>
+                                            <a href="new-<?= $rnew->getIdn() ?>"><img loading="lazy" alt="img"
+                                                    src="views/pages/assets/images/news/<?= $rnew->getInfoimage() ?>"></a>
                                         </div>
                                         <div class="post-info">
                                             <h4 class="entry-title">
-                                                <a href="#">We Just Completes $17.6 Million Medical Clinic In
-                                                    Mid-missouri</a>
+                                                <a href="new-<?= $rnew->getIdn() ?>"><?= $rnew->getTitleinfo() ?></a>
                                             </h4>
                                         </div>
                                     </li>
+                                    <?php endforeach; ?>
                                     <!-- 1st post end-->
-
-                                    <li class="d-flex align-items-center">
-                                        <div class="posts-thumb">
-                                            <a href="#"><img loading="lazy" alt="img"
-                                                    src="views/pages/assets/images/news/news2.jpg"></a>
-                                        </div>
-                                        <div class="post-info">
-                                            <h4 class="entry-title">
-                                                <a href="#">Thandler Airport Water Reclamation Facility Expansion
-                                                    Project Named</a>
-                                            </h4>
-                                        </div>
-                                    </li>
-                                    <!-- 2nd post end-->
-
-                                    <li class="d-flex align-items-center">
-                                        <div class="posts-thumb">
-                                            <a href="#"><img loading="lazy" alt="img"
-                                                    src="views/pages/assets/images/news/news3.jpg"></a>
-                                        </div>
-                                        <div class="post-info">
-                                            <h4 class="entry-title">
-                                                <a href="#">Silicon Bench And Cornike Begin Construction Solar
-                                                    Facilities</a>
-                                            </h4>
-                                        </div>
-                                    </li>
-                                    <!-- 3rd post end-->
 
                                 </ul>
 

@@ -2,7 +2,7 @@
 class ControllerNew
 {
     private $_view;
-
+    private $_managerNews;
     public function __construct($url)
     {
         if (isset($url) && count($url) > 1)
@@ -13,7 +13,9 @@ class ControllerNew
 
     private function show()
     {
+        $this->_managerNews = new ManagerNews();
+        $rnews = $this->_managerNews->getRecentInformations();
         $this->_view = new View('New');
-        $this->_view->generate1();
+        $this->_view->generate(array('rnews' => $rnews));
     }
 }
