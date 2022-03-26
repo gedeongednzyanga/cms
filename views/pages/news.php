@@ -254,7 +254,8 @@
                                                 class="comments-link">Commentaires</a></span>
                                     </div>
                                     <h2 class="entry-title">
-                                        <a href="news-single.html">We Just Completes $17.6 million Medical Clinic in
+                                        <a href="new-<?= $new->getIdn() ?>">We Just Completes $17.6 million Medical
+                                            Clinic in
                                             Mid-Missouri</a>
                                     </h2>
                                 </div>

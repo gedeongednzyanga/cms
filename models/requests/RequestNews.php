@@ -14,10 +14,12 @@ spl_autoload_register(function ($class) {
 
 $extension = array('image/jpeg', 'image/jpg', 'image/png');
 $managerNews = new ManagerNews();
+$managerCommentaire = new ManagerCommentaire();
 $action = $_POST['action'];
 
 switch ($action) {
     case 'publish':
+
         $news = new News($_POST);
         if (in_array($_FILES['infoimage']['type'], $extension)) {
             $infoimage = time() . '_' . $_FILES['infoimage']['name'];
@@ -33,6 +35,11 @@ switch ($action) {
         } else {
             echo "Fichier image non autorisé. (.jpg, .jpeg et .png sont autorisés.)";
         }
+        break;
+
+    case 'comment':
+        $commentaire = new Commentaire($_POST);
+        $managerCommentaire->createObj($_POST['actionu'], 'obj_commentaire', $commentaire);
         break;
 
     default:
