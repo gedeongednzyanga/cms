@@ -37,4 +37,22 @@ $(function() {
             });
         }
     });
+
+    $("#refentcom").on("change", () => {
+        $.ajax({
+            url: "models/requests/RequestCommande.php",
+            type: "POST",
+            data: {
+                action: 'facture',
+                numcom: $('#refentcom').val(),
+            },
+            timeout: 3000,
+            success: function(data) {
+                $('#detail-facture').html(data);
+            },
+            error: function() {
+                alert('Echec de la requete sur le serveur.')
+            }
+        })
+    });
 });

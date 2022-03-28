@@ -83,14 +83,8 @@ switch ($action) {
         $rows = '';
         foreach ($data as $com) :
             $rows .= '
-            <tr>
-                <td>
-                    <div><strong>' . $com->getDesignationprod() . '</strong></div><small>
-                </td>
-                <td>' . $com->getQuantitecom() . '' . $com->getDesignationu() . '</td>
-                <td>' . $com->getPrixprod() . '$ </td>
-                <td>' . $com->getPrixprod() * $com->getQuantitecom() . '$ </td>
-            </tr>
+            <option value="0">' . $com->getDesignationprod() . ' (' . $com->getQuantitecom() . '' . $com->getDesignationu() . ' à ' . $com->getPrixprod() * $com->getQuantitecom()  . '$) </option>
+           
             ';
         endforeach;
         echo $rows;

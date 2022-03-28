@@ -193,6 +193,23 @@ if (!isset($_SESSION['user']))
                                     <input type="hidden" name="refentc" id="refentc" value="0" />
                                     <input type="hidden" name="restepaye" id="restepaye" value="0" />
                                     <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Recherche cli...</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2_demo_1" style="width:100%"
+                                                name="refentcom" id="refentcom" required>
+                                                <optgroup label="Rechercher un client">
+                                                    <option value="0">Rechercher un client</option>
+                                                    <?php
+                                                    $managerCommande = new ManagerCommande();
+                                                    foreach ($managerCommande->getClientWithCredit() as $credit) : ?>
+                                                    <option value="<?= $credit->getNumcom() ?>">
+                                                        <?= $credit->getCustomer() ?> </option>
+                                                    <?php endforeach; ?>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Client</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" type="text" id="client" name="client" required
@@ -207,7 +224,7 @@ if (!isset($_SESSION['user']))
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Montant total</label>
+                                        <label class="col-sm-2 col-form-label">Total à payer</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" type="number" name="montant" id="montant"
                                                 required placeholder="Montant total">
@@ -235,11 +252,11 @@ if (!isset($_SESSION['user']))
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="col-sm-12 col-form-label">Historique Sortie en stock de <span
+                                        <label class="col-sm-12 col-form-label">Détail commande client <span
                                                 class="text-xl-center pull-right">...</span></label>
-                                        <select class="form-control" multiple="" id="historiquecommande"
+                                        <select class="form-control" multiple="" id="detail-facture"
                                             style="height:235px">
-                                            <option value="0">Séléctionner un produit</option>
+                                            <option value="0">Séléctionner un client</option>
                                         </select>
                                     </div>
                                     <div class="div-message" style="height:53px;">
@@ -270,10 +287,12 @@ if (!isset($_SESSION['user']))
                                     <tr>
                                         <th>N°</th>
                                         <th>Facture</th>
-                                        <th>Client</th>
-                                        <th>Total Commande</th>
-                                        <th>Montant à payer</th>
-                                        <th>Date Commande</th>
+                                        <th>Nom Client</th>
+                                        <th>Commande</th>
+                                        <th>Total à payer</th>
+                                        <th>Montant payé</th>
+                                        <th>Reste à payer</th>
+                                        <th>Date Comnde</th>
                                         <th>Observation</th>
                                         <th>Actions</th>
                                     </tr>
@@ -282,10 +301,12 @@ if (!isset($_SESSION['user']))
                                     <tr>
                                         <th>N°</th>
                                         <th>Facture</th>
-                                        <th>Client</th>
-                                        <th>Total Commande</th>
-                                        <th>Montant à payer</th>
-                                        <th>Date Commande</th>
+                                        <th>Nom Client</th>
+                                        <th>Commande</th>
+                                        <th>Total à payer</th>
+                                        <th>Montant payé</th>
+                                        <th>Reste à payer</th>
+                                        <th>Date Comnde</th>
                                         <th>Observation</th>
                                         <th>Actions</th>
                                     </tr>
@@ -293,6 +314,7 @@ if (!isset($_SESSION['user']))
                                 <tbody id="tab-facture">
                                     <?php
                                     $managerCommande = new ManagerCommande();
+                                    $managerPayement = new ManagerPayement();
                                     foreach ($commandes as $commande) : ?>
                                     <tr>
                                         <td><?= $commande->getIdentc() ?></td>
@@ -301,17 +323,21 @@ if (!isset($_SESSION['user']))
                                         <td><?= $commande->getTotcom() ?></td>
                                         <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc())  ?>
                                         </td>
-                                        <td><?= $commande->getDatecom() ?></td>
+                                        <td><?= $managerPayement->getMontantPayer($commande->getIdentc()) ?>
+                                        </td>
+                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) - $managerPayement->getMontantPayer($commande->getIdentc())  ?>
+                                        </td>
+                                        <td class="text-center"><?= $commande->getDatecom() ?></td>
                                         <td
                                             class="alert text-center <?= $commande->getStatcom() == 0 ? 'alert-danger' : 'alert-success' ?>">
                                             <?= $commande->getStatcom() == 0 ? 'Non payéé' : 'Payé' ?></td>
                                         <td>
-                                            <!-- <a href="invoice" class="btn btn-success btn-xs m-r-5"
+                                            <a href="invoice" class="btn btn-success btn-xs m-r-5"
                                                 data-original-title="Voir plus">Facture client <i
-                                                    class="fa fa-eye font-14"></i></a> -->
-                                            <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
-                                                data-toggle="modal" data-target="#modal-facture">Facture client <i
                                                     class="fa fa-eye font-14"></i></a>
+                                            <!-- <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
+                                                data-toggle="modal" data-target="#modal-facture">Facture client <i
+                                                    class="fa fa-eye font-14"></i></a> -->
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
@@ -547,7 +573,7 @@ if (!isset($_SESSION['user']))
             document.getElementById("customerid").innerHTML = this.cells[2].innerHTML;
             document.getElementById("datecom").innerHTML = this.cells[5].innerHTML;
             document.getElementById("s-total").innerHTML = this.cells[4].innerHTML + '$';
-            document.getElementById("montant").value = this.cells[4].innerText;
+            document.getElementById("montant").value = this.cells[6].innerText;
             document.getElementById("tva").innerHTML = (this.cells[4].innerText * 0.05);
             document.getElementById("total-p").innerHTML = this.cells[4].innerText;
         }
@@ -563,7 +589,7 @@ if (!isset($_SESSION['user']))
             },
             timeout: 3000,
             success: function(data) {
-                $('#invoice-cl').html(data);
+                $('#detail-facture').html(data);
             },
             error: function() {
                 alert('Echec de la requete sur le serveur.')
