@@ -49,10 +49,35 @@ $(function() {
             timeout: 3000,
             success: function(data) {
                 $('#detail-facture').html(data);
+                getDetailCommande($('#refentcom').val());
             },
             error: function() {
                 alert('Echec de la requete sur le serveur.')
             }
         })
     });
+
+
+    function getDetailCommande($refEntcommande) {
+        try {
+            $.ajax({
+                url: "models/requests/RequestPayement.php",
+                type: "POST",
+                data: { action: "detail", refentc: $refEntcommande },
+                timeout: 5000,
+                success: function(data) {
+                    var response = $.parseJSON(data);
+                    $("#refentc").val(response.refentc);
+                    $("#client").val(response.customer);
+                    $("#commande").val(response.totcommande);
+                    $("#montant").val(response.reste);
+                },
+                error: function() {
+                    alert("Erreur");
+                }
+            });
+        } catch (err) {
+            alert(err);
+        }
+    }
 });

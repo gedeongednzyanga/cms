@@ -14,6 +14,7 @@ spl_autoload_register(function ($class) {
 });
 
 $managerPayement = new ManagerPayement();
+$managerCommande = new ManagerCommande();
 $action = $_POST['action'];
 
 switch ($action) {
@@ -23,6 +24,19 @@ switch ($action) {
             $payement->setStatc(1);
         $managerPayement->createObj($_POST['actionu'], 'obj_payement', $payement);
         echo 'Payement enregistré avec succès.';
+        break;
+
+    case 'detail':
+        $dataCommande = $managerCommande->getOneEntCommande($_POST['refentc']);
+        $personne = [];
+        foreach ($dataCommande as $data) :
+            $personne['refentc'] = $data->getIdentc();
+            $personne['numcom'] = $data->getNumcom();
+            $personne['customer'] = $data->getCustomer();
+            $personne['totcommande'] = $data->getTotcom();
+            $personne['reste'] = $managerCommande->calculSommetotcommande($data->getIdentc()) - $managerPayement->getMontantPayer($data->getIdentc());
+        endforeach;
+        echo json_encode($personne);
         break;
     default:
         # code...
