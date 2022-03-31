@@ -22,7 +22,7 @@ switch ($action) {
         $commande = new Commande($_POST);
         $data = $managerCommande->getOneCommande($commande->getNumcom());
         if (count($data) > 0) {
-            $products = '<optgroup label="Produits commandés">';
+            $products = '<option value="0">Produits commandés</option> <optgroup label="Produits commandés">';
             foreach ($data as $key => $value) {
                 $products .= '<option value=' . $value->getIddetcom() . '>' . $value->getDesignationprod() . '</option>';
             }

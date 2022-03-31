@@ -196,6 +196,7 @@ if (!isset($_SESSION['user']))
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" style="width:100%"
                                                 name="refentc" id="refentc" required>
+                                                <option value="0">Rechercher un client</option>
                                                 <optgroup label="Rechercher un client">
                                                     <?php
                                                     $managerCommande = new ManagerCommande();
