@@ -198,9 +198,7 @@ if (!isset($_SESSION['user']))
                                                 name="refentc" id="refentc" required>
                                                 <option value="0">Rechercher un client</option>
                                                 <optgroup label="Rechercher un client">
-                                                    <?php
-                                                    $managerCommande = new ManagerCommande();
-                                                    foreach ($commandes as $commande) : ?>
+                                                    <?php foreach ($commandes as $commande) : ?>
                                                     <option value="<?= $commande->getNumcom() ?>">
                                                         <?= $commande->getCustomer() ?> </option>
                                                     <?php endforeach; ?>
@@ -290,7 +288,7 @@ if (!isset($_SESSION['user']))
                 </div>
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Factures Client</div>
+                        <div class="ibox-title">Livraison Commandes</div>
                         <div class="ibox-tools">
                             <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
@@ -307,45 +305,45 @@ if (!isset($_SESSION['user']))
                                 <thead>
                                     <tr>
                                         <th>N°</th>
-                                        <th>Facture</th>
-                                        <th>Client</th>
-                                        <th>Total Commande</th>
-                                        <th>Montant à payer</th>
-                                        <th>Date Commande</th>
-                                        <th>Observation</th>
+                                        <th>Livraison</th>
+                                        <th>Expéditeur</th>
+                                        <th>Destinataire</th>
+                                        <th>Transporteur</th>
+                                        <th>Quantité</th>
+                                        <th>Camion</th>
+                                        <th>Plaque</th>
+                                        <th>Date</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th>N°</th>
-                                        <th>Facture</th>
-                                        <th>Client</th>
-                                        <th>Total Commande</th>
-                                        <th>Montant à payer</th>
-                                        <th>Date Commande</th>
-                                        <th>Observation</th>
+                                        <th>Livraison</th>
+                                        <th>Expéditeur</th>
+                                        <th>Destinataire</th>
+                                        <th>Transporteur</th>
+                                        <th>Quantité</th>
+                                        <th>Camion</th>
+                                        <th>Plaque</th>
+                                        <th>Date</th>
                                         <th>Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody id="tab-facture">
-                                    <?php
-                                    $managerCommande = new ManagerCommande();
-                                    foreach ($commandes as $commande) : ?>
+                                    <?php foreach ($livraisons as $livraison) : ?>
                                     <tr>
-                                        <td><?= $commande->getIdentc() ?></td>
-                                        <td><?= $commande->getNumcom() ?></td>
-                                        <td><?= $commande->getCustomer() ?></td>
-                                        <td><?= $commande->getTotcom() ?></td>
-                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc())  ?>
-                                        </td>
-                                        <td><?= $commande->getDatecom() ?></td>
-                                        <td
-                                            class="alert text-center <?= $commande->getStatcom() == 0 ? 'alert-danger' : 'alert-success' ?>">
-                                            <?= $commande->getStatcom() == 0 ? 'Non payéé' : 'Payé' ?></td>
+                                        <td><?= $livraison->getId_entl() ?></td>
+                                        <td><?= $livraison->getNum_liv() ?></td>
+                                        <td><?= $livraison->getExpediteur() ?></td>
+                                        <td><?= $livraison->getDestinateur() ?></td>
+                                        <td><?= $livraison->getTransporteur() ?></td>
+                                        <td><?= $livraison->getQuantite_liv() . ' articles' ?></td>
+                                        <td><?= $livraison->getNum_camion() ?></td>
+                                        <td><?= $livraison->getPlaque() ?></td>
+                                        <td><?= $livraison->getDate_liv() ?></td>
                                         <td>
-                                            <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
-                                                data-toggle="modal" data-target="#modal-facture">Facture client <i
+                                            <a href="#" class="btn btn-success btn-xs m-r-5">Bon de Livraison <i
                                                     class="fa fa-eye font-14"></i></a>
                                         </td>
                                     </tr>
@@ -378,7 +376,7 @@ if (!isset($_SESSION['user']))
                                         <input type="hidden" name="id_entl" id="id_entl" value="0" />
                                         <div class="form-group">
                                             <input class="form-control" type="text" id="expediteur" name="expediteur"
-                                                required placeholder="Expéditeur">
+                                                required placeholder="Expéditeur" value="CMS-Goma">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -405,7 +403,8 @@ if (!isset($_SESSION['user']))
                                 </form>
                             </div>
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Valider <i
+                                        class="fa fa-check"></i> </button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -475,38 +474,38 @@ if (!isset($_SESSION['user']))
     })
     </script>
     <script>
-    table = document.getElementById("tab-facture");
-    for (i = 0; i < table.rows.length; i++) {
-        table.rows[i].onclick = function() {
-            getFacture(this.cells[1].innerText);
-            document.getElementById('refentc').value = this.cells[0].innerText;
-            document.getElementById("numfact").innerHTML = this.cells[1].innerHTML;
-            document.getElementById("client").value = this.cells[2].innerText;
-            document.getElementById("commande").value = this.cells[3].innerText;
-            document.getElementById("customerid").innerHTML = this.cells[2].innerHTML;
-            document.getElementById("datecom").innerHTML = this.cells[5].innerHTML;
-            document.getElementById("s-total").innerHTML = this.cells[4].innerHTML;
-            document.getElementById("montant").value = this.cells[4].innerText;
-        }
-    }
+    // table = document.getElementById("tab-facture");
+    // for (i = 0; i < table.rows.length; i++) {
+    //     table.rows[i].onclick = function() {
+    //         getFacture(this.cells[1].innerText);
+    //         document.getElementById('refentc').value = this.cells[0].innerText;
+    //         document.getElementById("numfact").innerHTML = this.cells[1].innerHTML;
+    //         document.getElementById("client").value = this.cells[2].innerText;
+    //         document.getElementById("commande").value = this.cells[3].innerText;
+    //         document.getElementById("customerid").innerHTML = this.cells[2].innerHTML;
+    //         document.getElementById("datecom").innerHTML = this.cells[5].innerHTML;
+    //         document.getElementById("s-total").innerHTML = this.cells[4].innerHTML;
+    //         document.getElementById("montant").value = this.cells[4].innerText;
+    //     }
+    // }
 
-    function getFacture(numfact) {
-        $.ajax({
-            url: "models/requests/RequestCommande.php",
-            type: "POST",
-            data: {
-                action: 'facture',
-                numcom: numfact,
-            },
-            timeout: 3000,
-            success: function(data) {
-                $('#invoice-cl').html(data);
-            },
-            error: function() {
-                alert('Echec de la requete sur le serveur.')
-            }
-        })
-    }
+    // function getFacture(numfact) {
+    //     $.ajax({
+    //         url: "models/requests/RequestCommande.php",
+    //         type: "POST",
+    //         data: {
+    //             action: 'facture',
+    //             numcom: numfact,
+    //         },
+    //         timeout: 3000,
+    //         success: function(data) {
+    //             $('#invoice-cl').html(data);
+    //         },
+    //         error: function() {
+    //             alert('Echec de la requete sur le serveur.')
+    //         }
+    //     })
+    // }
     </script>
 
 </body>

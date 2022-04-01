@@ -1,6 +1,10 @@
 <?php
 class ManagerLivraison extends Model
 {
+    public function getEntLivraison()
+    {
+        return  $this->getAll('get_ent_livraison', 'Livraison');
+    }
 
     public function inertEntlivraison($action, $procedure, $object)
     {

@@ -91,7 +91,6 @@ $(function() {
                     $(".div-message").html("<div class='alert alert-warning'><small>Echec de la requête sur le serveur.</small></div >").show('slow', 'linear');
                 }
             });
-
         }
     });
 

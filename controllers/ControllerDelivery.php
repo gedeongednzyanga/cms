@@ -2,6 +2,7 @@
 class ControllerDelivery
 {
     private $_view;
+    private $_managerLivraison;
     private $_managerCommanade;
 
     public function __construct($url)
@@ -15,11 +16,17 @@ class ControllerDelivery
     private function show()
     {
         $this->_managerCommanade = new ManagerCommande();
-        $commandes = $this->_managerCommanade->getEntCommande();
+        $this->_managerLivraison = new ManagerLivraison();
+
+        $commandes = $this->_managerCommanade->getCommandes();
+        $livraisons = $this->_managerLivraison->getEntLivraison();
 
         $this->_view = new View('Delivery');
-        $this->_view->generate(array(
-            'commandes' => $commandes,
-        ));
+        $this->_view->generate(
+            array(
+                'livraisons' => $livraisons,
+                'commandes' => $commandes
+            )
+        );
     }
 }

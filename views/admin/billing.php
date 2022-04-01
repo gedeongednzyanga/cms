@@ -320,12 +320,12 @@ if (!isset($_SESSION['user']))
                                         <td><?= $commande->getIdentc() ?></td>
                                         <td><?= $commande->getNumcom() ?></td>
                                         <td><?= $commande->getCustomer() ?></td>
-                                        <td><?= $commande->getTotcom() ?></td>
-                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc())  ?>
+                                        <td class="text-center"><?= $commande->getTotcom() . ' article(s)' ?></td>
+                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) . '$'  ?>
                                         </td>
-                                        <td><?= $managerPayement->getMontantPayer($commande->getIdentc()) ?>
+                                        <td><?= $managerPayement->getMontantPayer($commande->getIdentc()) . '$' ?>
                                         </td>
-                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) - $managerPayement->getMontantPayer($commande->getIdentc())  ?>
+                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) - $managerPayement->getMontantPayer($commande->getIdentc()) . '$'  ?>
                                         </td>
                                         <td class="text-center"><?= $commande->getDatecom() ?></td>
                                         <td
@@ -333,8 +333,7 @@ if (!isset($_SESSION['user']))
                                             <?= $commande->getStatcom() == 0 ? 'Non payéé' : 'Payé' ?></td>
                                         <td>
                                             <a href="invoice-<?= $commande->getNumcom() ?>"
-                                                class="btn btn-success btn-xs m-r-5"
-                                                data-original-title="Voir plus">Facture client <i
+                                                class="btn btn-success btn-xs m-r-5">Facture client <i
                                                     class="fa fa-eye font-14"></i></a>
                                             <!-- <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
                                                 data-toggle="modal" data-target="#modal-facture">Facture client <i

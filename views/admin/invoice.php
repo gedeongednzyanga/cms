@@ -135,9 +135,9 @@ $pdf->Cell(34, 7,  round(($netPaye + $tva), 2) . '$', 1, 1, 'R', 0);
 //End Body Facture
 
 //Footer de la Facture
-$pdf->Ln(3);
+$pdf->Ln(5);
 $pdf->SetFont('Arial', 'I', 8);
-$pdf->Write(0, 'N.B : Les marchandises ne sont ni reprises ni ehangees');
+$pdf->Write(0, 'N.B : Les marchandises ne sont ni reprises ni ehangees.');
 
 $pdf->Ln(7);
 $pdf->SetFont('Arial', 'B', 10);
