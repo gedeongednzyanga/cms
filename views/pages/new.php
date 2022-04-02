@@ -83,7 +83,7 @@
                     <div class="logo-area">
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                                <a class="d-block" href="index.html">
+                                <a class="d-block" href="<?= URL ?>">
                                     <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="CMS" />
                                 </a>
                             </div>
@@ -162,7 +162,7 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="projects" class="nav-link">Gallérie</a>
+                                            <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item active">
                                             <a href="news" class="nav-link">News
@@ -208,8 +208,8 @@
                                 <h1 class="banner-title">News</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-                                        <li class="breadcrumb-item"><a href="#">CMS SARL</a></li>
+                                        <li class="breadcrumb-item"><a href="<?= URL ?>">Accueil</a></li>
+                                        <li class="breadcrumb-item"><a href="about">CMS-SARL</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">NEWS</li>
                                     </ol>
                                 </nav>
@@ -320,13 +320,14 @@
 
                         <div class="author-box d-nlock d-sm-flex">
                             <div class="author-img mb-4 mb-md-0">
-                                <img loading="lazy" src="views/pages/assets/images/news/avator1.jpg" alt="author">
+                                <img loading="lazy" src="views/pages/assets/images/news/logo_facture.jpg" alt="author">
                             </div>
                             <div class="author-info">
                                 <h3>CMS-Sarl<span>Construction Metal Service</span></h3>
-                                <p class="mb-2">Lisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.
-                                    Ut enim ad vene minim veniam, quis nostrud exercitation nisi ex ea commodo.</p>
-                                <p class="author-url mb-0">Website: <span><a href="#">http://www.example.com</a></span>
+                                <p class="mb-2">CMS est une entreprise congolaise oeuvrant dans la construction des
+                                    bâtiments, maisons et routes. Son siège social est dans la ville de Goma, Com. de
+                                    Goma, Q. Lac Vert, Av. Kabande, le long de la route Goma-Sake..</p>
+                                <p class="author-url mb-0">Website: <span><a href="#">http://www.cms-sarl.com</a></span>
                                 </p>
 
                             </div>
@@ -455,6 +456,7 @@
                                     <li class="d-flex align-items-center">
                                         <div class="posts-thumb">
                                             <a href="new-<?= $rnew->getIdn() ?>"><img loading="lazy" alt="img"
+                                                    class="img-responsive img-fluid" width="100%"
                                                     src="views/pages/assets/images/news/<?= $rnew->getInfoimage() ?>"></a>
                                         </div>
                                         <div class="post-info">

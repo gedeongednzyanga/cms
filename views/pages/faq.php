@@ -84,8 +84,8 @@
                     <div class="logo-area">
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                                <a class="d-block" href="index.html">
-                                    <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="Constra" />
+                                <a class="d-block" href="<?= URL ?>">
+                                    <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="CMS" />
                                 </a>
                             </div>
                             <!-- logo end -->
@@ -121,7 +121,7 @@
                                         </div>
                                     </li>
                                     <li class="header-get-a-quote">
-                                        <a class="btn btn-primary" href="contact.html">Contactez-nous</a>
+                                        <a class="btn btn-primary" href="contact">Contactez-nous</a>
                                     </li>
                                 </ul>
                                 <!-- Ul end -->
@@ -163,7 +163,7 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="projects" class="nav-link">Gallérie</a>
+                                            <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="news" class="nav-link">News </a>
@@ -198,7 +198,7 @@
         </header>
         <!--/ Header end -->
         <div id="banner-area" class="banner-area"
-            style="background-image:url(views/pages/assets/images/banner/banner1.jpg)">
+            style="background-image:url(views/pages/assets/images/banner/bnner1.jpg)">
             <div class="banner-text">
                 <div class="container">
                     <div class="row">
@@ -207,8 +207,8 @@
                                 <h1 class="banner-title">Faq</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                        <li class="breadcrumb-item"><a href="#">company</a></li>
+                                        <li class="breadcrumb-item"><a href="<?= URL ?>">Accueil</a></li>
+                                        <li class="breadcrumb-item"><a href="about">CMS-Sarl</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Faq</li>
                                     </ol>
                                 </nav>
@@ -374,7 +374,7 @@
                                     <li class="d-flex align-items-center">
                                         <div class="posts-thumb">
                                             <a href="#"><img loading="lazy" alt="news-image"
-                                                    src="views/pages/assets/images/news/news1.jpg"></a>
+                                                    src="views/pages/assets/images/news/1648292733_news1.jpg"></a>
                                         </div>
                                         <div class="post-info">
                                             <h4 class="entry-title">
@@ -388,7 +388,7 @@
                                     <li class="d-flex align-items-center">
                                         <div class="posts-thumb">
                                             <a href="#"><img loading="lazy" alt="news-img"
-                                                    src="views/pages/assets/images/news/news2.jpg"></a>
+                                                    src="views/pages/assets/images/news/1648292733_news1.jpg"></a>
                                         </div>
                                         <div class="post-info">
                                             <h4 class="entry-title">
@@ -402,7 +402,7 @@
                                     <li class="d-flex align-items-center">
                                         <div class="posts-thumb">
                                             <a href="#"><img loading="lazy" alt="news-img"
-                                                    src="views/pages/assets/images/news/news3.jpg"></a>
+                                                    src="views/pages/assets/images/news/1648292733_news1.jpg"></a>
                                         </div>
                                         <div class="post-info">
                                             <h4 class="entry-title">
@@ -438,7 +438,7 @@
                         <div class="col-lg-4 col-md-6 footer-widget footer-about">
                             <h3 class="widget-title">A propos</h3>
                             <img loading="lazy" width="200px" class="footer-logo"
-                                src="views/pages/assets/images/footer-logo.png" alt="Constra" />
+                                src="views/pages/assets/images/logo_cm_footer.png" alt="Constra" />
                             <p>
                                 CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons
                                 et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av.
@@ -469,13 +469,14 @@
                         <!-- Col end -->
 
                         <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
-                            <h3 class="widget-title">Working Hours</h3>
+                            <h3 class="widget-title">Heure de travail</h3>
                             <div class="working-hours">
-                                We work 7 days a week, every day excluding major holidays. Contact us if you have an
-                                emergency, with our Hotline and Contact form.
-                                <br /><br /> Monday - Friday:
-                                <span class="text-right">08:00 - 16:00 </span> <br /> Saturday: <span
-                                    class="text-right">10:00 - 16:00</span> <br /> Sunday and holidays:
+                                Nous travaillons 7 jours sur 7, tous les jours hormis les jours fériés et les dimanches.
+                                Contactez-nous si vous avez une urgence, avec notre Hotline et notre formulaire de
+                                contact.
+                                <br /><br /> Lundi - Vendredi :
+                                <span class="text-right">08:00 - 16:00 </span> <br /> Samedi : <span
+                                    class="text-right">10:00 - 16:00</span> <br /> Dimanches et Jours Fériés :
                                 <span class="text-right">00:00 - 00:00</span>
                             </div>
                         </div>
@@ -525,7 +526,7 @@
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
                                     <li><a href="about">A propos</a></li>
-                                    <li><a href="team">Our team</a></li>
+                                    <li><a href="team">Notre équipe</a></li>
                                     <li><a href="faq">Faq</a></li>
                                     <li><a href="news">News</a></li>
                                 </ul>

@@ -84,8 +84,8 @@
                     <div class="logo-area">
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                                <a class="d-block" href="index.html">
-                                    <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="Constra" />
+                                <a class="d-block" href="<?= URL ?>">
+                                    <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="CMS" />
                                 </a>
                             </div>
                             <!-- logo end -->
@@ -163,7 +163,7 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item active">
-                                            <a href="projects" class="nav-link ">Gallérie</a>
+                                            <a href="gallerie" class="nav-link ">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="news" class="nav-link">News
@@ -209,9 +209,9 @@
                                 <h1 class="banner-title">Gallerie</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Project</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Gallerie</li>
+                                        <li class="breadcrumb-item"><a href="<?= URL ?>">Accueil</a></li>
+                                        <li class="breadcrumb-item"><a href="#">CMS-SARL</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Gallérie</li>
                                     </ol>
                                 </nav>
                             </div>

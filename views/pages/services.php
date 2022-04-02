@@ -83,8 +83,8 @@
                     <div class="logo-area">
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                                <a class="d-block" href="index.html">
-                                    <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="Constra" />
+                                <a class="d-block" href="<?= URL ?>">
+                                    <img loading="lazy" src="views/pages/assets/images/logo_cm.png" alt="CMS" />
                                 </a>
                             </div>
                             <!-- logo end -->
@@ -120,7 +120,7 @@
                                         </div>
                                     </li>
                                     <li class="header-get-a-quote">
-                                        <a class="btn btn-primary" href="contact.html">Contactez-nous</a>
+                                        <a class="btn btn-primary" href="contact">Contactez-nous</a>
                                     </li>
                                 </ul>
                                 <!-- Ul end -->
@@ -162,7 +162,7 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="projects" class="nav-link">Gallérie</a>
+                                            <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="news" class="nav-link">News </a>
@@ -207,8 +207,8 @@
                                 <h1 class="banner-title">Services</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Services</a></li>
+                                        <li class="breadcrumb-item"><a href="<?= URL ?>">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="about">CMS-SARL</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Tous les Services</li>
                                     </ol>
                                 </nav>
