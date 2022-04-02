@@ -318,10 +318,9 @@
                             <h2 class="into-title">About Us</h2>
                             <h3 class="into-sub-title">Nous réalisons des projets phares</h3>
                             <p>
-                                We are rethoric question ran over her cheek When she reached the first hills of the
-                                Italic Mountains, she had a last view back on the skyline of her hometown
-                                Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the
-                                Line Lane.
+                                CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons
+                                et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av.
+                                Kabande, le long de la route Goma-Sake.
                             </p>
                         </div>
                         <!-- Intro box end -->
@@ -391,8 +390,9 @@
                     <div class="col-lg-6 mt-4 mt-lg-0">
                         <h3 class="into-sub-title">Nos Valeurs</h3>
                         <p>
-                            Minim Austin 3 wolf moon scenester aesthetic, umami odio pariatur bitters. Pop-up occaecat
-                            taxidermy street art, tattooed beard literally.
+                            CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons et
+                            routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av. Kabande,
+                            le long de la route Goma-Sake.
                         </p>
 
                         <div class="accordion accordion-group" id="our-values-accordion">
@@ -409,8 +409,9 @@
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                     data-parent="#our-values-accordion">
                                     <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia aute, non cupidata
+                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
+                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
                                     </div>
                                 </div>
                             </div>
@@ -427,8 +428,9 @@
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                     data-parent="#our-values-accordion">
                                     <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia aute, non cupidata
+                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
+                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
                                     </div>
                                 </div>
                             </div>
@@ -445,8 +447,9 @@
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                     data-parent="#our-values-accordion">
                                     <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia aute, non cupidata
+                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
+                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
                                     </div>
                                 </div>
                             </div>
@@ -483,7 +486,7 @@
                                     <a href="#">Construction de maison</a>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat
+                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
                                 </p>
                             </div>
                         </div>
@@ -499,7 +502,7 @@
                                     <a href="#">Rénovations de bâtiments</a>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat
+                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
                                 </p>
                             </div>
                         </div>
@@ -515,7 +518,7 @@
                                     <a href="#">Design d'Intérieur</a>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat
+                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
                                 </p>
                             </div>
                         </div>
@@ -540,7 +543,7 @@
                                     <a href="#">Design d'Extérieur</a>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat
+                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
                                 </p>
                             </div>
                         </div>
@@ -554,7 +557,7 @@
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title"><a href="#">Rénovation</a></h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat
+                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
                                 </p>
                             </div>
                         </div>
@@ -570,7 +573,7 @@
                                     <a href="#">Gestion de la Sécurité</a>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat
+                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
                                 </p>
                             </div>
                         </div>
@@ -593,18 +596,17 @@
                             <div class="item">
                                 <div class="quote-item">
                                     <span class="quote-text">
-                                        Question ran over her cheek When she reached the first
-                                        hills of the Italic Mountains, she had a last view back on
-                                        the skyline of her hometown Bookmarksgrove, the headline
-                                        of Alphabet Village and the subline of her own road.
+                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
+                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
                                     </span>
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/testimonial1.png"
+                                            src="views/pages/assets/images/clients/happy_client1.jpg"
                                             alt="testimonial" />
                                         <div class="quote-item-info">
-                                            <h3 class="quote-author">Gabriel Denis</h3>
+                                            <h3 class="quote-author">Gédéon Barbuto</h3>
                                             <span class="quote-subtext">Chairman, OKT</span>
                                         </div>
                                     </div>
@@ -624,11 +626,11 @@
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/testimonial2.png"
+                                            src="views/pages/assets/images/clients/happy_client.jpg"
                                             alt="testimonial" />
                                         <div class="quote-item-info">
-                                            <h3 class="quote-author">Weldon Cash</h3>
-                                            <span class="quote-subtext">CFO, First Choice</span>
+                                            <h3 class="quote-author">Alexis Bwesha</h3>
+                                            <span class="quote-subtext">CFO, GrowVenture</span>
                                         </div>
                                     </div>
                                 </div>
@@ -647,10 +649,10 @@
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/testimonial3.png"
+                                            src="views/pages/assets/images/clients/happy_client2.jpg"
                                             alt="testimonial" />
                                         <div class="quote-item-info">
-                                            <h3 class="quote-author">Minter Puchan</h3>
+                                            <h3 class="quote-author">Barbuto Coder</h3>
                                             <span class="quote-subtext">Director, AKT</span>
                                         </div>
                                     </div>
@@ -745,8 +747,8 @@
                     <div class="col-md-8">
                         <div class="ts-newsletter row align-items-center">
                             <div class="col-md-5 newsletter-introtext">
-                                <h4 class="text-white mb-0">Newsletter Sign-up</h4>
-                                <p class="text-white">Latest updates and news</p>
+                                <h4 class="text-white mb-0">Inscription Newsletter</h4>
+                                <p class="text-white">Recevez nos dernières nouvelles </p>
                             </div>
 
                             <div class="col-md-7 newsletter-form">

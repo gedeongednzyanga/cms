@@ -209,7 +209,7 @@
                                     <ol class="breadcrumb justify-content-center">
                                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                                         <li class="breadcrumb-item"><a href="#">Services</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">All Services</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Tous les Services</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -226,8 +226,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service1.jpg"
-                                    alt="service-image">
+                                <img loading="lazy" class="w-100"
+                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -241,7 +241,7 @@
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service1 end -->
@@ -250,8 +250,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service2.jpg"
-                                    alt="service-image">
+                                <img loading="lazy" class="w-100"
+                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -264,7 +264,7 @@
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service2 end -->
@@ -273,8 +273,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service3.jpg"
-                                    alt="service-image">
+                                <img loading="lazy" class="w-100"
+                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -287,7 +287,7 @@
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service3 end -->
@@ -296,8 +296,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service4.jpg"
-                                    alt="service-image">
+                                <img loading="lazy" class="w-100"
+                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -309,7 +309,7 @@
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service1 end -->
@@ -318,8 +318,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service5.jpg"
-                                    alt="service-image">
+                                <img loading="lazy" class="w-100"
+                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -332,7 +332,7 @@
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service2 end -->
@@ -341,8 +341,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service6.jpg"
-                                    alt="service-image">
+                                <img loading="lazy" class="w-100"
+                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -356,7 +356,7 @@
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service3 end -->
@@ -365,8 +365,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service6.jpg"
-                                    alt="service-image">
+                                <img loading="lazy" class="w-100"
+                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -380,7 +380,7 @@
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service3 end -->
@@ -389,8 +389,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service6.jpg"
-                                    alt="service-image">
+                                <img loading="lazy" class="w-100"
+                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -404,7 +404,7 @@
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service3 end -->
@@ -413,8 +413,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service6.jpg"
-                                    alt="service-image">
+                                <img loading="lazy" class="w-100"
+                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -427,7 +427,7 @@
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service3 end -->

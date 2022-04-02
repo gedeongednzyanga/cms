@@ -335,9 +335,6 @@ if (!isset($_SESSION['user']))
                                             <a href="invoice-<?= $commande->getNumcom() ?>"
                                                 class="btn btn-success btn-xs m-r-5">Facture client <i
                                                     class="fa fa-eye font-14"></i></a>
-                                            <!-- <a class="btn btn-success btn-xs m-r-5" data-original-title="Voir plus"
-                                                data-toggle="modal" data-target="#modal-facture">Facture client <i
-                                                    class="fa fa-eye font-14"></i></a> -->
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

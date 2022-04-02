@@ -163,7 +163,7 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item active">
-                                            <a href="projects" class="nav-link ">Nos Projets</a>
+                                            <a href="projects" class="nav-link ">Gallerie</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="news" class="nav-link">News
@@ -200,18 +200,18 @@
         </header>
         <!--/ Header end -->
         <div id="banner-area" class="banner-area"
-            style="background-image:url(views/pages/assets/images/banner/banner1.jpg)">
+            style="background-image:url(views/pages/assets/images/banner/bnner1.jpg)">
             <div class="banner-text">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="banner-heading">
-                                <h1 class="banner-title">Project</h1>
+                                <h1 class="banner-title">Gallerie</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb justify-content-center">
                                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                                         <li class="breadcrumb-item"><a href="#">Project</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">All Projects</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Gallerie</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -284,8 +284,8 @@
 
                             <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;healthcare&quot;]">
                                 <div class="project-img-container">
-                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project2.jpg">
-                                        <img class="img-fluid" src="views/pages/assets/images/projects/project2.jpg"
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project1.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/project1.jpg"
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
@@ -304,8 +304,8 @@
                             <div class="col-lg-4 col-md-6 shuffle-item"
                                 data-groups="[&quot;infrastructure&quot;,&quot;commercial&quot;]">
                                 <div class="project-img-container">
-                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project3.jpg">
-                                        <img class="img-fluid" src="views/pages/assets/images/projects/project3.jpg"
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project1.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/project1.jpg"
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
@@ -324,8 +324,8 @@
                             <div class="col-lg-4 col-md-6 shuffle-item"
                                 data-groups="[&quot;education&quot;,&quot;infrastructure&quot;]">
                                 <div class="project-img-container">
-                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project4.jpg">
-                                        <img class="img-fluid" src="views/pages/assets/images/projects/project4.jpg"
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project1.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/project1.jpg"
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
@@ -344,8 +344,8 @@
                             <div class="col-lg-4 col-md-6 shuffle-item"
                                 data-groups="[&quot;infrastructure&quot;,&quot;education&quot;]">
                                 <div class="project-img-container">
-                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project5.jpg">
-                                        <img class="img-fluid" src="views/pages/assets/images/projects/project5.jpg"
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project1.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/project1.jpg"
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
@@ -363,8 +363,8 @@
 
                             <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;residential&quot;]">
                                 <div class="project-img-container">
-                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project6.jpg">
-                                        <img class="img-fluid" src="views/pages/assets/images/projects/project6.jpg"
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project1.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/project1.jpg"
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
@@ -385,7 +385,7 @@
 
                     <div class="col-12">
                         <div class="general-btn text-center">
-                            <a class="btn btn-primary" href="projects.html">View All Projects</a>
+                            <a class="btn btn-primary" href="#">Gallerie Photos</a>
                         </div>
                     </div>
 

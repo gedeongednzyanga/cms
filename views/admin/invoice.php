@@ -38,16 +38,16 @@ $pdf->Write(2, "CONSTRUCTION METAL SERVICE                                      
 foreach ($enteteFacture as $enteF) :
 
     $pdf->Ln(4);
-    $pdf->SetFont('Arial', 'I', 9);
+    $pdf->SetFont('Arial', '', 9);
     $pdf->SetTextColor(18, 26, 34);
-    $pdf->Write(2, "                 C.M.S-SARL                                                           Facturee le : " . $enteF->getDatecom() . "");
-
-    $pdf->Ln(4);
-    $pdf->SetFont('Arial', 'I', 8);
-    $pdf->SetTextColor(18, 26, 34);
-    $pdf->Write(4, "RCCM : CD/GOM/RCCM/16-B-O467                                                 Emise le        : " . date('d-m-Y') . " \nID NAT : 5-490-N16077H\nITPR : 600/ITPR/02 \nN Impot : A1705137D");
+    $pdf->Write(2, "                 C.M.S-SARL                                                            Facturee le : " . $enteF->getDatecom() . "");
 
     $pdf->Ln(6);
+    $pdf->SetFont('Arial', '', 9);
+    $pdf->SetTextColor(18, 26, 34);
+    $pdf->Write(4, "RCCM : CD/GOM/RCCM/16-B-O467                                       Goma     : " . date('d-m-Y') . " \nID NAT : 5-490-N16077H\nITPR : 600/ITPR/02 \nN Impot : A1705137D");
+
+    $pdf->Ln(7);
     $pdf->Cell(0, 0, "", "B", 0, 'C');
 
     $pdf->Ln(6);

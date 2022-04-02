@@ -320,7 +320,7 @@
 
                         <div class="author-box d-nlock d-sm-flex">
                             <div class="author-img mb-4 mb-md-0">
-                                <img loading="lazy" src="views/pages/assets/images/news/avator1.png" alt="author">
+                                <img loading="lazy" src="views/pages/assets/images/news/avator1.jpg" alt="author">
                             </div>
                             <div class="author-info">
                                 <h3>CMS-Sarl<span>Construction Metal Service</span></h3>
@@ -344,7 +344,7 @@
                                     <?php foreach ($managerCommentaire->getCommentaireForNew($_GET['number']) as $commentaire) : ?>
                                     <div class="comment d-flex">
                                         <img loading="lazy" class="comment-avatar" alt="author"
-                                            src="views/pages/assets/images/news/avator1.png">
+                                            src="views/pages/assets/images/news/avator1.jpg">
                                         <div class="comment-body">
                                             <div class="meta-data">
                                                 <span class="comment-author mr-3"><?= $commentaire->getNomcm() ?></span>
