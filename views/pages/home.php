@@ -164,7 +164,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <!-- <a href="projects" class="nav-link">Nos Projets</a> -->
-                                            <a href="javascript:;" class="nav-link">Nos Projets</a>
+                                            <a href="javascript:;" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
                                             <!-- <a href="news" class="nav-link">News

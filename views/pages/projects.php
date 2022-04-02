@@ -163,7 +163,7 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item active">
-                                            <a href="projects" class="nav-link ">Gallerie</a>
+                                            <a href="projects" class="nav-link ">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="news" class="nav-link">News
