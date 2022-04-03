@@ -80,7 +80,7 @@
                 </div>
                 <ul class="side-menu metismenu">
                     <li>
-                        <a href="home"><i class="sidebar-item-icon fa fa-th-large"></i>
+                        <a href="dashboard"><i class="sidebar-item-icon fa fa-th-large"></i>
                             <span class="nav-label">Dashboard</span>
                         </a>
                     </li>
