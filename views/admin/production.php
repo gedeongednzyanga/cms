@@ -20,6 +20,10 @@ if (!isset($_SESSION['user']))
     <!-- PLUGINS STYLES-->
     <link href="views/admin/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
+    <link href="views/admin/assets/vendors/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"
+        rel="stylesheet" />
+    <link href="views/admin/assets/vendors/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="views/admin/assets/vendors/jquery-minicolors/jquery.minicolors.css" rel="stylesheet" />
     <!-- THEME STYLES-->
     <link href="views/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
@@ -180,7 +184,7 @@ if (!isset($_SESSION['user']))
                             <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a data-toggle="modal" data-target="#modal-category" class="dropdown-item">Catégorie</a>
+                                <a data-toggle="modal" data-target="#modal-choose" class="dropdown-item">Catégorie</a>
                                 <a data-toggle="modal" data-target="#modal-mesure" class="dropdown-item">Mesure</a>
                             </div>
                         </div>
@@ -199,6 +203,7 @@ if (!isset($_SESSION['user']))
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" name="refprod" required>
                                                 <optgroup label="Catégories">
+                                                    <option value="0">Choisir un article</option>
                                                     <?php foreach ($products as $product) : ?>
                                                     <option value="<?= $product->getIdprod() ?>">
                                                         <?= $product->getDesignationprod() ?></option>
@@ -238,7 +243,7 @@ if (!isset($_SESSION['user']))
                                     <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
                                             <button class="btn btn-info" type="submit"><i class="fa fa-check"></i>
-                                                Ajouter</button>
+                                                Ajouter au pannier</button>
                                         </div>
                                     </div>
                                 </form>
@@ -256,8 +261,14 @@ if (!isset($_SESSION['user']))
                                         </select>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-sm-10">
-                                            <button class="btn btn-success" id="save-production">Enregistrer</button>
+                                        <div class="col-sm-8">
+                                            <button class="btn btn-success btn-sm"
+                                                id="save-production">Enregistrer</button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-warning btn-sm" data-toggle="modal"
+                                                data-target="#modal-choose" id="fiche-production"> Fiche de
+                                                production</button>
                                         </div>
                                     </div>
                                     <div class="div-message" style="height:40px;">
@@ -332,45 +343,47 @@ if (!isset($_SESSION['user']))
 
                 <!-- MODALS -->
                 <!-- Modal Category -->
-                <div class="modal fade" id="modal-category">
+                <div class="modal fade" id="modal-choose">
                     <div class="modal-dialog">
                         <div class="modal-content ibox">
                             <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Ajouter Catégorie</div>
+                                <div class="modal-title ibox-title">Choisir une date</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                                     <a class="dropdown-toggle" data-toggle="dropdown"><i
                                             class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
                                         <a class="dropdown-item close-btn" data-dismiss="modal"
                                             aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                                <form id="form-category">
-                                    <div class="form-group">
-                                        <input type="hidden" name="action" value="category" />
-                                        <input type="hidden" name="actionu" value="1" />
-                                        <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationc" name="designation"
-                                            required placeholder="Désignation">
+                                <div class="form-group" id="date_1">
+                                    <label class="font-normal">Date production</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" type="text" value="04/12/2017">
                                     </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
-                                        </button>
-                                    </div>
-                                </form>
+                                </div>
                                 <div class="form-group">
-                                    <label>Catégorie produit</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
-                                        <?php foreach ($categories as $category) : ?>
-                                        <option value="<?= $category->getIdcat() ?>">
-                                            <?= $category->getDesignationcat() ?> </option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <button type="submit" id="add-quartier" class="btn btn-primary form-control">Fiche
+                                        de production
+                                    </button>
+                                </div>
+                                <div class="form-group" id="date_5">
+                                    <label class="font-normal">Date production</label>
+                                    <div class="input-daterange input-group" id="datepicker">
+                                        <input class="input-sm form-control" type="text" name="start"
+                                            value="04/12/2017">
+                                        <span class="input-group-addon p-l-10 p-r-10">to</span>
+                                        <input class="input-sm form-control" type="text" name="end" value="08/17/2018">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" id="add-quartier" class="btn btn-primary form-control">Fiche
+                                        de production
+                                    </button>
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">
@@ -382,58 +395,6 @@ if (!isset($_SESSION['user']))
                     <!-- /.modal-dialog -->
                 </div>
                 <!-- End Modal Category -->
-
-                <!-- Modal Mesure -->
-                <div class="modal fade" id="modal-mesure">
-                    <div class="modal-dialog">
-                        <div class="modal-content ibox">
-                            <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Ajouter Mesure</div>
-                                <div class="ibox-tools">
-                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-body ibox-body">
-                                <form id="form-unite">
-                                    <div class="form-group">
-                                        <input type="hidden" name="action" value="unite" />
-                                        <input type="hidden" name="actionu" value="1" />
-                                        <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationu" name="designation"
-                                            required placeholder="Désignation">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
-                                        </button>
-                                    </div>
-                                </form>
-                                <div class="form-group">
-                                    <label>Unité de Mesure</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
-                                        <?php foreach ($unites as $unite) : ?>
-                                        <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
-                                        </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- End Modal alert -->
                 <!-- END MODALS -->
             </div>
             <!-- END PAGE CONTENT-->
@@ -463,66 +424,22 @@ if (!isset($_SESSION['user']))
     <script src="views/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
     <script src="views/admin/assets/vendors/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/vendors/jquery-knob/dist/jquery.knob.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/scripts/form-plugins.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript">
     </script>
     <script src="views/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js" type="text/javascript">
     </script>
     <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/vendors/moment/min/moment.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
+        type="text/javascript"></script>
+    <script src="views/admin/assets/vendors/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript">
+    </script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/productionRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
-
-    <script type="text/javascript">
-    $("#form-sample-1").validate({
-        rules: {
-            name: {
-                minlength: 2,
-                required: !0
-            },
-            email: {
-                required: !0,
-                email: !0
-            },
-            url: {
-                required: !0,
-                url: !0
-            },
-            number: {
-                required: !0,
-                number: !0
-            },
-            min: {
-                required: !0,
-                minlength: 3
-            },
-            max: {
-                required: !0,
-                maxlength: 4
-            },
-            password: {
-                required: !0
-            },
-            password_confirmation: {
-                required: !0,
-                equalTo: "#password"
-            }
-        },
-        errorClass: "help-block error",
-        highlight: function(e) {
-            $(e).closest(".form-group.row").addClass("has-error")
-        },
-        unhighlight: function(e) {
-            $(e).closest(".form-group.row").removeClass("has-error")
-        },
-    });
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $('#ex-phone2').mask('+243 999 999 999');
-    })
-    </script>
 
     <script type="text/javascript">
     $(function() {

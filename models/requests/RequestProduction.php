@@ -56,15 +56,20 @@ switch ($action) {
         break;
 
     case 'save':
-        $production = new Production($_POST);
-        $production->setTotprod(count($_SESSION['production']));
-        $managerProduction->inertEntete($_POST['actionu'], 'inert_entprod ', $production);
-        foreach ($_SESSION['production'] as $key => $value) :
-            $productionsave = new Production($value);
-            $managerProduction->createObj($_POST['actionu'], 'obj_production', $productionsave);
-        endforeach;
-        unset($_SESSION['production']);
-        echo 'Production enregistrée avec succès.';
+        if (isset($_SESSION['production']) && count($_SESSION['production']) > 0) {
+            $production = new Production($_POST);
+            $production->setTotprod(count($_SESSION['production']));
+            $managerProduction->inertEntete($_POST['actionu'], 'inert_entprod ', $production);
+            foreach ($_SESSION['production'] as $key => $value) :
+                $productionsave = new Production($value);
+                $managerProduction->createObj($_POST['actionu'], 'obj_production', $productionsave);
+            endforeach;
+            unset($_SESSION['production']);
+            echo 'Production enregistrée avec succès.';
+        } else {
+            echo 'Aucune production dans le panier.';
+        }
+
         break;
 
     default:

@@ -98,9 +98,6 @@ if (!isset($_SESSION['user']))
                                 <a href="product">Ajouter un article </a>
                             </li>
                             <li>
-                                <a href="production">Production </a>
-                            </li>
-                            <li>
                                 <a href="stock">En Stock </a>
                             </li>
                         </ul>
