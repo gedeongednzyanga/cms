@@ -92,13 +92,10 @@ if (!isset($_SESSION['user']))
                     <li class="heading">MENUS</li>
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-product-hunt"></i>
-                            <span class="nav-label">Productions</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Articles</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="product">Ajouter un produit </a>
-                            </li>
-                            <li>
-                                <a href="production">Production </a>
+                                <a href="product">Ajouter un article </a>
                             </li>
                             <li>
                                 <a href="stock">En Stock </a>
@@ -106,7 +103,11 @@ if (!isset($_SESSION['user']))
                         </ul>
                     </li>
                     <li>
-                        <a href="purchases"><i class="sidebar-item-icon fa fa-shopping-bag"></i>
+                        <a href="production"><i class="sidebar-item-icon fa fa-shopping-bag"></i>
+                            <span class="nav-label">Production</span></a>
+                    </li>
+                    <li>
+                        <a href="purchases"><i class="sidebar-item-icon fa fa-shopping-cart"></i>
                             <span class="nav-label">Approvisionnement</span></a>
                     </li>
                     <li>
@@ -149,7 +150,7 @@ if (!isset($_SESSION['user']))
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
                                 <a href="mail_compose.html">Composer un mail</a>
