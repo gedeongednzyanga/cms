@@ -18,6 +18,7 @@ $managerCommande = new ManagerCommande();
 $enteteFacture = $managerCommande->getOneEntCommande($_GET['number']);
 $bodyFacture = $managerCommande->getOneCommande($_GET['number']);
 $netPaye = 0;
+$_nom_file = time() . '_facture_' . $_GET['number'];
 
 $pdf = new Invoice('P', 'mm', 'A5');
 $pdf->AddPage();
@@ -78,47 +79,6 @@ foreach ($bodyFacture as $detailF) :
     $pdf->Cell(34, 7, $detailF->getPrixprod() * $detailF->getQuantitecom() . '$', 1, 1, 'C', 0);
 endforeach;
 
-// $pdf->Cell(20, 7, '20', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'C', 0);
-// $pdf->Cell(25, 7, '1.8$', 1, 0, 'C', 0);
-// $pdf->Cell(34, 7, '36$', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '20', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'C', 0);
-// $pdf->Cell(25, 7, '1.8$', 1, 0, 'C', 0);
-// $pdf->Cell(34, 7, '36$', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '20', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'C', 0);
-// $pdf->Cell(25, 7, '1.8$', 1, 0, 'C', 0);
-// $pdf->Cell(34, 7, '36$', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '20', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'C', 0);
-// $pdf->Cell(25, 7, '1.8$', 1, 0, 'C', 0);
-// $pdf->Cell(34, 7, '36$', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '20', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'C', 0);
-// $pdf->Cell(25, 7, '1.8$', 1, 0, 'C', 0);
-// $pdf->Cell(34, 7, '36$', 1, 1, 'C', 0);
-
-// $pdf->SetFont('Arial', '', 10);
-// $pdf->Cell(20, 7, '20', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'C', 0);
-// $pdf->Cell(25, 7, '1.8$', 1, 0, 'C', 0);
-// $pdf->Cell(34, 7, '36$', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '20', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'C', 0);
-// $pdf->Cell(25, 7, '1.8$', 1, 0, 'C', 0);
-// $pdf->Cell(34, 7, '36$', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '20', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'C', 0);
-// $pdf->Cell(25, 7, '1.8$', 1, 0, 'C', 0);
-// $pdf->Cell(34, 7, '36$', 1, 1, 'C', 0);
-
 //Zone totaux
 $tva = ($netPaye * 16) / 100;
 $pdf->SetFont('Arial', 'BI', 10);
@@ -141,9 +101,9 @@ $pdf->Write(0, 'N.B : Les marchandises ne sont ni reprises ni ehangees.');
 
 $pdf->Ln(7);
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->Write(0, 'Sceau de l entreprise');
+$pdf->Write(0, 'Sceau de l\'entreprise');
 
 $pdf->Ln(4);
 $pdf->SetFont('Arial', 'I', 9);
 // $pdf->Write(5, '                                                                                                         Nos coordonnes');
-$pdf->Output();
+$pdf->Output("I", $_nom_file, 1);

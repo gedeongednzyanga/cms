@@ -237,6 +237,15 @@
                             </table>
                         </div>
                     </div>
+                    <div class="ibox-footer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button style="margin-right:35px;" class="btn btn-warning btn-sm pull-right"
+                                    data-toggle="modal" data-target="#modal-choose" id="fiche-stock"> Fiche de
+                                    Stock</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- <div class="ibox">
@@ -352,6 +361,60 @@
                     <!-- /.modal-dialog -->
                 </div>
                 <!-- End Modal alert -->
+                <!-- Modal Category -->
+                <div class="modal fade" id="modal-choose">
+                    <div class="modal-dialog">
+                        <div class="modal-content ibox">
+                            <div class="modal-header ibox-head">
+                                <div class="modal-title ibox-title">Choisir une date</div>
+                                <div class="ibox-tools">
+                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
+                                            class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item close-btn" data-dismiss="modal"
+                                            aria-label="Close">Fermer</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-body ibox-body">
+                                <div class="form-group" id="date_1">
+                                    <label class="font-normal">Date production</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" type="text" value="01/01/2022">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <a href="fichestock" type="submit" id="add-quartier"
+                                        class="btn btn-primary form-control">Fiche
+                                        de Stock
+                                    </a>
+                                </div>
+                                <div class="form-group" id="date_5">
+                                    <label class="font-normal">Date production</label>
+                                    <div class="input-daterange input-group" id="datepicker">
+                                        <input class="input-sm form-control" type="text" name="start"
+                                            value="04/12/2017">
+                                        <span class="input-group-addon p-l-10 p-r-10">to</span>
+                                        <input class="input-sm form-control" type="text" name="end" value="08/17/2018">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" id="add-quartier" class="btn btn-primary form-control">Fiche
+                                        de production
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- End Modal Category -->
                 <!-- END MODALS -->
             </div>
             <!-- END PAGE CONTENT-->

@@ -175,7 +175,7 @@ if (!isset($_SESSION['user']))
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Sortie en Stock</div>
+                        <div class="ibox-title">Enregistrement de la commande</div>
                         <div class="ibox-tools">
                             <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
@@ -199,7 +199,8 @@ if (!isset($_SESSION['user']))
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" name="refprodc" id="refprodc"
                                                 required>
-                                                <optgroup label="Catégories">
+                                                <option value="0">Rechercher un produit</option>
+                                                <optgroup label="Nos produits">
                                                     <?php foreach ($products as $product) : ?>
                                                     <option value="<?= $product->getIdprod() ?>">
                                                         <?= $product->getDesignationprod() ?></option>

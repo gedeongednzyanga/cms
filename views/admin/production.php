@@ -64,10 +64,10 @@ if (!isset($_SESSION['user']))
                             <img src="views/admin/assets/img/admin-avatar.png" />
                             <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Paramètres</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Déconnexion</a>
                         </ul>
                     </li>
                 </ul>
@@ -363,13 +363,14 @@ if (!isset($_SESSION['user']))
                                     <label class="font-normal">Date production</label>
                                     <div class="input-group date">
                                         <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
-                                        <input class="form-control" type="text" value="04/12/2017">
+                                        <input class="form-control" type="text" value="01/01/2022">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" id="add-quartier" class="btn btn-primary form-control">Fiche
+                                    <a href="ficheproduction" type="submit" id="add-quartier"
+                                        class="btn btn-primary form-control">Fiche
                                         de production
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="form-group" id="date_5">
                                     <label class="font-normal">Date production</label>

@@ -60,10 +60,10 @@ if (!isset($_SESSION['user']))
                             <img src="views/admin/assets/img/admin-avatar.png" />
                             <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Paramètres</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Déconnexion</a>
                         </ul>
                     </li>
                 </ul>
@@ -318,49 +318,61 @@ if (!isset($_SESSION['user']))
                             </table>
                         </div>
                     </div>
+                    <div class="ibox-footer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button style="margin-right:35px;" class="btn btn-warning btn-sm pull-right"
+                                    data-toggle="modal" data-target="#modal-choose" id="fiche-approv"> Fiche
+                                    d'approvisionnement</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- MODALS -->
                 <!-- Modal Category -->
-                <div class="modal fade" id="modal-category">
+                <div class="modal fade" id="modal-choose">
                     <div class="modal-dialog">
                         <div class="modal-content ibox">
                             <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Ajouter Catégorie</div>
+                                <div class="modal-title ibox-title">Choisir une date</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                                     <a class="dropdown-toggle" data-toggle="dropdown"><i
                                             class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
                                         <a class="dropdown-item close-btn" data-dismiss="modal"
                                             aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                                <form id="form-category">
-                                    <div class="form-group">
-                                        <input type="hidden" name="action" value="category" />
-                                        <input type="hidden" name="actionu" value="1" />
-                                        <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationc" name="designation"
-                                            required placeholder="Désignation">
+                                <div class="form-group" id="date_1">
+                                    <label class="font-normal">Date Achat</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" type="text" value="01/01/2022">
                                     </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
-                                        </button>
-                                    </div>
-                                </form>
+                                </div>
                                 <div class="form-group">
-                                    <label>Catégorie produit</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
-                                        <?php foreach ($categories as $category) : ?>
-                                        <option value="<?= $category->getIdcat() ?>">
-                                            <?= $category->getDesignationcat() ?> </option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <a href="ficheapprovisionnement" type="submit" id="add-quartier"
+                                        class="btn btn-primary form-control">Fiche
+                                        d'approvisionnement
+                                    </a>
+                                </div>
+                                <div class="form-group" id="date_5">
+                                    <label class="font-normal">Dates Achats</label>
+                                    <div class="input-daterange input-group" id="datepicker">
+                                        <input class="input-sm form-control" type="text" name="start"
+                                            value="04/12/2017">
+                                        <span class="input-group-addon p-l-10 p-r-10">au</span>
+                                        <input class="input-sm form-control" type="text" name="end" value="08/17/2018">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" id="add-quartier" class="btn btn-primary form-control">Fiche
+                                        d'approvisionnement
+                                    </button>
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">
@@ -372,58 +384,6 @@ if (!isset($_SESSION['user']))
                     <!-- /.modal-dialog -->
                 </div>
                 <!-- End Modal Category -->
-
-                <!-- Modal Mesure -->
-                <div class="modal fade" id="modal-mesure">
-                    <div class="modal-dialog">
-                        <div class="modal-content ibox">
-                            <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Ajouter Mesure</div>
-                                <div class="ibox-tools">
-                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-body ibox-body">
-                                <form id="form-unite">
-                                    <div class="form-group">
-                                        <input type="hidden" name="action" value="unite" />
-                                        <input type="hidden" name="actionu" value="1" />
-                                        <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationu" name="designation"
-                                            required placeholder="Désignation">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
-                                        </button>
-                                    </div>
-                                </form>
-                                <div class="form-group">
-                                    <label>Unité de Mesure</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
-                                        <?php foreach ($unites as $unite) : ?>
-                                        <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
-                                        </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- End Modal alert -->
                 <!-- END MODALS -->
             </div>
             <!-- END PAGE CONTENT-->

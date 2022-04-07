@@ -350,7 +350,7 @@
                 <div class="row text-center">
                     <div class="col-lg-12">
                         <h2 class="section-title">Services de Qualité</h2>
-                        <h3 class="section-sub-title">Equipe professionelle</h3>
+                        <h3 class="section-sub-title">équipe professionelle</h3>
                     </div>
                 </div>
                 <!--/ Title row end -->
@@ -361,12 +361,12 @@
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team1.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Alexis Buesha</h3>
-                                        <p class="ts-designation">Superviseurr</p>
+                                        <h3 class="ts-name">BALUME BUESHA F.</h3>
+                                        <p class="ts-designation">Directeur Général</p>
                                         <p class="ts-description">
                                             Nats Stenman began his career in construction with
                                             boots on the ground
@@ -387,12 +387,12 @@
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team2.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Alexis Buesha</h3>
-                                        <p class="ts-designation">Superviseurr</p>
+                                        <h3 class="ts-name">Landry Buesha</h3>
+                                        <p class="ts-designation">Ingénieur Superviseurr</p>
                                         <p class="ts-description">
                                             Nats Stenman began his career in construction with
                                             boots on the ground
@@ -413,12 +413,12 @@
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team1.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Alexis Buesha</h3>
-                                        <p class="ts-designation">Superviseurr</p>
+                                        <h3 class="ts-name">BALUME BUESHA F.</h3>
+                                        <p class="ts-designation">Directeur Général</p>
                                         <p class="ts-description">
                                             Nats Stenman began his career in construction with
                                             boots on the ground
@@ -434,17 +434,17 @@
                                 </div>
                                 <!--/ Team wrapper end -->
                             </div>
-                            <!-- Team 3 end -->
+                            <!-- Team 1 end -->
 
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team2.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Alexis Buesha</h3>
-                                        <p class="ts-designation">Superviseurr</p>
+                                        <h3 class="ts-name">Landry Buesha</h3>
+                                        <p class="ts-designation">Ingénieur Superviseurr</p>
                                         <p class="ts-description">
                                             Nats Stenman began his career in construction with
                                             boots on the ground
@@ -460,17 +460,17 @@
                                 </div>
                                 <!--/ Team wrapper end -->
                             </div>
-                            <!-- Team 4 end -->
+                            <!-- Team 2 end -->
 
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team1.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Alexis Buesha</h3>
-                                        <p class="ts-designation">Superviseurr</p>
+                                        <h3 class="ts-name">BALUME BUESHA F.</h3>
+                                        <p class="ts-designation">Directeur Général</p>
                                         <p class="ts-description">
                                             Nats Stenman began his career in construction with
                                             boots on the ground
@@ -486,17 +486,17 @@
                                 </div>
                                 <!--/ Team wrapper end -->
                             </div>
-                            <!-- Team 5 end -->
+                            <!-- Team 1 end -->
 
                             <div class="item">
                                 <div class="ts-team-wrapper">
                                     <div class="team-img-wrapper">
-                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team7.jpg"
+                                        <img loading="lazy" class="w-100" src="views/pages/assets/images/team/team2.jpg"
                                             alt="team-img">
                                     </div>
                                     <div class="ts-team-content">
-                                        <h3 class="ts-name">Alexis Buesha</h3>
-                                        <p class="ts-designation">Superviseurr</p>
+                                        <h3 class="ts-name">Landry Buesha</h3>
+                                        <p class="ts-designation">Ingénieur Superviseurr</p>
                                         <p class="ts-description">
                                             Nats Stenman began his career in construction with
                                             boots on the ground
@@ -512,7 +512,7 @@
                                 </div>
                                 <!--/ Team wrapper end -->
                             </div>
-                            <!-- Team 6 end -->
+                            <!-- Team 2 end -->
                         </div>
                         <!-- Team slide end -->
                     </div>
