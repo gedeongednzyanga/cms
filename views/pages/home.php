@@ -478,7 +478,7 @@
                     <div class="col-lg-4">
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon1.png"
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact5.png"
                                     alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
@@ -494,7 +494,7 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon2.png"
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact6.png"
                                     alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
@@ -510,12 +510,12 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon3.png"
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact9.png"
                                     alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Fabrication de pave</a>
+                                    <a href="#">Fabrication de pavé</a>
                                 </h3>
                                 <p>
                                     CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
@@ -535,7 +535,7 @@
                     <div class="col-lg-4 mt-5 mt-lg-0 mb-4 mb-lg-0">
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon4.png"
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact8.png"
                                     alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
@@ -551,7 +551,7 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon5.png"
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact7.png"
                                     alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
@@ -565,7 +565,7 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon6.png"
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact10.png"
                                     alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
@@ -672,8 +672,7 @@
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
                                     <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client1.png"
-                                            alt="clients-logo" /></a>
+                                            src="views/pages/assets/images/clients/client.png" alt="clients-logo" /></a>
                                 </figure>
                             </div>
                             <!-- Client 1 end -->
@@ -681,7 +680,7 @@
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
                                     <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client2.png"
+                                            src="views/pages/assets/images/clients/client01.png"
                                             alt="clients-logo" /></a>
                                 </figure>
                             </div>
@@ -690,7 +689,7 @@
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
                                     <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client3.png"
+                                            src="views/pages/assets/images/clients/client03.png"
                                             alt="clients-logo" /></a>
                                 </figure>
                             </div>
@@ -699,7 +698,7 @@
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
                                     <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client4.png"
+                                            src="views/pages/assets/images/clients/client04.png"
                                             alt="clients-logo" /></a>
                                 </figure>
                             </div>
@@ -708,7 +707,7 @@
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
                                     <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client5.png"
+                                            src="views/pages/assets/images/clients/client05.png"
                                             alt="clients-logo" /></a>
                                 </figure>
                             </div>
@@ -717,7 +716,7 @@
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
                                     <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client6.png"
+                                            src="views/pages/assets/images/clients/client01.png"
                                             alt="clients-logo" /></a>
                                 </figure>
                             </div>

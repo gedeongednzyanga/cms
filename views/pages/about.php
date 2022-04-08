@@ -333,7 +333,7 @@
                             </div>
                             <div class="ts-facts-content">
                                 <h2 class="ts-facts-num"><span class="counterUp" data-count="120">0</span></h2>
-                                <h3 class="ts-facts-title">Happy Clients</h3>
+                                <h3 class="ts-facts-title">CLIENTS HEUREUX</h3>
                             </div>
                         </div>
                         <!-- Col end -->

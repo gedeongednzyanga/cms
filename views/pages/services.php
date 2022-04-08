@@ -231,7 +231,7 @@
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
-                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon1.png"
+                                    <img loading="lazy" src="views/pages/assets/images/icon-image/fact5.png"
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
@@ -255,7 +255,7 @@
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
-                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon2.png"
+                                    <img loading="lazy" src="views/pages/assets/images/icon-image/fact6.png"
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
@@ -279,7 +279,7 @@
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
-                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon3.png"
+                                    <img loading="lazy" src="views/pages/assets/images/icon-image/fact9.png"
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
@@ -303,7 +303,7 @@
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
-                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon4.png"
+                                    <img loading="lazy" src="views/pages/assets/images/icon-image/fact8.png"
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
@@ -326,7 +326,7 @@
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
-                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon5.png"
+                                    <img loading="lazy" src="views/pages/assets/images/icon-image/fact10.png"
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
@@ -348,7 +348,7 @@
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
-                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon6.png"
+                                    <img loading="lazy" src="views/pages/assets/images/icon-image/fact7.png"
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
