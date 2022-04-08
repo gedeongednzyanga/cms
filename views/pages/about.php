@@ -218,15 +218,17 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <h3 class="column-title">Qui sommes-nous</h3>
-                        <p>Construction Metal Service (CMS) est une société à résponsabilité limité de construction
-                            œuvrant dans la province du Nord-Kivu/Ville de Goma.</p>
+                        <p>Construction Metal Service (CMS), une Société par Actions à Résponsabilité Limité est active
+                            pendant 30ans, installée en Ville de Goma/Nord-Kivu.</p>
                         <blockquote>
-                            <p>Nous considérons nos clients comme des invités, à une fêtes où nous sommes les hôtes.
-                                C'est notre job d'améliorer leur expérience chaque jour. </p>
+                            <p>Situé sur la route Goma-Sake, son siège social se trouve dans le quartier Lac-vert,
+                                avenue Kabande. Elle est spécialisée dans le secteur de commerce, conception et
+                                dimensionnement de projets de construction, expertise, fabrication des blocs
+                                industruels, paves et peinture. (Construction en général). </p>
                         </blockquote>
                         <p>Avec plus de 6ans d'expérience dans la construction industrielle, CMS intervient dans le
                             développement communautaire en offrant ses services de qualité à la population dans la
-                            construction des bâtiments, production de toute sorte de peinture, pave, bloc etc... </p>
+                            construction. </p>
                     </div>
                     <!-- Col end -->
 
@@ -251,7 +253,7 @@
                                 <div class="container">
                                     <div class="box-slider-content">
                                         <div class="box-slider-text">
-                                            <h2 class="box-slide-title">Relationships</h2>
+                                            <h2 class="box-slide-title">Durabilité</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -295,7 +297,7 @@
                             </div>
                             <div class="ts-facts-content">
                                 <h2 class="ts-facts-num"><span class="counterUp" data-count="189">0</span></h2>
-                                <h3 class="ts-facts-title">Projets</h3>
+                                <h3 class="ts-facts-title">Réalisations</h3>
                             </div>
                         </div>
                         <!-- Col end -->
@@ -306,7 +308,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="647">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="50">0</span></h2>
                                 <h3 class="ts-facts-title">Membres du Personnel</h3>
                             </div>
                         </div>
@@ -319,7 +321,7 @@
                             </div>
                             <div class="ts-facts-content">
                                 <h2 class="ts-facts-num"><span class="counterUp" data-count="4000">0</span></h2>
-                                <h3 class="ts-facts-title">Hours of Work</h3>
+                                <h3 class="ts-facts-title">Heures de travail</h3>
                             </div>
                         </div>
                         <!-- Col end -->
@@ -330,8 +332,8 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="44">0</span></h2>
-                                <h3 class="ts-facts-title">Countries Experience</h3>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="120">0</span></h2>
+                                <h3 class="ts-facts-title">Happy Clients</h3>
                             </div>
                         </div>
                         <!-- Col end -->

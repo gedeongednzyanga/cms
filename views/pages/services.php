@@ -226,8 +226,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100"
-                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service1.jpg"
+                                    alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -235,13 +235,13 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Construction des
-                                            Bâtiments</a>
+                                    <h3 class="service-box-title"><a href="service">Construction des
+                                            Bâtiments et travaux publics</a>
                                     </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
-                                    <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
+                                    <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
+                                            class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service1 end -->
@@ -250,8 +250,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100"
-                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service2.jpg"
+                                    alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -259,12 +259,13 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="services">Construction Industrielle</a>
+                                    <h3 class="service-box-title"><a href="services">Fabrication des blocs de toute
+                                            mesure</a>
                                     </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
-                                    <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
+                                    <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
+                                            class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service2 end -->
@@ -273,8 +274,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100"
-                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service3.jpg"
+                                    alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -282,12 +283,13 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Travaux Hydrauliques</a>
+                                    <h3 class="service-box-title"><a href="service-single.html">Fabrication de pave de
+                                            toutes marques</a>
                                     </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
-                                    <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
+                                    <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
+                                            class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service3 end -->
@@ -296,8 +298,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100"
-                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service4.jpg"
+                                    alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -305,11 +307,12 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Travaux Publics</a></h3>
+                                    <h3 class="service-box-title"><a href="service-single.html">Production de toute
+                                            sorte de peinture</a></h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
-                                    <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
+                                    <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
+                                            class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service1 end -->
@@ -318,8 +321,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100"
-                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service6.jpg"
+                                    alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -327,8 +330,7 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Production des
-                                            Peintures</a></h3>
+                                    <h3 class="service-box-title"><a href="service">Expertise en BTP</a></h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
                                     <a class="learn-more d-inline-block" href="service-single.html"
@@ -341,8 +343,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100"
-                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service5.jpg"
+                                    alt="service-image">
                             </div>
                             <div class="d-flex">
                                 <div class="ts-service-box-img">
@@ -350,84 +352,13 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Blocs de toutes
-                                            Mesures</a>
-                                    </h3>
-                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
-                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
-                                    <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
-                                </div>
-                            </div>
-                        </div><!-- Service3 end -->
-                    </div><!-- Col 6 end -->
-
-                    <div class="col-lg-4 col-md-6 mb-5">
-                        <div class="ts-service-box">
-                            <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100"
-                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
-                            </div>
-                            <div class="d-flex">
-                                <div class="ts-service-box-img">
-                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon6.png"
-                                        alt="service-icon">
-                                </div>
-                                <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Hourdis ou Blocs de
+                                    <h3 class="service-box-title"><a href="service">Hourdis ou Blocs de
                                             Dalle</a>
                                     </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
-                                    <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
-                                </div>
-                            </div>
-                        </div><!-- Service3 end -->
-                    </div><!-- Col 6 end -->
-
-                    <div class="col-lg-4 col-md-6 mb-5">
-                        <div class="ts-service-box">
-                            <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100"
-                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
-                            </div>
-                            <div class="d-flex">
-                                <div class="ts-service-box-img">
-                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon6.png"
-                                        alt="service-icon">
-                                </div>
-                                <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Pave de toutes
-                                            sortes</a>
-                                    </h3>
-                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
-                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
-                                    <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
-                                </div>
-                            </div>
-                        </div><!-- Service3 end -->
-                    </div><!-- Col 6 end -->
-
-                    <div class="col-lg-4 col-md-6 mb-5">
-                        <div class="ts-service-box">
-                            <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100"
-                                    src="views/pages/assets/images/services/service000.jpg" alt="service-image">
-                            </div>
-                            <div class="d-flex">
-                                <div class="ts-service-box-img">
-                                    <img loading="lazy" src="views/pages/assets/images/icon-image/service-icon6.png"
-                                        alt="service-icon">
-                                </div>
-                                <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Expertise en BTP</a>
-                                    </h3>
-                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
-                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
-                                    <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
+                                    <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
+                                            class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service3 end -->

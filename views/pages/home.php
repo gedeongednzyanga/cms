@@ -297,7 +297,7 @@
                         <!-- Col end -->
                         <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
                             <div class="call-to-action-btn">
-                                <a class="btn btn-dark" href="#">Request Quote</a>
+                                <a class="btn btn-dark" href="#">Demandez un devis</a>
                             </div>
                         </div>
                         <!-- col end -->
@@ -483,7 +483,7 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Construction de maison</a>
+                                    <a href="#">Construction des Bâtiments</a>
                                 </h3>
                                 <p>
                                     CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
@@ -499,7 +499,7 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Rénovations de bâtiments</a>
+                                    <a href="#">Fabrication des blocs</a>
                                 </h3>
                                 <p>
                                     CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
@@ -515,7 +515,7 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Design d'Intérieur</a>
+                                    <a href="#">Fabrication de pave</a>
                                 </h3>
                                 <p>
                                     CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
@@ -540,7 +540,7 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Design d'Extérieur</a>
+                                    <a href="#">Production de peinture</a>
                                 </h3>
                                 <p>
                                     CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
@@ -555,7 +555,7 @@
                                     alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
-                                <h3 class="service-box-title"><a href="#">Rénovation</a></h3>
+                                <h3 class="service-box-title"><a href="#">Hourdis ou Blocs de dalle</a></h3>
                                 <p>
                                     CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
                                 </p>
@@ -570,7 +570,7 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Gestion de la Sécurité</a>
+                                    <a href="#">Expertise en BTP</a>
                                 </h3>
                                 <p>
                                     CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
@@ -590,7 +590,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h3 class="column-title">Happy Clients</h3>
+                        <h3 class="column-title">TÉMOIGNAGES</h3>
 
                         <div id="testimonial-slide" class="testimonial-slide">
                             <div class="item">
