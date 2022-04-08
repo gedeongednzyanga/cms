@@ -69,9 +69,11 @@ switch ($action) {
         } else {
             echo 'Aucune production dans le panier.';
         }
-
         break;
 
+    case 'repport':
+        $_SESSION['date1'] = $_POST['dateprod'];
+        break;
     default:
         # code...
         break;

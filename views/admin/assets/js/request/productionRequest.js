@@ -48,4 +48,23 @@ $(function() {
             }
         });
     });
+
+    $('#loadprod').on('click', () => {
+        if ($('#date-prod').val() == '') {
+            $('#fiche-message').hide();
+            $('#fiche-message').html('<small class="alert alert-warning">Veuillez choisir une date.</small>').show('slow', 'linear');;
+        } else {
+            $.ajax({
+                url: "models/requests/RequestProduction.php",
+                type: "POST",
+                data: { action: 'repport', dateprod: $('#date-prod').val() },
+                success: function() {
+                    window.location = "ficheproduction";
+                },
+                error: function() {
+                    alert("Echec de la requête sur le serveur.");
+                }
+            });
+        }
+    });
 })

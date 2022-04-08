@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('views/includes/fpdf.php');
 
 class FicheProduction extends FPDF
@@ -12,6 +13,13 @@ class FicheProduction extends FPDF
     }
 }
 
+//Objets
+$managerProduction = new ManagerProduction();
+$data = [];
+if (isset($_SESSION['date2']))
+    $data = $managerProduction->_getProductionBetweenTwoDate($_SESSION['date1'], $_SESSION['date2'], 'Production');
+else
+    $data = $managerProduction->_getOneProductionDate($_SESSION['date1']);
 
 $pdf = new FicheProduction('P', 'mm', 'A4');
 $pdf->AddPage();
@@ -50,211 +58,213 @@ $pdf->Cell(24, 7, 'Carburant', 1, 0, 'C', 0);
 $pdf->Cell(30, 7, 'Observation', 1, 1, 'C', 0);
 
 //Body tableau
-$pdf->SetFont('Arial', 'BI', 10);
-$pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
-$pdf->SetFont('Arial', '', 11);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
 
 $pdf->SetFont('Arial', 'BI', 10);
-$pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
+$pdf->Cell(190, 7, 'Date : ' . $_SESSION['date1'], 1, 1, 'L', 0);
 $pdf->SetFont('Arial', '', 11);
+foreach ($data as $production) :
+    $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+    $pdf->Cell(24, 7, $production->getQuantiteprod() . $production->getDesignationu(), 1, 0, 'C', 0);
+    $pdf->Cell(50, 7, $production->getDesignationprod(), 1, 0, 'L', 0);
+    $pdf->Cell(21, 7, ($production->getQuantiteprod() - $production->getQuantiteperd()) . $production->getDesignationu(), 1, 0, 'C', 0);
+    $pdf->Cell(21, 7, $production->getQuantiteperd() . $production->getDesignationu(), 1, 0, 'C', 0);
+    $pdf->Cell(24, 7, $production->getCarburant() . 'L', 1, 0, 'C', 0);
+    $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+endforeach;
 
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
 
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
 
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
 
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-
-$pdf->SetFont('Arial', 'BI', 10);
-$pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
-$pdf->SetFont('Arial', '', 11);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
 
 
-$pdf->SetFont('Arial', 'BI', 10);
-$pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
-$pdf->SetFont('Arial', '', 11);
+// $pdf->SetFont('Arial', 'BI', 10);
+// $pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
+// $pdf->SetFont('Arial', '', 11);
 
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
 
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
 
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
 
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-$pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-$pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-$pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-$pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-$pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-$pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-$pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+
+// $pdf->SetFont('Arial', 'BI', 10);
+// $pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
+// $pdf->SetFont('Arial', '', 11);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+
+// $pdf->SetFont('Arial', 'BI', 10);
+// $pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
+// $pdf->SetFont('Arial', '', 11);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
+// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
+// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
+// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
+// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
+// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
 
 
 

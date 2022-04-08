@@ -11,6 +11,27 @@ class ManagerProduction extends Model
     {
         return $this->getAll('get_last_production', 'Production');
     }
+
+    public function _getOneProductionDate($date)
+    {
+        return $this->getOne('_get_production_date', $date, 'Production');
+    }
+
+    public function _getProductionBetweenTwoDate($date1, $date2, $object)
+    {
+        try {
+            $obj = [];
+            $query = $this->getBdd()->prepare("CALL _get_production_two_date(?, ?)");
+            $query->execute(array($date1, $date2));
+            while ($data = $query->fetch(PDO::FETCH_ASSOC)) {
+                $obj[] = new $object($data);
+            }
+            $query->closeCursor();
+            return $obj;
+        } catch (PDOException $ex) {
+            throw new Exception("Error " . $ex);
+        }
+    }
     public function inertEntete($action, $procedure, $objet)
     {
         try {

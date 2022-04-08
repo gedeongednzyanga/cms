@@ -1,5 +1,7 @@
 <?php
 session_start();
+if (isset($_SESSION['date1']))
+    unset($_SESSION['date1']);
 if (!isset($_SESSION['user']))
     header("Location:login");
 ?>
@@ -359,18 +361,17 @@ if (!isset($_SESSION['user']))
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                                <div class="form-group" id="date_1">
+                                <div class="form-group">
                                     <label class="font-normal">Date production</label>
-                                    <div class="input-group date">
+                                    <div class="input-group">
                                         <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
-                                        <input class="form-control" type="text" value="01/01/2022">
+                                        <input class="form-control" type="date" id="date-prod">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <a href="ficheproduction" type="submit" id="add-quartier"
-                                        class="btn btn-primary form-control">Fiche
+                                    <button type="button" id="loadprod" class="btn btn-primary form-control">Fiche
                                         de production
-                                    </a>
+                                    </button>
                                 </div>
                                 <div class="form-group" id="date_5">
                                     <label class="font-normal">Date production</label>
@@ -389,6 +390,7 @@ if (!isset($_SESSION['user']))
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                <span class="pull-right" id="fiche-message"></span>
                             </div>
                         </div>
                         <!-- /.modal-content -->
