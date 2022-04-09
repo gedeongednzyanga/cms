@@ -149,31 +149,24 @@
                                             <a class="nav-link" href="<?= URL ?>">Accueil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <!-- <a href="services" class="nav-link">Nos Services</a> -->
                                             <a href="services" class="nav-link">Nos Services</a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CMS -
                                                 SARL <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <!-- <li><a href="about">A propos</a></li> -->
                                                 <li><a href="about">A propos</a></li>
                                                 <li><a href="faq">Faq</a></li>
-                                                <!-- <li><a href="faq">Faq</a></li> -->
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <!-- <a href="projects" class="nav-link">Nos Projets</a> -->
                                             <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
-                                            <!-- <a href="news" class="nav-link">News
-                                            </a> -->
                                             <a href="news" class="nav-link">News
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <!-- <a class="nav-link" href="contact">Contact</a> -->
                                             <a class="nav-link" href="contact">Contact</a>
                                         </li>
                                     </ul>
@@ -246,7 +239,7 @@
                                     Votre choix est simple
                                 </h3>
                                 <p data-animation-in="slideInRight">
-                                    <a href="services.html" class="slider btn btn-primary border">Nos Services</a>
+                                    <a href="services" class="slider btn btn-primary border">Nos Services</a>
                                 </p>
                             </div>
                         </div>
@@ -273,8 +266,7 @@
                                     <a href="javascript:;" class="slider btn btn-primary"
                                         aria-label="contact-with-us">Obtenir un devis gratuit</a>
                                     <a href="javascript:;" class="slider btn btn-primary border"
-                                        aria-label="learn-more-about-us">Learn
-                                        more</a>
+                                        aria-label="learn-more-about-us">En savoir plus</a>
                                 </div>
                             </div>
                         </div>
@@ -315,12 +307,12 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="ts-intro">
-                            <h2 class="into-title">About Us</h2>
+                            <h2 class="into-title">A propos de CMS</h2>
                             <h3 class="into-sub-title">Nous réalisons des projets phares</h3>
                             <p>
-                                CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons
-                                et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av.
-                                Kabande, le long de la route Goma-Sake.
+                                Les bâtiments CMS répondent parfaitement aux besoins de la communauté. Nous vous aidons
+                                à obtenir la meilleure solution pour vos projets de construction. Tout en vous
+                                garatissant la durabilité, nous vous rassurons la sauvegarde de votre investissement.
                             </p>
                         </div>
                         <!-- Intro box end -->
@@ -376,7 +368,7 @@
                                         <i class="fas fa-users"></i>
                                     </span>
                                     <div class="ts-service-box-content">
-                                        <h3 class="service-box-title">Une équipes de professionnels</h3>
+                                        <h3 class="service-box-title">Une équipe de professionnels</h3>
                                     </div>
                                 </div>
                                 <!-- Service 2 end -->
@@ -390,9 +382,9 @@
                     <div class="col-lg-6 mt-4 mt-lg-0">
                         <h3 class="into-sub-title">Nos Valeurs</h3>
                         <p>
-                            CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons et
-                            routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av. Kabande,
-                            le long de la route Goma-Sake.
+                            Nos valeurs et nos collaborateurs comptent énormément
+                            pour nous. C’est sur eux que nous nous basons pour mettre en place une relation durable avec
+                            les clients. Cela fait de nous un partenaire digne de confiance.
                         </p>
 
                         <div class="accordion accordion-group" id="our-values-accordion">
@@ -401,7 +393,7 @@
                                     <h2 class="mb-0">
                                         <button class="btn btn-block text-left" type="button" data-toggle="collapse"
                                             data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Sécurité
+                                            Responsabilité
                                         </button>
                                     </h2>
                                 </div>
@@ -409,28 +401,8 @@
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                     data-parent="#our-values-accordion">
                                     <div class="card-body">
-                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
-                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
-                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header p-0 bg-transparent" id="headingTwo">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-block text-left collapsed" type="button"
-                                            data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                                            aria-controls="collapseTwo">
-                                            Service Client
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                    data-parent="#our-values-accordion">
-                                    <div class="card-body">
-                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
-                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
-                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
+                                        Nous assumons la pleine responsabilité de nos décisions, nos actions et leurs
+                                        résultats.
                                     </div>
                                 </div>
                             </div>
@@ -447,12 +419,31 @@
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                     data-parent="#our-values-accordion">
                                     <div class="card-body">
-                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
-                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
-                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
+                                        Nous sommes honnêtes, dignes de confiance et valorisons l’éthique. Chez nous le
+                                        client est rassuré:
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="card">
+                                <div class="card-header p-0 bg-transparent" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-block text-left collapsed" type="button"
+                                            data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
+                                            Respect
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                    data-parent="#our-values-accordion">
+                                    <div class="card-body">
+                                        Nous reconnaissons que les avis, les sentiments et les antécédents de nos
+                                        clients sont plus importants que les nôtres.
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <!--/ Accordion end -->
                     </div>
@@ -463,6 +454,67 @@
             <!-- Container end -->
         </section>
 
+
+        <section id="facts" class="facts-area dark-bg">
+            <div class="container">
+                <div class="facts-wrapper">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 ts-facts">
+                            <div class="ts-facts-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact1.png"
+                                    alt="facts-img">
+                            </div>
+                            <div class="ts-facts-content">
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="189">0</span></h2>
+                                <h3 class="ts-facts-title">Réalisations</h3>
+                            </div>
+                        </div>
+                        <!-- Col end -->
+
+                        <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-sm-0">
+                            <div class="ts-facts-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact2.png"
+                                    alt="facts-img">
+                            </div>
+                            <div class="ts-facts-content">
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="50">0</span></h2>
+                                <h3 class="ts-facts-title">Membres du Personnel</h3>
+                            </div>
+                        </div>
+                        <!-- Col end -->
+
+                        <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
+                            <div class="ts-facts-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact3.png"
+                                    alt="facts-img">
+                            </div>
+                            <div class="ts-facts-content">
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="4000">0</span></h2>
+                                <h3 class="ts-facts-title">Heures de travail</h3>
+                            </div>
+                        </div>
+                        <!-- Col end -->
+
+                        <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
+                            <div class="ts-facts-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact4.png"
+                                    alt="facts-img">
+                            </div>
+                            <div class="ts-facts-content">
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="120">0</span></h2>
+                                <h3 class="ts-facts-title">CLIENTS HEUREUX</h3>
+                            </div>
+                        </div>
+                        <!-- Col end -->
+
+                    </div>
+                    <!-- Facts end -->
+                </div>
+                <!--/ Content row end -->
+            </div>
+            <!--/ Container end -->
+        </section>
+        <!-- Facts end -->
 
         <section id="ts-service-area" class="ts-service-area pb-0">
             <div class="container">
@@ -732,45 +784,6 @@
         </section>
         <!-- Content end -->
 
-        <section class="subscribe no-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="subscribe-call-to-acton">
-                            <h3>Pouvons-nous vous aidez ?</h3>
-                            <h4>(+243) 819-240-025</h4>
-                        </div>
-                    </div>
-                    <!-- Col end -->
-
-                    <div class="col-md-8">
-                        <div class="ts-newsletter row align-items-center">
-                            <div class="col-md-5 newsletter-introtext">
-                                <h4 class="text-white mb-0">Inscription Newsletter</h4>
-                                <p class="text-white">Recevez nos dernières nouvelles </p>
-                            </div>
-
-                            <div class="col-md-7 newsletter-form">
-                                <form action="#" method="post">
-                                    <div class="form-group">
-                                        <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
-                                        <input type="email" name="email" id="newsletter-email"
-                                            class="form-control form-control-lg" placeholder="Entrer votre email"
-                                            autocomplete="off" />
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Newsletter end -->
-                    </div>
-                    <!-- Col end -->
-                </div>
-                <!-- Content row end -->
-            </div>
-            <!--/ Container end -->
-        </section>
-        <!--/ subscribe end -->
-
         <section id="news" class="news">
             <div class="container">
                 <div class="row text-center">
@@ -817,6 +830,49 @@
             <!--/ Container end -->
         </section>
         <!--/ News end -->
+
+        <section class="subscribe no-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="subscribe-call-to-acton">
+                            <h3>Pouvons-nous vous aidez ?</h3>
+                            <h4>(+243) 819-240-025</h4>
+                        </div>
+                    </div>
+                    <!-- Col end -->
+
+                    <div class="col-md-8">
+                        <div class="ts-newsletter row align-items-center">
+                            <div class="col-md-5 newsletter-introtext">
+                                <h4 class="text-white mb-0">Inscription Newsletter</h4>
+                                <p class="text-white">Recevez nos dernières nouvelles </p>
+                            </div>
+
+                            <div class="col-md-5 newsletter-form">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
+                                        <input type="email" name="email" id="newsletter-email"
+                                            class="form-control form-control-lg" placeholder="Entrer votre email"
+                                            autocomplete="off" />
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-2 newsletter-form">
+                                <button class="btn btn-warning btn-sm" type="button">Souscrire</button>
+                            </div>
+                        </div>
+                        <!-- Newsletter end -->
+                    </div>
+                    <!-- Col end -->
+                </div>
+                <!-- Content row end -->
+            </div>
+            <!--/ Container end -->
+        </section>
+        <!--/ subscribe end -->
 
         <footer id="footer" class="footer bg-overlay">
             <div class="footer-main">

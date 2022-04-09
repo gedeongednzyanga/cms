@@ -368,6 +368,45 @@
             </div><!-- Conatiner end -->
         </section><!-- Main container end -->
 
+        <section class="subscribe no-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="subscribe-call-to-acton">
+                            <h3>Pouvons-nous vous aidez ?</h3>
+                            <h4>(+243) 819-240-025</h4>
+                        </div>
+                    </div>
+                    <!-- Col end -->
+
+                    <div class="col-md-8">
+                        <div class="ts-newsletter row align-items-center">
+                            <div class="col-md-5 newsletter-introtext">
+                                <h4 class="text-white mb-0">Inscription Newsletter</h4>
+                                <p class="text-white">Recevez nos dernières nouvelles </p>
+                            </div>
+
+                            <div class="col-md-7 newsletter-form">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
+                                        <input type="email" name="email" id="newsletter-email"
+                                            class="form-control form-control-lg" placeholder="Entrer votre email"
+                                            autocomplete="off" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Newsletter end -->
+                    </div>
+                    <!-- Col end -->
+                </div>
+                <!-- Content row end -->
+            </div>
+            <!--/ Container end -->
+        </section>
+        <!--/ subscribe end -->
+
         <footer id="footer" class="footer bg-overlay">
             <div class="footer-main">
                 <div class="container">
