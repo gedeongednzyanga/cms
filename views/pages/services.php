@@ -259,7 +259,7 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="services">Fabrication des blocs de toute
+                                    <h3 class="service-box-title"><a href="service">Fabrication des blocs de toute
                                             mesure</a>
                                     </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
@@ -283,7 +283,7 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Fabrication de pave de
+                                    <h3 class="service-box-title"><a href="service">Fabrication de pave de
                                             toutes marques</a>
                                     </h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
@@ -307,7 +307,7 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service-single.html">Production de toute
+                                    <h3 class="service-box-title"><a href="service">Production de toute
                                             sorte de peinture</a></h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
@@ -333,8 +333,8 @@
                                     <h3 class="service-box-title"><a href="service">Expertise en BTP</a></h3>
                                     <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
                                         team looking for talent like. Lorem ipsum dolor suscipit.</p>
-                                    <a class="learn-more d-inline-block" href="service-single.html"
-                                        aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
+                                    <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
+                                            class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
                             </div>
                         </div><!-- Service2 end -->

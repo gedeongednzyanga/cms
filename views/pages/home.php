@@ -207,8 +207,7 @@
                                 <h2 class="slide-title" data-animation-in="slideInLeft">
                                     <script>
                                     document.write(new Date().getFullYear() - 2016);
-                                    </script>
-                                    Ans d'expérience dans la
+                                    </script> <span> Ans d 'expérience dans la</span>
                                 </h2>
                                 <h3 class="slide-sub-title" data-animation-in="slideInRight">
                                     Construction Industrielle
@@ -535,10 +534,10 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Construction des Bâtiments</a>
+                                    <a href="services">Construction des Bâtiments</a>
                                 </h3>
                                 <p>
-                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                    CMS intervient dans la construction des bâtiments.
                                 </p>
                             </div>
                         </div>
@@ -551,10 +550,10 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Fabrication des blocs</a>
+                                    <a href="services">Fabrication des blocs</a>
                                 </h3>
                                 <p>
-                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                    Vous trouverez des blocs de qualité de toute mesure chez CMS.
                                 </p>
                             </div>
                         </div>
@@ -567,10 +566,10 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Fabrication de pavé</a>
+                                    <a href="services">Fabrication de pavé</a>
                                 </h3>
                                 <p>
-                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                    Besoin de pavés ? CMS vous propose une gamme de pavés de toute marque.
                                 </p>
                             </div>
                         </div>
@@ -592,10 +591,10 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Production de peinture</a>
+                                    <a href="services">Production de peinture</a>
                                 </h3>
                                 <p>
-                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                    Peinture lavable, peinture à huile etc... CMS vous offre la bonne qualité.
                                 </p>
                             </div>
                         </div>
@@ -607,9 +606,9 @@
                                     alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
-                                <h3 class="service-box-title"><a href="#">Hourdis ou Blocs de dalle</a></h3>
+                                <h3 class="service-box-title"><a href="services">Hourdis ou Blocs de dalle</a></h3>
                                 <p>
-                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                    La meilleure qualité d'hourdis se trouve chez CMS.
                                 </p>
                             </div>
                         </div>
@@ -622,10 +621,10 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="#">Expertise en BTP</a>
+                                    <a href="services">Expertise en BTP</a>
                                 </h3>
                                 <p>
-                                    CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                    La durabilité chez nous constitue notre priorité.
                                 </p>
                             </div>
                         </div>
@@ -768,7 +767,7 @@
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
                                     <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client01.png"
+                                            src="views/pages/assets/images/clients/client07.png"
                                             alt="clients-logo" /></a>
                                 </figure>
                             </div>
