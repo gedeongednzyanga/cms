@@ -229,7 +229,7 @@
 
                 <div class="row">
                     <div class="col-lg-8">
-                        <h3 class="border-title border-left mar-t0">Construction general</h3>
+                        <h3 class="border-title border-left mar-t0">Construction Metal Service</h3>
 
                         <div class="accordion accordion-group accordion-classic" id="construction-accordion">
                             <div class="card">
@@ -237,7 +237,7 @@
                                     <h2 class="mb-0">
                                         <button class="btn btn-block text-left" type="button" data-toggle="collapse"
                                             data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Does the law require head protection on construction sites?
+                                            Pourquoi CMS ?
                                         </button>
                                     </h2>
                                 </div>

@@ -224,13 +224,13 @@
                             <div class="widget">
                                 <h3 class="widget-title">Solutions</h3>
                                 <ul class="nav service-menu">
-                                    <li><a href="service-single.html">Construction des
-                                            Bâtiments et travaux publics</a></li>
-                                    <li class="active"><a href="service-single.html">Building Remodels</a></li>
-                                    <li><a href="#">Fabrication des blocs</a></li>
-                                    <li><a href="#">Fabrication de pave</a></li>
-                                    <li><a href="#">Production de peinture</a></li>
-                                    <li><a href="#">Expertise en BTP</a></li>
+                                    <li class="active"><a href="service">Construction des
+                                            Bâtiments</a></li>
+                                    <li><a href="service">Rénovations de bâtiments</a></li>
+                                    <li><a href="service">Fabrication des blocs</a></li>
+                                    <li><a href="service">Fabrication des pavés</a></li>
+                                    <li><a href="service">Production de peinture</a></li>
+                                    <li><a href="service">Expertise en BTP</a></li>
                                 </ul>
                             </div><!-- Widget end -->
 
@@ -259,7 +259,8 @@
                     <div class="col-xl-8 col-lg-8">
                         <div class="content-inner-page">
 
-                            <h2 class="column-title mrt-0">Building Remodels</h2>
+                            <h2 class="column-title mrt-0">Construction des
+                                Bâtiments</h2>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -403,12 +404,12 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-8 text-center text-md-left">
                                         <div class="call-to-action-text">
-                                            <h3 class="action-title">Interested with this service.</h3>
+                                            <h3 class="action-title">INTÉRESSÉ PAR CE SERVICE ?</h3>
                                         </div>
                                     </div><!-- Col end -->
                                     <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
                                         <div class="call-to-action-btn">
-                                            <a class="btn btn-primary" href="#">Get a Quote</a>
+                                            <a class="btn btn-primary" href="#">Obtenir un devis</a>
                                         </div>
                                     </div><!-- col end -->
                                 </div><!-- row end -->

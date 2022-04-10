@@ -574,6 +574,22 @@
                             </div>
                         </div>
                         <!-- Service 3 end -->
+
+                        <div class="ts-service-box d-flex">
+                            <div class="ts-service-box-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact11.png"
+                                    alt="service-icon" />
+                            </div>
+                            <div class="ts-service-box-info">
+                                <h3 class="service-box-title">
+                                    <a href="services">Design Intérieur</a>
+                                </h3>
+                                <p>
+                                    La visibilité intérieure de votre maison dépend de la qualité de peinture.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Service 8 end -->
                     </div>
                     <!-- Col end -->
 
@@ -602,20 +618,6 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact7.png"
-                                    alt="service-icon" />
-                            </div>
-                            <div class="ts-service-box-info">
-                                <h3 class="service-box-title"><a href="services">Hourdis ou Blocs de dalle</a></h3>
-                                <p>
-                                    La meilleure qualité d'hourdis se trouve chez CMS.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Service 5 end -->
-
-                        <div class="ts-service-box d-flex">
-                            <div class="ts-service-box-img">
                                 <img loading="lazy" src="views/pages/assets/images/icon-image/fact10.png"
                                     alt="service-icon" />
                             </div>
@@ -628,7 +630,38 @@
                                 </p>
                             </div>
                         </div>
+                        <!-- Service 5 end -->
+
+
+                        <div class="ts-service-box d-flex">
+                            <div class="ts-service-box-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact13.png"
+                                    alt="service-icon" />
+                            </div>
+                            <div class="ts-service-box-info">
+                                <h3 class="service-box-title"><a href="services">Rénovation des bâtiments</a></h3>
+                                <p>
+                                    Révolutionnez votre construction avec l'équipe professionelle CMS.
+                                </p>
+                            </div>
+                        </div>
                         <!-- Service 6 end -->
+
+                        <div class="ts-service-box d-flex">
+                            <div class="ts-service-box-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact12.png"
+                                    alt="service-icon" />
+                            </div>
+                            <div class="ts-service-box-info">
+                                <h3 class="service-box-title">
+                                    <a href="services">Design extérieur</a>
+                                </h3>
+                                <p>
+                                    Nous améliorons l'aspect extérieur de vos maisons et bâtiments.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Service 7 end -->
                     </div>
                     <!-- Col end -->
                 </div>
