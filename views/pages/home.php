@@ -585,7 +585,7 @@
                                     <a href="services">Design Intérieur</a>
                                 </h3>
                                 <p>
-                                    La visibilité intérieure de votre maison dépend de la qualité de peinture.
+                                    L'intérieure de votre maison dépend de la qualité de peinture.
                                 </p>
                             </div>
                         </div>

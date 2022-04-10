@@ -245,8 +245,13 @@
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                     data-parent="#construction-accordion">
                                     <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia aute, non cupidata
+                                        <p> CMS a revolutionné l'industrie de construction. Notre travail n'est pas
+                                            facile, mais nous aimons le faire et nous ne sommes pas devenus le leader du
+                                            marché en fuyant les défis.</p>
+                                        <p>Nous agissons rapidement, nous collaborons entre les fonctions et nous
+                                            abordons les problèmes sous toutes les angles. Nous avons bâti une culture
+                                            d'entreprise inégalée. Nous aimons notre famille de travail autant que nous
+                                            aimons le travail.</p>
                                     </div>
                                 </div>
                             </div>
@@ -256,18 +261,16 @@
                                         <button class="btn btn-block text-left collapsed" type="button"
                                             data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
                                             aria-controls="collapseTwo">
-                                            What are the first aid requirements for sites?
+                                            Où se trouve le siège social de CMS ?
                                         </button>
                                     </h2>
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                     data-parent="#construction-accordion">
                                     <div class="card-body">
-                                        Anemi nim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                                        ea com modo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid
-                                        henderit in voluptate
-                                        velit esse cillu oris nisi ut aliquip ex ea com matat.
+                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
+                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
                                     </div>
                                 </div>
                             </div>
@@ -277,17 +280,15 @@
                                         <button class="btn btn-block text-left collapsed" type="button"
                                             data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
                                             aria-controls="collapseThree">
-                                            What is an appointed person?
+                                            CMS intervient dans quel domane ?
                                         </button>
                                     </h2>
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                     data-parent="#construction-accordion">
                                     <div class="card-body">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry’s standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book.
+                                        CMS intervient dans la construction des bâtiments, construction industrelle,
+                                        maisons et routes.
                                     </div>
                                 </div>
                             </div>
@@ -296,7 +297,7 @@
 
                         <div class="gap-40"></div>
 
-                        <h3 class="border-title border-left">Safety</h3>
+                        <h3 class="border-title border-left">Sécurité</h3>
 
                         <div class="accordion accordion-group accordion-classic" id="safety-accordion">
                             <div class="card">
@@ -305,7 +306,7 @@
                                         <button class="btn btn-block text-left" type="button" data-toggle="collapse"
                                             data-target="#collapseFour" aria-expanded="true"
                                             aria-controls="collapseFour">
-                                            Mauris rhoncus pretium porttitor cras scelerisque commodo odio ?
+                                            Qu'est-ce-que CMS garantie à ses clients ?
                                         </button>
                                     </h2>
                                 </div>
@@ -313,8 +314,7 @@
                                 <div id="collapseFour" class="collapse show" aria-labelledby="headingFour"
                                     data-parent="#safety-accordion">
                                     <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia aute, non cupidata
+                                        En tant que client, CMS vous garantie la durabilité de votre édifice.
                                     </div>
                                 </div>
                             </div>
@@ -324,22 +324,20 @@
                                         <button class="btn btn-block text-left collapsed" type="button"
                                             data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
                                             aria-controls="collapseFive">
-                                            What are the first aid requirements for sites?
+                                            Comment CMS considère ses clients ?
                                         </button>
                                     </h2>
                                 </div>
                                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
                                     data-parent="#safety-accordion">
                                     <div class="card-body">
-                                        Anemi nim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                                        ea com modo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid
-                                        henderit in voluptate
-                                        velit esse cillu oris nisi ut aliquip ex ea com matat.
+                                        Le client constitue la priorité chez nous. Chaque nous nous efforçons de lui
+                                        faie
+                                        aimer la possession de nos services.
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <!-- <div class="card">
                                 <div class="card-header p-0 bg-transparent" id="headingSix">
                                     <h2 class="mb-0">
                                         <button class="btn btn-block text-left collapsed" type="button"
@@ -358,7 +356,7 @@
                                         book.
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <!--/ Accordion end -->
 
@@ -366,52 +364,24 @@
                     <!-- Col end -->
 
                     <div class="col-lg-4 mt-5 mt-lg-0">
-
                         <div class="sidebar sidebar-right">
                             <div class="widget recent-posts">
-                                <h3 class="widget-title">Recent Posts</h3>
+                                <h3 class="widget-title">Dernières informations</h3>
                                 <ul class="list-unstyled">
+                                    <?php foreach ($recentNews as $new) : ?>
                                     <li class="d-flex align-items-center">
                                         <div class="posts-thumb">
-                                            <a href="#"><img loading="lazy" alt="news-image"
-                                                    src="views/pages/assets/images/news/1648292733_news1.jpg"></a>
+                                            <a href="new-<?= $new->getIdn() ?>"><img loading="lazy" alt="news-image"
+                                                    src="views/pages/assets/images/news/<?= $new->getInfoimage() ?>"></a>
                                         </div>
                                         <div class="post-info">
                                             <h4 class="entry-title">
-                                                <a href="#">We Just Completes $17.6 Million Medical Clinic In
-                                                    Mid-missouri</a>
+                                                <a href="new-<?= $new->getIdn() ?>"><?= $new->getTitleinfo() ?></a>
                                             </h4>
                                         </div>
                                     </li>
+                                    <?php endforeach; ?>
                                     <!-- 1st post end-->
-
-                                    <li class="d-flex align-items-center">
-                                        <div class="posts-thumb">
-                                            <a href="#"><img loading="lazy" alt="news-img"
-                                                    src="views/pages/assets/images/news/1648292733_news1.jpg"></a>
-                                        </div>
-                                        <div class="post-info">
-                                            <h4 class="entry-title">
-                                                <a href="#">Thandler Airport Water Reclamation Facility Expansion
-                                                    Project Named</a>
-                                            </h4>
-                                        </div>
-                                    </li>
-                                    <!-- 2nd post end-->
-
-                                    <li class="d-flex align-items-center">
-                                        <div class="posts-thumb">
-                                            <a href="#"><img loading="lazy" alt="news-img"
-                                                    src="views/pages/assets/images/news/1648292733_news1.jpg"></a>
-                                        </div>
-                                        <div class="post-info">
-                                            <h4 class="entry-title">
-                                                <a href="#">Silicon Bench And Cornike Begin Construction Solar
-                                                    Facilities</a>
-                                            </h4>
-                                        </div>
-                                    </li>
-                                    <!-- 3rd post end-->
 
                                 </ul>
 
