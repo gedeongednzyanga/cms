@@ -1,7 +1,9 @@
 <?php
 session_start();
-if (isset($_SESSION['date1']))
+if (isset($_SESSION['date1'])) {
     unset($_SESSION['date1']);
+    unset($_SESSION['date2']);
+}
 if (!isset($_SESSION['user']))
     header("Location:login");
 ?>
@@ -349,7 +351,7 @@ if (!isset($_SESSION['user']))
                     <div class="modal-dialog">
                         <div class="modal-content ibox">
                             <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Choisir une date</div>
+                                <div class="modal-title ibox-title">Choisir une date ou deux dates</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                                     <a class="dropdown-toggle" data-toggle="dropdown"><i
@@ -373,17 +375,16 @@ if (!isset($_SESSION['user']))
                                         de production
                                     </button>
                                 </div>
-                                <div class="form-group" id="date_5">
-                                    <label class="font-normal">Date production</label>
-                                    <div class="input-daterange input-group" id="datepicker">
-                                        <input class="input-sm form-control" type="text" name="start"
-                                            value="04/12/2017">
-                                        <span class="input-group-addon p-l-10 p-r-10">to</span>
-                                        <input class="input-sm form-control" type="text" name="end" value="08/17/2018">
+                                <div class="form-group">
+                                    <label class="font-normal">Dates production</label>
+                                    <div class="input-group">
+                                        <input class="input-sm form-control" type="date" name="start" id="data-satrt" />
+                                        <span class="input-group-addon p-l-10 p-r-10">au</span>
+                                        <input class="input-sm form-control" type="date" name="end" id="date-end">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" id="add-quartier" class="btn btn-primary form-control">Fiche
+                                    <button type="submit" id="loadprod2" class="btn btn-primary form-control">Fiche
                                         de production
                                     </button>
                                 </div>

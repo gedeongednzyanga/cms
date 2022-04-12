@@ -74,6 +74,11 @@ switch ($action) {
     case 'repport':
         $_SESSION['date1'] = $_POST['dateprod'];
         break;
+
+    case 'repport2':
+        $_SESSION['date1'] = $_POST['datestart'];
+        $_SESSION['date2'] = $_POST['dateend'];
+        break;
     default:
         # code...
         break;

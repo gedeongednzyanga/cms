@@ -16,10 +16,6 @@ class FicheProduction extends FPDF
 //Objets
 $managerProduction = new ManagerProduction();
 $data = [];
-if (isset($_SESSION['date2']))
-    $data = $managerProduction->_getProductionBetweenTwoDate($_SESSION['date1'], $_SESSION['date2'], 'Production');
-else
-    $data = $managerProduction->_getOneProductionDate($_SESSION['date1']);
 
 $pdf = new FicheProduction('P', 'mm', 'A4');
 $pdf->AddPage();
@@ -59,214 +55,87 @@ $pdf->Cell(30, 7, 'Observation', 1, 1, 'C', 0);
 
 //Body tableau
 
-$pdf->SetFont('Arial', 'BI', 10);
-$pdf->Cell(190, 7, 'Date : ' . $_SESSION['date1'], 1, 1, 'L', 0);
-$pdf->SetFont('Arial', '', 11);
-foreach ($data as $production) :
-    $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-    $pdf->Cell(24, 7, $production->getQuantiteprod() . $production->getDesignationu(), 1, 0, 'C', 0);
-    $pdf->Cell(50, 7, $production->getDesignationprod(), 1, 0, 'L', 0);
-    $pdf->Cell(21, 7, ($production->getQuantiteprod() - $production->getQuantiteperd()) . $production->getDesignationu(), 1, 0, 'C', 0);
-    $pdf->Cell(21, 7, $production->getQuantiteperd() . $production->getDesignationu(), 1, 0, 'C', 0);
-    $pdf->Cell(24, 7, $production->getCarburant() . 'L', 1, 0, 'C', 0);
-    $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-endforeach;
+if (isset($_SESSION['date2']) && $_SESSION['date1']) {
 
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+    $data = $managerProduction->_getProductionBetweenTwoDate($_SESSION['date1'], $_SESSION['date2'], 'Production');
 
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+    $totprod = 0;
+    $totEntre = 0;
+    $totPerte = 0;
+    $totCarbu = 0;
 
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+    foreach ($data as $production) :
+        $pdf->SetFont('Arial', 'BI', 10);
+        $pdf->Cell(190, 7, 'Date : ' . $production->getDateprod(), 1, 1, 'L', 0);
+        $data2 = $managerProduction->_getOneProductionDate($production->getDateprod());
+        $pdf->SetFont('Arial', '', 11);
+        foreach ($data2 as $production2) :
 
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+            $totprod += $production2->getQuantiteprod();
+            $totEntre += ($production2->getQuantiteprod() - $production2->getQuantiteperd());
+            $totPerte +=  $production2->getQuantiteperd();
+            $totCarbu += $production2->getCarburant();
 
+            $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+            $pdf->Cell(24, 7, $production2->getQuantiteprod() . $production2->getDesignationu(), 1, 0, 'C', 0);
+            $pdf->Cell(50, 7, $production2->getDesignationprod(), 1, 0, 'L', 0);
+            $pdf->Cell(21, 7, ($production2->getQuantiteprod() - $production2->getQuantiteperd()) . $production2->getDesignationu(), 1, 0, 'C', 0);
+            $pdf->Cell(21, 7, $production2->getQuantiteperd() . $production2->getDesignationu(), 1, 0, 'C', 0);
+            $pdf->Cell(24, 7, $production2->getCarburant() . 'L', 1, 0, 'C', 0);
+            $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+        endforeach;
 
-// $pdf->SetFont('Arial', 'BI', 10);
-// $pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
-// $pdf->SetFont('Arial', '', 11);
+        $pdf->SetFont('Arial', 'BI', 9);
+        $pdf->Cell(20, 6, 'TOTAUX', 1, 0, 'C', 0);
+        $pdf->Cell(24, 6, $totprod, 1, 0, 'C', 0);
+        $pdf->Cell(50, 6, '', 1, 0, 'L', 1);
+        $pdf->Cell(21, 6, $totEntre, 1, 0, 'C', 0);
+        $pdf->Cell(21, 6, $totPerte, 1, 0, 'C', 0);
+        $pdf->Cell(24, 6, $totCarbu . 'L', 1, 0, 'C', 0);
+        $pdf->Cell(30, 6, '', 1, 1, 'C', 1);
 
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+        $totprod = 0;
+        $totEntre = 0;
+        $totPerte = 0;
+        $totCarbu = 0;
 
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+    endforeach;
+} else if (isset($_SESSION['date1'])) {
+    $totprod = 0;
+    $totEntre = 0;
+    $totPerte = 0;
+    $totCarbu = 0;
 
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+    $data = $managerProduction->_getOneProductionDate($_SESSION['date1']);
+    $pdf->SetFont('Arial', 'BI', 10);
+    $pdf->Cell(190, 7, 'Date : ' . $_SESSION['date1'], 1, 1, 'L', 0);
 
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+    $data = $managerProduction->_getOneProductionDate($_SESSION['date1']);
+    $pdf->SetFont('Arial', '', 11);
+    foreach ($data as $production) :
 
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+        $totprod += $production->getQuantiteprod();
+        $totEntre += ($production->getQuantiteprod() - $production->getQuantiteperd());
+        $totPerte +=  $production->getQuantiteperd();
+        $totCarbu += $production->getCarburant();
 
-
-// $pdf->SetFont('Arial', 'BI', 10);
-// $pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
-// $pdf->SetFont('Arial', '', 11);
-
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-
-// $pdf->SetFont('Arial', 'BI', 10);
-// $pdf->Cell(190, 7, 'Date : 26-02-2022', 1, 1, 'L', 0);
-// $pdf->SetFont('Arial', '', 11);
-
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-// $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
-// $pdf->Cell(24, 7, '10kg', 1, 0, 'C', 0);
-// $pdf->Cell(50, 7, 'Bloc', 1, 0, 'L', 0);
-// $pdf->Cell(21, 7, '120', 1, 0, 'C', 0);
-// $pdf->Cell(21, 7, '10', 1, 0, 'C', 0);
-// $pdf->Cell(24, 7, '5L', 1, 0, 'C', 0);
-// $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
-
-
+        $pdf->Cell(20, 7, '', 1, 0, 'C', 1);
+        $pdf->Cell(24, 7, $production->getQuantiteprod() . $production->getDesignationu(), 1, 0, 'C', 0);
+        $pdf->Cell(50, 7, $production->getDesignationprod(), 1, 0, 'L', 0);
+        $pdf->Cell(21, 7, ($production->getQuantiteprod() - $production->getQuantiteperd()) . $production->getDesignationu(), 1, 0, 'C', 0);
+        $pdf->Cell(21, 7, $production->getQuantiteperd() . $production->getDesignationu(), 1, 0, 'C', 0);
+        $pdf->Cell(24, 7, $production->getCarburant() . 'L', 1, 0, 'C', 0);
+        $pdf->Cell(30, 7, '', 1, 1, 'C', 0);
+    endforeach;
+    $pdf->SetFont('Arial', 'BI', 10);
+    $pdf->Cell(20, 7, 'TOTAUX', 1, 0, 'C', 0);
+    $pdf->Cell(24, 7, $totprod, 1, 0, 'C', 0);
+    $pdf->Cell(50, 7, '', 1, 0, 'L', 1);
+    $pdf->Cell(21, 7, $totEntre, 1, 0, 'C', 0);
+    $pdf->Cell(21, 7, $totPerte, 1, 0, 'C', 0);
+    $pdf->Cell(24, 7, $totCarbu . 'L', 1, 0, 'C', 0);
+    $pdf->Cell(30, 7, '', 1, 1, 'C', 1);
+}
 
 $_nom_file = time() . '_fiche_production';
 $pdf->Output("I", $_nom_file, 1);

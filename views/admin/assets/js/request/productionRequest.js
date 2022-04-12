@@ -67,4 +67,23 @@ $(function() {
             });
         }
     });
+
+    $('#loadprod2').on('click', () => {
+        if ($('#data-satrt').val() == '' || $('#date-end').val() == '') {
+            $('#fiche-message').hide();
+            $('#fiche-message').html('<small class="alert alert-warning">Veuillez choisir deux dates difféntes.</small>').show('slow', 'linear');;
+        } else {
+            $.ajax({
+                url: "models/requests/RequestProduction.php",
+                type: "POST",
+                data: { action: 'repport2', datestart: $('#data-satrt').val(), dateend: $('#date-end').val() },
+                success: function() {
+                    window.location = "ficheproduction";
+                },
+                error: function() {
+                    alert("Echec de la requête sur le serveur.");
+                }
+            });
+        }
+    });
 })
