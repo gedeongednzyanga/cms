@@ -5,6 +5,7 @@ class ControllerDashboard
     private $_productionManager;
     private $_productManager;
     private $_managerCommanade;
+    private $_messageManager;
 
     public function __construct($url)
     {
@@ -19,12 +20,15 @@ class ControllerDashboard
         $this->_productionManager = new ManagerProduction();
         $this->_productManager = new ManagerProduct();
         $this->_managerCommanade = new ManagerCommande();
+        $this->_messageManager = new ManagerMessage();
 
         $productions = $this->_productionManager->getProductions();
         $products = $this->_productManager->getProducts();
         $commandes = $this->_managerCommanade->getCommandes();
         $lastProductions = $this->_productionManager->getLastProductions();
         $lastCommandes = $this->_managerCommanade->getLastCommandes();
+        $unreadMessages = $this->_messageManager->getUnreadMessage();
+        $credits = $this->_managerCommanade->getClientWithCredit();
 
         $this->_view = new View('Dashboard');
         $this->_view->generate(array(
@@ -32,7 +36,9 @@ class ControllerDashboard
             'products' => $products,
             'commandes' => $commandes,
             'lastProductions' => $lastProductions,
-            'lastCommandes' => $lastCommandes
+            'lastCommandes' => $lastCommandes,
+            'unreadMessages' => $unreadMessages,
+            'credits' => $credits,
         ));
     }
 }

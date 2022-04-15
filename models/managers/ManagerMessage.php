@@ -12,6 +12,11 @@ class ManagerMessage extends Model
         return $this->getOne('get_one_message', $id, 'Message');
     }
 
+    public function getUnreadMessage()
+    {
+        return $this->getAll('_get_messages_non_l', 'Message');
+    }
+
     public function changeMsgStatus($action, $id)
     {
         try {

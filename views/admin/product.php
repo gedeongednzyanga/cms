@@ -218,6 +218,7 @@ if (!isset($_SESSION['user']))
                                         <label class="col-sm-2 col-form-label">Catégorie</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" name="refcat" required>
+                                                <option value="">Choisir une catégorie</option>
                                                 <optgroup label="Catégories">
                                                     <?php foreach ($categories as $category) : ?>
                                                     <option value="<?= $category->getIdcat() ?>">
@@ -231,6 +232,7 @@ if (!isset($_SESSION['user']))
                                         <label class="col-sm-2 col-form-label">Uni. de mesure</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" name="refunit" required>
+                                                <option value="">Choisir une unité de mesure</option>
                                                 <optgroup label="Unité de mesure">
                                                     <?php foreach ($unites as $unite) : ?>
                                                     <option value="<?= $unite->getIdu() ?>">
@@ -428,6 +430,7 @@ if (!isset($_SESSION['user']))
                                             <div class="col-sm-9">
                                                 <select class="form-control select2_demo_1" style="width:100%"
                                                     name="refcat" required>
+                                                    <option value="">Choisir une catégorie</option>
                                                     <optgroup label="Catégories">
                                                         <?php foreach ($categories as $category) : ?>
                                                         <option value="<?= $category->getIdcat() ?>">
@@ -442,6 +445,7 @@ if (!isset($_SESSION['user']))
                                             <div class="col-sm-9">
                                                 <select class="form-control select2_demo_1" style="width:100%"
                                                     name="refunit" required>
+                                                    <option value="">Choisir une unité de mesure</option>
                                                     <optgroup label="Unité de mesure">
                                                         <?php foreach ($unites as $unite) : ?>
                                                         <option value="<?= $unite->getIdu() ?>">

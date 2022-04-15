@@ -169,8 +169,8 @@ if (!isset($_SESSION['user']))
                         <div class="ibox bg-success color-white widget-stat">
                             <div class="ibox-body">
                                 <h2 class="m-b-5 font-strong"> <?= count($productions) ?></h2>
-                                <div class="m-b-5">PRODUCTION</div><i class="ti-shopping-cart widget-stat-icon"></i>
-                                <div><i class="fa fa-level-up m-r-5"></i><small>22% higher</small></div>
+                                <div class="m-b-5">PRODUCTIONS</div><i class="ti-shopping-cart widget-stat-icon"></i>
+                                <div><i class="fa fa-level-up m-r-5"></i><small>22% supérieur</small></div>
                             </div>
                         </div>
                     </div>
@@ -178,28 +178,26 @@ if (!isset($_SESSION['user']))
                         <div class="ibox bg-info color-white widget-stat">
                             <div class="ibox-body">
                                 <h2 class="m-b-5 font-strong"><?= count($commandes) ?></h2>
-                                <div class="m-b-5">COMMANDES</div><i class="ti-bar-chart widget-stat-icon"></i>
-                                <div><i class="fa fa-level-up m-r-5"></i><small>17% higher</small></div>
+                                <div class="m-b-5">COMMANDES</div><i class="fa fa-shopping-basket widget-stat-icon"></i>
+                                <div><i class="fa fa-level-up m-r-5"></i><small>17% supérieur</small></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="ibox bg-warning color-white widget-stat">
                             <div class="ibox-body">
-                                <?php //$modelVente = new ModelVente(); 
-                                ?>
-                                <h2 class="m-b-5 font-strong">$<?= /*round($modelVente->sumVente(), 2)*/ 23  ?></h2>
-                                <div class="m-b-5">ACHAT</div><i class="fa fa-money widget-stat-icon"></i>
-                                <div><i class="fa fa-level-up m-r-5"></i><small>22% higher</small></div>
+                                <h2 class="m-b-5 font-strong">$<?= count($credits)  ?></h2>
+                                <div class="m-b-5">FACTURES</div><i class="fa fa-money widget-stat-icon"></i>
+                                <div><i class="fa fa-level-up m-r-5"></i><small>35% supérieur</small></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="ibox bg-danger color-white widget-stat">
                             <div class="ibox-body">
-                                <h2 class="m-b-5 font-strong"><?= /*count($succursales)*/ 490 ?></h2>
-                                <div class="m-b-5">USERS</div><i class="ti-user widget-stat-icon"></i>
-                                <div><i class="fa fa-level-down m-r-5"></i><small>-12% Lower</small></div>
+                                <h2 class="m-b-5 font-strong"><?= count($unreadMessages) ?></h2>
+                                <div class="m-b-5">Messages</div><i class="ti-user widget-stat-icon"></i>
+                                <div><i class="fa fa-level-down m-r-5"></i><small>-12% inférieur</small></div>
                             </div>
                         </div>
                     </div>
@@ -210,24 +208,24 @@ if (!isset($_SESSION['user']))
                             <div class="ibox-body">
                                 <div class="flexbox mb-4">
                                     <div>
-                                        <h3 class="m-0">Statistics</h3>
-                                        <div>Stat. productions et commandes</div>
+                                        <h3 class="m-0">Statistiques</h3>
+                                        <div>Productions et Commandes</div>
                                     </div>
                                     <div class="d-inline-flex">
                                         <div class="px-3" style="border-right: 1px solid rgba(0,0,0,.1);">
-                                            <div class="text-muted">WEEKLY INCOME</div>
+                                            <div class="text-muted">TOT. PRODUCTION</div>
                                             <div>
-                                                <span class="h2 m-0">$850</span>
+                                                <span class="h2 m-0">850 arts.</span>
                                                 <span class="text-success ml-2"><i class="fa fa-level-up"></i>
-                                                    +25%</span>
+                                                    2022</span>
                                             </div>
                                         </div>
                                         <div class="px-3">
-                                            <div class="text-muted">WEEKLY SALES</div>
+                                            <div class="text-muted">TOT. COMMANDE</div>
                                             <div>
-                                                <span class="h2 m-0">240</span>
+                                                <span class="h2 m-0">240 arts.</span>
                                                 <span class="text-warning ml-2"><i class="fa fa-level-down"></i>
-                                                    -12%</span>
+                                                    2022</span>
                                             </div>
                                         </div>
                                     </div>
@@ -255,7 +253,7 @@ if (!isset($_SESSION['user']))
                                     </div>
                                 </div>
                             </div>
-                            <div class="ibox-body">
+                            <div class="ibox-body table-responsive">
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
@@ -366,7 +364,7 @@ if (!isset($_SESSION['user']))
     <script src="views/admin/assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
-    <!-- <script src="views/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script> -->
+    <script src="views/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
     <script src="views/admin/assets/vendors/chart.js/dist/Chart.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
