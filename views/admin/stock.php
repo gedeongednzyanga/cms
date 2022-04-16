@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (!isset($_SESSION['user']))
+    header("Location:login");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +19,7 @@
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
+    <link href="views/admin/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
     <link href="views/admin/assets/css/main.min.css" rel="stylesheet" />
@@ -366,7 +372,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content ibox">
                             <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Choisir une date</div>
+                                <div class="modal-title ibox-title">Choisir un article/Produit</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                                     <a class="dropdown-toggle" data-toggle="dropdown"><i
@@ -378,11 +384,18 @@
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                                <div class="form-group" id="date_1">
-                                    <label class="font-normal">Date production</label>
-                                    <div class="input-group date">
-                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
-                                        <input class="form-control" type="text" value="01/01/2022">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <select class="form-control select2_demo_1" style="width:100%" name="refcat"
+                                            required>
+                                            <option value="">Choisir un article/Produit</option>
+                                            <optgroup label="Catégories">
+                                                <?php foreach ($categories as $category) : ?>
+                                                <option value="<?= $category->getIdcat() ?>">
+                                                    <?= $category->getDesignationcat() ?></option>
+                                                <?php endforeach; ?>
+                                            </optgroup>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -390,20 +403,6 @@
                                         class="btn btn-primary form-control">Fiche
                                         de Stock
                                     </a>
-                                </div>
-                                <div class="form-group" id="date_5">
-                                    <label class="font-normal">Date production</label>
-                                    <div class="input-daterange input-group" id="datepicker">
-                                        <input class="input-sm form-control" type="text" name="start"
-                                            value="04/12/2017">
-                                        <span class="input-group-addon p-l-10 p-r-10">to</span>
-                                        <input class="input-sm form-control" type="text" name="end" value="08/17/2018">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" id="add-quartier" class="btn btn-primary form-control">Fiche
-                                        de production
-                                    </button>
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">
@@ -442,6 +441,8 @@
     <script src="views/admin/assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
+    <script src="views/admin/assets/vendors/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/scripts/form-plugins.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>

@@ -61,7 +61,7 @@ class Product
      */
     public function setDesignationprod($designationprod)
     {
-        $this->designationprod = $designationprod;
+        $this->designationprod = ucfirst(strtolower($designationprod));
 
         return $this;
     }

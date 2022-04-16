@@ -54,7 +54,7 @@ class Unite extends Cbase
      */
     public function setDesignationu($designationu)
     {
-        $this->designationu = $designationu;
+        $this->designationu = ucfirst(strtolower($designationu));
 
         return $this;
     }

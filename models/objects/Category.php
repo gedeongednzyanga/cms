@@ -54,7 +54,7 @@ class Category extends Cbase
      */
     public function setDesignationcat($designationcat)
     {
-        $this->designationcat = $designationcat;
+        $this->designationcat = ucfirst(strtolower($designationcat));
 
         return $this;
     }

@@ -1,7 +1,8 @@
 $(function() {
-    $('#form-category').submit(function(e) {
+
+    $("#form-category").submit(function(e) {
         e.preventDefault();
-        if ($('#designationc').val() != '') {
+        if ($("#designationc").val() !== "") {
             $.ajax({
                 url: "models/requests/RequestCbase.php",
                 type: "POST",
@@ -9,8 +10,10 @@ $(function() {
                 contentType: false,
                 processData: false,
                 cache: false,
+                timeout: 3000,
                 success: function(data) {
-                    $('#message-mesure').html('<small class="alert alert-success">' + data + '</small>');
+                    $("#message-category").hide();
+                    $("#message-category").html('<small class="alert alert-success">' + data + '</small>').show("slow", "linear");
                     $('#form-category')[0].reset();
                 },
                 error: function() {
@@ -20,7 +23,7 @@ $(function() {
         } else alert('Champs vide')
     });
 
-    $('#form-unite').submit(function(e) {
+    $("#form-unite").submit(function(e) {
         e.preventDefault();
         if ($('#designationu').val() != '') {
             $.ajax({
@@ -31,7 +34,9 @@ $(function() {
                 processData: false,
                 cache: false,
                 success: function(data) {
-                    alert(data)
+                    $("#message-mesure").hide();
+                    $("#message-mesure").html('<small class="alert alert-success">' + data + '</small>').show("slow", "linear");
+                    $('#form-unite')[0].reset();
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");
@@ -40,7 +45,7 @@ $(function() {
         } else alert('Champs vide')
     });
 
-    $('#form-product').submit(function(e) {
+    $("#form-product").submit(function(e) {
         e.preventDefault();
         if ($('#designationprod').val() != '' && $('#prixprod').val() != '' && $('#stalert').val() != '') {
             $.ajax({
@@ -65,7 +70,7 @@ $(function() {
         }
     });
 
-    $('#form-product2').submit(function(e) {
+    $("#form-product2").submit(function(e) {
         e.preventDefault();
         if ($('#designationprod2').val() != '' && $('#prixprod2').val() != '' && $('#stalert2').val() != '') {
             $.ajax({

@@ -371,6 +371,7 @@ if (!isset($_SESSION['user']))
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                <span id="message-category"></span>
                             </div>
                         </div>
                         <!-- /.modal-content -->

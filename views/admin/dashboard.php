@@ -32,7 +32,7 @@ if (!isset($_SESSION['user']))
             <div class="page-brand">
                 <a class="link" href="home">
                     <span class="brand">CMS
-                        <span class="brand-tip"> CMS</span>
+                        <!-- <span class="brand-tip"> CMS</span> -->
                     </span>
                     <span class="brand-mini">CMS</span>
                 </a>
@@ -152,9 +152,9 @@ if (!isset($_SESSION['user']))
                             <li>
                                 <a href="register">Utilisateurs</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="mail_compose.html">Composer un mail</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                 </ul>
@@ -186,7 +186,7 @@ if (!isset($_SESSION['user']))
                     <div class="col-lg-3 col-md-6">
                         <div class="ibox bg-warning color-white widget-stat">
                             <div class="ibox-body">
-                                <h2 class="m-b-5 font-strong">$<?= count($credits)  ?></h2>
+                                <h2 class="m-b-5 font-strong"><?= count($credits)  ?></h2>
                                 <div class="m-b-5">FACTURES</div><i class="fa fa-money widget-stat-icon"></i>
                                 <div><i class="fa fa-level-up m-r-5"></i><small>35% supérieur</small></div>
                             </div>
