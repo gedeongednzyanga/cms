@@ -1,17 +1,17 @@
 $(function() {
     var a = {
-            labels: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+            labels: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Sept.", "Oct.", "Nov.", "Déc."],
             datasets: [{
                 label: "Productions",
                 borderColor: 'rgba(52,152,219,1)',
                 backgroundColor: 'rgba(52,152,219,1)',
                 pointBackgroundColor: 'rgba(52,152,219,1)',
-                data: [29, 48, 40, 19, 78, 31, 85]
+                data: [29, 48, 40, 19, 78, 31, 85, 29, 48, 40, 19, 78, ]
             }, {
                 label: "Commandes",
                 backgroundColor: "#DADDE0",
                 borderColor: "#DADDE0",
-                data: [45, 80, 58, 74, 54, 59, 40]
+                data: [45, 80, 58, 74, 54, 59, 40, 45, 80, 58, 74, 54, ]
             }]
         },
         t = {

@@ -202,7 +202,10 @@
                             <div class="ibox-body">
                                 <div class="flexbox mb-4">
                                     <div>
-                                        <h3 class="m-0">Statistiques</h3>
+                                        <h3 class="m-0">Statistiques <script>
+                                            document.write(new Date().getFullYear())
+                                            </script>
+                                        </h3>
                                         <div>Productions et Commandes</div>
                                     </div>
                                     <div class="d-inline-flex">
