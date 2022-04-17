@@ -1,5 +1,5 @@
 <?php
-class Unite extends Cbase
+class Unite extends CBase
 {
     private $idu;
     private $designationu;

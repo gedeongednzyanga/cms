@@ -1,5 +1,5 @@
 <?php
-class Cbase
+class CBase
 {
     private $id;
     private $designation;

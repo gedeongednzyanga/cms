@@ -198,6 +198,7 @@ if (!isset($_SESSION['user']))
                                         <label class="col-sm-2 col-form-label">Achat de</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" name="refprodc" required>
+                                                <option value="0">Rechercher un article</option>
                                                 <optgroup label="Catégories">
                                                     <?php foreach ($products as $product) : ?>
                                                     <option value="<?= $product->getIdprod() ?>">

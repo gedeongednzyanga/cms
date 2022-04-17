@@ -1,5 +1,5 @@
 <?php
-class Category extends Cbase
+class Category extends CBase
 {
     private $idcat;
     private $designationcat;

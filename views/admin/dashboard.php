@@ -1,7 +1,12 @@
 <?php
 session_start();
-if (!isset($_SESSION['user']))
+$user = $_SESSION['user'];
+$compte = $_SESSION['compte'];
+if ($user == null && $compte == null)
     header("Location:login");
+else
+    // var_dump($_SESSION);
+
 ?>
 
 <!DOCTYPE html>
@@ -79,8 +84,8 @@ if (!isset($_SESSION['user']))
                         <img src="views/admin/assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong"><?= $_SESSION['user']  ?></div>
-                        <small><?= $_SESSION['compte']  ?></small>
+                        <div class="font-strong"><?= $user ?></div>
+                        <small><?= $compte  ?></small>
                     </div>
                 </div>
                 <ul class="side-menu metismenu">

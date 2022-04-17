@@ -21,19 +21,19 @@ switch ($action) {
     case 'category':
         $category = new Category($_POST);
         $managerCategory->createObj($_POST['actionu'], 'obj_category', $category);
-        echo 'Bien enregistrée';
+        echo 'Catégorie enregistrée avec succès.';
         break;
 
     case 'unite':
         $unite = new Unite($_POST);
         $managerUnite->createObj($_POST['actionu'], 'obj_unite', $unite);
-        echo 'Bien enregistrée';
+        echo 'Mesure enregistrée avec succès.';
         break;
 
     case 'product':
         $product = new Product($_POST);
         $managerProduct->createObj($_POST['actionu'], 'obj_product', $product);
-        echo 'Bien enregistrée';
+        echo 'Produit enregistré avec succès.';
         break;
 
     case 'loading':
