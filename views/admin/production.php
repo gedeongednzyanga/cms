@@ -1,11 +1,8 @@
 <?php
-session_start();
 if (isset($_SESSION['date1'])) {
     unset($_SESSION['date1']);
     unset($_SESSION['date2']);
 }
-if (!isset($_SESSION['user']))
-    header("Location:login");
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,14 +1,3 @@
-<?php
-session_start();
-$user = $_SESSION['user'];
-$compte = $_SESSION['compte'];
-if ($user == null && $compte == null)
-    header("Location:login");
-else
-    // var_dump($_SESSION);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,8 +73,8 @@ else
                         <img src="views/admin/assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong"><?= $user ?></div>
-                        <small><?= $compte  ?></small>
+                        <div class="font-strong"><?= $_SESSION['user'] ?></div>
+                        <small><?= $_SESSION['compte']  ?></small>
                     </div>
                 </div>
                 <ul class="side-menu metismenu">

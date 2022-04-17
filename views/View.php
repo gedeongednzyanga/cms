@@ -7,10 +7,17 @@
         function __construct($action)
         {
             //Vérification de l'existance des fichiers
-            if (file_exists('views/pages/' . $action . '.php'))
-                $this->_file = 'views/pages/' . $action . '.php';
-            else
-                $this->_file = 'views/admin/' . $action . '.php';
+            if (file_exists('views/pages/' . strtolower($action) . '.php')) {
+                $this->_file = 'views/pages/' . strtolower($action) . '.php';
+            } else if (file_exists('views/admin/' . strtolower($action) . '.php')) {
+                session_start();
+                if (isset($_SESSION['user']) && isset($_SESSION['compte'])) {
+                    $this->_file = 'views/admin/' . strtolower($action) . '.php';
+                } else {
+                    $action = 'login';
+                    $this->_file = 'views/admin/' . strtolower($action) . '.php';
+                }
+            }
         }
 
         //Recuperation du fichier et les données avec la fonction generateFile dans le dossier views

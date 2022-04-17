@@ -1,8 +1,4 @@
-<?php
-session_start();
-$_SESSION = array();
-session_destroy();
-?>
+<?php session_destroy(); ?>
 <!DOCTYPE html>
 <html>
 
