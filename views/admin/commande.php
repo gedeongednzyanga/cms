@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+    echo '<script>window.location="login";</script>';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -278,6 +282,7 @@
                                         <th>Désignation</th>
                                         <th>Catégorie</th>
                                         <th>Qté commandée</th>
+                                        <th>Montant</th>
                                         <th>Client</th>
                                         <th>Actions</th>
                                     </tr>
@@ -288,6 +293,7 @@
                                         <th>Désignation</th>
                                         <th>Catégorie</th>
                                         <th>Qté commandée</th>
+                                        <th>Montant</th>
                                         <th>Client</th>
                                         <th>Actions</th>
                                     </tr>
@@ -300,8 +306,8 @@
                                         <td><?= $commande->getDesignationprod() ?></td>
                                         <td><?= $commande->getDesignationcat() ?></td>
                                         <td><?= $commande->getQuantitecom() . '' . $commande->getDesignationu() ?></td>
+                                        <td><?= ($commande->getQuantitecom() * $commande->getPrixprod()) . '$' ?></td>
                                         <td><?= $commande->getCustomer() ?></td>
-
                                         <td>
                                             <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
                                                 data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>

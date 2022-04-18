@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+    echo '<script>window.location="login";</script>';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -194,6 +198,7 @@
                                         <th>En Stock</th>
                                         <th>Stock alert</th>
                                         <th>Prix vetnte</th>
+                                        <th>Valeur Stock</th>
                                         <th>Alerte Stock</th>
                                         <th>Actions</th>
                                     </tr>
@@ -206,6 +211,7 @@
                                         <th>En Stock</th>
                                         <th>Stock alert</th>
                                         <th>Prix vetnte</th>
+                                        <th>Valeur Stock</th>
                                         <th>Alerte Stock</th>
                                         <th>Actions</th>
                                     </tr>
@@ -220,6 +226,7 @@
                                         <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
                                         <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
                                         <td><?= $product->getPrixprod() . '$' ?></td>
+                                        <td><?= ($product->getQuantitest() * $product->getPrixprod()) . '$' ?></td>
                                         <td
                                             class="alert text-center <?= $product->getQuantitest() < $product->getStalert() ? 'alert-danger' : 'alert-success' ?>">
                                             <span><?= $product->getQuantitest() < $product->getStalert() ? 'Stock Insuffisant' : 'Stock Suffisant' ?></span>

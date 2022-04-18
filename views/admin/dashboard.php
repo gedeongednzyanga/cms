@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+    echo '<script>window.location="login";</script>';
+?>
 <!DOCTYPE html>
 <html lang="en">
 

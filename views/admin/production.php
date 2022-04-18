@@ -1,9 +1,13 @@
 <?php
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte'])) {
+    echo '<script>window.location="login";</script>';
+}
 if (isset($_SESSION['date1'])) {
     unset($_SESSION['date1']);
     unset($_SESSION['date2']);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -198,13 +202,12 @@ if (isset($_SESSION['date1'])) {
                                     <input type="hidden" name="action" value="add" />
                                     <input type="hidden" name="actionu" value="1" />
                                     <input type="hidden" name="id" value="0" />
-                                    <!-- <input type="hidden" name="quantiteets" id="quantiteets" value="0" /> -->
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Production de</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" name="refprod" required>
+                                                <option value="0">Choisir un article</option>
                                                 <optgroup label="Catégories">
-                                                    <option value="0">Choisir un article</option>
                                                     <?php foreach ($products as $product) : ?>
                                                     <option value="<?= $product->getIdprod() ?>">
                                                         <?= $product->getDesignationprod() ?></option>
@@ -296,9 +299,9 @@ if (isset($_SESSION['date1'])) {
                                         <th>Catégorie</th>
                                         <th>Qté produite</th>
                                         <th>Qté perdue</th>
+                                        <th>Qté stockée</th>
                                         <th>Cons. Carb.</th>
                                         <th>Date. Prod.</th>
-                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -308,9 +311,9 @@ if (isset($_SESSION['date1'])) {
                                         <th>Catégorie</th>
                                         <th>Qté produite</th>
                                         <th>Qté perdue</th>
+                                        <th>Qté stockée</th>
                                         <th>Cons. Carb.</th>
                                         <th>Date. Prod.</th>
-                                        <th>Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -320,19 +323,21 @@ if (isset($_SESSION['date1'])) {
                                         <!-- <td style="display:none"><?= $production->getIdentp() ?></td> -->
                                         <td><?= $production->getNumprod() ?></td>
                                         <td><?= $production->getDesignationprod() ?></td>
-                                        <td><?= $production->getDesignationcat() ?></td>
+                                        <td><?= ucfirst($production->getDesignationcat()) ?></td>
                                         <td><?= $production->getQuantiteprod() . '' . $production->getDesignationu() ?>
                                         </td>
                                         <td><?= $production->getQuantiteperd() . $production->getDesignationu() ?></td>
+                                        <td><?= ($production->getQuantiteprod() - $production->getQuantiteperd()) . '' . $production->getDesignationu() ?>
+                                        </td>
                                         <td><?= $production->getCarburant() . 'L' ?></td>
                                         <td><?= $production->getDateprod()  ?></td>
-                                        <td>
+                                        <!-- <td>
                                             <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
                                                 data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
                                             <button class="btn btn-default btn-xs" data-toggle="tooltip"
                                                 data-original-title="Delete"><i
                                                     class="fa fa-trash font-14"></i></button>
-                                        </td>
+                                        </td> -->
                                     </tr>
                                     <?php endforeach; ?>
 
