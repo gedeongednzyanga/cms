@@ -1,7 +1,7 @@
 <?php
-require('views/includes/fpdf.php');
+require('views/includes/tcpdf_min/tcpdf.php');
 
-class Invoice extends FPDF
+class Invoice extends TCPDF
 {
     function Footer()
     {
