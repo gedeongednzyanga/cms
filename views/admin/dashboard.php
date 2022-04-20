@@ -216,7 +216,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <div class="px-3" style="border-right: 1px solid rgba(0,0,0,.1);">
                                             <div class="text-muted">TOT. PRODUCTION</div>
                                             <div>
-                                                <span class="h2 m-0">850 arts.</span>
+                                                <span class="h2 m-0"><?= count($productions) ?> arts.</span>
                                                 <span class="text-success ml-2"><i class="fa fa-level-up"></i>
                                                     2022</span>
                                             </div>
@@ -224,7 +224,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <div class="px-3">
                                             <div class="text-muted">TOT. COMMANDE</div>
                                             <div>
-                                                <span class="h2 m-0">240 arts.</span>
+                                                <span class="h2 m-0"><?= count($commandes) ?> arts.</span>
                                                 <span class="text-warning ml-2"><i class="fa fa-level-down"></i>
                                                     2022</span>
                                             </div>

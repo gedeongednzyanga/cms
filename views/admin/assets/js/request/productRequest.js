@@ -47,7 +47,11 @@ $(function() {
 
     $("#form-product").submit(function(e) {
         e.preventDefault();
-        if ($('#designationprod').val() != '' && $('#prixprod').val() != '' && $('#stalert').val() != '') {
+        if ($('#designationprod').val() === '' || $('#prixprod').val() == '' || $('#stalert').val() == '' || $('#refcat').val() == '' || $('#refunit').val() == '') {
+            $(".div-message").hide();
+            $(".div-message").html("<div class='alert alert-danger'><small>Complètez tous les champs svp.</small></div>").show('slow', 'linear');
+
+        } else {
             $.ajax({
                 url: "models/requests/RequestCbase.php",
                 type: "POST",
@@ -64,15 +68,15 @@ $(function() {
                     alert("Echec de la requête sur le serveur.");
                 }
             });
-        } else {
-            $(".div-message").hide();
-            $(".div-message").html("<div class='alert alert-danger'><small>Complètez tous les champs svp.</small></div>").show('slow', 'linear');
         }
     });
 
     $("#form-product2").submit(function(e) {
         e.preventDefault();
-        if ($('#designationprod2').val() != '' && $('#prixprod2').val() != '' && $('#stalert2').val() != '') {
+        if ($('#designationprod2').val() === '' || $('#prixprod2').val() === '' || $('#stalert2').val() === '' || $('#refcat2').val() === '' || $('#refunit2').val() === '') {
+            $("#message2").hide();
+            $("#message2").html("<div class='alert alert-danger'><small>Complètez tous les champs svp.</small></div>").show('slow', 'linear');
+        } else {
             $.ajax({
                 url: "models/requests/RequestCbase.php",
                 type: "POST",
@@ -89,9 +93,6 @@ $(function() {
                     alert("Echec de la requête sur le serveur.");
                 }
             });
-        } else {
-            $("#message2").hide();
-            $("#message2").html("<div class='alert alert-danger'><small>Complètez tous les champs svp.</small></div>").show('slow', 'linear');
         }
     });
 })

@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+    echo '<script>window.location="login";</script>';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,8 +30,8 @@
         <header class="header">
             <div class="page-brand">
                 <a class="link" href="home">
-                    <span class="brand">
-                        <span class="brand-tip"> CMS</span>
+                    <span class="brand">CMS
+                        <!-- <span class="brand-tip"> CMS</span> -->
                     </span>
                     <span class="brand-mini">CMS</span>
                 </a>
@@ -42,7 +46,7 @@
                         <form class="navbar-search" action="javascript:;">
                             <div class="rel">
                                 <span class="search-icon"><i class="ti-search"></i></span>
-                                <input class="form-control" placeholder="Search here...">
+                                <input class="form-control" placeholder="Rechercher...">
                             </div>
                         </form>
                     </li>
@@ -55,10 +59,10 @@
                             <img src="views/admin/assets/img/admin-avatar.png" />
                             <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Paramètres</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Déconnexion</a>
                         </ul>
                     </li>
                 </ul>
@@ -145,11 +149,11 @@
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="mail_compose.html">Composer un mail</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                 </ul>
@@ -172,12 +176,8 @@
                     <div class="ibox-head">
                         <div class="ibox-title">Enregistrer un produit</div>
                         <div class="ibox-tools">
-                            <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a data-toggle="modal" data-target="#modal-category" class="dropdown-item">Catégorie</a>
-                                <a data-toggle="modal" data-target="#modal-mesure" class="dropdown-item">Mesure</a>
-                            </div>
+                            <a data-toggle="modal" data-target="#modal-category">Catégories</a>
+                            <a data-toggle="modal" data-target="#modal-mesure">Mesures</a>
                         </div>
                     </div>
                     <div class="ibox-body">
@@ -212,7 +212,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Catégorie</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="refcat" required>
+                                            <select class="form-control select2_demo_1" name="refcat" id="refcat"
+                                                required>
                                                 <option value="">Choisir une catégorie</option>
                                                 <optgroup label="Catégories">
                                                     <?php foreach ($categories as $category) : ?>
@@ -226,7 +227,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Uni. de mesure</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="refunit" required>
+                                            <select class="form-control select2_demo_1" name="refunit" id="refunit"
+                                                required>
                                                 <option value="">Choisir une unité de mesure</option>
                                                 <optgroup label="Unité de mesure">
                                                     <?php foreach ($unites as $unite) : ?>
@@ -356,7 +358,7 @@
                                 </form>
                                 <div class="form-group">
                                     <label>Catégorie produit</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
+                                    <select class="form-control" multiple="" id="list-categorie" style="height:150px">
                                         <?php foreach ($categories as $category) : ?>
                                         <option value="<?= $category->getIdcat() ?>">
                                             <?= $category->getDesignationcat() ?> </option>
@@ -425,7 +427,7 @@
                                             <label class="col-sm-3 col-form-label">Catégorie</label>
                                             <div class="col-sm-9">
                                                 <select class="form-control select2_demo_1" style="width:100%"
-                                                    name="refcat" required>
+                                                    name="refcat" id="refcat2" required>
                                                     <option value="">Choisir une catégorie</option>
                                                     <optgroup label="Catégories">
                                                         <?php foreach ($categories as $category) : ?>
@@ -440,7 +442,7 @@
                                             <label class="col-sm-3 col-form-label">Uni. mesure</label>
                                             <div class="col-sm-9">
                                                 <select class="form-control select2_demo_1" style="width:100%"
-                                                    name="refunit" required>
+                                                    name="refunit" id="refunit2" required>
                                                     <option value="">Choisir une unité de mesure</option>
                                                     <optgroup label="Unité de mesure">
                                                         <?php foreach ($unites as $unite) : ?>
