@@ -56,7 +56,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="views/admin/assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <span></span><?= $_SESSION['compte'] ?><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Paramètres</a>
