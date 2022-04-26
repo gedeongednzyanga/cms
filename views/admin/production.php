@@ -330,7 +330,7 @@ if (isset($_SESSION['date1'])) {
                                         <td><?= ($production->getQuantiteprod() - $production->getQuantiteperd()) . '' . $production->getDesignationu() ?>
                                         </td>
                                         <td><?= $production->getCarburant() . 'L' ?></td>
-                                        <td><?= $production->getDateprod()  ?></td>
+                                        <td><?= date('d-m-Y', strtotime($production->getDateprod()))   ?></td>
                                         <!-- <td>
                                             <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
                                                 data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>

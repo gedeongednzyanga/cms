@@ -78,7 +78,7 @@ $(function() {
                 type: "POST",
                 data: { action: 'repport2', datestart: $('#data-satrt').val(), dateend: $('#date-end').val() },
                 success: function() {
-                    window.location = "ficheproduction";
+                    window.location = "Ficheproduction0";
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");
