@@ -35,7 +35,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
         </header>
 
         <!-- Main Content -->
-        <main>
+        <main id="facture">
             <?php
             $_managerCommande = new ManagerCommande();
             foreach ($_managerCommande->getOneEntCommande($_GET['number']) as $commande) :
@@ -121,12 +121,32 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
         <!-- Footer -->
         <footer class="text-center mt-4">
             <p class="text-1"><strong>NOTE :</strong> Les marchandises vendues ne sont ni remboursées ni échangées.</p>
-            <div class="btn-group btn-group-sm d-print-none"> <a href="javascript:window.print()"
+            <div class="btn-group btn-group-sm d-print-none"> <a href="" id="print-btn"
                     class="btn btn-light border text-black-50 shadow-none"><i class="fa fa-print"></i> Imprimer</a> <a
                     href="" class="btn btn-light border text-black-50 shadow-none"><i class="fa fa-download"></i>
                     Télécharger</a> </div>
         </footer>
     </div>
+
+    <script src="views/admin/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/scripts/html2pdf.bundle.min.js" type="text/javascript"></script>
+    <script>
+    // $(function() {
+    element = document.getElementById('facture');
+    html2pdf(element, {
+        margin: 20,
+        filename: 'facture.pdf',
+        jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait'
+        }
+    });
+    // $("#print-btn").on("click", () => {
+
+    // });
+    // });
+    </script>
 </body>
 
 </html>

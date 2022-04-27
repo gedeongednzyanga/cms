@@ -17,7 +17,6 @@ $(function() {
             },
             success: function(data) {
                 $('#iddetcom').html(data);
-
             },
             error: function() {
                 echo("Echec de la requête.");
@@ -67,7 +66,7 @@ $(function() {
     });
 
     $('#btn-save-liv').on('click', () => {
-        if ($('#expediteur').val() == '') {
+        if ($('#expediteur').val() === '' || $('#destinataire').val() === '' || $('#transporteur').val() === '' || $('#num_camion').val() === '' || $('#plaque').val() === '') {
             $(".div-message").html("<div class='alert alert-warning'><small>Complètez autres informations SVP.</small></div >").show('slow', 'linear');
         } else {
             $.ajax({

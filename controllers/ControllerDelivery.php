@@ -18,7 +18,7 @@ class ControllerDelivery
         $this->_managerCommanade = new ManagerCommande();
         $this->_managerLivraison = new ManagerLivraison();
 
-        $commandes = $this->_managerCommanade->getCommandes();
+        $commandes = $this->_managerCommanade->getClientNoCredit();
         $livraisons = $this->_managerLivraison->getEntLivraison();
 
         $this->_view = new View('Delivery');

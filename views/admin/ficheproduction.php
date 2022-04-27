@@ -20,7 +20,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
 
 <body>
     <!-- Container -->
-    <div class="container-fluid invoice-container">
+    <div class="container-fluid invoice-container" id="fiche">
         <!-- Header -->
         <header>
             <div class="row">
@@ -106,6 +106,26 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     Download</a> </div>
         </footer>
     </div>
+
+    <script src="views/admin/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/scripts/html2pdf.bundle.min.js" type="text/javascript"></script>
+    <script>
+    // $(function() {
+    element = document.getElementById('fiche');
+    html2pdf(element, {
+        margin: 0,
+        filename: 'fiche_production.pdf',
+        jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait'
+        }
+    });
+    // $("#print-btn").on("click", () => {
+
+    // });
+    // });
+    </script>
 </body>
 
 </html>

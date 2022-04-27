@@ -42,6 +42,11 @@ class ManagerCommande extends Model
         return $this->getAll('get_credit_client', 'Commande');
     }
 
+    public function getClientNoCredit()
+    {
+        return $this->getAll('get_client_no_credit', 'Commande');
+    }
+
     public function calculSommetotcommande($id)
     {
         $sum  = 0;
