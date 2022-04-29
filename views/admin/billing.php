@@ -332,7 +332,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                             class="alert text-center <?= $commande->getStatcom() == 0 ? 'alert-danger' : 'alert-success' ?>">
                                             <?= $commande->getStatcom() == 0 ? 'Non payéé' : 'Payé' ?></td>
                                         <td>
-                                            <a href="invoice-<?= $commande->getNumcom()  ?>" target="_blank"
+                                            <a href="invoice-<?= $commande->getNumcom()  ?>"
                                                 class="btn btn-success btn-xs m-r-5">Facture client <i
                                                     class="fa fa-eye font-14"></i></a>
                                         </td>
