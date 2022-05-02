@@ -16,6 +16,11 @@ class ManagerProduct extends Model
         return $this->getTrie('get_oneProduct', 1, $id, 'Product');
     }
 
+    public function getHistoriqueProd($idp)
+    {
+        return $this->getOne('get_histo_product', $idp, 'HistoriqueProd');
+    }
+
     public function createObj($action, $procedure, $object)
     {
         $query = $this->getBdd()->prepare('call ' . $procedure . ' (?, ?, ?, ?, ?, ?, ?, ?)');

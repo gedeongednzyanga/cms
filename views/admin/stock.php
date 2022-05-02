@@ -32,8 +32,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
         <header class="header">
             <div class="page-brand">
                 <a class="link" href="home">
-                    <span class="brand">
-                        <span class="brand-tip"> CMS</span>
+                    <span class="brand">CMS
+                        <!-- <span class="brand-tip"> CMS</span> -->
                     </span>
                     <span class="brand-mini">CMS</span>
                 </a>
@@ -59,12 +59,12 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="views/admin/assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <span></span><?= $_SESSION['compte'] ?><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Paramètres</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Déconnexion</a>
                         </ul>
                     </li>
                 </ul>
@@ -178,11 +178,9 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     <div class="ibox-head">
                         <div class="ibox-title">Produits en Stock</div>
                         <div class="ibox-tools">
-                            <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a data-toggle="modal" data-target="#modal-category" class="dropdown-item">Catégorie</a>
-                                <a data-toggle="modal" data-target="#modal-mesure" class="dropdown-item">Mesure</a>
+                            <div class="ibox-tools">
+                                <a data-toggle="modal" data-target="#modal-category">Catégories</a>
+                                <a data-toggle="modal" data-target="#modal-mesure">Mesures</a>
                             </div>
                         </div>
                     </div>
@@ -216,7 +214,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <th>Actions</th>
                                     </tr>
                                 </tfoot>
-                                <tbody>
+                                <tbody id="tab-product">
                                     <?php
                                     foreach ($products as $product) : ?>
                                     <tr>
@@ -232,8 +230,9 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                             <span><?= $product->getQuantitest() < $product->getStalert() ? 'Stock Insuffisant' : 'Stock Suffisant' ?></span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
-                                                data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
+                                            <button class="btn btn-default btn-xs m-r-5" title="Modifier"
+                                                data-toggle="modal" data-target="#modal-update"><i
+                                                    class="fa fa-pencil font-14"></i></button>
                                             <button class="btn btn-default btn-xs" data-toggle="tooltip"
                                                 data-original-title="Delete"><i
                                                     class="fa fa-trash font-14"></i></button>
@@ -368,7 +367,113 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
-                <!-- End Modal alert -->
+                <!-- End Modal Mesure -->
+
+                <!-- Modal Update -->
+                <div class="modal fade" id="modal-update">
+                    <div class="modal-dialog">
+                        <div class="modal-content ibox">
+                            <div class="modal-header ibox-head">
+                                <div class="modal-title ibox-title">Modifier Produit</div>
+                                <div class="ibox-tools">
+                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
+                                            class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item">Supprimer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal"
+                                            aria-label="Close">Fermer</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-body ibox-body">
+                                <form id="form-product2" class="row form-horizontal" method="post"
+                                    novalidate="novalidate">
+                                    <div class="col-md-12">
+                                        <input type="hidden" name="action" value="product" />
+                                        <input type="hidden" name="actionu" value="2" />
+                                        <input type="hidden" id="idprod" name="idprod" value="0" />
+                                        <input type="hidden" id="quantitest2" name="quantitest" value="0" />
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Désignation</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" id="designationprod2"
+                                                    name="designationprod" required placeholder="Désignation">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">PA/PV</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="number" name="prixprod" id="prixprod2"
+                                                    required placeholder="Prix">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Stock alert</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="number" name="stalert" id="stalert2"
+                                                    required placeholder="Stock alert">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Catégorie</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control select2_demo_1" style="width:100%"
+                                                    name="refcat" id="refcat2" required>
+                                                    <option value="">Choisir une catégorie</option>
+                                                    <optgroup label="Catégories">
+                                                        <?php foreach ($categories as $category) : ?>
+                                                        <option value="<?= $category->getIdcat() ?>">
+                                                            <?= $category->getDesignationcat() ?></option>
+                                                        <?php endforeach; ?>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Uni. mesure</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control select2_demo_1" style="width:100%"
+                                                    name="refunit" id="refunit2" required>
+                                                    <option value="">Choisir une unité de mesure</option>
+                                                    <optgroup label="Unité de mesure">
+                                                        <?php foreach ($unites as $unite) : ?>
+                                                        <option value="<?= $unite->getIdu() ?>">
+                                                            <?= $unite->getDesignationu() ?></option>
+                                                        <?php endforeach; ?>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">En Stock</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" disabled type="text" id="stock2"
+                                                    name="stock" required placeholder="Stock" value="0">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label"></label>
+                                            <div class="col-sm-9">
+                                                <button class="btn btn-info btn-block"
+                                                    type="submit">Enregistrer</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                <span id="message2"></span>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- End Modal Update -->
+
                 <!-- Modal Category -->
                 <div class="modal fade" id="modal-choose">
                     <div class="modal-dialog">
@@ -388,27 +493,27 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <div class="modal-body ibox-body">
                                 <div class="form-group row">
                                     <div class="col-sm-12">
-                                        <select class="form-control select2_demo_1" style="width:100%" name="refcat"
-                                            required>
+                                        <select class="form-control select2_demo_1" style="width:100%" name="refprod"
+                                            id="refprodo" required>
                                             <option value="">Choisir un article/Produit</option>
-                                            <optgroup label="Catégories">
-                                                <?php foreach ($categories as $category) : ?>
-                                                <option value="<?= $category->getIdcat() ?>">
-                                                    <?= $category->getDesignationcat() ?></option>
+                                            <optgroup label="Nos articles">
+                                                <?php foreach ($products as $product) : ?>
+                                                <option value="<?= $product->getIdprod() ?>">
+                                                    <?= $product->getDesignationprod() ?></option>
                                                 <?php endforeach; ?>
                                             </optgroup>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <a href="fichestock" type="submit" id="add-quartier"
-                                        class="btn btn-primary form-control">Fiche
+                                    <button type="button" id="fichestocko" class="btn btn-primary form-control">Fiche
                                         de Stock
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                <div id="message3">Hello</div>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -448,6 +553,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
     $(function() {
@@ -464,6 +570,38 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
         });
     })
     </script>
+    <script>
+    table = document.getElementById("tab-product");
+    for (i = 0; i < table.rows.length; i++) {
+        table.rows[i].onclick = function() {
+            getOneProduct(this.cells[0].innerText);
+            document.getElementById("idprod").value = this.cells[0].innerText;
+            document.getElementById("designationprod2").value = this.cells[1].innerText;
+            document.getElementById("stock2").value = this.cells[3].innerText;
+        }
+    }
+
+    function getOneProduct(idprod) {
+        $.ajax({
+            url: "models/requests/RequestCbase.php",
+            type: "POST",
+            data: {
+                action: 'oneprod',
+                idprod: idprod
+            },
+            timeout: 5000,
+            success: function(data) {
+                var response = $.parseJSON(data);
+                $("#prixprod2").val(response.prix);
+                $("#stalert2").val(response.alertSt);
+            },
+            error: function() {
+                alert("Echec de la requête sur le serveur.");
+            }
+        });
+    }
+    </script>
+
 </body>
 
 </html>

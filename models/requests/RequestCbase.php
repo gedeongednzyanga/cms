@@ -1,4 +1,5 @@
 <?php
+session_start();
 spl_autoload_register(function ($class) {
     $fileManager = '../managers/' . $class . '.php';
     $fileObject = '../objects/' . $class . '.php';
@@ -41,7 +42,23 @@ switch ($action) {
         foreach ($product as $prod) :
             echo $prod->getQuantitest();
         endforeach;
-        // echo 49;
+        break;
+
+    case 'oneprod':
+        $product = $managerProduct->getOneProduct($_POST['idprod']);
+        $prodc = [];
+        foreach ($product as $data) :
+            $prodc['prix'] = $data->getPrixprod();
+            $prodc['alertSt'] = $data->getStalert();
+        endforeach;
+        echo json_encode($prodc);
+        break;
+
+    case 'oneprod2':
+        $product = $managerProduct->getOneProduct($_POST['refproduit']);
+        foreach ($product as $data) :
+            $_SESSION['idprod_fiche'] = $data->getPrixprod();
+        endforeach;
         break;
 
     default:

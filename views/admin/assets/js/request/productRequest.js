@@ -95,4 +95,24 @@ $(function() {
             });
         }
     });
+
+    $("#fichestocko").on('click', () => {
+        if ($('#refprodo').val() === '') {
+            $("#message3").hide();
+            $("#message3").html("<small class='alert alert-danger'>Veuillez choisissez un article SVP !!!</small>").show('slow', 'linear');
+        } else {
+            $.ajax({
+                url: "models/requests/RequestCbase.php",
+                type: "POST",
+                data: { action: 'oneprod2', refproduit: $('#refprodo').val() },
+                timeout: 5000,
+                success: function() {
+                    window.location = "fichestock";
+                },
+                error: function() {
+                    alert("Echec de la requête sur le serveur.");
+                }
+            });
+        }
+    });
 })
