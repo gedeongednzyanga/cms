@@ -57,6 +57,8 @@ $(function() {
                 cache: false,
                 success: function(data) {
                     $('#livraison-list').html(data);
+                    $('#quatinte_com').val(0);
+                    $('#quantite_rest').val(0);
                 },
                 error: function() {
                     alert("Echec de la requête sur le serveur.");

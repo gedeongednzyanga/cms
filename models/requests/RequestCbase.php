@@ -57,7 +57,7 @@ switch ($action) {
     case 'oneprod2':
         $product = $managerProduct->getOneProduct($_POST['refproduit']);
         foreach ($product as $data) :
-            $_SESSION['idprod_fiche'] = $data->getPrixprod();
+            $_SESSION['idprod_fiche'] = $data->getIdprod();
         endforeach;
         break;
 

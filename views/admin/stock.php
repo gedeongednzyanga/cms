@@ -1,6 +1,9 @@
 <?php
 if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     echo '<script>window.location="login";</script>';
+
+if (isset($_SESSION['idprod_fiche']))
+    unset($_SESSION['idprod_fiche']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -255,15 +258,6 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     </div>
                 </div>
 
-                <!-- <div class="ibox">
-                    <div class="ibox-head">
-                        <div class="ibox-title">Nos produits</div>
-                    </div>
-                    <div class="ibox-body">
-                        <h2>Hello ged</h2>
-                    </div>
-                </div> -->
-
                 <!-- MODALS -->
                 <!-- Modal Category -->
                 <div class="modal fade" id="modal-category">
@@ -513,7 +507,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                                <div id="message3">Hello</div>
+                                <div id="message3"></div>
                             </div>
                         </div>
                         <!-- /.modal-content -->
