@@ -60,6 +60,11 @@ class ManagerCommande extends Model
         }
     }
 
+    public function chatCommande($mois, $annee)
+    {
+        return $this->getTrie('get_chat1', $mois, $annee, 'Commande');
+    }
+
     public function inertCommande($action, $procedure, $objet)
     {
         try {

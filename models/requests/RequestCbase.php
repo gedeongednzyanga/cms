@@ -16,6 +16,8 @@ spl_autoload_register(function ($class) {
 $managerCategory = new ManagerCategory();
 $managerUnite = new ManagerUnite();
 $managerProduct = new ManagerProduct();
+$managerProduction = new ManagerProduction();
+$managerCommande = new ManagerCommande();
 $action = $_POST['action'];
 
 switch ($action) {
@@ -59,6 +61,57 @@ switch ($action) {
         foreach ($product as $data) :
             $_SESSION['idprod_fiche'] = $data->getIdprod();
         endforeach;
+        break;
+
+    case 'chatProduction':
+
+        //CHAT PRODUCTION
+        $_cProduction = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $datChat = $managerProduction->chatProduction($i, 2022);
+            if ($i < 10) {
+                foreach ($datChat as $cProd) :
+                    $row = 'm' . $cProd->getMois();
+                    $_cProduction[$row] = $cProd->getSomme();
+                endforeach;
+            }
+        }
+
+        for ($j = 1; $j <= 12; $j++) {
+            if ($j < 10) {
+                $rw = 'm0' . $j;
+                if (!array_key_exists($rw, $_cProduction))
+                    $_cProduction[$rw]  = 0;
+            } else {
+                $rw = 'm' . $j;
+                if (!array_key_exists($rw, $_cProduction))
+                    $_cProduction[$rw]  = 0;
+            }
+        }
+
+        //CHAT COMMANDE
+        for ($i = 1; $i <= 12; $i++) {
+            $datChat1 = $managerCommande->chatCommande($i, 2022);
+            if ($i < 10) {
+                foreach ($datChat1 as $cCom) :
+                    $row = 'c' . $cCom->getMois();
+                    $_cProduction[$row] = $cCom->getSomme();
+                endforeach;
+            }
+        }
+        for ($j = 1; $j <= 12; $j++) {
+            if ($j < 10) {
+                $rw = 'c0' . $j;
+                if (!array_key_exists($rw, $_cProduction))
+                    $_cProduction[$rw]  = 0;
+            } else {
+                $rw = 'c' . $j;
+                if (!array_key_exists($rw, $_cProduction))
+                    $_cProduction[$rw]  = 0;
+            }
+        }
+
+        echo json_encode($_cProduction);
         break;
 
     default:

@@ -1,29 +1,57 @@
 $(function() {
-    var a = {
-            labels: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Sept.", "Oct.", "Nov.", "Déc."],
-            datasets: [{
-                label: "Productions",
-                borderColor: 'rgba(52,152,219,1)',
-                backgroundColor: 'rgba(52,152,219,1)',
-                pointBackgroundColor: 'rgba(52,152,219,1)',
-                data: [29, 48, 40, 19, 78, 31, 85, 29, 48, 40, 19, 78, ]
-            }, {
-                label: "Commandes",
-                backgroundColor: "#DADDE0",
-                borderColor: "#DADDE0",
-                data: [45, 80, 58, 74, 54, 59, 40, 45, 80, 58, 74, 54, ]
-            }]
-        },
-        t = {
-            responsive: !0,
-            maintainAspectRatio: !1
-        },
-        e = document.getElementById("bar_chart").getContext("2d");
-    new Chart(e, {
-        type: "line",
-        data: a,
-        options: t
-    });
+
+    dataProduction = [];
+    dataCommande = [];
+
+    function statProduction() {
+        $.ajax({
+            url: "models/requests/RequestCbase.php",
+            type: "POST",
+            data: { action: "chatProduction" },
+            timeout: 3000,
+            success: function(data) {
+                var response = $.parseJSON(data);
+                dataProduction = [response.m01, response.m02, response.m03, response.m04, response.m05, response.m06, response.m07, response.m08, response.m09, response.m10, response.m11, response.m12];
+                dataCommande = [response.c01, response.c02, response.c03, response.c04, response.c05, response.c06, response.c07, response.c08, response.c09, response.c10, response.c11, response.c12];
+                var a = {
+                        labels: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Sept.", "Oct.", "Nov.", "Déc."],
+                        datasets: [{
+                            label: "Productions",
+                            borderColor: 'rgba(52,152,219,1)',
+                            backgroundColor: 'rgba(52,152,219,1)',
+                            pointBackgroundColor: 'rgba(52,152,219,1)',
+                            data: dataProduction
+                        }, {
+                            label: "Commandes",
+                            backgroundColor: "#DADDE0",
+                            borderColor: "#DADDE0",
+                            data: dataCommande
+                        }]
+                    },
+                    t = {
+                        responsive: !0,
+                        maintainAspectRatio: !1
+                    },
+                    e = document.getElementById("bar_chart").getContext("2d");
+                new Chart(e, {
+                    type: "line",
+                    data: a,
+                    options: t
+                });
+            },
+            error: function() {
+                alert("Echec de la requête sur le serveur.");
+            }
+        });
+    }
+
+
+    // statCommande();
+
+    statProduction();
+
+
+
 
     // World Map
     var mapData = {

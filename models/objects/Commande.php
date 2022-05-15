@@ -15,6 +15,11 @@ class Commande extends Product
     private $refprodc;
     private $refentcom;
 
+    //chat
+    private $somme;
+    private $mois;
+
+
     public function __construct(array $data)
     {
         $this->hydrate($data);
@@ -226,6 +231,46 @@ class Commande extends Product
     public function setStatcom($statcom)
     {
         $this->statcom = $statcom;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of somme
+     */
+    public function getSomme()
+    {
+        return $this->somme;
+    }
+
+    /**
+     * Set the value of somme
+     *
+     * @return  self
+     */
+    public function setSomme($somme)
+    {
+        $this->somme = $somme;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of mois
+     */
+    public function getMois()
+    {
+        return $this->mois;
+    }
+
+    /**
+     * Set the value of mois
+     *
+     * @return  self
+     */
+    public function setMois($mois)
+    {
+        $this->mois = $mois;
 
         return $this;
     }

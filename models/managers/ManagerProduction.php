@@ -32,6 +32,12 @@ class ManagerProduction extends Model
             throw new Exception("Error " . $ex);
         }
     }
+
+    public function chatProduction($mois, $annee)
+    {
+        return $this->getTrie('get_chat', $mois, $annee, 'Production');
+    }
+
     public function inertEntete($action, $procedure, $objet)
     {
         try {
