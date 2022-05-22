@@ -121,8 +121,13 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                         </ul>
                     </li>
                     <li>
-                        <a href="billing"><i class="sidebar-item-icon fa fa-building"></i>
+                        <a href="billing"><i class="sidebar-item-icon fa fa-calculator"></i>
                             <span class="nav-label">Facturation</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="carburant"><i class="sidebar-item-icon fa fa-building"></i>
+                            <span class="nav-label">Carburant</span>
                         </a>
                     </li>
                     <li class="heading">MESSAGES & INFOS</li>
