@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+    echo '<script>window.location="login";</script>';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,8 +30,8 @@
         <header class="header">
             <div class="page-brand">
                 <a class="link" href="home">
-                    <span class="brand">
-                        <span class="brand-tip"> CMS</span>
+                    <span class="brand">CMS
+                        <!-- <span class="brand-tip"> CMS</span> -->
                     </span>
                     <span class="brand-mini">CMS</span>
                 </a>
@@ -53,12 +57,12 @@
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="views/admin/assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <span></span><?= $_SESSION['compte'] ?><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Paramètres</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Déconnexion</a>
                         </ul>
                     </li>
                 </ul>
@@ -122,6 +126,11 @@
                             <span class="nav-label">Facturation</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="carburant"><i class="sidebar-item-icon fa fa-building"></i>
+                            <span class="nav-label">Carburant</span>
+                        </a>
+                    </li>
                     <li class="heading">MESSAGES & INFOS</li>
                     <li class="active">
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>
@@ -175,52 +184,38 @@
                         <h6 class="m-t-10 m-b-10">Tous les libellés</h6>
                         <ul class="list-group list-group-divider inbox-list">
                             <li class="list-group-item">
+                                <?php $managerMessage = new ManagerMessage(); ?>
                                 <a href="mailbox"><i class="fa fa-envelope-open-o"></i> Tous les messages
+                                    <span
+                                        class="badge badge-default badge-square pull-right"><?= count($messages) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-envelope-o"></i> Reçus (6)
-                                    <span class="badge badge-warning badge-square pull-right">17</span>
+                                <a href="javascript:;" id="btr"><i class="fa fa-envelope-o"></i> Boîte de reception
+                                    <span
+                                        class="badge badge-warning badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('receive')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-send-o"></i> Envoyés</a>
+                                <a id="msge" href="javascript:;"><i class="fa fa-send-o"></i> Messages Envoyés <span
+                                        class="badge badge-primary badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('sent')) ?></span></a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-star-o"></i> Important
-                                    <span class="badge badge-success badge-square pull-right">2</span>
+                                <a id="msgi" href="javascript:;"><i class="fa fa-star-o"></i> Important
+                                    <span
+                                        class="badge badge-success badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('important')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-file-text-o"></i> Brouillons</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille</a>
+                                <a id="msgd" href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille <span
+                                        class="badge badge-danger badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('delete')) ?></span></a>
                             </li>
                         </ul>
-                        <!-- <h6 class="m-t-10 m-b-10">LABELS</h6> -->
-                        <!-- <ul class="list-group list-group-divider inbox-list">
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-success"></i> Support</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-warning"></i> Business</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-info"></i> Work</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-danger"></i> System</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-muted"></i> Social</a>
-                            </li>
-                        </ul> -->
                     </div>
                     <div class="col-lg-9 col-md-8">
                         <div class="ibox" id="mailbox-container">
                             <div class="mailbox-header d-flex justify-content-between">
-                                <h5 class="inbox-title">Envoyer un mail</h5>
+                                <h5 class="inbox-title" id="title-msg">Envoyer un mail</h5>
                                 <div class="inbox-toolbar m-l-20">
                                     <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip"
                                         data-original-title="Reply"><i class="fa fa-reply"></i></button>
@@ -230,25 +225,47 @@
                             </div>
                             <div class="mailbox-body">
                                 <form class="form-horizontal" action="javascript:void(0)" method="POST"
-                                    if="compose_form">
+                                    id="contact-form">
                                     <div class="form-group row">
-                                        <label class="col-sm-2 control-label">A :</label>
+                                        <label class="col-sm-2 control-label"> Envoyer à </label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="to" value="example@gmail.com">
+                                            <input type="hidden" name="action" value="send">
+                                            <input type="hidden" name="actionu" value="1">
+                                            <input type="hidden" name="idmsg" value="0">
+                                            <input type="hidden" name="sender" value="CMS SARL">
+                                            <input type="hidden" name="typemsg" value="sent">
+                                            <input type="hidden" name="statutmsg" value="1">
+                                            <input class="form-control" type="text" name="receiver"
+                                                placeholder="Barbuto">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 control-label">Sujet :</label>
+                                        <label class="col-sm-2 control-label"> E-mail </label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="subject">
+                                            <input class="form-control" type="email" name="emails"
+                                                placeholder="example@gmail.com" required>
                                         </div>
                                     </div>
-                                    <textarea id="summernote" name="message">
-                                        <h4>Thank you for your attention</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur velit, corporis iste. Dolorem sapiente at, quibusdam fuga ea voluptatem iste. Cupiditate dignissimos, iure impedit, perferendis in beatae fuga
-                                            voluptate, sapiente pariatur, libero ab odit. Placeat saepe sunt ipsam laboriosam temporibus nostrum ea optio, dolore soluta.</p>
-                                    </textarea>
-                                    <input class="btn btn-info m-t-20" type="submit">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 control-label"> Sujet </label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="sujet"
+                                                placeholder="exemple : Sujet" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 control-label">Message</label>
+                                        <div class="col-sm-10">
+                                            <textarea id="summernote" name="message" id="message" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-10">
+                                            <input class="btn btn-info m-t-20" value="Envoyer" type="submit">
+                                            <small class="pull-right error-message">Message</small>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -283,6 +300,7 @@
     <script src="views/admin/assets/vendors/summernote/dist/summernote.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/contactAdmin.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
     $(function() {

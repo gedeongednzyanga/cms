@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+    echo '<script>window.location="login";</script>';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +29,8 @@
         <header class="header">
             <div class="page-brand">
                 <a class="link" href="home">
-                    <span class="brand">
-                        <span class="brand-tip"> CMS</span>
+                    <span class="brand">CMS
+                        <!-- <span class="brand-tip"> CMS</span> -->
                     </span>
                     <span class="brand-mini">CMS</span>
                 </a>
@@ -52,12 +56,12 @@
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="views/admin/assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <span></span><?= $_SESSION['compte'] ?><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Paramètres</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Déconnexion</a>
                         </ul>
                     </li>
                 </ul>
@@ -121,6 +125,11 @@
                             <span class="nav-label">Facturation</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="carburant"><i class="sidebar-item-icon fa fa-building"></i>
+                            <span class="nav-label">Carburant</span>
+                        </a>
+                    </li>
                     <li class="heading">MESSAGES & INFOS</li>
                     <li class="active">
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>
@@ -174,47 +183,34 @@
                         <h6 class="m-t-10 m-b-10">Tous les libellés</h6>
                         <ul class="list-group list-group-divider inbox-list">
                             <li class="list-group-item">
+                                <?php $managerMessage = new ManagerMessage(); ?>
                                 <a href="mailbox"><i class="fa fa-envelope-open-o"></i> Tous les messages
+                                    <span
+                                        class="badge badge-default badge-square pull-right"><?= count($messages) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-envelope-o"></i> Reçus (6)
-                                    <span class="badge badge-warning badge-square pull-right">17</span>
+                                <a href="javascript:;" id="btr"><i class="fa fa-envelope-o"></i> Boîte de reception
+                                    <span
+                                        class="badge badge-warning badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('receive')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-send-o"></i> Envoyés</a>
+                                <a id="msge" href="javascript:;"><i class="fa fa-send-o"></i> Messages Envoyés <span
+                                        class="badge badge-primary badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('sent')) ?></span></a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-star-o"></i> Important
-                                    <span class="badge badge-success badge-square pull-right">2</span>
+                                <a id="msgi" href="javascript:;"><i class="fa fa-star-o"></i> Important
+                                    <span
+                                        class="badge badge-success badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('important')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-file-text-o"></i> Brouillons</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille</a>
+                                <a id="msgd" href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille <span
+                                        class="badge badge-danger badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('delete')) ?></span></a>
                             </li>
                         </ul>
-                        <!-- <h6 class="m-t-10 m-b-10">LABELS</h6> -->
-                        <!-- <ul class="list-group list-group-divider inbox-list">
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-success"></i> Support</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-warning"></i> Business</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-info"></i> Work</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-danger"></i> System</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;"><i class="fa fa-circle-o font-13 text-muted"></i> Social</a>
-                            </li>
-                        </ul> -->
+
                     </div>
                     <div class="col-lg-9 col-md-8">
                         <?php
@@ -226,12 +222,13 @@
                             <div class="mailbox-header d-flex justify-content-between"
                                 style="border-bottom: 1px solid #e8e8e8;">
                                 <div>
-                                    <h5 class="inbox-title"><?= $message->getSujet() ?></h5>
+                                    <h5 id="title-msg" class="inbox-title"><?= $message->getSujet() ?></h5>
                                     <div class="m-t-5 font-13">
                                         <span class="font-strong"><?= $message->getSender() ?></span>
                                         <a class="text-muted m-l-5" href="javascript:;"><?= $message->getEmails() ?></a>
                                     </div>
-                                    <div class="p-r-10 font-13"><?= $message->getDatemsg() ?></div>
+                                    <div class="p-r-10 font-13">
+                                        <?= date('d-m-Y à H:i:s', strtotime($message->getDatemsg()))  ?></div>
                                 </div>
                                 <div class="inbox-toolbar m-l-20">
                                     <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip"
@@ -247,48 +244,6 @@
                             <div class="mailbox-body">
                                 <p><?= $message->getMessage() ?></p>
                             </div>
-                            <!-- <div class="mailbox-body">
-                                <div class="d-flex justify-content-between m-b-10">
-                                    <span class="font-strong"><i class="fa fa-paperclip"></i> 3 attachments</span>
-                                    <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip"
-                                        data-original-title="Download all"><i class="fa fa-download"></i></button>
-                                </div>
-                                <div class="mail-attachments d-flex">
-                                    <div class="card">
-                                        <div>
-                                            <img class="card-img-top file-image"
-                                                src="views/admin/assets/img/file.png" />
-                                        </div>
-                                        <div class="card-body">
-                                            <span>storm.jpg</span>
-                                            <a class="btn btn-default btn-xs float-right" href="javascript:;"><i
-                                                    class="fa fa-download"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div>
-                                            <img class="card-img-top file-image"
-                                                src="views/admin/assets/img/file.png" />
-                                        </div>
-                                        <div class="card-body">
-                                            <span>horse.jpg</span>
-                                            <a class="btn btn-default btn-xs float-right" href="javascript:;"><i
-                                                    class="fa fa-download"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="text-center">
-                                            <img class="card-img-top file-image" src="views/admin/assets/img/file.png"
-                                                height="160px" />
-                                        </div>
-                                        <div class="card-body">
-                                            <span>document.txt</span>
-                                            <a class="btn btn-default btn-xs float-right" href="javascript:;"><i
-                                                    class="fa fa-download"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                         <?php endforeach; ?>
                     </div>
@@ -322,6 +277,7 @@
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
+    <script src="views/admin/assets/js/request/contactAdmin.js" type="text/javascript"></script>
 </body>
 
 </html>

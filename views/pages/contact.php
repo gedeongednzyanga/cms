@@ -313,7 +313,7 @@
                                         <input type="hidden" name="actionu" value="1">
                                         <input type="hidden" name="idmsg" value="0">
                                         <input type="hidden" name="receiver" value="CMS SARL">
-                                        <input type="hidden" name="typemsg" value="sent">
+                                        <input type="hidden" name="typemsg" value="receive">
                                         <input type="hidden" name="statutmsg" value="0">
                                         <input class="form-control form-control-name" name="sender" id="sender"
                                             placeholder="Ex : Barbuto Coder" type="text" required>

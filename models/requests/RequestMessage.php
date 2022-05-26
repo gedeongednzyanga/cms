@@ -13,14 +13,44 @@ spl_autoload_register(function ($class) {
     }
 });
 
+include('../../views/includes/cal_time.php');
+
 $messageManager = new ManagerMessage();
 $action = $_POST['action'];
 
 switch ($action) {
     case 'send':
-        $message = new Message($_POST);
+        $messages = new Message($_POST);
         $messageManager->createObj($_POST['actionu'], 'obj_message', $message);
         echo 'Message envoyé avec succès';
+        break;
+
+    case 'trier_message':
+        $messages = $messageManager->getMessageByTypeMsg($_POST['tmsg']);
+        $datam = '';
+        foreach ($messages as $message) {
+            if ($message->getStatutmsg() == 0)
+                $datam .= '<tr class="unread" data-id="2">';
+            else
+                $datam .= '<tr data-id="2">';
+            $datam .= '
+                <td class="check-cell">
+                    <label class="ui-checkbox ui-checkbox-info">
+                        <input class="mail-check" type="checkbox">
+                        <span class="input-span"></span>
+                    </label>
+                </td>
+                <td><a href="mailview-' . $message->getIdmsg() . '">' . $message->getSender() . '</a></td>
+                <td class="mail-message">' . $message->getSujet() . '</td>';
+            if ($message->getStatutmsg() == 0)
+                $datam .= '<td class="mail-label hidden-xs"><i class="fa fa-circle text-warning"></i></td>';
+            else
+                $datam .= '<td class="mail-label hidden-xs"></td>';
+            $datam .= '<td class="text-right">' . cal_time_ago($message->getDatemsg()) . '</td>
+            </tr>';
+        }
+
+        echo $datam;
         break;
 
     default:

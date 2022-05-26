@@ -17,6 +17,11 @@ class ManagerMessage extends Model
         return $this->getAll('_get_messages_non_l', 'Message');
     }
 
+    public function getMessageByTypeMsg($typeMessage)
+    {
+        return $this->getOne('get_messages_bystatus', $typeMessage, 'Message');
+    }
+
     public function changeMsgStatus($action, $id)
     {
         try {

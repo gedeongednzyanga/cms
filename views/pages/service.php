@@ -224,8 +224,8 @@
                             <div class="widget">
                                 <h3 class="widget-title">Solutions</h3>
                                 <ul class="nav service-menu">
-                                    <li class="active"><a href="service">Construction des
-                                            Bâtiments</a></li>
+                                    <li class="active"><a href="service">constructions des BTP</a></li>
+                                    <li><a href="service">constructions metalliques</a></li>
                                     <li><a href="service">Rénovations de bâtiments</a></li>
                                     <li><a href="service">Fabrication des blocs</a></li>
                                     <li><a href="service">Fabrication des pavés</a></li>
@@ -237,16 +237,16 @@
                             <div class="widget">
                                 <div class="quote-item quote-border">
                                     <div class="quote-text-border">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid.
+                                        Ce qui coûte le plus cher dans une construction ce sont les erreurs. "Ken
+                                        Follett"
                                     </div>
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
                                             src="views/pages/assets/images/clients/happy_client1.jpg" alt="testimonial">
                                         <div class="quote-item-info">
-                                            <h3 class="quote-author">Weldon Cash</h3>
-                                            <span class="quote-subtext">CEO, First Choice Group</span>
+                                            <h3 class="quote-author">Faustin Balume</h3>
+                                            <span class="quote-subtext">CEO, CMS SARL</span>
                                         </div>
                                     </div>
                                 </div><!-- Quote item end -->
@@ -260,21 +260,18 @@
                         <div class="content-inner-page">
 
                             <h2 class="column-title mrt-0">Construction des
-                                Bâtiments</h2>
+                                Bâtiments et Travaux Publics</h2>
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat
-                                        eget risus
-                                        sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et
-                                        bibendum a, sagittis accumsan
-                                        ipsum. Pellentesque ultrices ultrices sapien.</p>
-                                    <p>Nam scelerisque tristique dolor vitae tincidunt. Aenean quis massa uada mi
-                                        elementum elementum. , nec
-                                        tincidunt nunc posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing
-                                        elit. Nulla commodo
-                                        iaculis ligula, ac dapibus quam ornare ut. Praesent ac hendrerit sem, et tempus
-                                        sem</p>
+                                    <p>Le BTP, élément déterminant à la catégorisation sociale en Afrique à une valeur
+                                        plus que sacré.
+                                        Soucieux de la réalisation des vœux de souscripteur,
+                                        CMS développe pour ses clients une compétence globale à travers les spécialités
+                                        de l’ensemble de ses unités opérationnelles.</p>
+                                    <p>Ce service en spécialités permet à CMS d’offrir désormais un STYLE DE VIE au
+                                        travers des plans et modèles de construction moderne pour apporter une réponse
+                                        appropriée aux attentes de l’ensemble de ses clients.</p>
                                 </div><!-- col end -->
                             </div><!-- 1st row end-->
 
@@ -298,27 +295,31 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="column-title-small">What Makes Us Different</h3>
+                                    <h3 class="column-title-small">QU'EST-CE QUI NOUS DIFFERENCIE</h3>
 
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf
-                                        moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                                        nesciunt laborum eiusmod.
-                                        Consectetur adipiscing elit. Integer adipiscing erat eget risus sollicitudin
-                                        pellentesque et non erat
-                                        tincidunt nunc posuere.</p>
+                                    <p>Forte de son expérience de 22 ans, CMS, comme l’ensemble de son Groupe,
+                                        a fini par se faire une identité propre dans la sphère de son domaine
+                                        d’activité.
+
+                                        Elle a laissé ses empreintes, un peu partout en République Démocratique du Congo
+                                        à travers les ouvrages qu’elle a construits,
+                                        toujours en s’appuyant solidement sur une culture d’entreprise à plusieurs
+                                        racines fondamentales, notamment :</p>
                                     <ul class="list-arrow">
-                                        <li>Partnership Strategy tristique eleifend.</li>
-                                        <li>Opporutnity to work with amet elit a.</li>
-                                        <li>Saving Time to Deal with commodo iaculis.</li>
-                                        <li>Leadership skills to manage erat volutpat.</li>
-                                        <li>Cut cost without sacrificing dolore magna.</li>
-                                        <li>Automate your business elis tristique.</li>
+                                        <li>la place centrale qu’occupent les aspirations du client
+                                            dans la politique de l’entreprise, et</li>
+                                        <li>La nécessité d’entretenir un environnement professionnel propice,
+                                            avec des moyens techniques en phase avec les objectifs ;
+                                            et un personnel qualifié et motivé en permanence.</li>
+                                        <li>La satisfaction de la clientèle notre objectif final.</li>
+                                        <li>Une réputation d'excellence.</li>
+                                        <li>Construction de partenariats.</li>
+                                        <li>Une équipe des professionnels.</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-md-6 mt-5 mt-md-0">
-                                    <h3 class="column-title-small">You Should Know</h3>
+                                    <h3 class="column-title-small">Vous devrez savoir</h3>
 
                                     <div class="accordion accordion-group accordion-classic"
                                         id="construction-accordion">
@@ -328,7 +329,8 @@
                                                     <button class="btn btn-block text-left" type="button"
                                                         data-toggle="collapse" data-target="#collapseOne"
                                                         aria-expanded="true" aria-controls="collapseOne">
-                                                        Does the law require head protection on construction sites?
+                                                        La loi exige-t-elle une protection de la tête sur les chantiers
+                                                        de construction ?
                                                     </button>
                                                 </h2>
                                             </div>
@@ -336,10 +338,9 @@
                                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                                 data-parent="#construction-accordion">
                                                 <div class="card-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                                    terry richardson ad squid. 3
-                                                    wolf
-                                                    moon officia aute, non cupidata
+                                                    CMS protège ses agents au terrain et
+                                                    se rassure que les agents ont les outils nécéssaire pour qu'ils
+                                                    travaillent en sécurité.
                                                 </div>
                                             </div>
                                         </div>
@@ -349,23 +350,17 @@
                                                     <button class="btn btn-block text-left collapsed" type="button"
                                                         data-toggle="collapse" data-target="#collapseTwo"
                                                         aria-expanded="false" aria-controls="collapseTwo">
-                                                        What are the first aid requirements for sites?
+                                                        Quelles sont les exigences de premiers secours pour les
+                                                        chantiers ?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                                 data-parent="#construction-accordion">
                                                 <div class="card-body">
-                                                    Anemi nim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea com modo
-                                                    consequat.
-                                                    Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                    cillum dolore eu fugiat nulla
-                                                    pariatur.
-                                                    Excepteur sint occaecat cupid henderit in voluptate velit esse cillu
-                                                    oris nisi ut aliquip ex ea
-                                                    com
-                                                    matat.
+                                                    CMS protège ses agents au terrain et
+                                                    se rassure que les agents ont les outils nécéssaire pour qu'ils
+                                                    travaillent en sécurité.
                                                 </div>
                                             </div>
                                         </div>
@@ -375,20 +370,16 @@
                                                     <button class="btn btn-block text-left collapsed" type="button"
                                                         data-toggle="collapse" data-target="#collapseThree"
                                                         aria-expanded="false" aria-controls="collapseThree">
-                                                        What is an appointed person?
+                                                        Qu'est-ce qu'une personne désignée ?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                                 data-parent="#construction-accordion">
                                                 <div class="card-body">
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been
-                                                    the
-                                                    industry’s standard dummy text ever since the 1500s, when an unknown
-                                                    printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.
+                                                    CMS protège ses agents au terrain et
+                                                    se rassure que les agents ont les outils nécéssaire pour qu'ils
+                                                    travaillent en sécurité.
                                                 </div>
                                             </div>
                                         </div>
@@ -409,7 +400,7 @@
                                     </div><!-- Col end -->
                                     <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
                                         <div class="call-to-action-btn">
-                                            <a class="btn btn-primary" href="#">Obtenir un devis</a>
+                                            <a class="btn btn-primary" href="contact">Obtenir un devis</a>
                                         </div>
                                     </div><!-- col end -->
                                 </div><!-- row end -->
@@ -428,12 +419,14 @@
                 <div class="container">
                     <div class="row justify-content-between">
                         <div class="col-lg-4 col-md-6 footer-widget footer-about">
-                            <h3 class="widget-title">About Us</h3>
-                            <img loading="lazy" width="200px" class="footer-logo" src="images/footer-logo.png"
-                                alt="Constra">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done
-                                idunt ut
-                                labore et dolore magna aliqua.</p>
+                            <h3 class="widget-title">A propos</h3>
+                            <img loading="lazy" width="200px" class="footer-logo"
+                                src="views/pages/assets/images/logo_cm_footer.png" alt="cms">
+                            <p>CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments et travaux
+                                publics,
+                                en plus fournitures des materiaux.
+                                Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av.
+                                Kabande, route Sake, non loin de la police routière Mugunga.</p>
                             <div class="footer-social">
                                 <ul>
                                     <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i
@@ -452,23 +445,26 @@
                         <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
                             <h3 class="widget-title">Working Hours</h3>
                             <div class="working-hours">
-                                We work 7 days a week, every day excluding major holidays. Contact us if you have an
-                                emergency, with our
-                                Hotline and Contact form.
+                                Nous travaillons 7 jours sur 7.
+                                Contactez-nous si vous avez une urgence, avec notre Hotline et notre formulaire de
+                                contact.
                                 <br><br> Monday - Friday: <span class="text-right">10:00 - 16:00 </span>
-                                <br> Saturday: <span class="text-right">12:00 - 15:00</span>
-                                <br> Sunday and holidays: <span class="text-right">09:00 - 12:00</span>
+                                <br> Saturday: <span class="text-right">10:00 - 16:00</span>
+                                <br> Sunday and holidays: <span class="text-right">10:00 - 16:00</span>
                             </div>
                         </div><!-- Col end -->
 
                         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
                             <h3 class="widget-title">Services</h3>
                             <ul class="list-arrow">
-                                <li><a href="service-single.html">Pre-Construction</a></li>
-                                <li><a href="service-single.html">General Contracting</a></li>
-                                <li><a href="service-single.html">Construction Management</a></li>
-                                <li><a href="service-single.html">Design and Build</a></li>
-                                <li><a href="service-single.html">Self-Perform Construction</a></li>
+                                <li><a href="service-single.html">Construction des Batiments et Travaux Publics</a></li>
+                                <li><a href="service-single.html">Fabrication des Blocs et Hourdis</a></li>
+                                <li><a href="service-single.html">Fabrication des Pavés</a></li>
+                                <li><a href="service-single.html">Construction métallique</a></li>
+                                <li><a href="service-single.html">Production des peintures</a></li>
+                                <li><a href="service-single.html">Expertise en BTP</a></li>
+                                <li><a href="service-single.html">Rénovation des Batiments</a></li>
+                                <li><a href="service-single.html">Design intérieur et extérieur</a></li>
                             </ul>
                         </div><!-- Col end -->
                     </div><!-- Row end -->
@@ -482,19 +478,17 @@
                             <div class="copyright-info text-center text-md-left">
                                 <span>Copyright &copy; <script>
                                     document.write(new Date().getFullYear())
-                                    </script>, Designed &amp; Developed by <a
-                                        href="https://themefisher.com">Themefisher</a></span>
+                                    </script> CMS sarl
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="team.html">Our people</a></li>
+                                    <li><a href="about.html">A propos</a></li>
+                                    <li><a href="team.html">Notre Equipe</a></li>
                                     <li><a href="faq.html">Faq</a></li>
-                                    <li><a href="news-left-sidebar.html">Blog</a></li>
-                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li><a href="news-left-sidebar.html">News</a></li>
                                 </ul>
                             </div>
                         </div>

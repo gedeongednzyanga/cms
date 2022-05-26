@@ -2,6 +2,7 @@
 class ControllerMailview
 {
     private $_view;
+    private $_managerMessage;
 
     public function __construct($url)
     {
@@ -13,7 +14,9 @@ class ControllerMailview
 
     private function show()
     {
+        $this->_managerMessage = new ManagerMessage();
+        $messages = $this->_managerMessage->getMessages();
         $this->_view = new View('Mailview');
-        $this->_view->generate1();
+        $this->_view->generate(array('messages' => $messages));
     }
 }

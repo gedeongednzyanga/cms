@@ -97,47 +97,56 @@ $(function() {
         url: "models/requests/RequestCarburant.php",
         type: "POST",
         data: { action: "load_chat" },
-        success: function(data) {
-            // alert(data);
+        success: function(dataChat) {
+            var response = $.parseJSON(dataChat);
+            // alert(response.Essence);
+            var data = [{
+                label: "Essence",
+                // data: 33,
+                data: response.Essence,
+                color: "#FCB441",
+            }, {
+                label: "Mazout",
+                // data: 20,
+                data: response.Mazout,
+                color: "#34495F",
+            }, ];
+
+            var plotObj = $.plot($("#flot_pie_chart"), data, {
+                series: {
+                    pie: {
+                        show: true,
+                        radius: 1,
+                        innerRadius: 0.5,
+                        label: {
+                            show: true,
+                            radius: 2 / 3,
+                            formatter: labelFormatter,
+                            threshold: 0.1
+                        }
+
+                    }
+                },
+                legend: {
+                    show: true
+                }
+            });
+
+            function labelFormatter(label, series) {
+                return "<div style='font-size:13px; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+            }
+
+
+
+
+
         },
         error: function() {
             alert('Failled to post the request.');
         }
     });
 
-    var data = [{
-        label: "Essence",
-        data: 33,
-        color: "#FCB441",
-    }, {
-        label: "Mazout",
-        data: 20,
-        color: "#34495F",
-    }, ];
 
-    var plotObj = $.plot($("#flot_pie_chart"), data, {
-        series: {
-            pie: {
-                show: true,
-                radius: 1,
-                innerRadius: 0.5,
-                label: {
-                    show: true,
-                    radius: 2 / 3,
-                    formatter: labelFormatter,
-                    threshold: 0.1
-                }
-
-            }
-        },
-        legend: {
-            show: true
-        }
-    });
-
-    function labelFormatter(label, series) {
-        return "<div style='font-size:13px; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
-    }
 });
 
 // Flot area chart

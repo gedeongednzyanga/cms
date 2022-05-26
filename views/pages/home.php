@@ -52,16 +52,16 @@
                     <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                         <ul class="list-unstyled">
                             <li>
-                                <a title="Facebook" href="https://facebbok.com/themefisher.com">
+                                <a title="Facebook" href="https://web.facebook.com/cms.goma">
                                     <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
                                 </a>
-                                <a title="Twitter" href="https://twitter.com/themefisher.com">
+                                <a title="Twitter" href="">
                                     <span class="social-icon"><i class="fab fa-twitter"></i></span>
                                 </a>
-                                <a title="Instagram" href="https://instagram.com/themefisher.com">
+                                <a title="Instagram" href="">
                                     <span class="social-icon"><i class="fab fa-instagram"></i></span>
                                 </a>
-                                <a title="Linkdin" href="https://github.com/themefisher.com">
+                                <a title="Linkdin" href="">
                                     <span class="social-icon"><i class="fab fa-github"></i></span>
                                 </a>
                             </li>
@@ -206,11 +206,11 @@
                             <div class="col-md-12 text-center">
                                 <h2 class="slide-title" data-animation-in="slideInLeft">
                                     <script>
-                                    document.write(new Date().getFullYear() - 2016);
-                                    </script> <span> Ans d 'expérience dans la</span>
+                                    document.write(new Date().getFullYear() - 1999);
+                                    </script> <span> Ans d 'expérience dans les</span>
                                 </h2>
                                 <h3 class="slide-sub-title" data-animation-in="slideInRight">
-                                    Construction Industrielle
+                                    Batiments et Travaux publics
                                 </h3>
                                 <p data-animation-in="slideInLeft" data-duration-in="1.2">
                                     <a href="services" class="slider btn btn-primary">Nos Services</a>
@@ -259,10 +259,10 @@
                                     Nous croyons à la durabilité
                                 </h3>
                                 <p class="slider-description lead" data-animation-in="slideInRight">
-                                    We will deal with your failure that determines how you achieve success.
+                                    Nous traitons avec votre échec qui determine comment vous achevez le succes.
                                 </p>
                                 <div data-animation-in="slideInLeft">
-                                    <a href="javascript:;" class="slider btn btn-primary"
+                                    <a href="contact" class="slider btn btn-primary"
                                         aria-label="contact-with-us">Obtenir un devis gratuit</a>
                                     <a href="javascript:;" class="slider btn btn-primary border"
                                         aria-label="learn-more-about-us">En savoir plus</a>
@@ -281,7 +281,8 @@
                         <div class="col-md-8 text-center text-md-left">
                             <div class="call-to-action-text">
                                 <h3 class="action-title">
-                                    Nous comprenons vos besoins en matières de construction
+                                    Nous comprenons vos besoins dans le domaine de genie civile et des constructions
+                                    générales en plus dans les fournitures des materiaux de construction
                                 </h3>
                             </div>
                         </div>
@@ -307,11 +308,13 @@
                     <div class="col-lg-6">
                         <div class="ts-intro">
                             <h2 class="into-title">A propos de CMS</h2>
-                            <h3 class="into-sub-title">Nous réalisons des projets phares</h3>
+                            <h3 class="into-sub-title">Nous réalisons de grands projets</h3>
                             <p>
-                                Les bâtiments CMS répondent parfaitement aux besoins de la communauté. Nous vous aidons
-                                à obtenir la meilleure solution pour vos projets de construction. Tout en vous
-                                garatissant la durabilité, nous vous rassurons la sauvegarde de votre investissement.
+                                Les bâtiments et études des projets réalisés par CMS répondent parfaitement aux besoins
+                                des clients. Nous vous aidons
+                                à obtenir la meilleure solution pour vos projets et fournitures des materiaux de
+                                construction. Tout en vous
+                                garentissant la durabilité, nous vous rassurons la sauvegarde de votre investissement.
                             </p>
                         </div>
                         <!-- Intro box end -->
@@ -419,7 +422,7 @@
                                     data-parent="#our-values-accordion">
                                     <div class="card-body">
                                         Nous sommes honnêtes, dignes de confiance et valorisons l’éthique. Chez nous le
-                                        client est rassuré:
+                                        client est rassuré.
                                     </div>
                                 </div>
                             </div>
@@ -464,7 +467,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="189">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="1000">0</span></h2>
                                 <h3 class="ts-facts-title">Réalisations</h3>
                             </div>
                         </div>
@@ -476,7 +479,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="50">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="100">0</span></h2>
                                 <h3 class="ts-facts-title">Membres du Personnel</h3>
                             </div>
                         </div>
@@ -488,7 +491,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="4000">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="2880">0</span></h2>
                                 <h3 class="ts-facts-title">Heures de travail</h3>
                             </div>
                         </div>
@@ -500,7 +503,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="120">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="940">0</span></h2>
                                 <h3 class="ts-facts-title">CLIENTS HEUREUX</h3>
                             </div>
                         </div>
@@ -537,7 +540,8 @@
                                     <a href="services">Construction des Bâtiments</a>
                                 </h3>
                                 <p>
-                                    CMS intervient dans la construction des bâtiments.
+                                    CMS intervient dans la construction des bâtiments, travaux publics et fournitures
+                                    des materiaux de construction.
                                 </p>
                             </div>
                         </div>
@@ -550,10 +554,10 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="services">Fabrication des blocs</a>
+                                    <a href="services">Fabrication des blocs et ourdis</a>
                                 </h3>
                                 <p>
-                                    Vous trouverez des blocs de qualité de toute mesure chez CMS.
+                                    Vous trouverez des blocs et ourdis de norme standard et de toute mesure chez CMS.
                                 </p>
                             </div>
                         </div>
@@ -569,7 +573,7 @@
                                     <a href="services">Fabrication de pavé</a>
                                 </h3>
                                 <p>
-                                    Besoin de pavés ? CMS vous propose une gamme de pavés de toute marque.
+                                    Besoin de pavés de qualité? CMS vous propose une gamme de pavés de toute marque.
                                 </p>
                             </div>
                         </div>
@@ -582,10 +586,10 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="services">Design Intérieur</a>
+                                    <a href="services">Construction métallique</a>
                                 </h3>
                                 <p>
-                                    L'intérieure de votre maison dépend de la qualité de peinture.
+                                    Nous améliorons l'aspect intérieur de vos bâtiments.
                                 </p>
                             </div>
                         </div>
@@ -610,7 +614,8 @@
                                     <a href="services">Production de peinture</a>
                                 </h3>
                                 <p>
-                                    Peinture lavable, peinture à huile etc... CMS vous offre la bonne qualité.
+                                    CMS vous offre la bonne qualité de peinture; nous produisons toutes sortes de
+                                    peintures: lavable, latex, taff, emaille etc...
                                 </p>
                             </div>
                         </div>
@@ -623,7 +628,7 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="services">Expertise en BTP</a>
+                                    <a href="services">Expertise en Batiments et Travaux Publics</a>
                                 </h3>
                                 <p>
                                     La durabilité chez nous constitue notre priorité.
@@ -657,7 +662,7 @@
                                     <a href="services">Design extérieur</a>
                                 </h3>
                                 <p>
-                                    Nous améliorons l'aspect extérieur de vos maisons et bâtiments.
+                                    Nous améliorons l'aspect extérieur de vos bâtiments et aménagement de vos parcelles.
                                 </p>
                             </div>
                         </div>
@@ -690,8 +695,8 @@
                                             src="views/pages/assets/images/clients/happy_client1.jpg"
                                             alt="testimonial" />
                                         <div class="quote-item-info">
-                                            <h3 class="quote-author">Gédéon Barbuto</h3>
-                                            <span class="quote-subtext">Chairman, OKT</span>
+                                            <h3 class="quote-author">Balume Buesha</h3>
+                                            <span class="quote-subtext">Managing Director</span>
                                         </div>
                                     </div>
                                 </div>
@@ -702,10 +707,9 @@
                             <div class="item">
                                 <div class="quote-item">
                                     <span class="quote-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                        sed do eiusmod tempor inci done idunt ut labore et dolore
-                                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                        exercitoa tion ullamco laboris nisi aliquip consequat.
+                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
+                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
                                     </span>
 
                                     <div class="quote-item-footer">
@@ -713,7 +717,7 @@
                                             src="views/pages/assets/images/clients/happy_client.jpg"
                                             alt="testimonial" />
                                         <div class="quote-item-info">
-                                            <h3 class="quote-author">Alexis Bwesha</h3>
+                                            <h3 class="quote-author">Alexis Buesha</h3>
                                             <span class="quote-subtext">CFO, GrowVenture</span>
                                         </div>
                                     </div>
@@ -725,10 +729,9 @@
                             <div class="item">
                                 <div class="quote-item">
                                     <span class="quote-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                        sed do eiusmod tempor inci done idunt ut labore et dolore
-                                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                        exercitoa tion ullamco laboris nisi ut commodo consequat.
+                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
+                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
+                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
                                     </span>
 
                                     <div class="quote-item-footer">
@@ -736,8 +739,8 @@
                                             src="views/pages/assets/images/clients/happy_client2.jpg"
                                             alt="testimonial" />
                                         <div class="quote-item-info">
-                                            <h3 class="quote-author">Barbuto Coder</h3>
-                                            <span class="quote-subtext">Director, AKT</span>
+                                            <h3 class="quote-author">Landry Kibihira</h3>
+                                            <span class="quote-subtext">Ingenieur Superviseur</span>
                                         </div>
                                     </div>
                                 </div>
@@ -915,9 +918,10 @@
                             <img loading="lazy" width="200px" class="footer-logo"
                                 src="views/pages/assets/images/logo_cm_footer.png" alt="Constra" />
                             <p>
-                                CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons
-                                et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av.
-                                Kabande, le long de la route Goma-Sake.
+                                CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments et travaux
+                                publics, en plus fournitures des materiaux. Son siège social est dans la ville de Goma,
+                                Com. de Goma, Q. Lac Vert, Av.
+                                Kabande, route Sake, non loin de la police routière Mugunga.
                             </p>
                             <div class="footer-social">
                                 <ul>
@@ -946,13 +950,13 @@
                         <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
                             <h3 class="widget-title">Heure de travail</h3>
                             <div class="working-hours">
-                                Nous travaillons 7 jours sur 7, tous les jours hormis les jours fériés et les dimanches.
+                                Nous travaillons 7 jours sur 7.
                                 Contactez-nous si vous avez une urgence, avec notre Hotline et notre formulaire de
                                 contact.
-                                <br /><br /> Lundi - Vendredi :
+                                <br /><br /> Lundi - Dimanche :
                                 <span class="text-right">08:00 - 16:00 </span> <br /> Samedi : <span
                                     class="text-right">10:00 - 16:00</span> <br /> Dimanches et Jours Fériés :
-                                <span class="text-right">00:00 - 00:00</span>
+                                <span class="text-right">10:00 - 16:00</span>
                             </div>
                         </div>
                         <!-- Col end -->

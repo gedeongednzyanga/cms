@@ -42,10 +42,10 @@ switch ($action) {
         break;
 
     case 'load_chat':
-        $dataCarbChat = [];
+        $dataCarbEntete = [];
         $data = $managerCarburant->getCarburants();
         foreach ($data as $dat) :
-            $rw = 'r' . $dat->getIdcarb();
+            $rw = $dat->getCarbdesign();
             $dataCarbChat[$rw] = $dat->getCarbstok();
         endforeach;
         echo json_encode($dataCarbChat);
