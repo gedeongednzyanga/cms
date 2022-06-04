@@ -1,7 +1,15 @@
 <?php
 class Message
 {
-    private $idmsg, $sender, $receiver, $emails, $sujet, $message, $typemsg, $statutmsg, $datemsg;
+    private $idmsg;
+    private $sender;
+    private $receiver;
+    private $emails;
+    private  $sujet;
+    private  $message;
+    private $typemsg;
+    private $statutmsg;
+    private $datemsg;
 
     public function __construct(array $data)
     {

@@ -161,7 +161,7 @@
                                             <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="news" class="nav-link">News </a>
+                                            <a href="javascript:;" class="nav-link">Blog </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="contact">Contact</a>
@@ -222,15 +222,15 @@
                     <div class="col-xl-3 col-lg-4">
                         <div class="sidebar sidebar-left">
                             <div class="widget">
-                                <h3 class="widget-title">Solutions</h3>
+                                <h3 class="widget-title">Nos Services</h3>
                                 <ul class="nav service-menu">
-                                    <li class="active"><a href="service">constructions des BTP</a></li>
-                                    <li><a href="service">constructions metalliques</a></li>
-                                    <li><a href="service">Rénovations de bâtiments</a></li>
-                                    <li><a href="service">Fabrication des blocs</a></li>
-                                    <li><a href="service">Fabrication des pavés</a></li>
-                                    <li><a href="service">Production de peinture</a></li>
-                                    <li><a href="service">Expertise en BTP</a></li>
+                                    <li id="service01" class="active"><a href="service">Constructions des BTP</a></li>
+                                    <li id="service02"><a href="service">Constructions metalliques</a></li>
+                                    <li id="service03"><a href="service">Rénovations de bâtiments</a></li>
+                                    <li id="service04"><a href="service">Fabrication des blocs</a></li>
+                                    <li id="service05"><a href="service">Fabrication des pavés</a></li>
+                                    <li id="service06"><a href="service">Production de peinture</a></li>
+                                    <li id="service07"><a href="service">Expertise en BTP</a></li>
                                 </ul>
                             </div><!-- Widget end -->
 
@@ -250,164 +250,18 @@
                                         </div>
                                     </div>
                                 </div><!-- Quote item end -->
-
                             </div><!-- Widget end -->
 
                         </div><!-- Sidebar end -->
                     </div><!-- Sidebar Col end -->
 
-                    <div class="col-xl-8 col-lg-8">
-                        <div class="content-inner-page">
+                    <div class="col-xl-8 col-lg-8 container-service">
 
-                            <h2 class="column-title mrt-0">Construction des
-                                Bâtiments et Travaux Publics</h2>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p>Le BTP, élément déterminant à la catégorisation sociale en Afrique à une valeur
-                                        plus que sacré.
-                                        Soucieux de la réalisation des vœux de souscripteur,
-                                        CMS développe pour ses clients une compétence globale à travers les spécialités
-                                        de l’ensemble de ses unités opérationnelles.</p>
-                                    <p>Ce service en spécialités permet à CMS d’offrir désormais un STYLE DE VIE au
-                                        travers des plans et modèles de construction moderne pour apporter une réponse
-                                        appropriée aux attentes de l’ensemble de ses clients.</p>
-                                </div><!-- col end -->
-                            </div><!-- 1st row end-->
-
-                            <div class="gap-40"></div>
-
-                            <div id="page-slider" class="page-slider">
-                                <div class="item">
-                                    <img loading="lazy" class="img-fluid"
-                                        src="views/pages/assets/images/projects/project1.jpg"
-                                        alt="project-slider-image" />
-                                </div>
-
-                                <div class="item">
-                                    <img loading="lazy" class="img-fluid"
-                                        src="views/pages/assets/images/projects/project1.jpg"
-                                        alt="project-slider-image" />
-                                </div>
-                            </div><!-- Page slider end -->
-
-                            <div class="gap-40"></div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3 class="column-title-small">QU'EST-CE QUI NOUS DIFFERENCIE</h3>
-
-                                    <p>Forte de son expérience de 22 ans, CMS, comme l’ensemble de son Groupe,
-                                        a fini par se faire une identité propre dans la sphère de son domaine
-                                        d’activité.
-
-                                        Elle a laissé ses empreintes, un peu partout en République Démocratique du Congo
-                                        à travers les ouvrages qu’elle a construits,
-                                        toujours en s’appuyant solidement sur une culture d’entreprise à plusieurs
-                                        racines fondamentales, notamment :</p>
-                                    <ul class="list-arrow">
-                                        <li>la place centrale qu’occupent les aspirations du client
-                                            dans la politique de l’entreprise, et</li>
-                                        <li>La nécessité d’entretenir un environnement professionnel propice,
-                                            avec des moyens techniques en phase avec les objectifs ;
-                                            et un personnel qualifié et motivé en permanence.</li>
-                                        <li>La satisfaction de la clientèle notre objectif final.</li>
-                                        <li>Une réputation d'excellence.</li>
-                                        <li>Construction de partenariats.</li>
-                                        <li>Une équipe des professionnels.</li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-6 mt-5 mt-md-0">
-                                    <h3 class="column-title-small">Vous devrez savoir</h3>
-
-                                    <div class="accordion accordion-group accordion-classic"
-                                        id="construction-accordion">
-                                        <div class="card">
-                                            <div class="card-header p-0 bg-transparent" id="headingOne">
-                                                <h2 class="mb-0">
-                                                    <button class="btn btn-block text-left" type="button"
-                                                        data-toggle="collapse" data-target="#collapseOne"
-                                                        aria-expanded="true" aria-controls="collapseOne">
-                                                        La loi exige-t-elle une protection de la tête sur les chantiers
-                                                        de construction ?
-                                                    </button>
-                                                </h2>
-                                            </div>
-
-                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                                data-parent="#construction-accordion">
-                                                <div class="card-body">
-                                                    CMS protège ses agents au terrain et
-                                                    se rassure que les agents ont les outils nécéssaire pour qu'ils
-                                                    travaillent en sécurité.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header p-0 bg-transparent" id="headingTwo">
-                                                <h2 class="mb-0">
-                                                    <button class="btn btn-block text-left collapsed" type="button"
-                                                        data-toggle="collapse" data-target="#collapseTwo"
-                                                        aria-expanded="false" aria-controls="collapseTwo">
-                                                        Quelles sont les exigences de premiers secours pour les
-                                                        chantiers ?
-                                                    </button>
-                                                </h2>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                                data-parent="#construction-accordion">
-                                                <div class="card-body">
-                                                    CMS protège ses agents au terrain et
-                                                    se rassure que les agents ont les outils nécéssaire pour qu'ils
-                                                    travaillent en sécurité.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header p-0 bg-transparent" id="headingThree">
-                                                <h2 class="mb-0">
-                                                    <button class="btn btn-block text-left collapsed" type="button"
-                                                        data-toggle="collapse" data-target="#collapseThree"
-                                                        aria-expanded="false" aria-controls="collapseThree">
-                                                        Qu'est-ce qu'une personne désignée ?
-                                                    </button>
-                                                </h2>
-                                            </div>
-                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                                data-parent="#construction-accordion">
-                                                <div class="card-body">
-                                                    CMS protège ses agents au terrain et
-                                                    se rassure que les agents ont les outils nécéssaire pour qu'ils
-                                                    travaillent en sécurité.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--/ Accordion end -->
-                                </div>
-                            </div>
-                            <!--2nd row end -->
-
-                            <div class="gap-40"></div>
-
-                            <div class="call-to-action classic">
-                                <div class="row align-items-center">
-                                    <div class="col-md-8 text-center text-md-left">
-                                        <div class="call-to-action-text">
-                                            <h3 class="action-title">INTÉRESSÉ PAR CE SERVICE ?</h3>
-                                        </div>
-                                    </div><!-- Col end -->
-                                    <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
-                                        <div class="call-to-action-btn">
-                                            <a class="btn btn-primary" href="contact">Obtenir un devis</a>
-                                        </div>
-                                    </div><!-- col end -->
-                                </div><!-- row end -->
-                            </div><!-- Action end -->
-
-                        </div><!-- Content inner end -->
                     </div><!-- Content Col end -->
+
+
+
+
 
 
                 </div><!-- Main row end -->
@@ -457,14 +311,14 @@
                         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
                             <h3 class="widget-title">Services</h3>
                             <ul class="list-arrow">
-                                <li><a href="service-single.html">Construction des Batiments et Travaux Publics</a></li>
-                                <li><a href="service-single.html">Fabrication des Blocs et Hourdis</a></li>
-                                <li><a href="service-single.html">Fabrication des Pavés</a></li>
-                                <li><a href="service-single.html">Construction métallique</a></li>
-                                <li><a href="service-single.html">Production des peintures</a></li>
-                                <li><a href="service-single.html">Expertise en BTP</a></li>
-                                <li><a href="service-single.html">Rénovation des Batiments</a></li>
-                                <li><a href="service-single.html">Design intérieur et extérieur</a></li>
+                                <li><a href="service">Construction des Batiments et Travaux Publics</a></li>
+                                <li><a href="service">Fabrication des Blocs et Hourdis</a></li>
+                                <li><a href="service">Fabrication des Pavés</a></li>
+                                <li><a href="service">Construction métallique</a></li>
+                                <li><a href="service">Production des peintures</a></li>
+                                <li><a href="service">Expertise en BTP</a></li>
+                                <li><a href="service">Rénovation des Batiments</a></li>
+                                <li><a href="service">Design intérieur et extérieur</a></li>
                             </ul>
                         </div><!-- Col end -->
                     </div><!-- Row end -->
@@ -485,10 +339,10 @@
                         <div class="col-md-6">
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
-                                    <li><a href="about.html">A propos</a></li>
-                                    <li><a href="team.html">Notre Equipe</a></li>
-                                    <li><a href="faq.html">Faq</a></li>
-                                    <li><a href="news-left-sidebar.html">News</a></li>
+                                    <li><a href="about">A propos</a></li>
+                                    <li><a href="javascript:;">Notre Equipe</a></li>
+                                    <li><a href="faq">Faq</a></li>
+                                    <li><a href="javascript:;">Blog</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -530,6 +384,105 @@
         <!-- Template custom -->
         <script src="views/pages/assets/js/script.js"></script>
 
+        <script>
+        $(function() {
+
+            $('.container-service').hide();
+            $('.container-service').load('views/pages/services/service_btp.html');
+            $('.container-service').show('slow', 'linear');
+
+            // SERVICE 1;
+            $('#service01 a').click(function(e) {
+                e.preventDefault();
+
+                $('.container-service').hide();
+                $('.container-service').load('views/pages/services/service_btp.html');
+                $('.container-service').show('slow', 'linear');
+
+                $('#service01').addClass('active');
+                $('#service02, #service03, #service04, #service05, #service06, #service07').removeClass(
+                    'active');
+            });
+
+            // SERVICE 2;
+            $('#service02 a').click(function(e) {
+                e.preventDefault();
+                $('.container-service').hide();
+                $('.container-service').load('views/pages/services/service_metal.html');
+                $('.container-service').show('slow', 'linear');
+
+                $("#service02").addClass('active')
+                $('#service01, #service03, #service04, #service05, #service06, #service07').removeClass(
+                    'active');
+
+            });
+
+            // SERVICE 3;
+            $('#service03 a').click(function(e) {
+                e.preventDefault();
+                $('.container-service').hide();
+                $('.container-service').load('views/pages/services/service_renovation.html');
+                $('.container-service').show('slow', 'linear');
+
+                $('#service03').addClass('active');
+                $('#service01, #service02, #service04, #service05, #service06, #service07')
+                    .removeClass('active');
+            });
+
+            // SERVICE 4;
+            $('#service04 a').click(function(e) {
+                e.preventDefault();
+
+                $('.container-service').hide();
+                $('.container-service').load('views/pages/services/service_bloc.html');
+                $('.container-service').show('slow', 'linear');
+
+                $('#service04').addClass('active');
+                $('#service01, #service02, #service03, #service05, #service06, #service07').removeClass(
+                    'active');
+            });
+
+            // SERVICE 5;
+            $('#service05 a').click(function(e) {
+                e.preventDefault();
+
+                $('.container-service').hide();
+                $('.container-service').load('views/pages/services/service_pave.html');
+                $('.container-service').show('slow', 'linear');
+
+                $('#service05').addClass('active');
+                $('#service01, #service02, #service03, #service04, #service06, #service07').removeClass(
+                    'active');
+            });
+
+            // SERVICE 6;
+            $('#service06 a').click(function(e) {
+                e.preventDefault();
+
+                $('.container-service').hide();
+                $('.container-service').load('views/pages/services/service_peinture.html');
+                $('.container-service').show('slow', 'linear');
+
+                $('#service06').addClass('active');
+                $('#service01, #service02, #service03, #service04, #service05, #service07').removeClass(
+                    'active');
+            });
+
+            // SERVICE 7;
+            $('#service07 a').click(function(e) {
+                e.preventDefault();
+
+                $('.container-service').hide();
+                $('.container-service').load('views/pages/services/service_expertise.html');
+                $('.container-service').show('slow', 'linear');
+
+                $('#service07').addClass('active');
+                $('#service01, #service02, #service03, #service04, #service05, #service06').removeClass(
+                    'active');
+            });
+
+        });
+        </script>
 
     </div><!-- Body inner end -->
 </body>

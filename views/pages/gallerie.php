@@ -6,7 +6,7 @@
     <!-- Basic Page Needs
 ================================================== -->
     <meta charset="utf-8">
-    <title>CMS - Projets</title>
+    <title>CMS - Gallerie</title>
 
     <!-- Mobile Specific Metas
 ================================================== -->
@@ -166,7 +166,7 @@
                                             <a href="gallerie" class="nav-link ">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="news" class="nav-link">News
+                                            <a href="javascript:;" class="nav-link">Blog
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -603,9 +603,9 @@
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
                                     <li><a href="about">A propos</a></li>
-                                    <li><a href="team">Notre équipe</a></li>
+                                    <li><a href="javascript:;">Notre équipe</a></li>
                                     <li><a href="faq">Faq</a></li>
-                                    <li><a href="news">News</a></li>
+                                    <li><a href="javascript:;">Blog</a></li>
                                 </ul>
                             </div>
                         </div>

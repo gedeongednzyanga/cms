@@ -64,6 +64,14 @@ $(function() {
         });
     });
 
+    // $("#text-search").on("keyup", function() {
+    //     alert(Hello, "Hello!");
+    //     // value = $(this).val().toLowerCase();
+    //     // $("#tableDemande tr").filter(function() {
+    //     //     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    //     // });
+    // });
+
 
     $('#contact-form').submit(function(e) {
         e.preventDefault();

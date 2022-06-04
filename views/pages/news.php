@@ -256,19 +256,13 @@
                                                 class="comments-link">Commentaires</a></span>
                                     </div>
                                     <h2 class="entry-title">
-                                        <a href="new-<?= $new->getIdn() ?>">We Just Completes $17.6 million Medical
-                                            Clinic in
-                                            Mid-Missouri</a>
+                                        <a href="new-<?= $new->getIdn() ?>"><?= $new->getTitleinfo() ?></a>
                                     </h2>
                                 </div>
                                 <!-- header end -->
 
                                 <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                        dolore eu fugiat nulla pariatur. Excepteur ...</p>
+                                    <p><?= $new->getInformation() ?></p>
                                 </div>
 
                                 <div class="post-footer">

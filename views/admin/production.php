@@ -136,7 +136,7 @@ if (isset($_SESSION['date1'])) {
                             <span class="nav-label">Facturation</span>
                         </a>
                     </li>
-                    <li class="heading">MESSAGES & INFOS</li>
+                    <li class="heading">MESSAGES</li>
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>
                             <span class="nav-label">Messages</span><i class="fa fa-angle-left arrow"></i></a>
@@ -149,10 +149,10 @@ if (isset($_SESSION['date1'])) {
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="publish"><i class="sidebar-item-icon fa fa-info"></i>
                             <span class="nav-label">Informations</span></a>
-                    </li>
+                    </li> -->
                     <li class="heading">CONFIGURATIONS</li>
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-cog"></i>

@@ -166,7 +166,7 @@
                                             <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="news" class="nav-link">News </a>
+                                            <a href="javascript:;" class="nav-link">Blog </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="contact">Contact</a>
@@ -228,7 +228,7 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <h3 class="border-title border-left mar-t0">Construction Metal Service</h3>
 
                         <div class="accordion accordion-group accordion-classic" id="construction-accordion">
@@ -363,7 +363,7 @@
                     </div>
                     <!-- Col end -->
 
-                    <div class="col-lg-4 mt-5 mt-lg-0">
+                    <!-- <div class="col-lg-4 mt-5 mt-lg-0">
                         <div class="sidebar sidebar-right">
                             <div class="widget recent-posts">
                                 <h3 class="widget-title">Dernières informations</h3>
@@ -381,21 +381,12 @@
                                         </div>
                                     </li>
                                     <?php endforeach; ?>
-                                    <!-- 1st post end-->
-
                                 </ul>
 
                             </div>
-                            <!-- Recent post end -->
                         </div>
-                        <!-- Sidebar end -->
-
-                    </div>
-                    <!-- Col end -->
-
+                    </div> -->
                 </div>
-                <!-- Content row end -->
-
             </div>
             <!-- Container end -->
         </section>
@@ -496,9 +487,9 @@
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
                                     <li><a href="about">A propos</a></li>
-                                    <li><a href="team">Notre équipe</a></li>
+                                    <li><a href="javascript:;">Notre équipe</a></li>
                                     <li><a href="faq">Faq</a></li>
-                                    <li><a href="news">News</a></li>
+                                    <li><a href="javascript:;">Blog</a></li>
                                 </ul>
                             </div>
                         </div>

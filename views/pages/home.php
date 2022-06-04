@@ -163,7 +163,7 @@
                                             <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="news" class="nav-link">News
+                                            <a href="javascript:;" class="nav-link">Blog
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -278,7 +278,7 @@
             <div class="container">
                 <div class="action-style-box">
                     <div class="row align-items-center">
-                        <div class="col-md-8 text-center text-md-left">
+                        <div class="col-md-12 text-center text-md-left">
                             <div class="call-to-action-text">
                                 <h3 class="action-title">
                                     Nous comprenons vos besoins dans le domaine de genie civile et des constructions
@@ -287,11 +287,11 @@
                             </div>
                         </div>
                         <!-- Col end -->
-                        <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
+                        <!-- <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
                             <div class="call-to-action-btn">
                                 <a class="btn btn-dark" href="#">Demandez un devis</a>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- col end -->
                     </div>
                     <!-- row end -->
@@ -819,7 +819,7 @@
         </section>
         <!-- Content end -->
 
-        <section id="news" class="news">
+        <!-- <section id="news" class="news">
             <div class="container">
                 <div class="row text-center">
                     <div class="col-12">
@@ -827,8 +827,6 @@
                         <h3 class="section-sub-title">Dernières informations</h3>
                     </div>
                 </div>
-                <!--/ Title row end -->
-
                 <div class="row">
                     <?php foreach ($recentNews as $new) : ?>
                     <div class="col-lg-4 col-md-6 mb-4">
@@ -851,19 +849,16 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Latest post end -->
+
                     </div>
                     <?php endforeach; ?>
-                    <!-- 1st post col end -->
                 </div>
-                <!--/ Content row end -->
-
                 <div class="general-btn text-center mt-4">
                     <a class="btn btn-primary" href="news">Plus d'informations</a>
                 </div>
             </div>
-            <!--/ Container end -->
-        </section>
+        </section> -->
+
         <!--/ News end -->
 
         <section class="subscribe no-padding">
@@ -907,6 +902,7 @@
             </div>
             <!--/ Container end -->
         </section>
+
         <!--/ subscribe end -->
 
         <footer id="footer" class="footer bg-overlay">
@@ -1007,7 +1003,7 @@
                                     <li><a href="javascript:;">A propos</a></li>
                                     <li><a href="javascript:;">Notre équipe</a></li>
                                     <li><a href="javascript:;">Faq</a></li>
-                                    <li><a href="javascript:;">News</a></li>
+                                    <li><a href="javascript:;">Blog</a></li>
                                 </ul>
                             </div>
                         </div>

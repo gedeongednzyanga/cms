@@ -110,7 +110,7 @@
                                         </div>
                                     </li>
                                     <li class="header-get-a-quote">
-                                        <a class="btn btn-primary" href="contact.html">Contactez-nous</a>
+                                        <a class="btn btn-primary" href="contact">Contactez-nous</a>
                                     </li>
                                 </ul>
                                 <!-- Ul end -->
@@ -155,7 +155,7 @@
                                             <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="news" class="nav-link">News </a>
+                                            <a href="javascript:;" class="nav-link">Blog </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="contact">Contact</a>
@@ -660,7 +660,7 @@
                                     <li><a href="about">A propos</a></li>
                                     <li><a href="team">Notre équipe</a></li>
                                     <li><a href="faq">Faq</a></li>
-                                    <li><a href="news">News</a></li>
+                                    <li><a href="Blog">Blog</a></li>
                                 </ul>
                             </div>
                         </div>

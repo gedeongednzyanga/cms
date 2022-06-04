@@ -21,7 +21,7 @@ $action = $_POST['action'];
 switch ($action) {
     case 'send':
         $messages = new Message($_POST);
-        $messageManager->createObj($_POST['actionu'], 'obj_message', $message);
+        $messageManager->createObj($_POST['actionu'], 'obj_message', $messages);
         echo 'Message envoyé avec succès';
         break;
 

@@ -166,7 +166,7 @@
                                             <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="news" class="nav-link">News </a>
+                                            <a href="javascript:;" class="nav-link">Blog </a>
                                         </li>
                                         <li class="nav-item active">
                                             <a class="nav-link" href="contact">Contact</a>
@@ -308,13 +308,13 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Nom complet</label>
                                         <input type="hidden" name="action" value="send">
                                         <input type="hidden" name="actionu" value="1">
                                         <input type="hidden" name="idmsg" value="0">
                                         <input type="hidden" name="receiver" value="CMS SARL">
                                         <input type="hidden" name="typemsg" value="receive">
                                         <input type="hidden" name="statutmsg" value="0">
+                                        <label>Nom complet</label>
                                         <input class="form-control form-control-name" name="sender" id="sender"
                                             placeholder="Ex : Barbuto Coder" type="text" required>
                                     </div>
@@ -445,9 +445,9 @@
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
                                     <li><a href="about">A propos</a></li>
-                                    <li><a href="team">Notre équipe</a></li>
+                                    <li><a href="javascript:;">Notre équipe</a></li>
                                     <li><a href="faq">Faq</a></li>
-                                    <li><a href="news">News</a></li>
+                                    <li><a href="javascript:;">Blog</a></li>
                                 </ul>
                             </div>
                         </div>

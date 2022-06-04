@@ -165,7 +165,7 @@
                                             <a href="gallerie" class="nav-link">Gallérie</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="news" class="nav-link">News </a>
+                                            <a href="javascript:;" class="nav-link">Blog </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="contact">Contact</a>
@@ -238,8 +238,9 @@
                                     <h3 class="service-box-title"><a href="service">Construction des
                                             Bâtiments et travaux publics</a>
                                     </h3>
-                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
-                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
+                                        culturellement diversifiée et
+                                        avant-gardiste à la recherche de talents.</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -262,8 +263,9 @@
                                     <h3 class="service-box-title"><a href="service">Fabrication des blocs de toute
                                             mesure</a>
                                     </h3>
-                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
-                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
+                                        culturellement diversifiée et
+                                        avant-gardiste à la recherche de talents.</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -286,8 +288,9 @@
                                     <h3 class="service-box-title"><a href="service">Fabrication de pave de
                                             toutes marques</a>
                                     </h3>
-                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
-                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
+                                        culturellement diversifiée et
+                                        avant-gardiste à la recherche de talents.</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -309,8 +312,9 @@
                                 <div class="ts-service-info">
                                     <h3 class="service-box-title"><a href="service">Production de toute
                                             sorte de peinture</a></h3>
-                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
-                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
+                                        culturellement diversifiée et
+                                        avant-gardiste à la recherche de talents.</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -331,8 +335,9 @@
                                 </div>
                                 <div class="ts-service-info">
                                     <h3 class="service-box-title"><a href="service">Expertise en BTP</a></h3>
-                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
-                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
+                                        culturellement diversifiée et
+                                        avant-gardiste à la recherche de talents.</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -355,8 +360,9 @@
                                     <h3 class="service-box-title"><a href="service">Hourdis ou Blocs de
                                             Dalle</a>
                                     </h3>
-                                    <p>You have ideas, goals, and dreams. We have a culturally diverse, forward thinking
-                                        team looking for talent like. Lorem ipsum dolor suscipit.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
+                                        culturellement diversifiée et
+                                        avant-gardiste à la recherche de talents.</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -501,10 +507,10 @@
                         <div class="col-md-6">
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
-                                    <li><a href="about.html">A propos</a></li>
-                                    <li><a href="team.html">Notre équipe</a></li>
-                                    <li><a href="faq.html">Faq</a></li>
-                                    <li><a href="news-right-sidebar.html">News</a></li>
+                                    <li><a href="about">A propos</a></li>
+                                    <li><a href="javascript:;">Notre équipe</a></li>
+                                    <li><a href="faq">Faq</a></li>
+                                    <li><a href="javascript:;">Blog</a></li>
                                 </ul>
                             </div>
                         </div>

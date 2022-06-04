@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+    echo '<script>window.location="login";</script>';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +31,8 @@
         <header class="header">
             <div class="page-brand">
                 <a class="link" href="home">
-                    <span class="brand">
-                        <span class="brand-tip"> CMS</span>
+                    <span class="brand">CMS
+                        <!-- <span class="brand-tip"> CMS</span> -->
                     </span>
                     <span class="brand-mini">CMS</span>
                 </a>
@@ -54,12 +58,12 @@
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="views/admin/assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <span></span><?= $_SESSION['compte'] ?><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Paramètres</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Déconnexion</a>
                         </ul>
                     </li>
                 </ul>
@@ -239,7 +243,8 @@
                                             <input class="form-control" type="hidden" name="action" value="publish">
                                             <input class="form-control" type="hidden" name="actionu" value="1">
                                             <input class="form-control" type="hidden" name="idn" value="0">
-                                            <input class="form-control" type="text" name="titleinfo" id="titleinfo">
+                                            <input class="form-control" type="text" name="titleinfo"
+                                                placeholder="Titre de l'information" id="titleinfo">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -255,15 +260,39 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 control-label">Choisir une Image</label>
+                                    <!-- <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="control-label">Choisir une Image</label>
+                                            <input class="form-control" type="file" accept="image/*" name="infoimage"
+                                                id="infoimage">
+                                        </div>
                                         <div class="col-sm-9">
                                             <input class="form-control" type="file" accept="image/*" name="infoimage"
                                                 id="infoimage">
                                         </div>
+
+                                    </div> -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                            <label class="control-label">Choisir une Image</label>
+                                            <input class="form-control" type="file" accept="image/*" name="infoimage"
+                                                id="infoimage" onchange="displayImage(this)" style="display:none;">
+                                            <img src="views/admin/assets/img/image.png" id="image-display"
+                                                alt="Image Info" onclick="triggerClick()"
+                                                class="img-responsive img-thumbnail mb-2 form-control" height="150px"
+                                                width="250px">
+                                            <button class="btn btn-default btn-sm" onclick="triggerClick()"
+                                                type="button" style="width:90px;">Parcourrir</button>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <!-- <input class="form-control" type="file" accept="image/*" name="infoimage"
+                                                id="infoimage"> -->
+                                            <label class="control-label">Rédigez votre texte</label>
+                                            <textarea id="summernote" name="information" id="information"></textarea>
+                                        </div>
                                     </div>
-                                    <textarea id="summernote" name="information" id="information">
-                                    </textarea>
+                                    <!-- <textarea id="summernote" name="information" id="information">
+                                    </textarea> -->
                                     <!-- <div class="form-group row"> -->
                                     <input class="btn btn-info m-t-20" value="Publier l'information" type="submit">
                                     <small class="float-right m-t-20" id="div-message"></small>
@@ -313,6 +342,23 @@
             'display': 'none'
         });
     })
+    </script>
+    <script>
+    function triggerClick() {
+        document.querySelector("#infoimage").click();
+    }
+
+    function displayImage(e) {
+        if (e.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.querySelector("#image-display").setAttribute("src", e.target.result);
+                document.querySelector("#image-display").setAttribute("height", "100px");
+                document.querySelector("#image-display").setAttribute("width", "250px");
+            };
+            reader.readAsDataURL(e.files[0]);
+        }
+    }
     </script>
 </body>
 
