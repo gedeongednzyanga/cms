@@ -22,13 +22,13 @@ class ControllerStock
 
         $categories = $this->_categoryManager->getCategories();
         $unites = $this->_uniteManager->getUnites();
-        $products = $this->_productManager->getProducts();
+        $product = $this->_productManager->getProducts();
 
         $this->_view = new View('Stock');
         $this->_view->generate(array(
             'categories' => $categories,
             'unites' => $unites,
-            'products' => $products,
+            'product' => $product,
         ));
     }
 }

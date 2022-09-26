@@ -10,7 +10,7 @@
     <!-- Mobile Specific Metas
 ================================================== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Construction Html5 Template" />
+    <meta name="description" content="Construction Metal Service">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
     <!-- Favicon
@@ -327,7 +327,7 @@
                                     <span class="ts-service-icon"><i class="fas fa-trophy"></i></span>
                                     <div class="ts-service-box-content">
                                         <h3 class="service-box-title">
-                                            Nous avons la réputation d'excellence
+                                            La réputation d'excellence
                                         </h3>
                                     </div>
                                 </div>
@@ -341,7 +341,7 @@
                                         <i class="fas fa-sliders-h"></i>
                                     </span>
                                     <div class="ts-service-box-content">
-                                        <h3 class="service-box-title">Nous construisons des partenariats</h3>
+                                        <h3 class="service-box-title">La construction des partenariats</h3>
                                     </div>
                                 </div>
                                 <!-- Service 2 end -->
@@ -570,7 +570,7 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="services">Fabrication de pavé</a>
+                                    <a href="services">Fabrication de pavés</a>
                                 </h3>
                                 <p>
                                     Besoin de pavés de qualité? CMS vous propose une gamme de pavés de toute marque.
@@ -1000,9 +1000,9 @@
                         <div class="col-md-6">
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
-                                    <li><a href="javascript:;">A propos</a></li>
-                                    <li><a href="javascript:;">Notre équipe</a></li>
-                                    <li><a href="javascript:;">Faq</a></li>
+                                    <li><a href="about">A propos</a></li>
+                                    <li><a href="services">Services</a></a></li>
+                                    <li><a href="faq">Faq</a></li>
                                     <li><a href="javascript:;">Blog</a></li>
                                 </ul>
                             </div>

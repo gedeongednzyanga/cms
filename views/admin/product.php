@@ -20,6 +20,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     <!-- PLUGINS STYLES-->
     <link href="views/admin/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
+    <link href="views/admin/assets/sweetalert/sweetalert.css" rel="stylesheet">
     <link href="views/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
 </head>
@@ -248,7 +249,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
-                                            <button class="btn btn-info" type="submit">Enregistrer</button>
+                                            <button class="btn btn-info" type="submit"><i class="fa fa-check"></i>
+                                                Enregistrer</button>
                                         </div>
                                     </div>
                                 </div>
@@ -308,12 +310,14 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <td style="display:none;"><?= $product->getStalert() ?></td>
                                         <td style="display:none;"><?= $product->getQuantitest() ?></td>
                                         <td>
-                                            <button class="btn btn-default btn-xs m-r-5" data-toggle="modal"
-                                                title="Modifier" data-target="#modal-update"><i
-                                                    class="fa fa-pencil font-14"></i></button>
-                                            <button class="btn btn-default btn-xs" data-toggle="tooltip"
+                                            <button class="btn btn-default btn-sm m-r-5" data-toggle="modal"
+                                                data-target="#modal-update"><i class="fa fa-pencil font-14"
+                                                    data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
+                                                    produit
+                                                </i></button>
+                                            <!-- <button class="btn btn-default btn-xs" data-toggle="tooltip"
                                                 data-original-title="Delete"><i
-                                                    class="fa fa-trash font-14"></i></button>
+                                                    class="fa fa-trash font-14"></i></button> -->
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
@@ -388,7 +392,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <a class="dropdown-toggle" data-toggle="dropdown"><i
                                             class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
+                                        <a class="dropdown-item sweet-8"
+                                            onclick="_gaq.push(['_trackEvent', 'exit', 'footer', 'Lipis']);"
+                                            data-original-title="Supprimer cet article"
+                                            data-toggle="tooltip">Supprimer</a>
                                         <a class="dropdown-item close-btn" data-dismiss="modal"
                                             aria-label="Close">Fermer</a>
                                     </div>
@@ -571,6 +578,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
 
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/sweetalert/sweetalert.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
 
@@ -668,6 +676,46 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             }
         });
     }
+    </script>
+    <script>
+    document.querySelector('.sweet-8').onclick = function() {
+        swal({
+            title: "Suppression d'un article.",
+            text: "Voulez-vous supprimer ce produit ?",
+            type: "info",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+            confirmButtonClass: 'btn-danger',
+            confirmButtonText: 'Oui, supprimer',
+            cancelButtonText: "Non, annuler",
+            closeOnCancel: true
+
+        }, function() {
+            setTimeout(function() {
+                $.ajax({
+                    url: "models/requests/RequestCbase.php",
+                    type: "POST",
+                    data: {
+                        action: 'product',
+                        actionu: '3',
+                        idprod: $('#idprod').val(),
+                    },
+                    success: function() {
+                        $('#form-product2')[0].reset();
+                        swal("Produit supprimé avec succès !",
+                            "Suppression d'un produit.", "success");
+                    },
+                    error: function() {
+                        // swal("Echec de la requête sur le serveur.",
+                        //     "Suppression d'un produit.", "success");
+                        alert("Echec de la requête sur le serveur.");
+                    }
+                });
+
+            }, 2000);
+        });
+    };
     </script>
 </body>
 

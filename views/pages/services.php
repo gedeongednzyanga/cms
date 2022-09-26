@@ -10,7 +10,7 @@
     <!-- Mobile Specific Metas
 ================================================== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Construction Html5 Template">
+    <meta name="description" content="Construction Metal Service">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
     <!-- Favicon
@@ -54,16 +54,16 @@
                     <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                         <ul class="list-unstyled">
                             <li>
-                                <a title="Facebook" href="https://facebbok.com/themefisher.com">
+                                <a title="Facebook" href="https://web.facebook.com/cms.goma">
                                     <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
                                 </a>
-                                <a title="Twitter" href="https://twitter.com/themefisher.com">
+                                <a title="Twitter" href="">
                                     <span class="social-icon"><i class="fab fa-twitter"></i></span>
                                 </a>
-                                <a title="Instagram" href="https://instagram.com/themefisher.com">
+                                <a title="Instagram" href="">
                                     <span class="social-icon"><i class="fab fa-instagram"></i></span>
                                 </a>
-                                <a title="Linkdin" href="https://github.com/themefisher.com">
+                                <a title="Linkdin" href="">
                                     <span class="social-icon"><i class="fab fa-github"></i></span>
                                 </a>
                             </li>
@@ -238,9 +238,7 @@
                                     <h3 class="service-box-title"><a href="service">Construction des
                                             Bâtiments et travaux publics</a>
                                     </h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
-                                        culturellement diversifiée et
-                                        avant-gardiste à la recherche de talents.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -263,9 +261,7 @@
                                     <h3 class="service-box-title"><a href="service">Fabrication des blocs de toute
                                             mesure</a>
                                     </h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
-                                        culturellement diversifiée et
-                                        avant-gardiste à la recherche de talents.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves.</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -288,9 +284,7 @@
                                     <h3 class="service-box-title"><a href="service">Fabrication de pave de
                                             toutes marques</a>
                                     </h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
-                                        culturellement diversifiée et
-                                        avant-gardiste à la recherche de talents.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -312,9 +306,7 @@
                                 <div class="ts-service-info">
                                     <h3 class="service-box-title"><a href="service">Production de toute
                                             sorte de peinture</a></h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
-                                        culturellement diversifiée et
-                                        avant-gardiste à la recherche de talents.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -335,9 +327,7 @@
                                 </div>
                                 <div class="ts-service-info">
                                     <h3 class="service-box-title"><a href="service">Expertise en BTP</a></h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
-                                        culturellement diversifiée et
-                                        avant-gardiste à la recherche de talents.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -360,9 +350,7 @@
                                     <h3 class="service-box-title"><a href="service">Hourdis ou Blocs de
                                             Dalle</a>
                                     </h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. Nous avons une équipe
-                                        culturellement diversifiée et
-                                        avant-gardiste à la recherche de talents.</p>
+                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>

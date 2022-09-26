@@ -1629,9 +1629,10 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
 .action-title {
     color: #fff;
     margin: 0;
-    line-height: 36px;
-    font-size: 18px;
+    line-height: 30px;
+    font-size: 16px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 
@@ -1822,7 +1823,7 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
 }
 
 .service-box-title {
-    font-size: 16px;
+    font-size: 12px;
     margin: 0 0 10px;
 }
 
@@ -2358,7 +2359,7 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
 .quote-item .quote-text {
     margin: 0 0 10px;
     display: inline-block;
-    padding: 0 40px 30px 60px;
+    padding: 20px 20px 20px 40px;
     background-color: #fff;
     position: relative;
     font-size: 16px;
@@ -2367,7 +2368,7 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
 
 @media (max-width: 575px) {
     .quote-item .quote-text {
-        padding: 0 40px 30px 50px;
+        padding: 20px 20px 20px 40px;
     }
 }
 

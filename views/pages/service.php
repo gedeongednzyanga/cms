@@ -11,9 +11,7 @@
     <!-- Mobile Specific Metas
 ================================================== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Construction Html5 Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Construction Html5 Template">
+    <meta name="description" content="Construction Metal Service">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png">
     <!-- Bootstrap -->
@@ -50,16 +48,16 @@
                     <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                         <ul class="list-unstyled">
                             <li>
-                                <a title="Facebook" href="https://facebbok.com/themefisher.com">
+                                <a title="Facebook" href="https://web.facebook.com/cms.goma">
                                     <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
                                 </a>
-                                <a title="Twitter" href="https://twitter.com/themefisher.com">
+                                <a title="Twitter" href="">
                                     <span class="social-icon"><i class="fab fa-twitter"></i></span>
                                 </a>
-                                <a title="Instagram" href="https://instagram.com/themefisher.com">
+                                <a title="Instagram" href="">
                                     <span class="social-icon"><i class="fab fa-instagram"></i></span>
                                 </a>
-                                <a title="Linkdin" href="https://github.com/themefisher.com">
+                                <a title="Linkdin" href="">
                                     <span class="social-icon"><i class="fab fa-github"></i></span>
                                 </a>
                             </li>
@@ -233,36 +231,12 @@
                                     <li id="service07"><a href="service">Expertise en BTP</a></li>
                                 </ul>
                             </div><!-- Widget end -->
-
-                            <div class="widget">
-                                <div class="quote-item quote-border">
-                                    <div class="quote-text-border">
-                                        Ce qui coûte le plus cher dans une construction ce sont les erreurs. "Ken
-                                        Follett"
-                                    </div>
-
-                                    <div class="quote-item-footer">
-                                        <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/happy_client1.jpg" alt="testimonial">
-                                        <div class="quote-item-info">
-                                            <h3 class="quote-author">Faustin Balume</h3>
-                                            <span class="quote-subtext">CEO, CMS SARL</span>
-                                        </div>
-                                    </div>
-                                </div><!-- Quote item end -->
-                            </div><!-- Widget end -->
-
                         </div><!-- Sidebar end -->
                     </div><!-- Sidebar Col end -->
 
                     <div class="col-xl-8 col-lg-8 container-service">
 
                     </div><!-- Content Col end -->
-
-
-
-
-
 
                 </div><!-- Main row end -->
             </div><!-- Conatiner end -->

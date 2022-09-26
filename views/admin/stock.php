@@ -24,6 +24,7 @@ if (isset($_SESSION['idprod_fiche']))
     <link href="views/admin/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
+    <link href="views/admin/assets/sweetalert/sweetalert.css" rel="stylesheet">
     <link href="views/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
 
@@ -144,10 +145,6 @@ if (isset($_SESSION['idprod_fiche']))
                             </li>
                         </ul>
                     </li>
-                    <!-- <li>
-                        <a href="publish"><i class="sidebar-item-icon fa fa-info"></i>
-                            <span class="nav-label">Informations</span></a>
-                    </li> -->
                     <li class="heading">CONFIGURATIONS</li>
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-cog"></i>
@@ -219,26 +216,26 @@ if (isset($_SESSION['idprod_fiche']))
                                 </tfoot>
                                 <tbody id="tab-product">
                                     <?php
-                                    foreach ($products as $product) : ?>
+                                    foreach ($product as $prod) : ?>
                                     <tr>
-                                        <td><?= $product->getIdprod() ?></td>
-                                        <td><?= $product->getDesignationprod() ?></td>
-                                        <td><?= $product->getDesignationcat() ?></td>
-                                        <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getPrixprod() . '$' ?></td>
-                                        <td><?= ($product->getQuantitest() * $product->getPrixprod()) . '$' ?></td>
+                                        <td><?= $prod->getIdprod() ?></td>
+                                        <td><?= $prod->getDesignationprod() ?></td>
+                                        <td><?= $prod->getDesignationcat() ?></td>
+                                        <td><?= $prod->getQuantitest() . '' . $prod->getDesignationu() ?></td>
+                                        <td><?= $prod->getStalert() . $prod->getDesignationu() ?></td>
+                                        <td><?= $prod->getPrixprod() . '$' ?></td>
+                                        <td><?= ($prod->getQuantitest() * $prod->getPrixprod()) . '$' ?></td>
                                         <td
-                                            class="alert text-center <?= $product->getQuantitest() < $product->getStalert() ? 'alert-danger' : 'alert-success' ?>">
-                                            <span><?= $product->getQuantitest() < $product->getStalert() ? 'Stock Insuffisant' : 'Stock Suffisant' ?></span>
+                                            class="alert text-center <?= $prod->getQuantitest() < $prod->getStalert() ? 'alert-danger' : 'alert-success' ?>">
+                                            <span><?= $prod->getQuantitest() < $prod->getStalert() ? 'Stock Insuffisant' : 'Stock Suffisant' ?></span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-default btn-xs m-r-5" title="Modifier"
-                                                data-toggle="modal" data-target="#modal-update"><i
-                                                    class="fa fa-pencil font-14"></i></button>
-                                            <button class="btn btn-default btn-xs" data-toggle="tooltip"
-                                                data-original-title="Delete"><i
-                                                    class="fa fa-trash font-14"></i></button>
+                                            <button class="btn btn-default btn-sm m-r-5" data-toggle="modal"
+                                                data-target="#modal-update"><i class="fa fa-pencil font-14"
+                                                    data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
+                                                    produit</i></button>
+                                            <!-- <button class="btn btn-default btn-xs"><i class="fa fa-trash font-14"
+                                                    ></i></button> -->
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
@@ -374,7 +371,10 @@ if (isset($_SESSION['idprod_fiche']))
                                     <a class="dropdown-toggle" data-toggle="dropdown"><i
                                             class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
+                                        <a class="dropdown-item sweet-8"
+                                            onclick="_gaq.push(['_trackEvent', 'exit', 'footer', 'Lipis']);"
+                                            data-original-title="Supprimer cet article"
+                                            data-toggle="tooltip">Supprimer</a>
                                         <a class="dropdown-item close-btn" data-dismiss="modal"
                                             aria-label="Close">Fermer</a>
                                     </div>
@@ -491,9 +491,9 @@ if (isset($_SESSION['idprod_fiche']))
                                             id="refprodo" required>
                                             <option value="">Choisir un article/Produit</option>
                                             <optgroup label="Nos articles">
-                                                <?php foreach ($products as $product) : ?>
-                                                <option value="<?= $product->getIdprod() ?>">
-                                                    <?= $product->getDesignationprod() ?></option>
+                                                <?php foreach ($product as $prod) : ?>
+                                                <option value="<?= $prod->getIdprod() ?>">
+                                                    <?= $prod->getDesignationprod() ?></option>
                                                 <?php endforeach; ?>
                                             </optgroup>
                                         </select>
@@ -547,6 +547,7 @@ if (isset($_SESSION['idprod_fiche']))
     <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
+    <script src="views/admin/assets/sweetalert/sweetalert.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
@@ -594,6 +595,45 @@ if (isset($_SESSION['idprod_fiche']))
             }
         });
     }
+    </script>
+    <script>
+    document.querySelector('.sweet-8').onclick = function() {
+        swal({
+            title: "Suppression d'un article.",
+            text: "Voulez-vous supprimer ce produit ?",
+            type: "info",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+            confirmButtonClass: 'btn-danger',
+            confirmButtonText: 'Oui, supprimer',
+            cancelButtonText: "Non, annuler",
+            closeOnCancel: true
+
+        }, function() {
+            setTimeout(function() {
+                $.ajax({
+                    url: "models/requests/RequestCbase.php",
+                    type: "POST",
+                    data: {
+                        action: 'product',
+                        actionu: '3',
+                        idprod: $('#idprod').val(),
+                    },
+                    success: function() {
+                        $('#form-product2')[0].reset();
+                        swal("Produit supprimé avec succès !",
+                            "Suppression d'un produit.", "success");
+                    },
+                    error: function() {
+                        // swal("Echec de la requête sur le serveur.",
+                        //     "Suppression d'un produit.", "success");
+                        alert("Echec de la requête sur le serveur.");
+                    }
+                });
+            }, 2000);
+        });
+    };
     </script>
 
 </body>

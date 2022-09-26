@@ -195,7 +195,7 @@
                                             <select class="form-control select2_demo_1" name="refprodc" required>
                                                 <option value="0">Rechercher un article</option>
                                                 <optgroup label="Catégories">
-                                                    <?php foreach ($products as $product) : ?>
+                                                    <?php foreach ($productss as $product) : ?>
                                                     <option value="<?= $product->getIdprod() ?>">
                                                         <?= $product->getDesignationprod() ?></option>
                                                     <?php endforeach; ?>

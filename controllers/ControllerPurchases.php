@@ -24,14 +24,14 @@ class ControllerPurchases
 
         $categories = $this->_categoryManager->getCategories();
         $unites = $this->_uniteManager->getUnites();
-        $products = $this->_productManager->getProducts();
+        $productss = $this->_productManager->getProducts();
         $purchases = $this->_managerPurchase->getPurchases();
 
         $this->_view = new View('Purchases');
         $this->_view->generate(array(
             'categories' => $categories,
             'unites' => $unites,
-            'products' => $products,
+            'productss' => $productss,
             'purchases' => $purchases,
         ));
     }
