@@ -685,18 +685,17 @@
                             <div class="item">
                                 <div class="quote-item">
                                     <span class="quote-text">
-                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
-                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
-                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
+                                        La meilleure qualité offerte par l'entreprise CMS nous a motivé à opter pour
+                                        cette entreprise qui ne cesse de s'ameliorer du jour au lendemain par rapport
+                                        à d'autres entreprises.
                                     </span>
-
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb"
                                             src="views/pages/assets/images/clients/happy_client1.jpg"
                                             alt="testimonial" />
                                         <div class="quote-item-info">
-                                            <h3 class="quote-author">Balume Buesha</h3>
-                                            <span class="quote-subtext">Managing Director</span>
+                                            <h3 class="quote-author">Barbuto Coder</h3>
+                                            <span class="quote-subtext">Managing Director (BTS)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -707,9 +706,9 @@
                             <div class="item">
                                 <div class="quote-item">
                                     <span class="quote-text">
-                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
-                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
-                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
+                                        La peinture en ville de Goma était une casse-tête il y'a quelques années. Grâce
+                                        à CMS aujourd'hui nous sommes fiers de la meilleure qualité de peinture produite
+                                        localement ici chez nous. CMS est devenue le numéro un dans la peinture.
                                     </span>
 
                                     <div class="quote-item-footer">
@@ -729,9 +728,9 @@
                             <div class="item">
                                 <div class="quote-item">
                                     <span class="quote-text">
-                                        CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments,
-                                        maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q.
-                                        Lac Vert, Av. Kabande, le long de la route Goma-Sake.
+                                        La construction d'une maison devient plus facile grâce à CMS. Tout est une
+                                        question de confiance envers l'entreprise. Consommons localement, la durabilité
+                                        nous est parvenue. Merci CMS.
                                     </span>
 
                                     <div class="quote-item-footer">

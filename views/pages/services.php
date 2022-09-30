@@ -238,7 +238,9 @@
                                     <h3 class="service-box-title"><a href="service">Construction des
                                             Bâtiments et travaux publics</a>
                                     </h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
+                                    <p>Le bâtiment et les travaux publics relèvent de la construction...</p>
+                                    </p>
+                                    </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -496,7 +498,7 @@
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
                                     <li><a href="about">A propos</a></li>
-                                    <li><a href="javascript:;">Notre équipe</a></li>
+                                    <li><a href="services">Services</a></a></li>
                                     <li><a href="faq">Faq</a></li>
                                     <li><a href="javascript:;">Blog</a></li>
                                 </ul>

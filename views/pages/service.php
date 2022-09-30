@@ -271,7 +271,7 @@
                         </div><!-- Col end -->
 
                         <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
-                            <h3 class="widget-title">Working Hours</h3>
+                            <h3 class="widget-title">Heure de travail</h3>
                             <div class="working-hours">
                                 Nous travaillons 7 jours sur 7.
                                 Contactez-nous si vous avez une urgence, avec notre Hotline et notre formulaire de
@@ -314,7 +314,7 @@
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
                                     <li><a href="about">A propos</a></li>
-                                    <li><a href="javascript:;">Notre Equipe</a></li>
+                                    <li><a href="services">Services</a></a></li>
                                     <li><a href="faq">Faq</a></li>
                                     <li><a href="javascript:;">Blog</a></li>
                                 </ul>
