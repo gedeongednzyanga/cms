@@ -5,7 +5,7 @@ abstract class Model
 
     private static function setBdd()
     {
-        self::$_bdd = new PDO('mysql:host=localhost; dbname=cms_db; charset=UTF8', 'root', 'go for it just do it');
+        self::$_bdd = new PDO('mysql:host=localhost; dbname=cms_db; charset=UTF8', 'root', 'Go_fori9');
         self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 
