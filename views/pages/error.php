@@ -1,8 +1,3 @@
-<!-- <title>PNC-NK/Goma | Erreur 404</title>
-<a href="<?= URL ?>">
-    <h1>PNC-NK/Goma</h1>
-</a>-->
-
 
 <!DOCTYPE html>
 <html>
@@ -23,29 +18,31 @@
 <body class="bg-silver-100">
     <div class="content">
         <h1 class="m-t-20">404</h1>
-        <p class="error-title"><?= "$errorMessage" ?></p>
+        <p class="error-title">
+            <?="$errorMessage"?>
+        </p>
         <p class="m-b-20">Sorry, the page you were looking for could not found. Please check the URL and try your luck
             again.
-            <a class="color-green" href="<?= URL ?>">Go to homepage</a>
+            <a class="color-green" href="<?= URL?>">Go to homepage</a>
         </p>
         <h2>CMS</h3>
     </div>
     <style>
-    .content {
-        max-width: 450px;
-        margin: 0 auto;
-        text-align: center;
-    }
+        .content {
+            max-width: 450px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-    .content h1 {
-        font-size: 160px
-    }
+        .content h1 {
+            font-size: 160px
+        }
 
-    .error-title {
-        font-size: 22px;
-        font-weight: 500;
-        margin-top: 30px
-    }
+        .error-title {
+            font-size: 22px;
+            font-weight: 500;
+            margin-top: 30px
+        }
     </style>
     <!-- BEGIN PAGA BACKDROPS-->
     <div class="sidenav-backdrop backdrop"></div>

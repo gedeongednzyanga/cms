@@ -17,8 +17,7 @@
 ================================================== -->
     <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png">
 
-    <!-- CSS
-================================================== -->
+    <!-- CSS ================================================== -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="views/pages/assets/plugins/bootstrap/bootstrap.min.css">
     <!-- FontAwesome -->

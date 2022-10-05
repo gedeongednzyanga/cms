@@ -16,7 +16,7 @@ class ControllerHome
     {
         $this->_managerNews = new ManagerNews();
         $recentNews = $this->_managerNews->getRecentInformations();
-        $this->_view = new View('Home');
+        $this->_view = new View('Services');
         $this->_view->generate(array('recentNews' => $recentNews));
     }
 }
