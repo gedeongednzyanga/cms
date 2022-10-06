@@ -262,7 +262,7 @@
                                     <h3 class="service-box-title"><a href="service">Fabrication des blocs de toute
                                             mesure</a>
                                     </h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves.</p>
+                                    <p>Le bloc béton est un élément de base dans de nombreuses constructions...</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -282,10 +282,10 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service">Fabrication de pave de
+                                    <h3 class="service-box-title"><a href="service">Fabrication de pavé de
                                             toutes marques</a>
                                     </h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
+                                    <p>Que ce soit pour votre terrasse comme pour vos allées, le pavé est un grand... </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -307,7 +307,7 @@
                                 <div class="ts-service-info">
                                     <h3 class="service-box-title"><a href="service">Production de toute
                                             sorte de peinture</a></h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
+                                    <p>Le choix entre les différents types de peinture est déjà en lui-même...</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
