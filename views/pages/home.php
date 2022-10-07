@@ -913,10 +913,7 @@
                             <img loading="lazy" width="200px" class="footer-logo"
                                 src="views/pages/assets/images/logo_cm_footer.png" alt="Constra" />
                             <p>
-                                CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments et travaux
-                                publics, en plus fournitures des materiaux. Son siège social est dans la ville de Goma,
-                                Com. de Goma, Q. Lac Vert, Av.
-                                Kabande, route Sake, non loin de la police routière Mugunga.
+                            CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av. Kabande, le long de la route Goma-Sake.
                             </p>
                             <div class="footer-social">
                                 <ul>
@@ -959,19 +956,12 @@
                         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
                             <h3 class="widget-title">Services</h3>
                             <ul class="list-arrow">
-                                <li><a href="javascript:;">Construction industrielle</a></li>
-                                <li><a href="javascript:;">Construction des bâtiments</a></li>
-                                <li><a href="javascript:;">Travaux hydroliques et publics</a></li>
-                                <li>
-                                    <a href="javascript:;">Production des peintures et blocs</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Pave de toutes sortes</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Expertise en BTP</a>
-                                </li>
-
+                                <li><a href="service">Construction industrielle</a></li>
+                                <li><a href="service">Construction des bâtiments</a></li>
+                                <li><a href="service">Travaux hydroliques et publics</a></li>
+                                <li><a href="service">Production des peintures et blocs</a></li>
+                                <li><a href="service">Pave de toutes sortes</a></li>
+                                <li><a href="service">Expertise en BTP</a></li>
                             </ul>
                         </div>
                         <!-- Col end -->

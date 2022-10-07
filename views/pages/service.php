@@ -224,7 +224,7 @@
                                 <ul class="nav service-menu">
                                     <li id="service01" class="active"><a href="service">Constructions des BTP</a></li>
                                     <li id="service02"><a href="service">Constructions metalliques</a></li>
-                                    <li id="service03"><a href="service">Rénovations de bâtiments</a></li>
+                                    <li id="service03"><a href="service">Construction Industrielle</a></li>
                                     <li id="service04"><a href="service">Fabrication des blocs</a></li>
                                     <li id="service05"><a href="service">Fabrication des pavés</a></li>
                                     <li id="service06"><a href="service">Production de peinture</a></li>
@@ -291,7 +291,7 @@
                                 <li><a href="service">Construction métallique</a></li>
                                 <li><a href="service">Production des peintures</a></li>
                                 <li><a href="service">Expertise en BTP</a></li>
-                                <li><a href="service">Rénovation des Batiments</a></li>
+                                <li><a href="service">Construction Industrielle</a></li>
                                 <li><a href="service">Design intérieur et extérieur</a></li>
                             </ul>
                         </div><!-- Col end -->

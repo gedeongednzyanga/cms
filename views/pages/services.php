@@ -234,12 +234,9 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service">Construction des
-                                            Bâtiments et travaux publics</a>
+                                    <h3 class="service-box-title"><a href="service">Bâtiments et travaux publics</a>
                                     </h3>
                                     <p>Le bâtiment et les travaux publics relèvent de la construction...</p>
-                                    </p>
-                                    </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -259,8 +256,7 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service">Fabrication des blocs de toute
-                                            mesure</a>
+                                    <h3 class="service-box-title"><a href="service">Fabrication des blocs</a>
                                     </h3>
                                     <p>Le bloc béton est un élément de base dans de nombreuses constructions...</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
@@ -282,8 +278,7 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service">Fabrication de pavé de
-                                            toutes marques</a>
+                                    <h3 class="service-box-title"><a href="service">Fabrication de pavés</a>
                                     </h3>
                                     <p>Que ce soit pour votre terrasse comme pour vos allées, le pavé est un grand... </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
@@ -305,8 +300,7 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service">Production de toute
-                                            sorte de peinture</a></h3>
+                                    <h3 class="service-box-title"><a href="service">Production des peintures</a></h3>
                                     <p>Le choix entre les différents types de peinture est déjà en lui-même...</p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
@@ -327,8 +321,8 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service">Expertise en BTP</a></h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
+                                    <h3 class="service-box-title"><a href="service">Rénovation des bâtiments</a></h3>
+                                    <p>Rénovez vos bâtiments avec la nouvelle façon de construire... </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -348,10 +342,9 @@
                                         alt="service-icon">
                                 </div>
                                 <div class="ts-service-info">
-                                    <h3 class="service-box-title"><a href="service">Hourdis ou Blocs de
-                                            Dalle</a>
+                                    <h3 class="service-box-title"><a href="service">Construction Industrielle</a>
                                     </h3>
-                                    <p>Vous avez des idées, des objectifs et des rêves. </p>
+                                    <p>L'industrialisation moderne requiert l'ingénieurie moderne et de qualité. </p>
                                     <a class="learn-more d-inline-block" href="service" aria-label="service-details"><i
                                             class="fa fa-caret-right"></i> Voir plus</a>
                                 </div>
@@ -456,19 +449,12 @@
                         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
                             <h3 class="widget-title">Services</h3>
                             <ul class="list-arrow">
-                                <li><a href="service-single.html">Construction industrielle</a></li>
-                                <li><a href="service-single.html">Construction des bâtiments</a></li>
-                                <li><a href="service-single.html">Travaux hydroliques et publics</a></li>
-                                <li>
-                                    <a href="service-single.html">Production des peintures et blocs</a>
-                                </li>
-                                <li>
-                                    <a href="service-single.html">Pave de toutes sortes</a>
-                                </li>
-                                <li>
-                                    <a href="service-single.html">Expertise en BTP</a>
-                                </li>
-
+                                <li><a href="service">Construction industrielle</a></li>
+                                <li><a href="service">Construction des bâtiments</a></li>
+                                <li><a href="service">Travaux hydroliques et publics</a></li>
+                                <li><a href="service">Production des peintures et blocs</a></li>
+                                <li><a href="service">Pave de toutes sortes</a></li>
+                                <li><a href="service">Expertise en BTP</a></li>
                             </ul>
                         </div>
                         <!-- Col end -->
