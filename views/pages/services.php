@@ -225,7 +225,7 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service1.jpg"
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/servi2.jpg"
                                     alt="service-image">
                             </div>
                             <div class="d-flex">
@@ -312,7 +312,7 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="ts-service-box">
                             <div class="ts-service-image-wrapper">
-                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/service6.jpg"
+                                <img loading="lazy" class="w-100" src="views/pages/assets/images/services/servi1.jpg"
                                     alt="service-image">
                             </div>
                             <div class="d-flex">
@@ -375,13 +375,17 @@
                             </div>
 
                             <div class="col-md-7 newsletter-form">
-                                <form action="#" method="post">
-                                    <div class="form-group">
-                                        <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
-                                        <input type="email" name="email" id="newsletter-email"
-                                            class="form-control form-control-lg" placeholder="Entrer votre email"
-                                            autocomplete="off" />
+                            <form action="#" method="post" class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
+                                            <input type="email" name="email" id="newsletter-email"
+                                                class="form-control form-control-lg" placeholder="Entrer votre email"
+                                                autocomplete="off" />
+                                            
+                                        </div>
                                     </div>
+                                    <div class="col-md-4" style="padding-top : 7px;"><button class="btn btn-warning btn-sm" type="button">S'inscrire</button></div>
                                 </form>
                             </div>
                         </div>

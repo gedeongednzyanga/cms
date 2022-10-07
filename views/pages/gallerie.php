@@ -11,7 +11,7 @@
     <!-- Mobile Specific Metas
 ================================================== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Construction Html5 Template">
+    <meta name="description" content="Construction Metal Service">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
     <!-- Favicon
@@ -271,16 +271,55 @@
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
-                                    <div class="project-item-info">
+                                    <!-- <div class="project-item-info">
                                         <div class="project-item-info-content">
                                             <h3 class="project-item-title">
                                                 <a href="projects-single.html">Capital Teltway Building</a>
                                             </h3>
                                             <p class="project-cat">Commercial, Interiors</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
+
+                            <div class="col-lg-4 col-md-6 shuffle-item"
+                                data-groups="[&quot;government&quot;,&quot;healthcare&quot;]">
+                                <div class="project-img-container">
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/img1.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/img1.jpg"
+                                            alt="project-image">
+                                        <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                                    </a>
+                                    <!-- <div class="project-item-info">
+                                        <div class="project-item-info-content">
+                                            <h3 class="project-item-title">
+                                                <a href="projects-single.html">Capital Teltway Building</a>
+                                            </h3>
+                                            <p class="project-cat">Commercial, Interiors</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 shuffle-item"
+                                data-groups="[&quot;government&quot;,&quot;healthcare&quot;]">
+                                <div class="project-img-container">
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project9.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/project9.jpg"
+                                            alt="project-image">
+                                        <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                                    </a>
+                                    <!-- <div class="project-item-info">
+                                        <div class="project-item-info-content">
+                                            <h3 class="project-item-title">
+                                                <a href="projects-single.html">Capital Teltway Building</a>
+                                            </h3>
+                                            <p class="project-cat">Commercial, Interiors</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                           
                             <!-- shuffle item 1 end -->
 
 
@@ -289,19 +328,19 @@
                             <div class="col-lg-4 col-md-6 shuffle-item"
                                 data-groups="[&quot;infrastructure&quot;,&quot;commercial&quot;]">
                                 <div class="project-img-container">
-                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project4.jpg">
-                                        <img class="img-fluid" src="views/pages/assets/images/projects/project4.jpg"
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/img4.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/img4.jpg"
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
-                                    <div class="project-item-info">
+                                    <!-- <div class="project-item-info">
                                         <div class="project-item-info-content">
                                             <h3 class="project-item-title">
                                                 <a href="projects-single.html">TNT East Facility</a>
                                             </h3>
                                             <p class="project-cat">Government</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <!-- shuffle item 3 end -->
@@ -309,19 +348,19 @@
                             <div class="col-lg-4 col-md-6 shuffle-item"
                                 data-groups="[&quot;education&quot;,&quot;infrastructure&quot;]">
                                 <div class="project-img-container">
-                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project5.jpg">
-                                        <img class="img-fluid" src="views/pages/assets/images/projects/project5.jpg"
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/img5.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/img5.jpg"
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
-                                    <div class="project-item-info">
+                                    <!-- <div class="project-item-info">
                                         <div class="project-item-info-content">
                                             <h3 class="project-item-title">
                                                 <a href="projects-single.html">Narriot Headquarters</a>
                                             </h3>
                                             <p class="project-cat">Infrastructure</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <!-- shuffle item 4 end -->
@@ -334,33 +373,49 @@
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
-                                    <div class="project-item-info">
+                                    <!-- <div class="project-item-info">
                                         <div class="project-item-info-content">
                                             <h3 class="project-item-title">
                                                 <a href="projects-single.html">Kalas Metrorail</a>
                                             </h3>
                                             <p class="project-cat">Infrastructure</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <!-- shuffle item 5 end -->
-
                             <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;residential&quot;]">
                                 <div class="project-img-container">
-                                    <a class="gallery-popup" href="views/pages/assets/images/projects/project7.jpg">
-                                        <img class="img-fluid" src="views/pages/assets/images/projects/project7.jpg"
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/img2.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/img2.jpg"
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
-                                    <div class="project-item-info">
+                                    <!-- <div class="project-item-info">
                                         <div class="project-item-info-content">
                                             <h3 class="project-item-title">
                                                 <a href="projects-single.html">Ancraft Avenue House</a>
                                             </h3>
                                             <p class="project-cat">Residential</p>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;residential&quot;]">
+                                <div class="project-img-container">
+                                    <a class="gallery-popup" href="views/pages/assets/images/projects/img3.jpg">
+                                        <img class="img-fluid" src="views/pages/assets/images/projects/img3.jpg"
+                                            alt="project-image">
+                                        <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                                    </a>
+                                    <!-- <div class="project-item-info">
+                                        <div class="project-item-info-content">
+                                            <h3 class="project-item-title">
+                                                <a href="projects-single.html">Ancraft Avenue House</a>
+                                            </h3>
+                                            <p class="project-cat">Residential</p>
+                                        </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <!-- shuffle item 6 end -->
@@ -374,14 +429,14 @@
                                             alt="project-image">
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
-                                    <div class="project-item-info">
+                                    <!-- <div class="project-item-info">
                                         <div class="project-item-info-content">
                                             <h3 class="project-item-title">
                                                 <a href="projects-single.html">Kalas Metrorail</a>
                                             </h3>
                                             <p class="project-cat">Infrastructure</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <!-- END REALISATION -->
@@ -496,7 +551,7 @@
 
                     <div class="col-12">
                         <div class="general-btn text-center">
-                            <a class="btn btn-primary" href="#">Gallerie Photos</a>
+                            <a class="btn btn-primary" href="gallerie">Gallerie Photos</a>
                         </div>
                     </div>
 
@@ -562,19 +617,12 @@
                         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
                             <h3 class="widget-title">Services</h3>
                             <ul class="list-arrow">
-                                <li><a href="service-single.html">Construction industrielle</a></li>
-                                <li><a href="service-single.html">Construction des bâtiments</a></li>
-                                <li><a href="service-single.html">Travaux hydroliques et publics</a></li>
-                                <li>
-                                    <a href="service-single.html">Production des peintures et blocs</a>
-                                </li>
-                                <li>
-                                    <a href="service-single.html">Pave de toutes sortes</a>
-                                </li>
-                                <li>
-                                    <a href="service-single.html">Expertise en BTP</a>
-                                </li>
-
+                            <li><a href="service">Construction industrielle</a></li>
+                                <li><a href="service">Construction des bâtiments</a></li>
+                                <li><a href="service">Travaux hydroliques et publics</a></li>
+                                <li><a href="service">Production des peintures et blocs</a></li>
+                                <li><a href="service">Pave de toutes sortes</a></li>
+                                <li><a href="service">Expertise en BTP</a></li>
                             </ul>
                         </div>
                         <!-- Col end -->
@@ -603,7 +651,7 @@
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
                                     <li><a href="about">A propos</a></li>
-                                    <li><a href="javascript:;">Notre équipe</a></li>
+                                    <li><a href="services">Services</a></a></li>
                                     <li><a href="faq">Faq</a></li>
                                     <li><a href="javascript:;">Blog</a></li>
                                 </ul>

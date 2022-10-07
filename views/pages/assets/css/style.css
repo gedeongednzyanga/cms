@@ -1630,7 +1630,7 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
     color: #fff;
     margin: 0;
     line-height: 30px;
-    font-size: 16px;
+    font-size: 15px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -1823,7 +1823,7 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
 }
 
 .service-box-title {
-    font-size: 12px;
+    font-size: 14px;
     margin: 0 0 10px;
 }
 

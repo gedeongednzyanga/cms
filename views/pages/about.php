@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>CMS - A propos</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Construction Html5 Template">
+    <meta name="description" content="Construction Metal Service">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png">
     <!-- Bootstrap -->
@@ -273,8 +273,6 @@
                             <!-- Item 1 end -->
                         </div>
                         <!-- Page slider end-->
-
-
                     </div>
                     <!-- Col end -->
                 </div>
@@ -370,8 +368,7 @@
                                         <h3 class="ts-name">BALUME BUESHA F.</h3>
                                         <p class="ts-designation">Directeur Général</p>
                                         <p class="ts-description">
-                                            Nats Stenman began his career in construction with
-                                            boots on the ground
+                                        +20 ANS d’expérience dans la construction des bâtiments, maisons et routes.
                                         </p>
                                         <div class="team-social-icons">
                                             <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -396,8 +393,7 @@
                                         <h3 class="ts-name">Landry Buesha</h3>
                                         <p class="ts-designation">Ingénieur Superviseurr</p>
                                         <p class="ts-description">
-                                            Nats Stenman began his career in construction with
-                                            boots on the ground
+                                           Supervise l'exécution de trauvaux au sein de l'entreprise.
                                         </p>
                                         <div class="team-social-icons">
                                             <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -422,8 +418,7 @@
                                         <h3 class="ts-name">BALUME BUESHA F.</h3>
                                         <p class="ts-designation">Directeur Général</p>
                                         <p class="ts-description">
-                                            Nats Stenman began his career in construction with
-                                            boots on the ground
+                                        +20 ANS d’expérience dans la construction des bâtiments, maisons et routes.
                                         </p>
                                         <div class="team-social-icons">
                                             <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -448,8 +443,7 @@
                                         <h3 class="ts-name">Landry Buesha</h3>
                                         <p class="ts-designation">Ingénieur Superviseurr</p>
                                         <p class="ts-description">
-                                            Nats Stenman began his career in construction with
-                                            boots on the ground
+                                           Supervise l'exécution de trauvaux au sein de l'entreprise.
                                         </p>
                                         <div class="team-social-icons">
                                             <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -462,6 +456,8 @@
                                 </div>
                                 <!--/ Team wrapper end -->
                             </div>
+                            <!-- Team 2 end -->
+                            
                             <!-- Team 2 end -->
 
                             <div class="item">
@@ -543,13 +539,17 @@
                             </div>
 
                             <div class="col-md-7 newsletter-form">
-                                <form action="#" method="post">
-                                    <div class="form-group">
-                                        <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
-                                        <input type="email" name="email" id="newsletter-email"
-                                            class="form-control form-control-lg" placeholder="Entrer votre email"
-                                            autocomplete="off" />
+                            <form action="#" method="post" class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
+                                            <input type="email" name="email" id="newsletter-email"
+                                                class="form-control form-control-lg" placeholder="Entrer votre email"
+                                                autocomplete="off" />
+                                            
+                                        </div>
                                     </div>
+                                    <div class="col-md-4" style="padding-top : 7px;"><button class="btn btn-warning btn-sm" type="button">S'inscrire</button></div>
                                 </form>
                             </div>
                         </div>
@@ -617,19 +617,12 @@
                         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
                             <h3 class="widget-title">Services</h3>
                             <ul class="list-arrow">
-                                <li><a href="service-single.html">Construction industrielle</a></li>
-                                <li><a href="service-single.html">Construction des bâtiments</a></li>
-                                <li><a href="service-single.html">Travaux hydroliques et publics</a></li>
-                                <li>
-                                    <a href="service-single.html">Production des peintures et blocs</a>
-                                </li>
-                                <li>
-                                    <a href="service-single.html">Pave de toutes sortes</a>
-                                </li>
-                                <li>
-                                    <a href="service-single.html">Expertise en BTP</a>
-                                </li>
-
+                                <li><a href="service">Construction industrielle</a></li>
+                                <li><a href="service">Construction des bâtiments</a></li>
+                                <li><a href="service">Travaux hydroliques et publics</a></li>
+                                <li><a href="service">Production des peintures et blocs</a></li>
+                                <li><a href="service">Pave de toutes sortes</a></li>
+                                <li><a href="service">Expertise en BTP</a></li>
                             </ul>
                         </div>
                         <!-- Col end -->
@@ -658,9 +651,9 @@
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled">
                                     <li><a href="about">A propos</a></li>
-                                    <li><a href="team">Notre équipe</a></li>
+                                    <li><a href="services">Services</a></a></li>
                                     <li><a href="faq">Faq</a></li>
-                                    <li><a href="Blog">Blog</a></li>
+                                    <li><a href="javascript:;">Blog</a></li>
                                 </ul>
                             </div>
                         </div>

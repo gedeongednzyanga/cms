@@ -206,7 +206,7 @@
                             <div class="col-md-12 text-center">
                                 <h2 class="slide-title" data-animation-in="slideInLeft">
                                     <script>
-                                    document.write(new Date().getFullYear() - 1999);
+                                    document.write(new Date().getFullYear() - 2014);
                                     </script> <span> Ans d 'expérience dans les</span>
                                 </h2>
                                 <h3 class="slide-sub-title" data-animation-in="slideInRight">
@@ -456,7 +456,7 @@
             <!-- Container end -->
         </section>
 
-
+        
         <section id="facts" class="facts-area dark-bg">
             <div class="container">
                 <div class="facts-wrapper">
@@ -467,7 +467,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="1000">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="189">0</span></h2>
                                 <h3 class="ts-facts-title">Réalisations</h3>
                             </div>
                         </div>
@@ -479,7 +479,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="100">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="50">0</span></h2>
                                 <h3 class="ts-facts-title">Membres du Personnel</h3>
                             </div>
                         </div>
@@ -491,7 +491,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="2880">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="4000">0</span></h2>
                                 <h3 class="ts-facts-title">Heures de travail</h3>
                             </div>
                         </div>
@@ -503,7 +503,7 @@
                                     alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
-                                <h2 class="ts-facts-num"><span class="counterUp" data-count="940">0</span></h2>
+                                <h2 class="ts-facts-num"><span class="counterUp" data-count="120">0</span></h2>
                                 <h3 class="ts-facts-title">CLIENTS HEUREUX</h3>
                             </div>
                         </div>
@@ -540,8 +540,8 @@
                                     <a href="services">Construction des Bâtiments</a>
                                 </h3>
                                 <p>
-                                    CMS intervient dans la construction des bâtiments, travaux publics et fournitures
-                                    des materiaux de construction.
+                                    Nous intervenons dans la construction des bâtiments en fournissant
+                                    les materiaux de construction.
                                 </p>
                             </div>
                         </div>
@@ -557,7 +557,7 @@
                                     <a href="services">Fabrication des blocs et ourdis</a>
                                 </h3>
                                 <p>
-                                    Vous trouverez des blocs et ourdis de norme standard et de toute mesure chez CMS.
+                                    Vous trouverez des blocs et ourdis de toute mesure chez CMS.
                                 </p>
                             </div>
                         </div>
@@ -573,7 +573,7 @@
                                     <a href="services">Fabrication de pavés</a>
                                 </h3>
                                 <p>
-                                    Besoin de pavés de qualité? CMS vous propose une gamme de pavés de toute marque.
+                                    CMS vous propose une gamme de pavés de toute marque.
                                 </p>
                             </div>
                         </div>
@@ -614,7 +614,7 @@
                                     <a href="services">Production de peinture</a>
                                 </h3>
                                 <p>
-                                    CMS vous offre la bonne qualité de peinture; nous produisons toutes sortes de
+                                    Nous produisons toutes sortes de
                                     peintures: lavable, latex, taff, emaille etc...
                                 </p>
                             </div>
@@ -659,10 +659,10 @@
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
-                                    <a href="services">Design extérieur</a>
+                                    <a href="services">Design interne & extérieur</a>
                                 </h3>
                                 <p>
-                                    Nous améliorons l'aspect extérieur de vos bâtiments et aménagement de vos parcelles.
+                                    Nous améliorons l'aspect interne et extérieur de vos bâtiments.
                                 </p>
                             </div>
                         </div>
@@ -878,20 +878,23 @@
                                 <p class="text-white">Recevez nos dernières nouvelles </p>
                             </div>
 
-                            <div class="col-md-5 newsletter-form">
-                                <form action="#" method="post">
-                                    <div class="form-group">
-                                        <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
-                                        <input type="email" name="email" id="newsletter-email"
-                                            class="form-control form-control-lg" placeholder="Entrer votre email"
-                                            autocomplete="off" />
-
+                            <div class="col-md-7 newsletter-form">
+                                <form action="#" method="post" class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
+                                            <input type="email" name="email" id="newsletter-email"
+                                                class="form-control form-control-lg" placeholder="Entrer votre email"
+                                                autocomplete="off" />
+                                            
+                                        </div>
                                     </div>
+                                    <div class="col-md-4" style="padding-top : 7px;"><button class="btn btn-warning btn-sm" type="button">S'inscrire</button></div>
                                 </form>
                             </div>
-                            <div class="col-md-2 newsletter-form">
-                                <button class="btn btn-warning btn-sm" type="button">Souscrire</button>
-                            </div>
+                            <!-- <div class="col-md-2 newsletter-form">
+                                <button class="btn btn-warning btn-sm" type="button">S'inscrire</button>
+                            </div> -->
                         </div>
                         <!-- Newsletter end -->
                     </div>
