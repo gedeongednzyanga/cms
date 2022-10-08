@@ -222,7 +222,7 @@
                             <div class="widget">
                                 <h3 class="widget-title">Nos Services</h3>
                                 <ul class="nav service-menu">
-                                    <li id="service01" class="active"><a href="service">Constructions des BTP</a></li>
+                                    <li id="service01" class="active"><a href="service">Bâtiments et Travaux Publics</a></li>
                                     <li id="service02"><a href="service">Constructions metalliques</a></li>
                                     <li id="service03"><a href="service">Construction Industrielle</a></li>
                                     <li id="service04"><a href="service">Fabrication des blocs</a></li>
