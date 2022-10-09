@@ -39,7 +39,7 @@
                     <div class="col-lg-8 col-md-8">
                         <ul class="top-info text-center text-md-left">
                             <li><i class="fas fa-map-marker-alt"></i>
-                                <p class="info-text">9051 Constra Incorporate, USA</p>
+                                <p class="info-text">GOMA, NORD-KIVU, RDC</p>
                             </li>
                         </ul>
                     </div>
