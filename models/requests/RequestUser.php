@@ -14,13 +14,32 @@ spl_autoload_register(function ($class) {
 });
 
 $managerUser = new ManagerUser();
+$managerPage = new ManagerPage();
 $action = $_POST['action'];
 
 switch ($action) {
     case 'create':
         $user = new User($_POST);
         $managerUser->createObj($_POST['actionu'], 'obj_user', $user);
-        echo 'Utilisateur enregistré avec succès.';
+        echo 'Utilisateur enregistré avec succès.'.$managerUser->getLastUserId();
+        if(isset($_SESSION['pages'])){
+            $page = new Page([]);
+            foreach($_SESSION['pages'] as $key){
+                $page->setRefuser($managerUser->getLastUserId());
+                $page->setRefpage($key['refpage']);
+                $managerPage->createObj(1, 'obj_acceder', $page);
+            }
+            unset($_SESSION['pages']);
+        }
+        if(isset($_SESSION['autorisation'])){
+            $page = new Page([]);
+            foreach ($_SESSION['autorisation'] as $key) {
+                $page->setRefpage($key['refpage']);
+                $page->setRefauto($key['refauto']);
+                $managerPage->createAcces('obj_avoiracc', $page);
+            }
+            unset($_SESSION['autorisations']);
+        }
         break;
 
     case 'connexion':

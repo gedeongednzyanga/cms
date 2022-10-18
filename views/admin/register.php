@@ -1,9 +1,14 @@
+<?php
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+    echo '<script>window.location="login";</script>';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Metal Service">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>CMS - User</title>
     <!-- INCONS -->
@@ -42,7 +47,7 @@
                         <form class="navbar-search" action="javascript:;">
                             <div class="rel">
                                 <span class="search-icon"><i class="ti-search"></i></span>
-                                <input class="form-control" placeholder="Search here...">
+                                <input class="form-control" placeholder="Rechercher...">
                             </div>
                         </form>
                     </li>
@@ -53,12 +58,14 @@
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="views/admin/assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <span></span>
+                            <?= $_SESSION['compte']?><i class="fa fa-angle-down m-l-5"></i>
+                        </a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
+                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Paramètres</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Déconnexion</a>
                         </ul>
                     </li>
                 </ul>
@@ -74,8 +81,12 @@
                         <img src="views/admin/assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong"><?=/* $_SESSION['telephone'] */ 'Gedeon Nzyanga' ?></div>
-                        <small>Administrator</small>
+                        <div class="font-strong">
+                            <?= $_SESSION['user']?>
+                        </div>
+                        <small>
+                            <?= $_SESSION['compte']?>
+                        </small>
                     </div>
                 </div>
                 <ul class="side-menu metismenu">
@@ -148,7 +159,7 @@
                                 <a class="active" href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -168,11 +179,12 @@
                 </ol>
             </div>
             <div class="page-content fade-in-up">
+
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Créer un compte utilisateur</div>
                         <div class="ibox-tools">
-                            <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                            <!-- <a class="ibox-collapse"><i class="fa fa-minus"></i></a> -->
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a data-toggle="modal" data-target="#modal-category" class="dropdown-item">Catégorie</a>
@@ -183,7 +195,7 @@
                     <div class="ibox-body">
                         <div class="container">
                             <form id="form-register" class="row form-horizontal" method="post" novalidate="novalidate">
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <input type="hidden" name="action" value="create" />
                                     <input type="hidden" name="actionu" value="1" />
                                     <input type="hidden" name="iduser" value="0" />
@@ -216,11 +228,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Type Compte</label>
+                                        <label class="col-sm-2 col-form-label">Compte</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" name="compteuser"
                                                 id="compteuser" required>
                                                 <optgroup label="Type de Compte">
+                                                    <option value="">Type compte</option>
                                                     <option value="Administrateur">Administrateur</option>
                                                     <option value="Utilisateur">Utilisateur</option>
                                                 </optgroup>
@@ -234,46 +247,91 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">Niveau d'accès</label><br>
                                         <div class="row">
-                                            <div class="col-6 m-b-20">
-                                                <div class="check-list">
-                                                    <label class="ui-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="input-span"></span>Checkbox</label>
-                                                    <label class="ui-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="input-span"></span>Checkbox</label>
-                                                    <label class="ui-checkbox">
-                                                        <input type="checkbox" checked="">
-                                                        <span class="input-span"></span>Checked</label>
-                                                    <label class="ui-checkbox ui-checkbox-gray">
-                                                        <input type="checkbox">
-                                                        <span class="input-span"></span>Checkbox gray</label>
-                                                    <label class="ui-checkbox disabled">
-                                                        <input type="checkbox" disabled="">
-                                                        <span class="input-span"></span>Disabled</label>
+                                            <div class="col-8 m-b-20">
+                                                <p style="margin-bottom:5px;"><label class="col-form-label">Pages
+                                                        accessibles</label></p>
+                                                <div class="row">
+                                                    <div class="check-list col-md-6">
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="1">
+                                                            <span class="input-span"></span>Dashboard</label>
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="2">
+                                                            <span class="input-span"></span>Article</label>
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="3">
+                                                            <span class="input-span"></span>Production</label>
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="4">
+                                                            <span class="input-span"></span>Approvisionnement</label>
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="5">
+                                                            <span class="input-span"></span>Commande</label>
+                                                    </div>
+
+                                                    <div class="check-list col-md-6">
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="6">
+                                                            <span class="input-span"></span>Facturation</label>
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="7">
+                                                            <span class="input-span"></span>Messages</label>
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="8">
+                                                            <span class="input-span"></span>Utilisateur</label>
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="9">
+                                                            <span class="input-span"></span>Configurations</label>
+                                                        <label class="ui-radio">
+                                                            <input type="radio" name="refpage" id="refpage" value="10">
+                                                            <span class="input-span"></span>Information/Blog</label>
+                                                        <button type="button" id="btnaddpage"
+                                                            class="btn btn-sm btn-success btn-block"
+                                                            style="margin-top:15px;">Donner accès</button>
+                                                    </div>
                                                 </div>
+
                                             </div>
-                                            <div class="col-6 m-b-20">
+                                            <div class="col-4 m-b-20">
+                                                <p style="margin-bottom:5px;">
+                                                    <label class="col-form-label">Autorisations</label></br>
+                                                </p>
                                                 <div class="check-list">
-                                                    <label class="ui-checkbox ui-checkbox-primary">
-                                                        <input type="checkbox">
-                                                        <span class="input-span"></span>Primary</label>
                                                     <label class="ui-checkbox ui-checkbox-success">
-                                                        <input type="checkbox">
-                                                        <span class="input-span"></span>Success</label>
+                                                        <input type="checkbox" name="refauto" value="1">
+                                                        <span class="input-span"></span>Ajouter</label>
                                                     <label class="ui-checkbox ui-checkbox-info">
-                                                        <input type="checkbox">
-                                                        <span class="input-span"></span>Info</label>
-                                                    <label class="ui-checkbox ui-checkbox-warning">
-                                                        <input type="checkbox">
-                                                        <span class="input-span"></span>Warning</label>
+                                                        <input type="checkbox" name="refauto" value="2">
+                                                        <span class="input-span"></span>Modifier</label>
                                                     <label class="ui-checkbox ui-checkbox-danger">
-                                                        <input type="checkbox">
-                                                        <span class="input-span"></span>Danger</label>
+                                                        <input type="checkbox" name="refauto" value="3">
+                                                        <span class="input-span"></span>Supprimer</label>
+                                                    <label class="ui-checkbox ui-checkbox-warning">
+                                                        <input type="checkbox" name="refauto" value="4">
+                                                        <span class="input-span"></span>Imprimer</label>
+                                                    <label class="ui-checkbox ui-checkbox-primary">
+                                                        <input type="checkbox" id="select-all">
+                                                        <span class="input-span"></span>All autorisations</label>
+                                                    <ul class="nav navbar-toolbar" style="margin-top:12px;">
+                                                        <li class="dropdown dropdown-user">
+                                                            <a class="nav-link dropdown-toggle link"
+                                                                data-toggle="dropdown">
+                                                                <?= isset($_SESSION['pages']) ? 'Pages acc... ' . count($_SESSION['pages']) : 'Pages acc... (0)'?><i
+                                                                    class="fa fa-angle-down m-l-5"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-right" id="pageacc">
+                                                                <?php foreach($_SESSION['pages'] as $key) : ?>
+                                                                    <a class="dropdown-item" href="javascript:;"><?= $key['designationpage'] ?></a>
+                                                                    <li class="dropdown-divider"></li>
+                                                                <?php endforeach; ?>
+                                                                <a class="dropdown-item" href="login"><i
+                                                                        class="fa fa-remove"></i> Supprimer</a>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -286,279 +344,140 @@
                     </div>
                 </div>
 
-                <div class="ibox">
-                    <div class="ibox-head">
-                        <div class="ibox-title">Utilisateurs enregistrés</div>
-                    </div>
-                    <div class="ibox-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th width="50px"></th>
-                                        <th>N°</th>
-                                        <th>Désignation</th>
-                                        <th>Catégorie</th>
-                                        <th>En Stock</th>
-                                        <th>Stock alert</th>
-                                        <th>Prix vetnte</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tab-product">
-                                    <?php foreach ($product8 as $product) : ?>
-                                    <tr>
-                                        <td>
-                                            <label class="ui-checkbox">
-                                                <input type="checkbox">
-                                                <span class="input-span"></span>
-                                            </label>
-                                        </td>
-                                        <td><?= $product->getIdprod() ?></td>
-                                        <td><?= $product->getDesignationprod() ?></td>
-                                        <td><?= $product->getDesignationcat() ?></td>
-                                        <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getPrixprod() . '$' ?></td>
-                                        <td style="display:none;"><?= $product->getPrixprod() ?></td>
-                                        <td style="display:none;"><?= $product->getStalert() ?></td>
-                                        <td style="display:none;"><?= $product->getQuantitest() ?></td>
-                                        <td>
-                                            <button class="btn btn-default btn-xs m-r-5" data-toggle="modal"
-                                                title="Edit" data-target="#modal-update"><i
-                                                    class="fa fa-pencil font-14"></i></button>
-                                            <button class="btn btn-default btn-xs" data-toggle="tooltip"
-                                                data-original-title="Delete"><i
-                                                    class="fa fa-trash font-14"></i></button>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MODALS -->
-                <!-- Modal Category -->
-                <div class="modal fade" id="modal-category">
-                    <div class="modal-dialog">
-                        <div class="modal-content ibox">
-                            <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Ajouter Catégorie</div>
-                                <div class="ibox-tools">
-                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-body ibox-body">
-                                <form id="form-category">
-                                    <div class="form-group">
-                                        <input type="hidden" name="action" value="category" />
-                                        <input type="hidden" name="actionu" value="1" />
-                                        <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationc" name="designation"
-                                            required placeholder="Désignation">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
-                                        </button>
-                                    </div>
-                                </form>
-                                <div class="form-group">
-                                    <label>Catégorie produit</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
-                                        <?php foreach ($categories as $category) : ?>
-                                        <option value="<?= $category->getIdcat() ?>">
-                                            <?= $category->getDesignationcat() ?> </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- End Modal Category -->
-
-                <!-- Modal Update -->
-                <div class="modal fade" id="modal-update">
-                    <div class="modal-dialog">
-                        <div class="modal-content ibox">
-                            <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Modifier Produit</div>
-                                <div class="ibox-tools">
-                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-body ibox-body">
-                                <form id="form-product2" class="row form-horizontal" method="post"
-                                    novalidate="novalidate">
-                                    <div class="col-md-12">
-                                        <input type="hidden" name="action" value="product" />
-                                        <input type="hidden" name="actionu" value="2" />
-                                        <input type="hidden" id="idprod" name="idprod" value="0" />
-                                        <input type="hidden" id="quantitest2" name="quantitest" value="0" />
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Désignation</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="text" id="designationprod2"
-                                                    name="designationprod" required placeholder="Désignation">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">PA/PV</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="number" name="prixprod" id="prixprod2"
-                                                    required placeholder="Prix">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Stock alert</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="number" name="stalert" id="stalert2"
-                                                    required placeholder="Stock alert">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Catégorie</label>
-                                            <div class="col-sm-9">
-                                                <select class="form-control select2_demo_1" style="width:100%"
-                                                    name="refcat" required>
-                                                    <optgroup label="Catégories">
-                                                        <?php foreach ($categories as $category) : ?>
-                                                        <option value="<?= $category->getIdcat() ?>">
-                                                            <?= $category->getDesignationcat() ?></option>
-                                                        <?php endforeach; ?>
-                                                    </optgroup>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Uni. mesure</label>
-                                            <div class="col-sm-9">
-                                                <select class="form-control select2_demo_1" style="width:100%"
-                                                    name="refunit" required>
-                                                    <optgroup label="Unité de mesure">
-                                                        <?php foreach ($unites as $unite) : ?>
-                                                        <option value="<?= $unite->getIdu() ?>">
-                                                            <?= $unite->getDesignationu() ?></option>
-                                                        <?php endforeach; ?>
-                                                    </optgroup>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">En Stock</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" disabled type="text" id="stock2"
-                                                    name="stock" required placeholder="Stock" value="0">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label"></label>
-                                            <div class="col-sm-9">
-                                                <button class="btn btn-info btn-block"
-                                                    type="submit">Enregistrer</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                                <span id="message2"></span>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- End Modal Update -->
-
-                <!-- Modal Mesure -->
-                <div class="modal fade" id="modal-mesure">
-                    <div class="modal-dialog">
-                        <div class="modal-content ibox">
-                            <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Ajouter Mesure</div>
-                                <div class="ibox-tools">
-                                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-body ibox-body">
-                                <form id="form-unite">
-                                    <div class="form-group">
-                                        <input type="hidden" name="action" value="unite" />
-                                        <input type="hidden" name="actionu" value="1" />
-                                        <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationu" name="designation"
-                                            required placeholder="Désignation">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
-                                        </button>
-                                    </div>
-                                </form>
-                                <div class="form-group">
-                                    <label>Unité de Mesure</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
-                                        <?php foreach ($unites as $unite) : ?>
-                                        <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
-                                        </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                                <span id="message-mesure"></span>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- End Modal Mesure -->
-                <!-- END MODALS -->
             </div>
-            <!-- END PAGE CONTENT-->
-            <footer class="page-footer">
-                <div class="font-13">
-                    <script>
-                    document.write(new Date().getFullYear());
-                    </script> © <b>CMS</b> - All rights reserved.
+
+            <div class="ibox">
+                <div class="ibox-head">
+                    <div class="ibox-title">Utilisateurs enregistrés</div>
                 </div>
-                <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
-            </footer>
+                <div class="ibox-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th width="50px"></th>
+                                    <th>N°</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Nom d'utilisateur</th>
+                                    <th>Type de compte</th>
+                                    <th>Pages Accessibles</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tab-user">
+                                <?php 
+                                $managerPage = new ManagerPage();
+                                foreach ($users as $user): ?>
+                                <tr>
+                                    <td>
+                                        <label class="ui-checkbox">
+                                            <input type="checkbox">
+                                            <span class="input-span"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <?= $user->getIduser()?>
+                                    </td>
+                                    <td>
+                                        <?= $user->getNomuser()?>
+                                    </td>
+                                    <td>
+                                        <?= $user->getPrenomuser()?>
+                                    </td>
+                                    <td>
+                                        <?= $user->getUsername() ?>
+                                    </td>
+                                    <td>
+                                        <?= $user->getCompteuser() ?>
+                                    </td>
+                                    <td>
+                                        <?php foreach($managerPage->getAccessPage($user->getIduser()) as $pageacc) : ?>
+                                            <?= $pageacc->getDesignationpage().', ' ?>
+                                        <?php endforeach; ?>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-default btn-xs m-r-5" data-toggle="modal" title="Edit"
+                                            data-target="#modal-update"><i class="fa fa-pencil font-14"></i></button>
+                                        <button class="btn btn-default btn-xs" data-toggle="tooltip"
+                                            data-original-title="Delete"><i class="fa fa-trash font-14"></i></button>
+                                    </td>
+                                </tr>
+                                <?php
+                                endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODALS -->
+
+            <!-- Modal Mesure -->
+            <div class="modal fade" id="modal-mesure">
+                <div class="modal-dialog">
+                    <div class="modal-content ibox">
+                        <div class="modal-header ibox-head">
+                            <div class="modal-title ibox-title">Ajouter Mesure</div>
+                            <div class="ibox-tools">
+                                <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item">Supprimer</a>
+                                    <a class="dropdown-item close-btn" data-dismiss="modal"
+                                        aria-label="Close">Fermer</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body ibox-body">
+                            <form id="form-unite">
+                                <div class="form-group">
+                                    <input type="hidden" name="action" value="unite" />
+                                    <input type="hidden" name="actionu" value="1" />
+                                    <input type="hidden" name="id" value="0" />
+                                    <input class="form-control" type="text" id="designationu" name="designation"
+                                        required placeholder="Désignation">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" id="add-quartier"
+                                        class="btn btn-primary form-control">Enregistrer
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="form-group">
+                                <label>Unité de Mesure</label>
+                                <select class="form-control" multiple="" id="list-quartier" style="height:150px">
+                                    <?php foreach ($unites as $unite): ?>
+                                    <option value="<?= $unite->getIdu()?>">
+                                        <?= $unite->getDesignationu()?>
+                                    </option>
+                                    <?php
+endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                            <span id="message-mesure"></span>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- End Modal Mesure -->
+            <!-- END MODALS -->
         </div>
+        <!-- END PAGE CONTENT-->
+        <footer class="page-footer">
+            <div class="font-13">
+                <script>
+                    document.write(new Date().getFullYear());
+                </script> © <b>CMS</b> - All rights reserved.
+            </div>
+            <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
+        </footer>
+    </div>
     </div>
 
     <!-- BEGIN PAGA BACKDROPS-->
@@ -585,102 +504,103 @@
     <!-- CORE SCRIPTS-->
     <script src="views/admin/assets/js/app.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/login.js" type="text/javascript"></script>
+    <script src="views/admin/assets/js/request/pageRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">
-    $("#form-sample-1").validate({
-        rules: {
-            name: {
-                minlength: 2,
-                required: !0
+        $("#form-sample-1").validate({
+            rules: {
+                name: {
+                    minlength: 2,
+                    required: !0
+                },
+                email: {
+                    required: !0,
+                    email: !0
+                },
+                url: {
+                    required: !0,
+                    url: !0
+                },
+                number: {
+                    required: !0,
+                    number: !0
+                },
+                min: {
+                    required: !0,
+                    minlength: 3
+                },
+                max: {
+                    required: !0,
+                    maxlength: 4
+                },
+                password: {
+                    required: !0
+                },
+                password_confirmation: {
+                    required: !0,
+                    equalTo: "#password"
+                }
             },
-            email: {
-                required: !0,
-                email: !0
+            errorClass: "help-block error",
+            highlight: function (e) {
+                $(e).closest(".form-group.row").addClass("has-error")
             },
-            url: {
-                required: !0,
-                url: !0
+            unhighlight: function (e) {
+                $(e).closest(".form-group.row").removeClass("has-error")
             },
-            number: {
-                required: !0,
-                number: !0
-            },
-            min: {
-                required: !0,
-                minlength: 3
-            },
-            max: {
-                required: !0,
-                maxlength: 4
-            },
-            password: {
-                required: !0
-            },
-            password_confirmation: {
-                required: !0,
-                equalTo: "#password"
-            }
-        },
-        errorClass: "help-block error",
-        highlight: function(e) {
-            $(e).closest(".form-group.row").addClass("has-error")
-        },
-        unhighlight: function(e) {
-            $(e).closest(".form-group.row").removeClass("has-error")
-        },
-    });
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $('#ex-phone2').mask('+243 999 999 999');
-    })
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 10,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
         });
-    })
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#ex-phone2').mask('+243 999 999 999');
+        })
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#example-table').DataTable({
+                pageLength: 10,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
     </script>
     <script>
-    table = document.getElementById("tab-product");
-    for (i = 0; i < table.rows.length; i++) {
-        table.rows[i].onclick = function() {
-            getOneDetail(this.cells[1].innerText);
-            document.getElementById("idprod").value = this.cells[1].innerText;
-            document.getElementById("designationprod2").value = this.cells[2].innerText;
-            document.getElementById("prixprod2").value = this.cells[7].innerText;
-            document.getElementById("stalert2").value = this.cells[8].innerText;;
-            document.getElementById("stock2").value = this.cells[4].innerText;
-            document.getElementById("quantitest").value = this.cells[9].innerText;
-        }
-    }
-
-    function getOneDetail(idprod) {
-        $.ajax({
-            url: "models/requests/RequestCommande.php",
-            type: "POST",
-            data: {
-                action: 'historique',
-                idprod: idprod
-            },
-            success: function(data) {
-                $('#historiquecommande').html(data);
-            },
-            error: function() {
-                alert("Echec de la requête sur le serveur.");
+        table = document.getElementById("tab-product");
+        for (i = 0; i < table.rows.length; i++) {
+            table.rows[i].onclick = function () {
+                getOneDetail(this.cells[1].innerText);
+                document.getElementById("idprod").value = this.cells[1].innerText;
+                document.getElementById("designationprod2").value = this.cells[2].innerText;
+                document.getElementById("prixprod2").value = this.cells[7].innerText;
+                document.getElementById("stalert2").value = this.cells[8].innerText;;
+                document.getElementById("stock2").value = this.cells[4].innerText;
+                document.getElementById("quantitest").value = this.cells[9].innerText;
             }
-        });
-    }
+        }
+
+        function getOneDetail(idprod) {
+            $.ajax({
+                url: "models/requests/RequestCommande.php",
+                type: "POST",
+                data: {
+                    action: 'historique',
+                    idprod: idprod
+                },
+                success: function (data) {
+                    $('#historiquecommande').html(data);
+                },
+                error: function () {
+                    alert("Echec de la requête sur le serveur.");
+                }
+            });
+        }
     </script>
 </body>
 

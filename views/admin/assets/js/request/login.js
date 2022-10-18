@@ -37,7 +37,7 @@ $(function() {
             success: function(data) {
                 $(".div-message").hide();
                 $(".div-message").html("<div class='alert alert-success'><small>" + data + "</small></div >").show('slow', 'linear');
-                $('.form-register')[0].reset();
+                $('#form-register')[0].reset();
             },
             error: function() {
                 alert('Failled to post the request.');

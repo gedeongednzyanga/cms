@@ -6,6 +6,13 @@ class ManagerUser extends Model
         return $this->getAll('get_users', 'User');
     }
 
+    public function getLastUserId(){
+        $query = $this->getBdd()->query('SELECT MAX(iduser) idu FROM utilisateur;');
+        $query->execute();
+        $id = $query->fetchColumn();
+        return $id;
+    }
+
     public function connexion($username, $password, $obj)
     {
         try {
