@@ -1,6 +1,12 @@
 <?php
-if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+$managerPage = new ManagerPage();
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte'])) {
     echo '<script>window.location="login";</script>';
+}
+
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Message', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -157,7 +163,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -186,29 +192,24 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <li class="list-group-item">
                                 <?php $managerMessage = new ManagerMessage(); ?>
                                 <a href="mailbox"><i class="fa fa-envelope-open-o"></i> Tous les messages
-                                    <span
-                                        class="badge badge-default badge-square pull-right"><?= count($messages) ?></span>
+                                    <span class="badge badge-default badge-square pull-right"><?= count($messages) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
                                 <a href="javascript:;" id="btr"><i class="fa fa-envelope-o"></i> Boîte de reception
-                                    <span
-                                        class="badge badge-warning badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('receive')) ?></span>
+                                    <span class="badge badge-warning badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('receive')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a id="msge" href="javascript:;"><i class="fa fa-send-o"></i> Messages Envoyés <span
-                                        class="badge badge-primary badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('sent')) ?></span></a>
+                                <a id="msge" href="javascript:;"><i class="fa fa-send-o"></i> Messages Envoyés <span class="badge badge-primary badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('sent')) ?></span></a>
                             </li>
                             <li class="list-group-item">
                                 <a id="msgi" href="javascript:;"><i class="fa fa-star-o"></i> Important
-                                    <span
-                                        class="badge badge-success badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('important')) ?></span>
+                                    <span class="badge badge-success badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('important')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a id="msgd" href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille <span
-                                        class="badge badge-danger badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('delete')) ?></span></a>
+                                <a id="msgd" href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille <span class="badge badge-danger badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('delete')) ?></span></a>
                             </li>
                         </ul>
                     </div>
@@ -217,15 +218,12 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <div class="mailbox-header d-flex justify-content-between">
                                 <h5 class="inbox-title" id="title-msg">Envoyer un mail</h5>
                                 <div class="inbox-toolbar m-l-20">
-                                    <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip"
-                                        data-original-title="Reply"><i class="fa fa-reply"></i></button>
-                                    <button class="btn btn-default btn-sm" data-action="delete" data-toggle="tooltip"
-                                        data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
+                                    <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip" data-original-title="Reply"><i class="fa fa-reply"></i></button>
+                                    <button class="btn btn-default btn-sm" data-action="delete" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
                                 </div>
                             </div>
                             <div class="mailbox-body">
-                                <form class="form-horizontal" action="javascript:void(0)" method="POST"
-                                    id="contact-form">
+                                <form class="form-horizontal" action="javascript:void(0)" method="POST" id="contact-form">
                                     <div class="form-group row">
                                         <label class="col-sm-2 control-label"> Envoyer à </label>
                                         <div class="col-sm-10">
@@ -235,22 +233,19 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                             <input type="hidden" name="sender" value="CMS SARL">
                                             <input type="hidden" name="typemsg" value="sent">
                                             <input type="hidden" name="statutmsg" value="1">
-                                            <input class="form-control" type="text" name="receiver"
-                                                placeholder="Barbuto">
+                                            <input class="form-control" type="text" name="receiver" placeholder="Barbuto">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 control-label"> E-mail </label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="email" name="emails"
-                                                placeholder="example@gmail.com" required>
+                                            <input class="form-control" type="email" name="emails" placeholder="example@gmail.com" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 control-label"> Sujet </label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="sujet"
-                                                placeholder="exemple : Sujet" required>
+                                            <input class="form-control" type="text" name="sujet" placeholder="exemple : Sujet" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -276,7 +271,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
@@ -303,12 +298,12 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     <script src="views/admin/assets/js/request/contactAdmin.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
-    $(function() {
-        $('#summernote').summernote();
-        $('.note-popover').css({
-            'display': 'none'
-        });
-    })
+        $(function() {
+            $('#summernote').summernote();
+            $('.note-popover').css({
+                'display': 'none'
+            });
+        })
     </script>
 </body>
 

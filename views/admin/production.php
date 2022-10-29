@@ -1,4 +1,6 @@
 <?php
+
+$managerPage = new ManagerPage();
 if (!isset($_SESSION['user']) || !isset($_SESSION['compte'])) {
     echo '<script>window.location="login";</script>';
 }
@@ -6,6 +8,11 @@ if (isset($_SESSION['date1'])) {
     unset($_SESSION['date1']);
     unset($_SESSION['date2']);
 }
+
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Production', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +32,7 @@ if (isset($_SESSION['date1'])) {
     <!-- PLUGINS STYLES-->
     <link href="views/admin/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
-    <link href="views/admin/assets/vendors/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"
-        rel="stylesheet" />
+    <link href="views/admin/assets/vendors/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/jquery-minicolors/jquery.minicolors.css" rel="stylesheet" />
     <!-- THEME STYLES-->
@@ -159,10 +165,10 @@ if (isset($_SESSION['date1'])) {
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -197,8 +203,7 @@ if (isset($_SESSION['date1'])) {
                     <div class="ibox-body">
                         <div class="container">
                             <div class="row ">
-                                <form id="form-production" class="col-md-8 form-horizontal" method="post"
-                                    novalidate="novalidate">
+                                <form id="form-production" class="col-md-8 form-horizontal" method="post" novalidate="novalidate">
                                     <input type="hidden" name="action" value="add" />
                                     <input type="hidden" name="actionu" value="1" />
                                     <input type="hidden" name="id" value="0" />
@@ -209,8 +214,8 @@ if (isset($_SESSION['date1'])) {
                                                 <option value="0">Choisir un article</option>
                                                 <optgroup label="Catégories">
                                                     <?php foreach ($products as $product) : ?>
-                                                    <option value="<?= $product->getIdprod() ?>">
-                                                        <?= $product->getDesignationprod() ?></option>
+                                                        <option value="<?= $product->getIdprod() ?>">
+                                                            <?= $product->getDesignationprod() ?></option>
                                                     <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
@@ -219,29 +224,25 @@ if (isset($_SESSION['date1'])) {
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté produite</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantiteprod"
-                                                id="quantiteprod" required placeholder="Quantité produite">
+                                            <input class="form-control" type="number" name="quantiteprod" id="quantiteprod" required placeholder="Quantité produite">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté perdue</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantiteperd"
-                                                id="quantiteperd" required placeholder="Quantité perdue">
+                                            <input class="form-control" type="number" name="quantiteperd" id="quantiteperd" required placeholder="Quantité perdue">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Carburant cos.</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="carburant" id="carburant"
-                                                required placeholder="Carburant consommé">
+                                            <input class="form-control" type="number" name="carburant" id="carburant" required placeholder="Carburant consommé">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Total prod.</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled name="quantitentra" type="number"
-                                                required placeholder="Stock" id="quantitentra">
+                                            <input class="form-control" disabled name="quantitentra" type="number" required placeholder="Stock" id="quantitentra">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -253,25 +254,21 @@ if (isset($_SESSION['date1'])) {
                                 </form>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="col-sm-12 col-form-label">Production totale : <span
-                                                class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['production'])) ? count($_SESSION['production']) : 0 ?></span></label>
-                                        <select class="form-control" multiple="" id="lst-production"
-                                            style="height:194px">
+                                        <label class="col-sm-12 col-form-label">Production totale : <span class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['production'])) ? count($_SESSION['production']) : 0 ?></span></label>
+                                        <select class="form-control" multiple="" id="lst-production" style="height:194px">
                                             <?php foreach ($_SESSION['production'] as $key) : ?>
-                                            <option value="<?= $key['refprod'] ?>">
-                                                <?= $key['designationprod'] . ' (' . $key['quantiteprod1'] . ') ' ?>
-                                            </option>
+                                                <option value="<?= $key['refprod'] ?>">
+                                                    <?= $key['designationprod'] . ' (' . $key['quantiteprod1'] . ') ' ?>
+                                                </option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-8">
-                                            <button class="btn btn-success btn-sm"
-                                                id="save-production">Enregistrer</button>
+                                            <button class="btn btn-success btn-sm" id="save-production">Enregistrer</button>
                                         </div>
                                         <div class="col-sm-4">
-                                            <button class="btn btn-warning btn-sm" data-toggle="modal"
-                                                data-target="#modal-choose" id="fiche-production"> Fiche de
+                                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-choose" id="fiche-production"> Fiche de
                                                 production</button>
                                         </div>
                                     </div>
@@ -290,8 +287,7 @@ if (isset($_SESSION['date1'])) {
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="example-table"
-                                cellspacing="0" width="100%">
+                            <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>N°</th>
@@ -319,26 +315,26 @@ if (isset($_SESSION['date1'])) {
                                 <tbody>
                                     <?php $counter = 0;
                                     foreach ($productions as $production) : ?>
-                                    <tr>
-                                        <!-- <td style="display:none"><?= $production->getIdentp() ?></td> -->
-                                        <td><?= $production->getNumprod() ?></td>
-                                        <td><?= $production->getDesignationprod() ?></td>
-                                        <td><?= ucfirst($production->getDesignationcat()) ?></td>
-                                        <td><?= $production->getQuantiteprod() . '' . $production->getDesignationu() ?>
-                                        </td>
-                                        <td><?= $production->getQuantiteperd() . $production->getDesignationu() ?></td>
-                                        <td><?= ($production->getQuantiteprod() - $production->getQuantiteperd()) . '' . $production->getDesignationu() ?>
-                                        </td>
-                                        <td><?= $production->getCarburant() . 'L' ?></td>
-                                        <td><?= date('d-m-Y', strtotime($production->getDateprod()))   ?></td>
-                                        <!-- <td>
+                                        <tr>
+                                            <!-- <td style="display:none"><?= $production->getIdentp() ?></td> -->
+                                            <td><?= $production->getNumprod() ?></td>
+                                            <td><?= $production->getDesignationprod() ?></td>
+                                            <td><?= ucfirst($production->getDesignationcat()) ?></td>
+                                            <td><?= $production->getQuantiteprod() . '' . $production->getDesignationu() ?>
+                                            </td>
+                                            <td><?= $production->getQuantiteperd() . $production->getDesignationu() ?></td>
+                                            <td><?= ($production->getQuantiteprod() - $production->getQuantiteperd()) . '' . $production->getDesignationu() ?>
+                                            </td>
+                                            <td><?= $production->getCarburant() . 'L' ?></td>
+                                            <td><?= date('d-m-Y', strtotime($production->getDateprod()))   ?></td>
+                                            <!-- <td>
                                             <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
                                                 data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
                                             <button class="btn btn-default btn-xs" data-toggle="tooltip"
                                                 data-original-title="Delete"><i
                                                     class="fa fa-trash font-14"></i></button>
                                         </td> -->
-                                    </tr>
+                                        </tr>
                                     <?php endforeach; ?>
 
                                 </tbody>
@@ -356,11 +352,9 @@ if (isset($_SESSION['date1'])) {
                                 <div class="modal-title ibox-title">Choisir une date ou deux dates</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
@@ -407,7 +401,7 @@ if (isset($_SESSION['date1'])) {
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
@@ -438,8 +432,7 @@ if (isset($_SESSION['date1'])) {
     </script>
     <script src="views/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/moment/min/moment.min.js" type="text/javascript"></script>
-    <script src="views/admin/assets/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
-        type="text/javascript"></script>
+    <script src="views/admin/assets/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/vendors/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript">
     </script>
     <!-- CORE SCRIPTS-->
@@ -448,19 +441,19 @@ if (isset($_SESSION['date1'])) {
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 10,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
-        });
-    })
+        $(function() {
+            $('#example-table').DataTable({
+                pageLength: 10,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
     </script>
 
 </body>

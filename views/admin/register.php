@@ -1,6 +1,13 @@
 <?php
-if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+
+$managerPage = new ManagerPage();
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte'])) {
     echo '<script>window.location="login";</script>';
+}
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Utilisateur', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +66,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="views/admin/assets/img/admin-avatar.png" />
                             <span></span>
-                            <?= $_SESSION['compte']?><i class="fa fa-angle-down m-l-5"></i>
+                            <?= $_SESSION['compte'] ?><i class="fa fa-angle-down m-l-5"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-user"></i>Mon Profil</a>
@@ -82,10 +89,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     </div>
                     <div class="admin-info">
                         <div class="font-strong">
-                            <?= $_SESSION['user']?>
+                            <?= $_SESSION['user'] ?>
                         </div>
                         <small>
-                            <?= $_SESSION['compte']?>
+                            <?= $_SESSION['compte'] ?>
                         </small>
                     </div>
                 </div>
@@ -187,8 +194,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <!-- <a class="ibox-collapse"><i class="fa fa-minus"></i></a> -->
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a data-toggle="modal" data-target="#modal-category" class="dropdown-item">Catégorie</a>
-                                <a data-toggle="modal" data-target="#modal-mesure" class="dropdown-item">Mesure</a>
+                                <a data-toggle="modal" data-target="#modal-configuration" class="dropdown-item">Configurations</a>
+                                <a data-toggle="modal" data-target="#modal-profil" class="dropdown-item">Profil</a>
                             </div>
                         </div>
                     </div>
@@ -202,36 +209,31 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Nom</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" id="nomuser" name="nomuser" required
-                                                placeholder="Nom">
+                                            <input class="form-control" type="text" id="nomuser" name="nomuser" required placeholder="Nom">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Prénom</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="prenomuser" id="prenomuser"
-                                                required placeholder="Prénom">
+                                            <input class="form-control" type="text" name="prenomuser" id="prenomuser" required placeholder="Prénom">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Username</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="username" id="username"
-                                                required placeholder="Nom d'utilisateur">
+                                            <input class="form-control" type="text" name="username" id="username" required placeholder="Nom d'utilisateur">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Password</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="password" name="passuser" id="passuser"
-                                                required placeholder="Mot de passe">
+                                            <input class="form-control" type="password" name="passuser" id="passuser" required placeholder="Mot de passe">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Compte</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="compteuser"
-                                                id="compteuser" required>
+                                            <select class="form-control select2_demo_1" name="compteuser" id="compteuser" required>
                                                 <optgroup label="Type de Compte">
                                                     <option value="">Type compte</option>
                                                     <option value="Administrateur">Administrateur</option>
@@ -288,9 +290,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                                         <label class="ui-radio">
                                                             <input type="radio" name="refpage" id="refpage" value="10">
                                                             <span class="input-span"></span>Information/Blog</label>
-                                                        <button type="button" id="btnaddpage"
-                                                            class="btn btn-sm btn-success btn-block"
-                                                            style="margin-top:15px;">Donner accès</button>
+                                                        <button type="button" id="btnaddpage" class="btn btn-sm btn-success btn-block" style="margin-top:15px;">Donner accès</button>
                                                     </div>
                                                 </div>
 
@@ -317,18 +317,22 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                                         <span class="input-span"></span>All autorisations</label>
                                                     <ul class="nav navbar-toolbar" style="margin-top:12px;">
                                                         <li class="dropdown dropdown-user">
-                                                            <a class="nav-link dropdown-toggle link"
-                                                                data-toggle="dropdown">
-                                                                <?= isset($_SESSION['pages']) ? 'Pages acc... ' . count($_SESSION['pages']) : 'Pages acc... (0)'?><i
-                                                                    class="fa fa-angle-down m-l-5"></i>
+                                                            <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
+                                                                <?= isset($_SESSION['pages']) ? 'Pages acc... ' . count($_SESSION['pages']) : 'Pages acc... (0)' ?><i class="fa fa-angle-down m-l-5"></i>
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-right" id="pageacc">
-                                                                <?php foreach($_SESSION['pages'] as $key) : ?>
-                                                                    <a class="dropdown-item" href="javascript:;"><?= $key['designationpage'] ?></a>
-                                                                    <li class="dropdown-divider"></li>
-                                                                <?php endforeach; ?>
-                                                                <a class="dropdown-item" href="login"><i
-                                                                        class="fa fa-remove"></i> Supprimer</a>
+                                                                <a class="dropdown-item" href="javascript:;">Pages accessibles</a>
+                                                                <li class="dropdown-divider"></li>
+                                                                <?php if (isset($_SESSION['pages'])) {
+                                                                    foreach ($_SESSION['pages'] as $key) : ?>
+                                                                        <a class="dropdown-item" href="javascript:;"><?= $key['designationpage'] ?></a>
+                                                                    <?php endforeach;
+                                                                } else { ?>
+                                                                    <a class="dropdown-item" href="javascript:;"><?= 'Aucune page.'; ?></a>
+                                                                <?php
+                                                                } ?>
+                                                                <li class="dropdown-divider"></li>
+                                                                <a class="dropdown-item" href="login"><i class="fa fa-remove"></i> Supprimer</a>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -366,43 +370,40 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </tr>
                             </thead>
                             <tbody id="tab-user">
-                                <?php 
-                                $managerPage = new ManagerPage();
-                                foreach ($users as $user): ?>
-                                <tr>
-                                    <td>
-                                        <label class="ui-checkbox">
-                                            <input type="checkbox">
-                                            <span class="input-span"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <?= $user->getIduser()?>
-                                    </td>
-                                    <td>
-                                        <?= $user->getNomuser()?>
-                                    </td>
-                                    <td>
-                                        <?= $user->getPrenomuser()?>
-                                    </td>
-                                    <td>
-                                        <?= $user->getUsername() ?>
-                                    </td>
-                                    <td>
-                                        <?= $user->getCompteuser() ?>
-                                    </td>
-                                    <td>
-                                        <?php foreach($managerPage->getAccessPage($user->getIduser()) as $pageacc) : ?>
-                                            <?= $pageacc->getDesignationpage().', ' ?>
-                                        <?php endforeach; ?>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-default btn-xs m-r-5" data-toggle="modal" title="Edit"
-                                            data-target="#modal-update"><i class="fa fa-pencil font-14"></i></button>
-                                        <button class="btn btn-default btn-xs" data-toggle="tooltip"
-                                            data-original-title="Delete"><i class="fa fa-trash font-14"></i></button>
-                                    </td>
-                                </tr>
+                                <?php
+                                foreach ($users as $user) : ?>
+                                    <tr>
+                                        <td>
+                                            <label class="ui-checkbox">
+                                                <input type="checkbox">
+                                                <span class="input-span"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <?= $user->getIduser() ?>
+                                        </td>
+                                        <td>
+                                            <?= $user->getNomuser() ?>
+                                        </td>
+                                        <td>
+                                            <?= $user->getPrenomuser() ?>
+                                        </td>
+                                        <td>
+                                            <?= $user->getUsername() ?>
+                                        </td>
+                                        <td>
+                                            <?= $user->getCompteuser() ?>
+                                        </td>
+                                        <td>
+                                            <?php foreach ($managerPage->getAccessPage($user->getIduser()) as $pageacc) : ?>
+                                                <?= $pageacc->getDesignationpage() . ', ' ?>
+                                            <?php endforeach; ?>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-default btn-xs m-r-5" data-toggle="modal" title="Edit" data-target="#modal-user"><i class="fa fa-pencil font-14"></i></button>
+                                            <button class="btn btn-default btn-xs" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash font-14"></i></button>
+                                        </td>
+                                    </tr>
                                 <?php
                                 endforeach; ?>
                             </tbody>
@@ -413,48 +414,71 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
 
             <!-- MODALS -->
 
-            <!-- Modal Mesure -->
-            <div class="modal fade" id="modal-mesure">
+            <!-- Modal update User -->
+            <div class="modal fade" id="modal-user">
                 <div class="modal-dialog">
                     <div class="modal-content ibox">
                         <div class="modal-header ibox-head">
-                            <div class="modal-title ibox-title">Ajouter Mesure</div>
+                            <div class="modal-title ibox-title"><b>Modifier Compte</b></div>
                             <div class="ibox-tools">
                                 <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                                 <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item">Supprimer</a>
-                                    <a class="dropdown-item close-btn" data-dismiss="modal"
-                                        aria-label="Close">Fermer</a>
+                                    <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-body ibox-body">
-                            <form id="form-unite">
-                                <div class="form-group">
-                                    <input type="hidden" name="action" value="unite" />
-                                    <input type="hidden" name="actionu" value="1" />
-                                    <input type="hidden" name="id" value="0" />
-                                    <input class="form-control" type="text" id="designationu" name="designation"
-                                        required placeholder="Désignation">
+                            <form id="register-form" class="form-horizontal" action="javascript:;" method="post">
+                                <h2 class="user-title" style="padding-bottom: 10px; font-size: 16px;">Modification du compte</h2>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" name="first_name" placeholder="Nom">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" name="last_name" placeholder="Prénom">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" id="add-quartier"
-                                        class="btn btn-primary form-control">Enregistrer
-                                    </button>
+                                    <input class="form-control" type="email" name="email" placeholder="Nom d'utilisateur" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" id="password" type="password" name="password" placeholder="Mot de passe">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control select2_demo_1" style="width:100%;" name="compteuser" id="compteuser" required>
+                                        <optgroup label="Type de Compte">
+                                            <option value="">Type compte</option>
+                                            <option value="Administrateur">Administrateur</option>
+                                            <option value="Utilisateur">Utilisateur</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label class="ui-checkbox ui-checkbox-info">
+                                        <input type="checkbox" name="agree" checked>
+                                        <span class="input-span"></span>Pages accessibles</label>
+                                        <span class="pull-right">0</span>
+
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" multiple="" id="list-categorie" style="height:150px">
+                                        <?php foreach ($categories as $category) : ?>
+                                            <option value="<?= $category->getIdcat() ?>">
+                                                <?= $category->getDesignationcat() ?> </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-info" type="submit">Enregistrer les modifications</button>
                                 </div>
                             </form>
-                            <div class="form-group">
-                                <label>Unité de Mesure</label>
-                                <select class="form-control" multiple="" id="list-quartier" style="height:150px">
-                                    <?php foreach ($unites as $unite): ?>
-                                    <option value="<?= $unite->getIdu()?>">
-                                        <?= $unite->getDesignationu()?>
-                                    </option>
-                                    <?php
-endforeach; ?>
-                                </select>
-                            </div>
+
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
@@ -543,21 +567,21 @@ endforeach; ?>
                 }
             },
             errorClass: "help-block error",
-            highlight: function (e) {
+            highlight: function(e) {
                 $(e).closest(".form-group.row").addClass("has-error")
             },
-            unhighlight: function (e) {
+            unhighlight: function(e) {
                 $(e).closest(".form-group.row").removeClass("has-error")
             },
         });
     </script>
     <script type="text/javascript">
-        $(function () {
+        $(function() {
             $('#ex-phone2').mask('+243 999 999 999');
         })
     </script>
     <script type="text/javascript">
-        $(function () {
+        $(function() {
             $('#example-table').DataTable({
                 pageLength: 10,
                 //"ajax": './assets/demo/data/table_data.json',
@@ -574,7 +598,7 @@ endforeach; ?>
     <script>
         table = document.getElementById("tab-product");
         for (i = 0; i < table.rows.length; i++) {
-            table.rows[i].onclick = function () {
+            table.rows[i].onclick = function() {
                 getOneDetail(this.cells[1].innerText);
                 document.getElementById("idprod").value = this.cells[1].innerText;
                 document.getElementById("designationprod2").value = this.cells[2].innerText;
@@ -593,10 +617,10 @@ endforeach; ?>
                     action: 'historique',
                     idprod: idprod
                 },
-                success: function (data) {
+                success: function(data) {
                     $('#historiquecommande').html(data);
                 },
-                error: function () {
+                error: function() {
                     alert("Echec de la requête sur le serveur.");
                 }
             });

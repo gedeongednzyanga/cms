@@ -30,11 +30,7 @@ $(function () {
     
     if (pValue.val() == null) {
       $(".div-message").html("");
-      $(".div-message")
-        .html(
-          "<small class='alert alert-warning'>Aucune page sélectionnée.</small>"
-        )
-        .show("slow", "linear");
+      $(".div-message").html("<small class='alert alert-warning'>Aucune page sélectionnée.</small>").show("slow", "linear");
     } else {
       $.ajax({
         url: "models/requests/RequestPage.php",

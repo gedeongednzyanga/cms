@@ -1,6 +1,11 @@
 <?php
+$managerPage = new ManagerPage();
 if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     echo '<script>window.location="login";</script>';
+
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Commande', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -149,10 +154,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -194,13 +199,12 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Client</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" style="width:100%"
-                                                name="refentc" id="refentc" required>
+                                            <select class="form-control select2_demo_1" style="width:100%" name="refentc" id="refentc" required>
                                                 <option value="0">Rechercher un client</option>
                                                 <optgroup label="Rechercher un client">
                                                     <?php foreach ($commandes as $commande) : ?>
-                                                    <option value="<?= $commande->getNumcom() ?>">
-                                                        <?= $commande->getCustomer() ?> </option>
+                                                        <option value="<?= $commande->getNumcom() ?>">
+                                                            <?= $commande->getCustomer() ?> </option>
                                                     <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
@@ -209,15 +213,13 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Facture</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="text" name="facture" id="facture"
-                                                required placeholder="Facture client">
+                                            <input class="form-control" disabled type="text" name="facture" id="facture" required placeholder="Facture client">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Cmnde Client</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" style="width:100%"
-                                                name="ref_detcom" id="iddetcom" required>
+                                            <select class="form-control select2_demo_1" style="width:100%" name="ref_detcom" id="iddetcom" required>
                                                 <optgroup label="Produits commandés">
                                                     <option value="434">Pas d'article</option>
                                                 </optgroup>
@@ -227,22 +229,19 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté Cmdée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="number" name="quatinte_com"
-                                                id="quatinte_com" required placeholder="Quantité commandée">
+                                            <input class="form-control" disabled type="number" name="quatinte_com" id="quatinte_com" required placeholder="Quantité commandée">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté Livrée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantite_liv"
-                                                id="quantite_liv" required placeholder="Quantité livrée">
+                                            <input class="form-control" type="number" name="quantite_liv" id="quantite_liv" required placeholder="Quantité livrée">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Reste à livrer</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="number" name="quantite_rest"
-                                                id="quantite_rest1" required placeholder="Qté restante" value="0">
+                                            <input class="form-control" disabled type="number" name="quantite_rest" id="quantite_rest1" required placeholder="Qté restante" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -254,16 +253,14 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </form>
                                 <div class="col-md-4">
                                     <div class="form-group row">
-                                        <label class="col-sm-12 col-form-label">Commandes à livrer<span
-                                                class="text-xl-center pull-right">...</span></label>
-                                        <select class="form-control" multiple="" id="livraison-list"
-                                            style="height:190px;">
+                                        <label class="col-sm-12 col-form-label">Commandes à livrer<span class="text-xl-center pull-right">...</span></label>
+                                        <select class="form-control" multiple="" id="livraison-list" style="height:190px;">
                                             <?php if (isset($_SESSION['livraison'])) {
                                                 foreach ($_SESSION['livraison'] as $livraison) :
                                             ?>
-                                            <option value="0">
-                                                <?= $livraison['produit'] . '( ' . $livraison['quantite_liv'] . ' )' ?>
-                                            </option>
+                                                    <option value="0">
+                                                        <?= $livraison['produit'] . '( ' . $livraison['quantite_liv'] . ' )' ?>
+                                                    </option>
                                             <?php
                                                 endforeach;
                                             } ?>
@@ -271,10 +268,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-12 ">
-                                            <button class="btn btn-success" id="btn-save-liv"
-                                                type="submit">Enregistrer</button>
-                                            <button class="btn btn-info" data-toggle="modal"
-                                                data-target="#modal-livraison" style="float:right;" type="submit">Autres
+                                            <button class="btn btn-success" id="btn-save-liv" type="submit">Enregistrer</button>
+                                            <button class="btn btn-info" data-toggle="modal" data-target="#modal-livraison" style="float:right;" type="submit">Autres
                                                 Informations</button>
                                         </div>
                                     </div>
@@ -300,8 +295,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="example-table"
-                                cellspacing="0" width="100%">
+                            <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>N°</th>
@@ -332,21 +326,20 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </tfoot>
                                 <tbody id="tab-facture">
                                     <?php foreach ($livraisons as $livraison) : ?>
-                                    <tr>
-                                        <td><?= $livraison->getId_entl() ?></td>
-                                        <td><?= $livraison->getNum_liv() ?></td>
-                                        <td><?= $livraison->getExpediteur() ?></td>
-                                        <td><?= $livraison->getDestinateur() ?></td>
-                                        <td><?= $livraison->getTransporteur() ?></td>
-                                        <td><?= $livraison->getQuantite_liv() . ' articles' ?></td>
-                                        <td><?= $livraison->getNum_camion() ?></td>
-                                        <td><?= $livraison->getPlaque() ?></td>
-                                        <td><?= $livraison->getDate_liv() ?></td>
-                                        <td>
-                                            <a href="#" class="btn btn-success btn-xs m-r-5">Bon de Livraison <i
-                                                    class="fa fa-eye font-14"></i></a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td><?= $livraison->getId_entl() ?></td>
+                                            <td><?= $livraison->getNum_liv() ?></td>
+                                            <td><?= $livraison->getExpediteur() ?></td>
+                                            <td><?= $livraison->getDestinateur() ?></td>
+                                            <td><?= $livraison->getTransporteur() ?></td>
+                                            <td><?= $livraison->getQuantite_liv() . ' articles' ?></td>
+                                            <td><?= $livraison->getNum_camion() ?></td>
+                                            <td><?= $livraison->getPlaque() ?></td>
+                                            <td><?= $livraison->getDate_liv() ?></td>
+                                            <td>
+                                                <a href="#" class="btn btn-success btn-xs m-r-5">Bon de Livraison <i class="fa fa-eye font-14"></i></a>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -375,25 +368,20 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <input type="hidden" name="actionu" id="actionu" value="1" />
                                         <input type="hidden" name="id_entl" id="id_entl" value="0" />
                                         <div class="form-group">
-                                            <input class="form-control" type="text" id="expediteur" name="expediteur"
-                                                required placeholder="Expéditeur" value="CMS-Goma">
+                                            <input class="form-control" type="text" id="expediteur" name="expediteur" required placeholder="Expéditeur" value="CMS-Goma">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" id="destinataire" name="destinateur"
-                                            required placeholder="Destinataire">
+                                        <input class="form-control" type="text" id="destinataire" name="destinateur" required placeholder="Destinataire">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" id="transporteur" name="transporteur"
-                                            required placeholder="Transporteur">
+                                        <input class="form-control" type="text" id="transporteur" name="transporteur" required placeholder="Transporteur">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" id="num_camion" name="num_camion"
-                                            required placeholder="Numéro camion">
+                                        <input class="form-control" type="text" id="num_camion" name="num_camion" required placeholder="Numéro camion">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" id="plaque" name="plaque" required
-                                            placeholder="Plaque">
+                                        <input class="form-control" type="text" id="plaque" name="plaque" required placeholder="Plaque">
                                     </div>
                                     <!-- <div class="form-group">
                                         <button type="submit" id="add-quartier"
@@ -403,8 +391,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </form>
                             </div>
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Valider <i
-                                        class="fa fa-check"></i> </button>
+                                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Valider <i class="fa fa-check"></i> </button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -419,7 +406,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
@@ -453,59 +440,59 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     <script src="views/admin/assets/js/request/livraisonRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
-    $(function() {
-        $('#ex-phone2').mask('+243 999 999 999');
-    })
+        $(function() {
+            $('#ex-phone2').mask('+243 999 999 999');
+        })
     </script>
 
     <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 10,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
-        });
-    })
+        $(function() {
+            $('#example-table').DataTable({
+                pageLength: 10,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
     </script>
     <script>
-    // table = document.getElementById("tab-facture");
-    // for (i = 0; i < table.rows.length; i++) {
-    //     table.rows[i].onclick = function() {
-    //         getFacture(this.cells[1].innerText);
-    //         document.getElementById('refentc').value = this.cells[0].innerText;
-    //         document.getElementById("numfact").innerHTML = this.cells[1].innerHTML;
-    //         document.getElementById("client").value = this.cells[2].innerText;
-    //         document.getElementById("commande").value = this.cells[3].innerText;
-    //         document.getElementById("customerid").innerHTML = this.cells[2].innerHTML;
-    //         document.getElementById("datecom").innerHTML = this.cells[5].innerHTML;
-    //         document.getElementById("s-total").innerHTML = this.cells[4].innerHTML;
-    //         document.getElementById("montant").value = this.cells[4].innerText;
-    //     }
-    // }
+        // table = document.getElementById("tab-facture");
+        // for (i = 0; i < table.rows.length; i++) {
+        //     table.rows[i].onclick = function() {
+        //         getFacture(this.cells[1].innerText);
+        //         document.getElementById('refentc').value = this.cells[0].innerText;
+        //         document.getElementById("numfact").innerHTML = this.cells[1].innerHTML;
+        //         document.getElementById("client").value = this.cells[2].innerText;
+        //         document.getElementById("commande").value = this.cells[3].innerText;
+        //         document.getElementById("customerid").innerHTML = this.cells[2].innerHTML;
+        //         document.getElementById("datecom").innerHTML = this.cells[5].innerHTML;
+        //         document.getElementById("s-total").innerHTML = this.cells[4].innerHTML;
+        //         document.getElementById("montant").value = this.cells[4].innerText;
+        //     }
+        // }
 
-    // function getFacture(numfact) {
-    //     $.ajax({
-    //         url: "models/requests/RequestCommande.php",
-    //         type: "POST",
-    //         data: {
-    //             action: 'facture',
-    //             numcom: numfact,
-    //         },
-    //         timeout: 3000,
-    //         success: function(data) {
-    //             $('#invoice-cl').html(data);
-    //         },
-    //         error: function() {
-    //             alert('Echec de la requete sur le serveur.')
-    //         }
-    //     })
-    // }
+        // function getFacture(numfact) {
+        //     $.ajax({
+        //         url: "models/requests/RequestCommande.php",
+        //         type: "POST",
+        //         data: {
+        //             action: 'facture',
+        //             numcom: numfact,
+        //         },
+        //         timeout: 3000,
+        //         success: function(data) {
+        //             $('#invoice-cl').html(data);
+        //         },
+        //         error: function() {
+        //             alert('Echec de la requete sur le serveur.')
+        //         }
+        //     })
+        // }
     </script>
 
 </body>

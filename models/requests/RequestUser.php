@@ -21,17 +21,17 @@ switch ($action) {
     case 'create':
         $user = new User($_POST);
         $managerUser->createObj($_POST['actionu'], 'obj_user', $user);
-        echo 'Utilisateur enregistré avec succès.'.$managerUser->getLastUserId();
-        if(isset($_SESSION['pages'])){
+        echo 'Utilisateur enregistré avec succès.' . $managerUser->getLastUserId();
+        if (isset($_SESSION['pages'])) {
             $page = new Page([]);
-            foreach($_SESSION['pages'] as $key){
+            foreach ($_SESSION['pages'] as $key) {
                 $page->setRefuser($managerUser->getLastUserId());
                 $page->setRefpage($key['refpage']);
                 $managerPage->createObj(1, 'obj_acceder', $page);
             }
             unset($_SESSION['pages']);
         }
-        if(isset($_SESSION['autorisation'])){
+        if (isset($_SESSION['autorisation'])) {
             $page = new Page([]);
             foreach ($_SESSION['autorisation'] as $key) {
                 $page->setRefpage($key['refpage']);

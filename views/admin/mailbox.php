@@ -1,6 +1,12 @@
 <?php
-if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+$managerPage = new ManagerPage();
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte'])) {
     echo '<script>window.location="login";</script>';
+}
+
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Message', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,10 +159,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -185,29 +191,24 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <li class="list-group-item">
                                 <?php $managerMessage = new ManagerMessage(); ?>
                                 <a href="mailbox"><i class="fa fa-envelope-open-o"></i> Tous les messages
-                                    <span
-                                        class="badge badge-default badge-square pull-right"><?= count($messages) ?></span>
+                                    <span class="badge badge-default badge-square pull-right"><?= count($messages) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
                                 <a href="javascript:;" id="btr"><i class="fa fa-envelope-o"></i> Boîte de reception
-                                    <span
-                                        class="badge badge-warning badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('receive')) ?></span>
+                                    <span class="badge badge-warning badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('receive')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a id="msge" href="javascript:;"><i class="fa fa-send-o"></i> Messages Envoyés <span
-                                        class="badge badge-primary badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('sent')) ?></span></a>
+                                <a id="msge" href="javascript:;"><i class="fa fa-send-o"></i> Messages Envoyés <span class="badge badge-primary badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('sent')) ?></span></a>
                             </li>
                             <li class="list-group-item">
                                 <a id="msgi" href="javascript:;"><i class="fa fa-star-o"></i> Important
-                                    <span
-                                        class="badge badge-success badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('important')) ?></span>
+                                    <span class="badge badge-success badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('important')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a id="msgd" href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille <span
-                                        class="badge badge-danger badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('delete')) ?></span></a>
+                                <a id="msgd" href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille <span class="badge badge-danger badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('delete')) ?></span></a>
                             </li>
                         </ul>
 
@@ -216,13 +217,11 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                         <div class="ibox" id="mailbox-container">
                             <div class="mailbox-header">
                                 <div class="d-flex justify-content-between">
-                                    <h5 id="title-msg" class="d-none d-lg-block inbox-title"><i
-                                            class="fa fa-envelope-open-o m-r-5"></i>
+                                    <h5 id="title-msg" class="d-none d-lg-block inbox-title"><i class="fa fa-envelope-open-o m-r-5"></i>
                                         Tous les messages (<?= count($messages) ?>)</h5>
                                     <form class="mail-search" action="javascript:;">
                                         <div class="input-group">
-                                            <input class="form-control" type="text" id="text-search"
-                                                placeholder="Rechercher un mail...">
+                                            <input class="form-control" type="text" id="text-search" placeholder="Rechercher un mail...">
                                             <div class="input-group-btn">
                                                 <button class="btn btn-info">Rechercher</button>
                                             </div>
@@ -236,15 +235,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                             <span class="input-span"></span>
                                         </label>
                                         <div id="inbox-actions">
-                                            <button class="btn btn-default btn-sm" data-toggle="tooltip"
-                                                data-original-title="Mark as read"><i class="fa fa-eye"></i></button>
-                                            <button class="btn btn-default btn-sm" data-toggle="tooltip"
-                                                data-original-title="Mark as important"><i
-                                                    class="fa fa-star-o"></i></button>
-                                            <button class="btn btn-default btn-sm" data-toggle="tooltip"
-                                                data-original-title="Reply"><i class="fa fa-reply"></i></button>
-                                            <button class="btn btn-default btn-sm" data-toggle="tooltip"
-                                                data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
+                                            <button class="btn btn-default btn-sm" data-toggle="tooltip" data-original-title="Mark as read"><i class="fa fa-eye"></i></button>
+                                            <button class="btn btn-default btn-sm" data-toggle="tooltip" data-original-title="Mark as important"><i class="fa fa-star-o"></i></button>
+                                            <button class="btn btn-default btn-sm" data-toggle="tooltip" data-original-title="Reply"><i class="fa fa-reply"></i></button>
+                                            <button class="btn btn-default btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
                                         </div>
                                         <span class="counter-selected m-l-5" hidden="">Selected
                                             <span class="font-strong text-warning counter-count">3</span>
@@ -263,23 +257,21 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <table class="table table-hover table-inbox" id="table-inbox">
                                     <tbody class="rowlinkx" data-link="row" id="table-message">
                                         <?php foreach ($messages as $message) : ?>
-                                        <tr class="<?= $message->getStatutmsg() == 0 ? "unread" : "" ?>" data-id="2">
-                                            <td class="check-cell">
-                                                <label class="ui-checkbox ui-checkbox-info">
-                                                    <input class="mail-check" type="checkbox">
-                                                    <span class="input-span"></span>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <a
-                                                    href="mailview-<?= $message->getIdmsg() ?>"><?= $message->getSender() ?></a>
-                                            </td>
-                                            <td class="mail-message"><?= $message->getSujet() ?></td>
-                                            <td class="mail-label hidden-xs"><i
-                                                    class="fa <?= $message->getStatutmsg() == 0 ? "fa-circle text-warning" : "" ?> "></i>
-                                            </td>
-                                            <td class="text-right"><?= cal_time_ago($message->getDatemsg())  ?></td>
-                                        </tr>
+                                            <tr class="<?= $message->getStatutmsg() == 0 ? "unread" : "" ?>" data-id="2">
+                                                <td class="check-cell">
+                                                    <label class="ui-checkbox ui-checkbox-info">
+                                                        <input class="mail-check" type="checkbox">
+                                                        <span class="input-span"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <a href="mailview-<?= $message->getIdmsg() ?>"><?= $message->getSender() ?></a>
+                                                </td>
+                                                <td class="mail-message"><?= $message->getSujet() ?></td>
+                                                <td class="mail-label hidden-xs"><i class="fa <?= $message->getStatutmsg() == 0 ? "fa-circle text-warning" : "" ?> "></i>
+                                                </td>
+                                                <td class="text-right"><?= cal_time_ago($message->getDatemsg())  ?></td>
+                                            </tr>
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
@@ -302,8 +294,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <a class="page-link" href="javascript:;">4</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="javascript:;" aria-label="Next"><i
-                                                class="fa fa-angle-right"></i></a>
+                                        <a class="page-link" href="javascript:;" aria-label="Next"><i class="fa fa-angle-right"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -316,7 +307,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>

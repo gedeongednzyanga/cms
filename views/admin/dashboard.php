@@ -54,6 +54,120 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                 <!-- END TOP-LEFT TOOLBAR-->
                 <!-- START TOP-RIGHT TOOLBAR-->
                 <ul class="nav navbar-toolbar">
+                <li class="dropdown dropdown-inbox">
+                    <!-- data-toggle="dropdown" -->
+                        <a class="nav-link dropdown-toggle" data-toggle=""><i class="fa fa-envelope-o"></i>
+                            <span class="badge badge-primary envelope-badge">9</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media">
+                            <li class="dropdown-menu-header">
+                                <div>
+                                    <span><strong>9 New</strong> Messages</span>
+                                    <a class="pull-right" href="mailbox.html">view all</a>
+                                </div>
+                            </li>
+                            <li class="list-group list-group-divider scroller" data-height="240px" data-color="#71808f">
+                                <div>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <img src="./assets/img/users/u1.jpg" />
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-strong"> </div>Jeanne Gonzalez<small class="text-muted float-right">Just now</small>
+                                                <div class="font-13">Your proposal interested me.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <img src="./assets/img/users/u2.jpg" />
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-strong"></div>Becky Brooks<small class="text-muted float-right">18 mins</small>
+                                                <div class="font-13">Lorem Ipsum is simply.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <img src="./assets/img/users/u3.jpg" />
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-strong"></div>Frank Cruz<small class="text-muted float-right">18 mins</small>
+                                                <div class="font-13">Lorem Ipsum is simply.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <img src="./assets/img/users/u4.jpg" />
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-strong"></div>Rose Pearson<small class="text-muted float-right">3 hrs</small>
+                                                <div class="font-13">Lorem Ipsum is simply.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-notification">
+                        <!-- data-toggle="dropdown" -->
+                        <a class="nav-link dropdown-toggle" data-toggle=""><i class="fa fa-bell-o rel"><span class="notify-signal"></span></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media">
+                            <li class="dropdown-menu-header">
+                                <div>
+                                    <span><strong>5 New</strong> Notifications</span>
+                                    <a class="pull-right" href="javascript:;">view all</a>
+                                </div>
+                            </li>
+                            <li class="list-group list-group-divider scroller" data-height="240px" data-color="#71808f">
+                                <div>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <span class="badge badge-success badge-big"><i class="fa fa-check"></i></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-13">4 task compiled</div><small class="text-muted">22 mins</small></div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <span class="badge badge-default badge-big"><i class="fa fa-shopping-basket"></i></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-13">You have 12 new orders</div><small class="text-muted">40 mins</small></div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <span class="badge badge-danger badge-big"><i class="fa fa-bolt"></i></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-13">Server #7 rebooted</div><small class="text-muted">2 hrs</small></div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <span class="badge badge-success badge-big"><i class="fa fa-user"></i></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-13">New user registered</div><small class="text-muted">2 hrs</small></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="views/admin/assets/img/admin-avatar.png" />
@@ -213,7 +327,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <div class="flexbox mb-4">
                                     <div>
                                         <h3 class="m-0">Statistiques <script>
-                                            document.write(new Date().getFullYear())
+                                                document.write(new Date().getFullYear())
                                             </script>
                                         </h3>
                                         <div>Productions et Commandes</div>
@@ -252,8 +366,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <div class="ibox-title">Productions récentes</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item">option 1</a>
                                         <a class="dropdown-item">option 2</a>
@@ -276,19 +389,19 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <tbody>
                                         <?php $counter = 0;
                                         foreach ($lastProductions as $production) : ?>
-                                        <tr>
-                                            <!-- <td style="display:none"><?= $production->getIdentp() ?></td> -->
-                                            <td><?= $production->getNumprod() ?></td>
-                                            <td><?= $production->getDesignationprod() ?></td>
-                                            <td><?= $production->getDesignationcat() ?></td>
-                                            <td><?= $production->getQuantiteprod() . '' . $production->getDesignationu() ?>
-                                            </td>
-                                            <td><?= $production->getQuantiteperd() . $production->getDesignationu() ?>
-                                            </td>
-                                            <td><?= $production->getCarburant() . 'L' ?></td>
-                                            <td><?= $production->getDateprod()  ?></td>
+                                            <tr>
+                                                <!-- <td style="display:none"><?= $production->getIdentp() ?></td> -->
+                                                <td><?= $production->getNumprod() ?></td>
+                                                <td><?= $production->getDesignationprod() ?></td>
+                                                <td><?= $production->getDesignationcat() ?></td>
+                                                <td><?= $production->getQuantiteprod() . '' . $production->getDesignationu() ?>
+                                                </td>
+                                                <td><?= $production->getQuantiteperd() . $production->getDesignationu() ?>
+                                                </td>
+                                                <td><?= $production->getCarburant() . 'L' ?></td>
+                                                <td><?= $production->getDateprod()  ?></td>
 
-                                        </tr>
+                                            </tr>
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
@@ -303,21 +416,21 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <div class="ibox-body">
                                 <ul class="media-list media-list-divider m-0">
                                     <?php foreach ($lastCommandes as $commande) : ?>
-                                    <li class="media">
-                                        <a class="media-img" href="javascript:;">
-                                            <img src="views/admin/assets/img/image.jpg" width="50px;" />
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="media-heading">
-                                                <a href="javascript:;"><?= $commande->getCustomer() ?></a>
-                                                <span class="font-16 float-right"><?= $commande->getTotcom() ?>
-                                                    arts</span>
+                                        <li class="media">
+                                            <a class="media-img" href="javascript:;">
+                                                <img src="views/admin/assets/img/image.jpg" width="50px;" />
+                                            </a>
+                                            <div class="media-body">
+                                                <div class="media-heading">
+                                                    <a href="javascript:;"><?= $commande->getCustomer() ?></a>
+                                                    <span class="font-16 float-right"><?= $commande->getTotcom() ?>
+                                                        arts</span>
+                                                </div>
+                                                <div class="font-13">
+                                                    <?= $commande->getDatecom() . ' (<a href="#">' . $commande->getNumcom() . '</a>)' ?>
+                                                </div>
                                             </div>
-                                            <div class="font-13">
-                                                <?= $commande->getDatecom() . ' (<a href="#">' . $commande->getNumcom() . '</a>)' ?>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
                                     <?php endforeach; ?>
 
                                 </ul>
@@ -329,19 +442,19 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     </div>
                 </div>
                 <style>
-                .visitors-table tbody tr td:last-child {
-                    display: flex;
-                    align-items: center;
-                }
+                    .visitors-table tbody tr td:last-child {
+                        display: flex;
+                        align-items: center;
+                    }
 
-                .visitors-table .progress {
-                    flex: 1;
-                }
+                    .visitors-table .progress {
+                        flex: 1;
+                    }
 
-                .visitors-table .progress-parcent {
-                    text-align: right;
-                    margin-left: 10px;
-                }
+                    .visitors-table .progress-parcent {
+                        text-align: right;
+                        margin-left: 10px;
+                    }
                 </style>
 
             </div>
@@ -349,7 +462,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>

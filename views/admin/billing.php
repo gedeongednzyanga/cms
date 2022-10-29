@@ -1,6 +1,11 @@
 <?php
+$managerPage = new ManagerPage();
 if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     echo '<script>window.location="login";</script>';
+
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Facturation', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,8 +127,13 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                         </ul>
                     </li>
                     <li class="active">
-                        <a class="active" href="billing"><i class="sidebar-item-icon fa fa-building-o"></i>
+                        <a class="active" href="billing"><i class="sidebar-item-icon fa fa-calculator"></i>
                             <span class="nav-label">Facturation</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="carburant"><i class="sidebar-item-icon fa fa-building"></i>
+                            <span class="nav-label">Carburant</span>
                         </a>
                     </li>
                     <li class="heading">MESSAGES</li>
@@ -149,10 +159,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -195,15 +205,14 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Recherche cli...</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" style="width:100%"
-                                                name="refentcom" id="refentcom" required>
+                                            <select class="form-control select2_demo_1" style="width:100%" name="refentcom" id="refentcom" required>
                                                 <optgroup label="Rechercher un client">
                                                     <option value="0">Rechercher un client</option>
                                                     <?php
                                                     $managerCommande = new ManagerCommande();
                                                     foreach ($managerCommande->getClientWithCredit() as $credit) : ?>
-                                                    <option value="<?= $credit->getNumcom() ?>">
-                                                        <?= $credit->getCustomer() ?> </option>
+                                                        <option value="<?= $credit->getNumcom() ?>">
+                                                            <?= $credit->getCustomer() ?> </option>
                                                     <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
@@ -212,36 +221,31 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Client</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" id="client" name="client" required
-                                                placeholder="Nom du client">
+                                            <input class="form-control" type="text" id="client" name="client" required placeholder="Nom du client">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté cmdée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="commande" id="commande"
-                                                required placeholder="Qté commandée">
+                                            <input class="form-control" type="number" name="commande" id="commande" required placeholder="Qté commandée">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Total à payer</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="montant" id="montant"
-                                                required placeholder="Montant total">
+                                            <input class="form-control" type="number" name="montant" id="montant" required placeholder="Montant total">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Montant payé</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="montantpaye"
-                                                id="montantpaye" required placeholder="Montant payé">
+                                            <input class="form-control" type="number" name="montantpaye" id="montantpaye" required placeholder="Montant payé">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Reste à payer</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="number" name="reste" id="reste"
-                                                required placeholder="Montant à payer" value="0">
+                                            <input class="form-control" disabled type="number" name="reste" id="reste" required placeholder="Montant à payer" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -252,10 +256,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="col-sm-12 col-form-label">Détail commande client <span
-                                                class="text-xl-center pull-right">...</span></label>
-                                        <select class="form-control" multiple="" id="detail-facture"
-                                            style="height:235px">
+                                        <label class="col-sm-12 col-form-label">Détail commande client <span class="text-xl-center pull-right">...</span></label>
+                                        <select class="form-control" multiple="" id="detail-facture" style="height:235px">
                                             <option value="0">Séléctionner un client</option>
                                         </select>
                                     </div>
@@ -281,8 +283,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="example-table"
-                                cellspacing="0" width="100%">
+                            <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>N°</th>
@@ -316,27 +317,24 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     $managerCommande = new ManagerCommande();
                                     $managerPayement = new ManagerPayement();
                                     foreach ($commandes as $commande) : ?>
-                                    <tr>
-                                        <td><?= $commande->getIdentc() ?></td>
-                                        <td><?= $commande->getNumcom() ?></td>
-                                        <td><?= $commande->getCustomer() ?></td>
-                                        <td class="text-center"><?= $commande->getTotcom() . ' article(s)' ?></td>
-                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) . '$'  ?>
-                                        </td>
-                                        <td><?= $managerPayement->getMontantPayer($commande->getIdentc()) . '$' ?>
-                                        </td>
-                                        <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) - $managerPayement->getMontantPayer($commande->getIdentc()) . '$'  ?>
-                                        </td>
-                                        <td class="text-center"><?= $commande->getDatecom() ?></td>
-                                        <td
-                                            class="alert text-center <?= $commande->getStatcom() == 0 ? 'alert-danger' : 'alert-success' ?>">
-                                            <?= $commande->getStatcom() == 0 ? 'Non payéé' : 'Payé' ?></td>
-                                        <td>
-                                            <a href="invoice-<?= $commande->getNumcom()  ?>"
-                                                class="btn btn-success btn-xs m-r-5">Facture client <i
-                                                    class="fa fa-eye font-14"></i></a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td><?= $commande->getIdentc() ?></td>
+                                            <td><?= $commande->getNumcom() ?></td>
+                                            <td><?= $commande->getCustomer() ?></td>
+                                            <td class="text-center"><?= $commande->getTotcom() . ' article(s)' ?></td>
+                                            <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) . '$'  ?>
+                                            </td>
+                                            <td><?= $managerPayement->getMontantPayer($commande->getIdentc()) . '$' ?>
+                                            </td>
+                                            <td><?= $managerCommande->calculSommetotcommande($commande->getIdentc()) - $managerPayement->getMontantPayer($commande->getIdentc()) . '$'  ?>
+                                            </td>
+                                            <td class="text-center"><?= $commande->getDatecom() ?></td>
+                                            <td class="alert text-center <?= $commande->getStatcom() == 0 ? 'alert-danger' : 'alert-success' ?>">
+                                                <?= $commande->getStatcom() == 0 ? 'Non payéé' : 'Payé' ?></td>
+                                            <td>
+                                                <a href="invoice-<?= $commande->getNumcom()  ?>" class="btn btn-success btn-xs m-r-5">Facture client <i class="fa fa-eye font-14"></i></a>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -350,7 +348,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
@@ -384,61 +382,61 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     <script src="views/admin/assets/js/request/payementRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
-    $(function() {
-        $('#ex-phone2').mask('+243 999 999 999');
-    })
+        $(function() {
+            $('#ex-phone2').mask('+243 999 999 999');
+        })
     </script>
 
     <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 10,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
-        });
-    })
+        $(function() {
+            $('#example-table').DataTable({
+                pageLength: 10,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
     </script>
     <script>
-    table = document.getElementById("tab-facture");
-    for (i = 0; i < table.rows.length; i++) {
-        table.rows[i].onclick = function() {
-            getFacture(this.cells[1].innerText);
-            document.getElementById('refentc').value = this.cells[0].innerText;
-            document.getElementById("numfact").innerHTML = this.cells[1].innerHTML;
-            document.getElementById("client").value = this.cells[2].innerText;
-            document.getElementById("commande").value = this.cells[3].innerText;
-            document.getElementById("customerid").innerHTML = this.cells[2].innerHTML;
-            document.getElementById("datecom").innerHTML = this.cells[5].innerHTML;
-            document.getElementById("s-total").innerHTML = this.cells[4].innerHTML + '$';
-            document.getElementById("montant").value = this.cells[6].innerText;
-            document.getElementById("tva").innerHTML = (this.cells[4].innerText * 0.05);
-            document.getElementById("total-p").innerHTML = this.cells[4].innerText;
-        }
-    }
-
-    function getFacture(numfact) {
-        $.ajax({
-            url: "models/requests/RequestCommande.php",
-            type: "POST",
-            data: {
-                action: 'facture',
-                numcom: numfact,
-            },
-            timeout: 3000,
-            success: function(data) {
-                $('#detail-facture').html(data);
-            },
-            error: function() {
-                alert('Echec de la requete sur le serveur.')
+        table = document.getElementById("tab-facture");
+        for (i = 0; i < table.rows.length; i++) {
+            table.rows[i].onclick = function() {
+                getFacture(this.cells[1].innerText);
+                document.getElementById('refentc').value = this.cells[0].innerText;
+                document.getElementById("numfact").innerHTML = this.cells[1].innerHTML;
+                document.getElementById("client").value = this.cells[2].innerText;
+                document.getElementById("commande").value = this.cells[3].innerText;
+                document.getElementById("customerid").innerHTML = this.cells[2].innerHTML;
+                document.getElementById("datecom").innerHTML = this.cells[5].innerHTML;
+                document.getElementById("s-total").innerHTML = this.cells[4].innerHTML + '$';
+                document.getElementById("montant").value = this.cells[6].innerText;
+                document.getElementById("tva").innerHTML = (this.cells[4].innerText * 0.05);
+                document.getElementById("total-p").innerHTML = this.cells[4].innerText;
             }
-        })
-    }
+        }
+
+        function getFacture(numfact) {
+            $.ajax({
+                url: "models/requests/RequestCommande.php",
+                type: "POST",
+                data: {
+                    action: 'facture',
+                    numcom: numfact,
+                },
+                timeout: 3000,
+                success: function(data) {
+                    $('#detail-facture').html(data);
+                },
+                error: function() {
+                    alert('Echec de la requete sur le serveur.')
+                }
+            })
+        }
     </script>
 
 </body>

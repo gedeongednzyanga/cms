@@ -6,11 +6,9 @@ spl_autoload_register(function ($class) {
 
     if (file_exists($fileManager)) {
         require($fileManager);
-    }
-    else if (file_exists($fileObject)) {
+    } else if (file_exists($fileObject)) {
         require($fileObject);
-    }
-    else {
+    } else {
         echo 'Fichier ' . $class . '.php n\'existe pas.';
     }
 });
@@ -44,13 +42,15 @@ switch ($action) {
             endforeach;
             $_SESSION['pages'][0] = $item_array;
         }
+        $pagesSelect = '<a class="dropdown-item" href="javascript:;">Pages accessibles</a> <li class="dropdown-divider"></li>';
         foreach ($_SESSION['pages'] as $key) :
-            echo "<a class='dropdown-item' href='javascript:;'>".$key['designationpage']."</a>";
+            $pagesSelect .= "<a class='dropdown-item' href='javascript:;'>" . $key['designationpage'] . "</a>";
         endforeach;
+        echo  $pagesSelect . '<li class="dropdown-divider"></li>';
         break;
 
     case 'autorisations':
-        
+
         $autorisations = $managerPage->getOneAutorisation($_POST['refauto']);
         if (isset($_SESSION['autorisation'])) {
             $count = count($_SESSION['autorisation']);
@@ -61,7 +61,6 @@ switch ($action) {
                 $item_array['designationauto'] = $oneauto->getDesignationauto();
             endforeach;
             $_SESSION['autorisation'][$count] = $item_array;
-
         } else {
             $item_array = array();
             foreach ($autorisations as $oneauto) :

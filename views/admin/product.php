@@ -1,6 +1,13 @@
 <?php
-if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+
+$managerPage = new ManagerPage();
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte'])) {
     echo '<script>window.location="login";</script>';
+}
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,9 +159,9 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <li>
                                 <a href="register">Utilisateurs</a>
                             </li>
-                            <!-- <li>
-                                <a href="mail_compose.html">Composer un mail</a>
-                            </li> -->
+                            <li>
+                                <a href="javascript:;">Configurations</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -192,34 +199,30 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Désignation</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" id="designationprod"
-                                                name="designationprod" required placeholder="Désignation">
+                                            <input class="form-control" type="text" id="designationprod" name="designationprod" required placeholder="Désignation">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">PA/PV</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="prixprod" id="prixprod"
-                                                required placeholder="Prix">
+                                            <input class="form-control" type="number" name="prixprod" id="prixprod" required placeholder="Prix">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Stock alert</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="stalert" id="stalert"
-                                                required placeholder="Stock alert">
+                                            <input class="form-control" type="number" name="stalert" id="stalert" required placeholder="Stock alert">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Catégorie</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="refcat" id="refcat"
-                                                required>
+                                            <select class="form-control select2_demo_1" name="refcat" id="refcat" required>
                                                 <option value="">Choisir une catégorie</option>
                                                 <optgroup label="Catégories">
                                                     <?php foreach ($categories as $category) : ?>
-                                                    <option value="<?= $category->getIdcat() ?>">
-                                                        <?= $category->getDesignationcat() ?></option>
+                                                        <option value="<?= $category->getIdcat() ?>">
+                                                            <?= $category->getDesignationcat() ?></option>
                                                     <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
@@ -228,13 +231,12 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Uni. de mesure</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="refunit" id="refunit"
-                                                required>
+                                            <select class="form-control select2_demo_1" name="refunit" id="refunit" required>
                                                 <option value="">Choisir une unité de mesure</option>
                                                 <optgroup label="Unité de mesure">
                                                     <?php foreach ($unites as $unite) : ?>
-                                                    <option value="<?= $unite->getIdu() ?>">
-                                                        <?= $unite->getDesignationu() ?></option>
+                                                        <option value="<?= $unite->getIdu() ?>">
+                                                            <?= $unite->getDesignationu() ?></option>
                                                     <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
@@ -243,8 +245,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">En Stock</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="text" required
-                                                placeholder="Stock" value="0">
+                                            <input class="form-control" disabled type="text" required placeholder="Stock" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -256,10 +257,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="col-sm-12 col-form-label">Historique Sortie en stock de <span
-                                                class="text-xl-center pull-right">...</span></label>
-                                        <select class="form-control" multiple="" id="historiquecommande"
-                                            style="height:235px">
+                                        <label class="col-sm-12 col-form-label">Historique Sortie en stock de <span class="text-xl-center pull-right">...</span></label>
+                                        <select class="form-control" multiple="" id="historiquecommande" style="height:235px">
                                             <option value="0">Séléctionner un produit</option>
                                         </select>
                                     </div>
@@ -293,33 +292,31 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </thead>
                                 <tbody id="tab-product">
                                     <?php foreach ($product8 as $product) : ?>
-                                    <tr>
-                                        <td>
-                                            <label class="ui-checkbox">
-                                                <input type="checkbox">
-                                                <span class="input-span"></span>
-                                            </label>
-                                        </td>
-                                        <td><?= $product->getIdprod() ?></td>
-                                        <td><?= $product->getDesignationprod() ?></td>
-                                        <td><?= $product->getDesignationcat() ?></td>
-                                        <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
-                                        <td><?= $product->getPrixprod() . '$' ?></td>
-                                        <td style="display:none;"><?= $product->getPrixprod() ?></td>
-                                        <td style="display:none;"><?= $product->getStalert() ?></td>
-                                        <td style="display:none;"><?= $product->getQuantitest() ?></td>
-                                        <td>
-                                            <button class="btn btn-default btn-sm m-r-5" data-toggle="modal"
-                                                data-target="#modal-update"><i class="fa fa-pencil font-14"
-                                                    data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
-                                                    produit
-                                                </i></button>
-                                            <!-- <button class="btn btn-default btn-xs" data-toggle="tooltip"
+                                        <tr>
+                                            <td>
+                                                <label class="ui-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="input-span"></span>
+                                                </label>
+                                            </td>
+                                            <td><?= $product->getIdprod() ?></td>
+                                            <td><?= $product->getDesignationprod() ?></td>
+                                            <td><?= $product->getDesignationcat() ?></td>
+                                            <td><?= $product->getQuantitest() . '' . $product->getDesignationu() ?></td>
+                                            <td><?= $product->getStalert() . $product->getDesignationu() ?></td>
+                                            <td><?= $product->getPrixprod() . '$' ?></td>
+                                            <td style="display:none;"><?= $product->getPrixprod() ?></td>
+                                            <td style="display:none;"><?= $product->getStalert() ?></td>
+                                            <td style="display:none;"><?= $product->getQuantitest() ?></td>
+                                            <td>
+                                                <button class="btn btn-default btn-sm m-r-5" data-toggle="modal" data-target="#modal-update"><i class="fa fa-pencil font-14" data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
+                                                        produit
+                                                    </i></button>
+                                                <!-- <button class="btn btn-default btn-xs" data-toggle="tooltip"
                                                 data-original-title="Delete"><i
                                                     class="fa fa-trash font-14"></i></button> -->
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -336,12 +333,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <div class="modal-title ibox-title">Ajouter Catégorie</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
@@ -351,12 +346,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <input type="hidden" name="action" value="category" />
                                         <input type="hidden" name="actionu" value="1" />
                                         <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationc" name="designation"
-                                            required placeholder="Désignation">
+                                        <input class="form-control" type="text" id="designationc" name="designation" required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
+                                        <button type="submit" id="add-quartier" class="btn btn-primary form-control">Enregistrer
                                         </button>
                                     </div>
                                 </form>
@@ -364,8 +357,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <label>Catégorie produit</label>
                                     <select class="form-control" multiple="" id="list-categorie" style="height:150px">
                                         <?php foreach ($categories as $category) : ?>
-                                        <option value="<?= $category->getIdcat() ?>">
-                                            <?= $category->getDesignationcat() ?> </option>
+                                            <option value="<?= $category->getIdcat() ?>">
+                                                <?= $category->getDesignationcat() ?> </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -389,21 +382,15 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <div class="modal-title ibox-title">Modifier Produit</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item sweet-8"
-                                            onclick="_gaq.push(['_trackEvent', 'exit', 'footer', 'Lipis']);"
-                                            data-original-title="Supprimer cet article"
-                                            data-toggle="tooltip">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item sweet-8" onclick="_gaq.push(['_trackEvent', 'exit', 'footer', 'Lipis']);" data-original-title="Supprimer cet article" data-toggle="tooltip">Supprimer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                                <form id="form-product2" class="row form-horizontal" method="post"
-                                    novalidate="novalidate">
+                                <form id="form-product2" class="row form-horizontal" method="post" novalidate="novalidate">
                                     <div class="col-md-12">
                                         <input type="hidden" name="action" value="product" />
                                         <input type="hidden" name="actionu" value="2" />
@@ -412,34 +399,30 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Désignation</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" type="text" id="designationprod2"
-                                                    name="designationprod" required placeholder="Désignation">
+                                                <input class="form-control" type="text" id="designationprod2" name="designationprod" required placeholder="Désignation">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">PA/PV</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" type="number" name="prixprod" id="prixprod2"
-                                                    required placeholder="Prix">
+                                                <input class="form-control" type="number" name="prixprod" id="prixprod2" required placeholder="Prix">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Stock alert</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" type="number" name="stalert" id="stalert2"
-                                                    required placeholder="Stock alert">
+                                                <input class="form-control" type="number" name="stalert" id="stalert2" required placeholder="Stock alert">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Catégorie</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control select2_demo_1" style="width:100%"
-                                                    name="refcat" id="refcat2" required>
+                                                <select class="form-control select2_demo_1" style="width:100%" name="refcat" id="refcat2" required>
                                                     <option value="">Choisir une catégorie</option>
                                                     <optgroup label="Catégories">
                                                         <?php foreach ($categories as $category) : ?>
-                                                        <option value="<?= $category->getIdcat() ?>">
-                                                            <?= $category->getDesignationcat() ?></option>
+                                                            <option value="<?= $category->getIdcat() ?>">
+                                                                <?= $category->getDesignationcat() ?></option>
                                                         <?php endforeach; ?>
                                                     </optgroup>
                                                 </select>
@@ -448,13 +431,12 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Uni. mesure</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control select2_demo_1" style="width:100%"
-                                                    name="refunit" id="refunit2" required>
+                                                <select class="form-control select2_demo_1" style="width:100%" name="refunit" id="refunit2" required>
                                                     <option value="">Choisir une unité de mesure</option>
                                                     <optgroup label="Unité de mesure">
                                                         <?php foreach ($unites as $unite) : ?>
-                                                        <option value="<?= $unite->getIdu() ?>">
-                                                            <?= $unite->getDesignationu() ?></option>
+                                                            <option value="<?= $unite->getIdu() ?>">
+                                                                <?= $unite->getDesignationu() ?></option>
                                                         <?php endforeach; ?>
                                                     </optgroup>
                                                 </select>
@@ -463,15 +445,13 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">En Stock</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" disabled type="text" id="stock2"
-                                                    name="stock" required placeholder="Stock" value="0">
+                                                <input class="form-control" disabled type="text" id="stock2" name="stock" required placeholder="Stock" value="0">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label"></label>
                                             <div class="col-sm-9">
-                                                <button class="btn btn-info btn-block"
-                                                    type="submit">Enregistrer</button>
+                                                <button class="btn btn-info btn-block" type="submit">Enregistrer</button>
                                             </div>
                                         </div>
 
@@ -497,12 +477,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <div class="modal-title ibox-title">Ajouter Mesure</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
@@ -512,12 +490,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <input type="hidden" name="action" value="unite" />
                                         <input type="hidden" name="actionu" value="1" />
                                         <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationu" name="designation"
-                                            required placeholder="Désignation">
+                                        <input class="form-control" type="text" id="designationu" name="designation" required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
+                                        <button type="submit" id="add-quartier" class="btn btn-primary form-control">Enregistrer
                                         </button>
                                     </div>
                                 </form>
@@ -525,8 +501,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <label>Unité de Mesure</label>
                                     <select class="form-control" multiple="" id="list-quartier" style="height:150px">
                                         <?php foreach ($unites as $unite) : ?>
-                                        <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
-                                        </option>
+                                            <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -547,7 +523,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
@@ -583,139 +559,139 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">
-    $("#form-sample-1").validate({
-        rules: {
-            name: {
-                minlength: 2,
-                required: !0
+        $("#form-sample-1").validate({
+            rules: {
+                name: {
+                    minlength: 2,
+                    required: !0
+                },
+                email: {
+                    required: !0,
+                    email: !0
+                },
+                url: {
+                    required: !0,
+                    url: !0
+                },
+                number: {
+                    required: !0,
+                    number: !0
+                },
+                min: {
+                    required: !0,
+                    minlength: 3
+                },
+                max: {
+                    required: !0,
+                    maxlength: 4
+                },
+                password: {
+                    required: !0
+                },
+                password_confirmation: {
+                    required: !0,
+                    equalTo: "#password"
+                }
             },
-            email: {
-                required: !0,
-                email: !0
+            errorClass: "help-block error",
+            highlight: function(e) {
+                $(e).closest(".form-group.row").addClass("has-error")
             },
-            url: {
-                required: !0,
-                url: !0
+            unhighlight: function(e) {
+                $(e).closest(".form-group.row").removeClass("has-error")
             },
-            number: {
-                required: !0,
-                number: !0
-            },
-            min: {
-                required: !0,
-                minlength: 3
-            },
-            max: {
-                required: !0,
-                maxlength: 4
-            },
-            password: {
-                required: !0
-            },
-            password_confirmation: {
-                required: !0,
-                equalTo: "#password"
-            }
-        },
-        errorClass: "help-block error",
-        highlight: function(e) {
-            $(e).closest(".form-group.row").addClass("has-error")
-        },
-        unhighlight: function(e) {
-            $(e).closest(".form-group.row").removeClass("has-error")
-        },
-    });
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $('#ex-phone2').mask('+243 999 999 999');
-    })
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 10,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
         });
-    })
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('#ex-phone2').mask('+243 999 999 999');
+        })
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('#example-table').DataTable({
+                pageLength: 10,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
     </script>
     <script>
-    table = document.getElementById("tab-product");
-    for (i = 0; i < table.rows.length; i++) {
-        table.rows[i].onclick = function() {
-            getOneDetail(this.cells[1].innerText);
-            document.getElementById("idprod").value = this.cells[1].innerText;
-            document.getElementById("designationprod2").value = this.cells[2].innerText;
-            document.getElementById("prixprod2").value = this.cells[7].innerText;
-            document.getElementById("stalert2").value = this.cells[8].innerText;;
-            document.getElementById("stock2").value = this.cells[4].innerText;
-            document.getElementById("quantitest").value = this.cells[9].innerText;
+        table = document.getElementById("tab-product");
+        for (i = 0; i < table.rows.length; i++) {
+            table.rows[i].onclick = function() {
+                getOneDetail(this.cells[1].innerText);
+                document.getElementById("idprod").value = this.cells[1].innerText;
+                document.getElementById("designationprod2").value = this.cells[2].innerText;
+                document.getElementById("prixprod2").value = this.cells[7].innerText;
+                document.getElementById("stalert2").value = this.cells[8].innerText;;
+                document.getElementById("stock2").value = this.cells[4].innerText;
+                document.getElementById("quantitest").value = this.cells[9].innerText;
+            }
         }
-    }
 
-    function getOneDetail(idprod) {
-        $.ajax({
-            url: "models/requests/RequestCommande.php",
-            type: "POST",
-            data: {
-                action: 'historique',
-                idprod: idprod
-            },
-            success: function(data) {
-                $('#historiquecommande').html(data);
-            },
-            error: function() {
-                alert("Echec de la requête sur le serveur.");
-            }
-        });
-    }
+        function getOneDetail(idprod) {
+            $.ajax({
+                url: "models/requests/RequestCommande.php",
+                type: "POST",
+                data: {
+                    action: 'historique',
+                    idprod: idprod
+                },
+                success: function(data) {
+                    $('#historiquecommande').html(data);
+                },
+                error: function() {
+                    alert("Echec de la requête sur le serveur.");
+                }
+            });
+        }
     </script>
     <script>
-    document.querySelector('.sweet-8').onclick = function() {
-        swal({
-            title: "Suppression d'un article.",
-            text: "Voulez-vous supprimer ce produit ?",
-            type: "info",
-            showCancelButton: true,
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-            confirmButtonClass: 'btn-danger',
-            confirmButtonText: 'Oui, supprimer',
-            cancelButtonText: "Non, annuler",
-            closeOnCancel: true
+        document.querySelector('.sweet-8').onclick = function() {
+            swal({
+                title: "Suppression d'un article.",
+                text: "Voulez-vous supprimer ce produit ?",
+                type: "info",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true,
+                confirmButtonClass: 'btn-danger',
+                confirmButtonText: 'Oui, supprimer',
+                cancelButtonText: "Non, annuler",
+                closeOnCancel: true
 
-        }, function() {
-            setTimeout(function() {
-                $.ajax({
-                    url: "models/requests/RequestCbase.php",
-                    type: "POST",
-                    data: {
-                        action: 'product',
-                        actionu: '3',
-                        idprod: $('#idprod').val(),
-                    },
-                    success: function() {
-                        $('#form-product2')[0].reset();
-                        swal("Produit supprimé avec succès !",
-                            "Suppression d'un produit.", "success");
-                    },
-                    error: function() {
-                        // swal("Echec de la requête sur le serveur.",
-                        //     "Suppression d'un produit.", "success");
-                        alert("Echec de la requête sur le serveur.");
-                    }
-                });
+            }, function() {
+                setTimeout(function() {
+                    $.ajax({
+                        url: "models/requests/RequestCbase.php",
+                        type: "POST",
+                        data: {
+                            action: 'product',
+                            actionu: '3',
+                            idprod: $('#idprod').val(),
+                        },
+                        success: function() {
+                            $('#form-product2')[0].reset();
+                            swal("Produit supprimé avec succès !",
+                                "Suppression d'un produit.", "success");
+                        },
+                        error: function() {
+                            // swal("Echec de la requête sur le serveur.",
+                            //     "Suppression d'un produit.", "success");
+                            alert("Echec de la requête sur le serveur.");
+                        }
+                    });
 
-            }, 2000);
-        });
-    };
+                }, 2000);
+            });
+        };
     </script>
 </body>
 

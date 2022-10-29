@@ -137,9 +137,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false"
-                                    aria-label="Toggle navigation">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
 
@@ -184,8 +182,7 @@
 
                     <div class="search-block" style="display: none">
                         <label for="search-field" class="w-100 mb-0">
-                            <input type="text" class="form-control" id="search-field"
-                                placeholder="Tapez votre texte..." />
+                            <input type="text" class="form-control" id="search-field" placeholder="Tapez votre texte..." />
                         </label>
                         <span class="search-close">&times;</span>
                     </div>
@@ -198,15 +195,14 @@
         <!--/ Header end -->
 
         <div class="banner-carousel banner-carousel-1 mb-0">
-            <div class="banner-carousel-item"
-                style="background-image: url(views/pages/assets/images/slider-main/bag001.jpg)">
+            <div class="banner-carousel-item" style="background-image: url(views/pages/assets/images/slider-main/bag001.jpg)">
                 <div class="slider-content">
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
                             <div class="col-md-12 text-center">
                                 <h2 class="slide-title" data-animation-in="slideInLeft">
                                     <script>
-                                    document.write(new Date().getFullYear() - 2014);
+                                        document.write(new Date().getFullYear() - 2014);
                                     </script> <span> Ans d 'expérience dans les</span>
                                 </h2>
                                 <h3 class="slide-sub-title" data-animation-in="slideInRight">
@@ -222,8 +218,7 @@
                 </div>
             </div>
 
-            <div class="banner-carousel-item"
-                style="background-image: url(views/pages/assets/images/slider-main/bag002.jpg)">
+            <div class="banner-carousel-item" style="background-image: url(views/pages/assets/images/slider-main/bag002.jpg)">
                 <div class="slider-content text-left">
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
@@ -246,8 +241,7 @@
                 </div>
             </div>
 
-            <div class="banner-carousel-item"
-                style="background-image: url(views/pages/assets/images/slider-main/bag003.jpg)">
+            <div class="banner-carousel-item" style="background-image: url(views/pages/assets/images/slider-main/bag003.jpg)">
                 <div class="slider-content text-right">
                     <div class="container h-100">
                         <div class="row align-items-center sh-100">
@@ -262,10 +256,8 @@
                                     Nous traitons avec votre échec qui determine comment vous achevez le succes.
                                 </p>
                                 <div data-animation-in="slideInLeft">
-                                    <a href="contact" class="slider btn btn-primary"
-                                        aria-label="contact-with-us">Obtenir un devis gratuit</a>
-                                    <a href="javascript:;" class="slider btn btn-primary border"
-                                        aria-label="learn-more-about-us">En savoir plus</a>
+                                    <a href="contact" class="slider btn btn-primary" aria-label="contact-with-us">Obtenir un devis gratuit</a>
+                                    <a href="javascript:;" class="slider btn btn-primary border" aria-label="learn-more-about-us">En savoir plus</a>
                                 </div>
                             </div>
                         </div>
@@ -393,15 +385,13 @@
                             <div class="card">
                                 <div class="card-header p-0 bg-transparent" id="headingOne">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-block text-left" type="button" data-toggle="collapse"
-                                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                             Responsabilité
                                         </button>
                                     </h2>
                                 </div>
 
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                    data-parent="#our-values-accordion">
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#our-values-accordion">
                                     <div class="card-body">
                                         Nous assumons la pleine responsabilité de nos décisions, nos actions et leurs
                                         résultats.
@@ -411,15 +401,12 @@
                             <div class="card">
                                 <div class="card-header p-0 bg-transparent" id="headingThree">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-block text-left collapsed" type="button"
-                                            data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
-                                            aria-controls="collapseThree">
+                                        <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                             Intégrité
                                         </button>
                                     </h2>
                                 </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                    data-parent="#our-values-accordion">
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#our-values-accordion">
                                     <div class="card-body">
                                         Nous sommes honnêtes, dignes de confiance et valorisons l’éthique. Chez nous le
                                         client est rassuré.
@@ -430,15 +417,12 @@
                             <div class="card">
                                 <div class="card-header p-0 bg-transparent" id="headingTwo">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-block text-left collapsed" type="button"
-                                            data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                                            aria-controls="collapseTwo">
+                                        <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                             Respect
                                         </button>
                                     </h2>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                    data-parent="#our-values-accordion">
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#our-values-accordion">
                                     <div class="card-body">
                                         Nous reconnaissons que les avis, les sentiments et les antécédents de nos
                                         clients sont plus importants que les nôtres.
@@ -456,15 +440,14 @@
             <!-- Container end -->
         </section>
 
-        
+
         <section id="facts" class="facts-area dark-bg">
             <div class="container">
                 <div class="facts-wrapper">
                     <div class="row">
                         <div class="col-md-3 col-sm-6 ts-facts">
                             <div class="ts-facts-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact1.png"
-                                    alt="facts-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact1.png" alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
                                 <h2 class="ts-facts-num"><span class="counterUp" data-count="189">0</span></h2>
@@ -475,8 +458,7 @@
 
                         <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-sm-0">
                             <div class="ts-facts-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact2.png"
-                                    alt="facts-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact2.png" alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
                                 <h2 class="ts-facts-num"><span class="counterUp" data-count="50">0</span></h2>
@@ -487,8 +469,7 @@
 
                         <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
                             <div class="ts-facts-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact3.png"
-                                    alt="facts-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact3.png" alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
                                 <h2 class="ts-facts-num"><span class="counterUp" data-count="4000">0</span></h2>
@@ -499,8 +480,7 @@
 
                         <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
                             <div class="ts-facts-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact4.png"
-                                    alt="facts-img">
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact4.png" alt="facts-img">
                             </div>
                             <div class="ts-facts-content">
                                 <h2 class="ts-facts-num"><span class="counterUp" data-count="120">0</span></h2>
@@ -532,8 +512,7 @@
                     <div class="col-lg-4">
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact5.png"
-                                    alt="service-icon" />
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact5.png" alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
@@ -549,8 +528,7 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact6.png"
-                                    alt="service-icon" />
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact6.png" alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
@@ -565,8 +543,7 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact9.png"
-                                    alt="service-icon" />
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact9.png" alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
@@ -581,8 +558,7 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact11.png"
-                                    alt="service-icon" />
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact11.png" alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
@@ -598,16 +574,14 @@
                     <!-- Col end -->
 
                     <div class="col-lg-4 text-center">
-                        <img loading="lazy" class="img-fluid"
-                            src="views/pages/assets/images/services/service-center00.jpg" alt="service-avater-image" />
+                        <img loading="lazy" class="img-fluid" src="views/pages/assets/images/services/service-center00.jpg" alt="service-avater-image" />
                     </div>
                     <!-- Col end -->
 
                     <div class="col-lg-4 mt-5 mt-lg-0 mb-4 mb-lg-0">
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact8.png"
-                                    alt="service-icon" />
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact8.png" alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
@@ -623,8 +597,7 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact10.png"
-                                    alt="service-icon" />
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact10.png" alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
@@ -640,8 +613,7 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact13.png"
-                                    alt="service-icon" />
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact13.png" alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title"><a href="services">Rénovation des bâtiments</a></h3>
@@ -654,8 +626,7 @@
 
                         <div class="ts-service-box d-flex">
                             <div class="ts-service-box-img">
-                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact12.png"
-                                    alt="service-icon" />
+                                <img loading="lazy" src="views/pages/assets/images/icon-image/fact12.png" alt="service-icon" />
                             </div>
                             <div class="ts-service-box-info">
                                 <h3 class="service-box-title">
@@ -690,9 +661,7 @@
                                         à d'autres entreprises.
                                     </span>
                                     <div class="quote-item-footer">
-                                        <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/happy_client1.jpg"
-                                            alt="testimonial" />
+                                        <img loading="lazy" class="testimonial-thumb" src="views/pages/assets/images/clients/happy_client1.jpg" alt="testimonial" />
                                         <div class="quote-item-info">
                                             <h3 class="quote-author">Barbuto Coder</h3>
                                             <span class="quote-subtext">Managing Director (BTS)</span>
@@ -712,9 +681,7 @@
                                     </span>
 
                                     <div class="quote-item-footer">
-                                        <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/happy_client.jpg"
-                                            alt="testimonial" />
+                                        <img loading="lazy" class="testimonial-thumb" src="views/pages/assets/images/clients/happy_client.jpg" alt="testimonial" />
                                         <div class="quote-item-info">
                                             <h3 class="quote-author">Alexis Buesha</h3>
                                             <span class="quote-subtext">CFO, GrowVenture</span>
@@ -734,9 +701,7 @@
                                     </span>
 
                                     <div class="quote-item-footer">
-                                        <img loading="lazy" class="testimonial-thumb"
-                                            src="views/pages/assets/images/clients/happy_client2.jpg"
-                                            alt="testimonial" />
+                                        <img loading="lazy" class="testimonial-thumb" src="views/pages/assets/images/clients/happy_client2.jpg" alt="testimonial" />
                                         <div class="quote-item-info">
                                             <h3 class="quote-author">Landry Kibihira</h3>
                                             <span class="quote-subtext">Ingenieur Superviseur</span>
@@ -757,53 +722,42 @@
                         <div class="row all-clients">
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
-                                    <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client.png" alt="clients-logo" /></a>
+                                    <a href="#!"><img loading="lazy" class="img-fluid" src="views/pages/assets/images/clients/client.png" alt="clients-logo" /></a>
                                 </figure>
                             </div>
                             <!-- Client 1 end -->
 
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
-                                    <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client01.png"
-                                            alt="clients-logo" /></a>
+                                    <a href="#!"><img loading="lazy" class="img-fluid" src="views/pages/assets/images/clients/client01.png" alt="clients-logo" /></a>
                                 </figure>
                             </div>
                             <!-- Client 2 end -->
 
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
-                                    <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client03.png"
-                                            alt="clients-logo" /></a>
+                                    <a href="#!"><img loading="lazy" class="img-fluid" src="views/pages/assets/images/clients/client03.png" alt="clients-logo" /></a>
                                 </figure>
                             </div>
                             <!-- Client 3 end -->
 
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
-                                    <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client04.png"
-                                            alt="clients-logo" /></a>
+                                    <a href="#!"><img loading="lazy" class="img-fluid" src="views/pages/assets/images/clients/client04.png" alt="clients-logo" /></a>
                                 </figure>
                             </div>
                             <!-- Client 4 end -->
 
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
-                                    <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client05.png"
-                                            alt="clients-logo" /></a>
+                                    <a href="#!"><img loading="lazy" class="img-fluid" src="views/pages/assets/images/clients/client05.png" alt="clients-logo" /></a>
                                 </figure>
                             </div>
                             <!-- Client 5 end -->
 
                             <div class="col-sm-4 col-6">
                                 <figure class="clients-logo">
-                                    <a href="#!"><img loading="lazy" class="img-fluid"
-                                            src="views/pages/assets/images/clients/client07.png"
-                                            alt="clients-logo" /></a>
+                                    <a href="#!"><img loading="lazy" class="img-fluid" src="views/pages/assets/images/clients/client07.png" alt="clients-logo" /></a>
                                 </figure>
                             </div>
                             <!-- Client 6 end -->
@@ -883,10 +837,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
-                                            <input type="email" name="email" id="newsletter-email"
-                                                class="form-control form-control-lg" placeholder="Entrer votre email"
-                                                autocomplete="off" />
-                                            
+                                            <input type="email" name="email" id="newsletter-email" class="form-control form-control-lg" placeholder="Entrer votre email" autocomplete="off" />
+
                                         </div>
                                     </div>
                                     <div class="col-md-4" style="padding-top : 7px;"><button class="btn btn-warning btn-sm" type="button">S'inscrire</button></div>
@@ -913,28 +865,23 @@
                     <div class="row justify-content-between">
                         <div class="col-lg-4 col-md-6 footer-widget footer-about">
                             <h3 class="widget-title">A propos</h3>
-                            <img loading="lazy" width="200px" class="footer-logo"
-                                src="views/pages/assets/images/logo_cm_footer.png" alt="Constra" />
+                            <img loading="lazy" width="200px" class="footer-logo" src="views/pages/assets/images/logo_cm_footer.png" alt="Constra" />
                             <p>
-                            CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av. Kabande, le long de la route Goma-Sake.
+                                CMS est une entreprise congolaise oeuvrant dans la construction des bâtiments, maisons et routes. Son siège social est dans la ville de Goma, Com. de Goma, Q. Lac Vert, Av. Kabande, le long de la route Goma-Sake.
                             </p>
                             <div class="footer-social">
                                 <ul>
                                     <li>
-                                        <a href="https://facebook.com/themefisher" aria-label="Facebook"><i
-                                                class="fab fa-facebook-f"></i></a>
+                                        <a href="https://facebook.com/themefisher" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/themefisher" aria-label="Twitter"><i
-                                                class="fab fa-twitter"></i></a>
+                                        <a href="https://twitter.com/themefisher" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                                     </li>
                                     <li>
-                                        <a href="https://instagram.com/themefisher" aria-label="Instagram"><i
-                                                class="fab fa-instagram"></i></a>
+                                        <a href="https://instagram.com/themefisher" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                                     </li>
                                     <li>
-                                        <a href="https://github.com/themefisher" aria-label="Github"><i
-                                                class="fab fa-github"></i></a>
+                                        <a href="https://github.com/themefisher" aria-label="Github"><i class="fab fa-github"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -949,8 +896,7 @@
                                 Contactez-nous si vous avez une urgence, avec notre Hotline et notre formulaire de
                                 contact.
                                 <br /><br /> Lundi - Dimanche :
-                                <span class="text-right">08:00 - 16:00 </span> <br /> Samedi : <span
-                                    class="text-right">10:00 - 16:00</span> <br /> Dimanches et Jours Fériés :
+                                <span class="text-right">08:00 - 16:00 </span> <br /> Samedi : <span class="text-right">10:00 - 16:00</span> <br /> Dimanches et Jours Fériés :
                                 <span class="text-right">10:00 - 16:00</span>
                             </div>
                         </div>
@@ -982,7 +928,7 @@
                             <div class="copyright-info text-center text-md-left">
                                 <span>Copyright &copy;
                                     <script>
-                                    document.write(new Date().getFullYear());
+                                        document.write(new Date().getFullYear());
                                     </script> CMS sarl
 
                                 </span>

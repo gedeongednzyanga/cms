@@ -1,6 +1,11 @@
 <?php
+$managerPage = new ManagerPage();
 if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     echo '<script>window.location="login";</script>';
+
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Commande', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -149,10 +154,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -187,8 +192,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     <div class="ibox-body">
                         <div class="container">
                             <div class="row ">
-                                <form id="form-commande" class="col-md-8 form-horizontal" method="post"
-                                    novalidate="novalidate">
+                                <form id="form-commande" class="col-md-8 form-horizontal" method="post" novalidate="novalidate">
                                     <input type="hidden" name="action" value="add" />
                                     <input type="hidden" name="actionu" value="1" />
                                     <input type="hidden" name="id" value="0" />
@@ -196,13 +200,12 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Vente de</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="refprodc" id="refprodc"
-                                                required>
+                                            <select class="form-control select2_demo_1" name="refprodc" id="refprodc" required>
                                                 <option value="0">Rechercher un produit</option>
                                                 <optgroup label="Nos produits">
                                                     <?php foreach ($products as $product) : ?>
-                                                    <option value="<?= $product->getIdprod() ?>">
-                                                        <?= $product->getDesignationprod() ?></option>
+                                                        <option value="<?= $product->getIdprod() ?>">
+                                                            <?= $product->getDesignationprod() ?></option>
                                                     <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
@@ -211,22 +214,19 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté cmdée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantitecom"
-                                                id="quantitecom" required placeholder="Quantité commandée">
+                                            <input class="form-control" type="number" name="quantitecom" id="quantitecom" required placeholder="Quantité commandée">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">En Stock</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="number" required
-                                                placeholder="Stock" id="rstock" value="0">
+                                            <input class="form-control" disabled type="number" required placeholder="Stock" id="rstock" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">St. Restant</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="number" id="enstock" required
-                                                placeholder="Stock" value="0">
+                                            <input class="form-control" disabled type="number" id="enstock" required placeholder="Stock" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -238,18 +238,15 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </form>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="client" id="client" required
-                                            placeholder="Nom du client">
+                                        <input class="form-control" type="text" name="client" id="client" required placeholder="Nom du client">
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-12 col-form-label">Vente de : <span
-                                                class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['commande'])) ? count($_SESSION['commande']) . ' articles' : 0 ?></span></label>
-                                        <select class="form-control" multiple="" id="lst-commande"
-                                            style="height:100px;">
+                                        <label class="col-sm-12 col-form-label">Vente de : <span class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['commande'])) ? count($_SESSION['commande']) . ' articles' : 0 ?></span></label>
+                                        <select class="form-control" multiple="" id="lst-commande" style="height:100px;">
                                             <?php foreach ($_SESSION['commande'] as $key) : ?>
-                                            <option value="<?= $key['refprodc'] ?>">
-                                                <?= $key['designationprod'] . ' (' . $key['quantitecom1'] . ') ' ?>
-                                            </option>
+                                                <option value="<?= $key['refprodc'] ?>">
+                                                    <?= $key['designationprod'] . ' (' . $key['quantitecom1'] . ') ' ?>
+                                                </option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -274,8 +271,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     <div class="ibox-body">
 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="example-table"
-                                cellspacing="0" width="100%">
+                            <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>N°</th>
@@ -300,22 +296,19 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </tfoot>
                                 <tbody>
                                     <?php foreach ($commandes as $commande) : ?>
-                                    <tr>
+                                        <tr>
 
-                                        <td><?= $commande->getNumcom() ?></td>
-                                        <td><?= $commande->getDesignationprod() ?></td>
-                                        <td><?= $commande->getDesignationcat() ?></td>
-                                        <td><?= $commande->getQuantitecom() . '' . $commande->getDesignationu() ?></td>
-                                        <td><?= ($commande->getQuantitecom() * $commande->getPrixprod()) . '$' ?></td>
-                                        <td><?= $commande->getCustomer() ?></td>
-                                        <td>
-                                            <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
-                                                data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
-                                            <button class="btn btn-default btn-xs" data-toggle="tooltip"
-                                                data-original-title="Delete"><i
-                                                    class="fa fa-trash font-14"></i></button>
-                                        </td>
-                                    </tr>
+                                            <td><?= $commande->getNumcom() ?></td>
+                                            <td><?= $commande->getDesignationprod() ?></td>
+                                            <td><?= $commande->getDesignationcat() ?></td>
+                                            <td><?= $commande->getQuantitecom() . '' . $commande->getDesignationu() ?></td>
+                                            <td><?= ($commande->getQuantitecom() * $commande->getPrixprod()) . '$' ?></td>
+                                            <td><?= $commande->getCustomer() ?></td>
+                                            <td>
+                                                <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
+                                                <button class="btn btn-default btn-xs" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash font-14"></i></button>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -332,12 +325,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <div class="modal-title ibox-title">Ajouter Catégorie</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
@@ -347,12 +338,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <input type="hidden" name="action" value="category" />
                                         <input type="hidden" name="actionu" value="1" />
                                         <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationc" name="designation"
-                                            required placeholder="Désignation">
+                                        <input class="form-control" type="text" id="designationc" name="designation" required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
+                                        <button type="submit" id="add-quartier" class="btn btn-primary form-control">Enregistrer
                                         </button>
                                     </div>
                                 </form>
@@ -360,8 +349,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <label>Catégorie produit</label>
                                     <select class="form-control" multiple="" id="list-quartier" style="height:150px">
                                         <?php foreach ($categories as $category) : ?>
-                                        <option value="<?= $category->getIdcat() ?>">
-                                            <?= $category->getDesignationcat() ?> </option>
+                                            <option value="<?= $category->getIdcat() ?>">
+                                                <?= $category->getDesignationcat() ?> </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -384,12 +373,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <div class="modal-title ibox-title">Ajouter Mesure</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
@@ -399,12 +386,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <input type="hidden" name="action" value="unite" />
                                         <input type="hidden" name="actionu" value="1" />
                                         <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationu" name="designation"
-                                            required placeholder="Désignation">
+                                        <input class="form-control" type="text" id="designationu" name="designation" required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
+                                        <button type="submit" id="add-quartier" class="btn btn-primary form-control">Enregistrer
                                         </button>
                                     </div>
                                 </form>
@@ -412,8 +397,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <label>Unité de Mesure</label>
                                     <select class="form-control" multiple="" id="list-quartier" style="height:150px">
                                         <?php foreach ($unites as $unite) : ?>
-                                        <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
-                                        </option>
+                                            <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -433,7 +418,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
@@ -468,69 +453,69 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">
-    $("#form-sample-1").validate({
-        rules: {
-            name: {
-                minlength: 2,
-                required: !0
+        $("#form-sample-1").validate({
+            rules: {
+                name: {
+                    minlength: 2,
+                    required: !0
+                },
+                email: {
+                    required: !0,
+                    email: !0
+                },
+                url: {
+                    required: !0,
+                    url: !0
+                },
+                number: {
+                    required: !0,
+                    number: !0
+                },
+                min: {
+                    required: !0,
+                    minlength: 3
+                },
+                max: {
+                    required: !0,
+                    maxlength: 4
+                },
+                password: {
+                    required: !0
+                },
+                password_confirmation: {
+                    required: !0,
+                    equalTo: "#password"
+                }
             },
-            email: {
-                required: !0,
-                email: !0
+            errorClass: "help-block error",
+            highlight: function(e) {
+                $(e).closest(".form-group.row").addClass("has-error")
             },
-            url: {
-                required: !0,
-                url: !0
+            unhighlight: function(e) {
+                $(e).closest(".form-group.row").removeClass("has-error")
             },
-            number: {
-                required: !0,
-                number: !0
-            },
-            min: {
-                required: !0,
-                minlength: 3
-            },
-            max: {
-                required: !0,
-                maxlength: 4
-            },
-            password: {
-                required: !0
-            },
-            password_confirmation: {
-                required: !0,
-                equalTo: "#password"
-            }
-        },
-        errorClass: "help-block error",
-        highlight: function(e) {
-            $(e).closest(".form-group.row").addClass("has-error")
-        },
-        unhighlight: function(e) {
-            $(e).closest(".form-group.row").removeClass("has-error")
-        },
-    });
+        });
     </script>
     <script type="text/javascript">
-    $(function() {
-        $('#ex-phone2').mask('+243 999 999 999');
-    })
+        $(function() {
+            $('#ex-phone2').mask('+243 999 999 999');
+        })
     </script>
 
     <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 10,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
-        });
-    })
+        $(function() {
+            $('#example-table').DataTable({
+                pageLength: 10,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
     </script>
 
 </body>

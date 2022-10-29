@@ -1,6 +1,13 @@
 <?php
-if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+
+$managerPage = new ManagerPage();
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte'])) {
     echo '<script>window.location="login";</script>';
+}
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Utilisateur', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -154,10 +161,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -183,26 +190,21 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <div class="ibox-head">
                                 <div class="ibox-title">Enregistrer un mouvement</div>
                                 <div class="ibox-tools">
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a data-toggle="modal" data-target="#modal-mouv"
-                                            class="dropdown-item">Ajouter</a>
-                                        <a data-toggle="modal" data-target="#modal-mesure"
-                                            class="dropdown-item">Supprimer</a>
+                                        <a data-toggle="modal" data-target="#modal-mouv" class="dropdown-item">Ajouter</a>
+                                        <a data-toggle="modal" data-target="#modal-mesure" class="dropdown-item">Supprimer</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="ibox-body">
-                                <form id="form-mouvement" class=" form-horizontal" method="post"
-                                    novalidate="novalidate">
+                                <form id="form-mouvement" class=" form-horizontal" method="post" novalidate="novalidate">
                                     <input type="hidden" name="action" value="save_mouv" />
                                     <input type="hidden" name="idmouv" value="0" />
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Mouvement</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="actionu" id="actionuser"
-                                                required>
+                                            <select class="form-control select2_demo_1" name="actionu" id="actionuser" required>
                                                 <option value="">Entrée ou Sortie ?</option>
                                                 <optgroup label="Choisir un mouvement">
                                                     <option value="1">Approvisionnement</option>
@@ -214,14 +216,13 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Carburant</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2_demo_1" name="refcarb" id="refcarb"
-                                                required>
+                                            <select class="form-control select2_demo_1" name="refcarb" id="refcarb" required>
                                                 <option value="">Carburant</option>
                                                 <optgroup label="Choisir carburant">
                                                     <?php foreach ($carburant as $carb) : ?>
-                                                    <option value="<?= $carb->getIdcarb() ?>">
-                                                        <?= $carb->getCarbdesign() ?>
-                                                    </option>
+                                                        <option value="<?= $carb->getIdcarb() ?>">
+                                                            <?= $carb->getCarbdesign() ?>
+                                                        </option>
                                                     <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
@@ -230,23 +231,19 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Quantité</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantite" id="quantite"
-                                                required placeholder="Quantité entrée ou sortie" />
+                                            <input class="form-control" type="number" name="quantite" id="quantite" required placeholder="Quantité entrée ou sortie" />
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Résponsable</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="respo" required
-                                                placeholder="Service ou agent ?" id="respo"
-                                                value="<?= $_SESSION['user'] ?>">
+                                            <input class="form-control" type="text" name="respo" required placeholder="Service ou agent ?" id="respo" value="<?= $_SESSION['user'] ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Stock Restant</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled type="number" id="enstock" required
-                                                placeholder="Stock" value="0">
+                                            <input class="form-control" disabled type="number" id="enstock" required placeholder="Stock" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -280,8 +277,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                     <div class="ibox-body">
 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="example-table"
-                                cellspacing="0" width="100%">
+                            <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>N°</th>
@@ -311,24 +307,21 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 </tfoot>
                                 <tbody>
                                     <?php foreach ($mouvements as $mouvement) : ?>
-                                    <tr>
-                                        <td><?= $mouvement->getIdmouv() ?></td>
-                                        <td><?= $mouvement->getTypemiuv() == 'entree' ? 'Approv. carburant' : 'Sortie carburant' ?>
-                                        </td>
-                                        <td><?= $mouvement->getCarbdesign() ?></td>
-                                        <td><?= $mouvement->getQuantite_entr() . 'L' ?></td>
-                                        <td><?= $mouvement->getQuantite_sort() . 'L' ?></td>
-                                        <td><?= $mouvement->getQuantite_stoc() . 'L' ?></td>
-                                        <td><?= $mouvement->getRespo() ?></td>
-                                        <td><?= date('d-m-Y H:i:s', strtotime($mouvement->getDatemouv()))  ?></td>
-                                        <td>
-                                            <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
-                                                data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
-                                            <button class="btn btn-default btn-xs" data-toggle="tooltip"
-                                                data-original-title="Delete"><i
-                                                    class="fa fa-trash font-14"></i></button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td><?= $mouvement->getIdmouv() ?></td>
+                                            <td><?= $mouvement->getTypemiuv() == 'entree' ? 'Approv. carburant' : 'Sortie carburant' ?>
+                                            </td>
+                                            <td><?= $mouvement->getCarbdesign() ?></td>
+                                            <td><?= $mouvement->getQuantite_entr() . 'L' ?></td>
+                                            <td><?= $mouvement->getQuantite_sort() . 'L' ?></td>
+                                            <td><?= $mouvement->getQuantite_stoc() . 'L' ?></td>
+                                            <td><?= $mouvement->getRespo() ?></td>
+                                            <td><?= date('d-m-Y H:i:s', strtotime($mouvement->getDatemouv()))  ?></td>
+                                            <td>
+                                                <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
+                                                <button class="btn btn-default btn-xs" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash font-14"></i></button>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -350,12 +343,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <input type="hidden" name="action" value="save_carb" />
                                         <input type="hidden" name="actionu" value="1" />
                                         <input type="hidden" name="idcarb" value="0" />
-                                        <input class="form-control" type="text" id="carbdesign" name="carbdesign"
-                                            required placeholder="Désignation">
+                                        <input class="form-control" type="text" id="carbdesign" name="carbdesign" required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="add-carburant"
-                                            class="btn btn-primary form-control">Enregistrer
+                                        <button type="submit" id="add-carburant" class="btn btn-primary form-control">Enregistrer
                                         </button>
                                     </div>
                                 </form>
@@ -379,12 +370,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                 <div class="modal-title ibox-title">Ajouter Mesure</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
@@ -394,12 +383,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                         <input type="hidden" name="action" value="unite" />
                                         <input type="hidden" name="actionu" value="1" />
                                         <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationu" name="designation"
-                                            required placeholder="Désignation">
+                                        <input class="form-control" type="text" id="designationu" name="designation" required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
+                                        <button type="submit" id="add-quartier" class="btn btn-primary form-control">Enregistrer
                                         </button>
                                     </div>
                                 </form>
@@ -420,7 +407,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
@@ -461,19 +448,19 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     <script src="views/admin/assets/js/scripts/charts_flot_demo.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 10,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
-        });
-    })
+        $(function() {
+            $('#example-table').DataTable({
+                pageLength: 10,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
     </script>
 
 </body>

@@ -1,6 +1,12 @@
 <?php
-if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
+$managerPage = new ManagerPage();
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte'])) {
     echo '<script>window.location="login";</script>';
+}
+
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Message', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,10 +159,10 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mailcompose">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -185,29 +191,24 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                             <li class="list-group-item">
                                 <?php $managerMessage = new ManagerMessage(); ?>
                                 <a href="mailbox"><i class="fa fa-envelope-open-o"></i> Tous les messages
-                                    <span
-                                        class="badge badge-default badge-square pull-right"><?= count($messages) ?></span>
+                                    <span class="badge badge-default badge-square pull-right"><?= count($messages) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
                                 <a href="javascript:;" id="btr"><i class="fa fa-envelope-o"></i> Boîte de reception
-                                    <span
-                                        class="badge badge-warning badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('receive')) ?></span>
+                                    <span class="badge badge-warning badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('receive')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a id="msge" href="javascript:;"><i class="fa fa-send-o"></i> Messages Envoyés <span
-                                        class="badge badge-primary badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('sent')) ?></span></a>
+                                <a id="msge" href="javascript:;"><i class="fa fa-send-o"></i> Messages Envoyés <span class="badge badge-primary badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('sent')) ?></span></a>
                             </li>
                             <li class="list-group-item">
                                 <a id="msgi" href="javascript:;"><i class="fa fa-star-o"></i> Important
-                                    <span
-                                        class="badge badge-success badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('important')) ?></span>
+                                    <span class="badge badge-success badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('important')) ?></span>
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a id="msgd" href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille <span
-                                        class="badge badge-danger badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('delete')) ?></span></a>
+                                <a id="msgd" href="javascript:;"><i class="fa fa-trash-o"></i> Corbeille <span class="badge badge-danger badge-square pull-right"><?= count($managerMessage->getMessageByTypeMsg('delete')) ?></span></a>
                             </li>
                         </ul>
 
@@ -218,33 +219,28 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                         foreach ($managerMessage->getOneMessage($_GET['number']) as $message) :
                             $message->getStatutmsg() == 0 ? $managerMessage->changeMsgStatus(1, $_GET['number']) : $managerMessage->changeMsgStatus(0, $_GET['number']);
                         ?>
-                        <div class="ibox" id="mailbox-container">
-                            <div class="mailbox-header d-flex justify-content-between"
-                                style="border-bottom: 1px solid #e8e8e8;">
-                                <div>
-                                    <h5 id="title-msg" class="inbox-title"><?= $message->getSujet() ?></h5>
-                                    <div class="m-t-5 font-13">
-                                        <span class="font-strong"><?= $message->getSender() ?></span>
-                                        <a class="text-muted m-l-5" href="javascript:;"><?= $message->getEmails() ?></a>
+                            <div class="ibox" id="mailbox-container">
+                                <div class="mailbox-header d-flex justify-content-between" style="border-bottom: 1px solid #e8e8e8;">
+                                    <div>
+                                        <h5 id="title-msg" class="inbox-title"><?= $message->getSujet() ?></h5>
+                                        <div class="m-t-5 font-13">
+                                            <span class="font-strong"><?= $message->getSender() ?></span>
+                                            <a class="text-muted m-l-5" href="javascript:;"><?= $message->getEmails() ?></a>
+                                        </div>
+                                        <div class="p-r-10 font-13">
+                                            <?= date('d-m-Y à H:i:s', strtotime($message->getDatemsg()))  ?></div>
                                     </div>
-                                    <div class="p-r-10 font-13">
-                                        <?= date('d-m-Y à H:i:s', strtotime($message->getDatemsg()))  ?></div>
+                                    <div class="inbox-toolbar m-l-20">
+                                        <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip" data-original-title="Reply"><i class="fa fa-reply"></i></button>
+                                        <button class="btn btn-default btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
+                                        <button class="btn btn-default btn-sm" data-toggle="tooltip" data-original-title="Mark as important"><i class="fa fa-star-o"></i></button>
+                                        <button class="btn btn-default btn-sm" data-toggle="tooltip" data-original-title="Reply"><i class="fa fa-print"></i></button>
+                                    </div>
                                 </div>
-                                <div class="inbox-toolbar m-l-20">
-                                    <button class="btn btn-default btn-sm" data-action="reply" data-toggle="tooltip"
-                                        data-original-title="Reply"><i class="fa fa-reply"></i></button>
-                                    <button class="btn btn-default btn-sm" data-toggle="tooltip"
-                                        data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
-                                    <button class="btn btn-default btn-sm" data-toggle="tooltip"
-                                        data-original-title="Mark as important"><i class="fa fa-star-o"></i></button>
-                                    <button class="btn btn-default btn-sm" data-toggle="tooltip"
-                                        data-original-title="Reply"><i class="fa fa-print"></i></button>
+                                <div class="mailbox-body">
+                                    <p><?= $message->getMessage() ?></p>
                                 </div>
                             </div>
-                            <div class="mailbox-body">
-                                <p><?= $message->getMessage() ?></p>
-                            </div>
-                        </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -253,7 +249,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>

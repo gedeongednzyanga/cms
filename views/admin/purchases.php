@@ -1,3 +1,14 @@
+<?php
+$managerPage = new ManagerPage();
+if (!isset($_SESSION['user']) || !isset($_SESSION['compte'])) {
+    echo '<script>window.location="login";</script>';
+}
+
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Approvisionnement', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,10 +156,10 @@
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -183,8 +194,7 @@
                     <div class="ibox-body">
                         <div class="container">
                             <div class="row ">
-                                <form id="form-purchase" class="col-md-8 form-horizontal" method="post"
-                                    novalidate="novalidate">
+                                <form id="form-purchase" class="col-md-8 form-horizontal" method="post" novalidate="novalidate">
                                     <input type="hidden" name="action" value="add" />
                                     <input type="hidden" name="actionu" value="1" />
                                     <input type="hidden" name="id" value="0" />
@@ -196,8 +206,8 @@
                                                 <option value="0">Rechercher un article</option>
                                                 <optgroup label="Catégories">
                                                     <?php foreach ($productss as $product) : ?>
-                                                    <option value="<?= $product->getIdprod() ?>">
-                                                        <?= $product->getDesignationprod() ?></option>
+                                                        <option value="<?= $product->getIdprod() ?>">
+                                                            <?= $product->getDesignationprod() ?></option>
                                                     <?php endforeach; ?>
                                                 </optgroup>
                                             </select>
@@ -206,23 +216,20 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté cmdée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantitecmd"
-                                                id="quantitecmd" required placeholder="Quantité commandée">
+                                            <input class="form-control" type="number" name="quantitecmd" id="quantitecmd" required placeholder="Quantité commandée">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Qté entrée</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" name="quantiteapp"
-                                                id="quantiteapp" required placeholder="Quantité achetée">
+                                            <input class="form-control" type="number" name="quantiteapp" id="quantiteapp" required placeholder="Quantité achetée">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Restant Ach.</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" disabled id="totachat" type="text" required
-                                                placeholder="Stock" value="0">
+                                            <input class="form-control" disabled id="totachat" type="text" required placeholder="Stock" value="0">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -234,13 +241,12 @@
                                 </form>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="col-sm-12 col-form-label">Achat de : <span
-                                                class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['purchase'])) ? count($_SESSION['purchase']) . ' articles' : 0 ?></span></label>
+                                        <label class="col-sm-12 col-form-label">Achat de : <span class="bagde badge-circle badge-success text-xl-center pull-right"><?= (isset($_SESSION['purchase'])) ? count($_SESSION['purchase']) . ' articles' : 0 ?></span></label>
                                         <select class="form-control" multiple="" id="lst-approv" style="height:145px">
                                             <?php foreach ($_SESSION['purchase'] as $key) : ?>
-                                            <option value="<?= $key['refprodc'] ?>">
-                                                <?= $key['designationprod'] . ' (' . $key['quantiteapp1'] . ') ' ?>
-                                            </option>
+                                                <option value="<?= $key['refprodc'] ?>">
+                                                    <?= $key['designationprod'] . ' (' . $key['quantiteapp1'] . ') ' ?>
+                                                </option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -264,8 +270,7 @@
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="example-table"
-                                cellspacing="0" width="100%">
+                            <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>N°</th>
@@ -291,23 +296,20 @@
                                 <tbody>
                                     <?php $counter = 0;
                                     foreach ($purchases as $purchase) : ?>
-                                    <tr>
-                                        <!-- <td style="display:none"><?= $purchase->getIdapprov() ?></td> -->
-                                        <td><?= $purchase->getNumapp() ?></td>
-                                        <td><?= $purchase->getDesignationprod() ?></td>
-                                        <td><?= $purchase->getDesignationcat() ?></td>
-                                        <td><?= $purchase->getQuantiteapp() . '' . $purchase->getDesignationu() ?>
-                                        </td>
-                                        <td><?= $purchase->getQuantitecmd() . $purchase->getDesignationu() ?></td>
-                                        <td><?= $purchase->getDateapprov()  ?></td>
-                                        <td>
-                                            <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip"
-                                                data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
-                                            <button class="btn btn-default btn-xs" data-toggle="tooltip"
-                                                data-original-title="Delete"><i
-                                                    class="fa fa-trash font-14"></i></button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <!-- <td style="display:none"><?= $purchase->getIdapprov() ?></td> -->
+                                            <td><?= $purchase->getNumapp() ?></td>
+                                            <td><?= $purchase->getDesignationprod() ?></td>
+                                            <td><?= $purchase->getDesignationcat() ?></td>
+                                            <td><?= $purchase->getQuantiteapp() . '' . $purchase->getDesignationu() ?>
+                                            </td>
+                                            <td><?= $purchase->getQuantitecmd() . $purchase->getDesignationu() ?></td>
+                                            <td><?= $purchase->getDateapprov()  ?></td>
+                                            <td>
+                                                <button class="btn btn-default btn-xs m-r-5" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil font-14"></i></button>
+                                                <button class="btn btn-default btn-xs" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash font-14"></i></button>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
 
                                 </tbody>
@@ -317,8 +319,7 @@
                     <div class="ibox-footer">
                         <div class="row">
                             <div class="col-md-12">
-                                <button style="margin-right:35px;" class="btn btn-warning btn-sm pull-right"
-                                    data-toggle="modal" data-target="#modal-choose" id="fiche-approv"> Fiche
+                                <button style="margin-right:35px;" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#modal-choose" id="fiche-approv"> Fiche
                                     d'approvisionnement</button>
                             </div>
                         </div>
@@ -334,11 +335,9 @@
                                 <div class="modal-title ibox-title">Choisir une date</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
@@ -351,16 +350,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <a href="ficheapprovisionnement" type="submit" id="add-quartier"
-                                        class="btn btn-primary form-control">Fiche
+                                    <a href="ficheapprovisionnement" type="submit" id="add-quartier" class="btn btn-primary form-control">Fiche
                                         d'approvisionnement
                                     </a>
                                 </div>
                                 <div class="form-group" id="date_5">
                                     <label class="font-normal">Dates Achats</label>
                                     <div class="input-daterange input-group" id="datepicker">
-                                        <input class="input-sm form-control" type="text" name="start"
-                                            value="04/12/2017">
+                                        <input class="input-sm form-control" type="text" name="start" value="04/12/2017">
                                         <span class="input-group-addon p-l-10 p-r-10">au</span>
                                         <input class="input-sm form-control" type="text" name="end" value="08/17/2018">
                                     </div>
@@ -386,7 +383,7 @@
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
@@ -421,68 +418,68 @@
     <!-- PAGE LEVEL SCRIPTS-->
 
     <script type="text/javascript">
-    $("#form-sample-1").validate({
-        rules: {
-            name: {
-                minlength: 2,
-                required: !0
+        $("#form-sample-1").validate({
+            rules: {
+                name: {
+                    minlength: 2,
+                    required: !0
+                },
+                email: {
+                    required: !0,
+                    email: !0
+                },
+                url: {
+                    required: !0,
+                    url: !0
+                },
+                number: {
+                    required: !0,
+                    number: !0
+                },
+                min: {
+                    required: !0,
+                    minlength: 3
+                },
+                max: {
+                    required: !0,
+                    maxlength: 4
+                },
+                password: {
+                    required: !0
+                },
+                password_confirmation: {
+                    required: !0,
+                    equalTo: "#password"
+                }
             },
-            email: {
-                required: !0,
-                email: !0
+            errorClass: "help-block error",
+            highlight: function(e) {
+                $(e).closest(".form-group.row").addClass("has-error")
             },
-            url: {
-                required: !0,
-                url: !0
+            unhighlight: function(e) {
+                $(e).closest(".form-group.row").removeClass("has-error")
             },
-            number: {
-                required: !0,
-                number: !0
-            },
-            min: {
-                required: !0,
-                minlength: 3
-            },
-            max: {
-                required: !0,
-                maxlength: 4
-            },
-            password: {
-                required: !0
-            },
-            password_confirmation: {
-                required: !0,
-                equalTo: "#password"
-            }
-        },
-        errorClass: "help-block error",
-        highlight: function(e) {
-            $(e).closest(".form-group.row").addClass("has-error")
-        },
-        unhighlight: function(e) {
-            $(e).closest(".form-group.row").removeClass("has-error")
-        },
-    });
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $('#ex-phone2').mask('+243 999 999 999');
-    })
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 10,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
         });
-    })
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('#ex-phone2').mask('+243 999 999 999');
+        })
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('#example-table').DataTable({
+                pageLength: 10,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
     </script>
 </body>
 

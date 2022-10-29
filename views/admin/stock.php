@@ -1,9 +1,15 @@
 <?php
+$managerPage = new ManagerPage();
 if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     echo '<script>window.location="login";</script>';
 
 if (isset($_SESSION['idprod_fiche']))
     unset($_SESSION['idprod_fiche']);
+
+if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page')) == 0)
+    echo '<script>window.location="lockscreen";</script>'; {;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -151,10 +157,10 @@ if (isset($_SESSION['idprod_fiche']))
                             <span class="nav-label">Paramètres</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="mailbox.html">Utilisateurs</a>
+                                <a href="register">Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="mail_compose.html">Composer un mail</a>
+                                <a href="javascript:;">Configurations</a>
                             </li>
                         </ul>
                     </li>
@@ -186,8 +192,7 @@ if (isset($_SESSION['idprod_fiche']))
                     </div>
                     <div class="ibox-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="example-table"
-                                cellspacing="0" width="100%">
+                            <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>N°</th>
@@ -217,27 +222,24 @@ if (isset($_SESSION['idprod_fiche']))
                                 <tbody id="tab-product">
                                     <?php
                                     foreach ($product as $prod) : ?>
-                                    <tr>
-                                        <td><?= $prod->getIdprod() ?></td>
-                                        <td><?= $prod->getDesignationprod() ?></td>
-                                        <td><?= $prod->getDesignationcat() ?></td>
-                                        <td><?= $prod->getQuantitest() . '' . $prod->getDesignationu() ?></td>
-                                        <td><?= $prod->getStalert() . $prod->getDesignationu() ?></td>
-                                        <td><?= $prod->getPrixprod() . '$' ?></td>
-                                        <td><?= ($prod->getQuantitest() * $prod->getPrixprod()) . '$' ?></td>
-                                        <td
-                                            class="alert text-center <?= $prod->getQuantitest() < $prod->getStalert() ? 'alert-danger' : 'alert-success' ?>">
-                                            <span><?= $prod->getQuantitest() < $prod->getStalert() ? 'Stock Insuffisant' : 'Stock Suffisant' ?></span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-default btn-sm m-r-5" data-toggle="modal"
-                                                data-target="#modal-update"><i class="fa fa-pencil font-14"
-                                                    data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
-                                                    produit</i></button>
-                                            <!-- <button class="btn btn-default btn-xs"><i class="fa fa-trash font-14"
+                                        <tr>
+                                            <td><?= $prod->getIdprod() ?></td>
+                                            <td><?= $prod->getDesignationprod() ?></td>
+                                            <td><?= $prod->getDesignationcat() ?></td>
+                                            <td><?= $prod->getQuantitest() . '' . $prod->getDesignationu() ?></td>
+                                            <td><?= $prod->getStalert() . $prod->getDesignationu() ?></td>
+                                            <td><?= $prod->getPrixprod() . '$' ?></td>
+                                            <td><?= ($prod->getQuantitest() * $prod->getPrixprod()) . '$' ?></td>
+                                            <td class="alert text-center <?= $prod->getQuantitest() < $prod->getStalert() ? 'alert-danger' : 'alert-success' ?>">
+                                                <span><?= $prod->getQuantitest() < $prod->getStalert() ? 'Stock Insuffisant' : 'Stock Suffisant' ?></span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-default btn-sm m-r-5" data-toggle="modal" data-target="#modal-update"><i class="fa fa-pencil font-14" data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
+                                                        produit</i></button>
+                                                <!-- <button class="btn btn-default btn-xs"><i class="fa fa-trash font-14"
                                                     ></i></button> -->
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
 
                                 </tbody>
@@ -247,8 +249,7 @@ if (isset($_SESSION['idprod_fiche']))
                     <div class="ibox-footer">
                         <div class="row">
                             <div class="col-md-12">
-                                <button style="margin-right:35px;" class="btn btn-warning btn-sm pull-right"
-                                    data-toggle="modal" data-target="#modal-choose" id="fiche-stock"> Fiche de
+                                <button style="margin-right:35px;" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#modal-choose" id="fiche-stock"> Fiche de
                                     Stock</button>
                             </div>
                         </div>
@@ -264,12 +265,10 @@ if (isset($_SESSION['idprod_fiche']))
                                 <div class="modal-title ibox-title">Ajouter Catégorie</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
@@ -279,12 +278,10 @@ if (isset($_SESSION['idprod_fiche']))
                                         <input type="hidden" name="action" value="category" />
                                         <input type="hidden" name="actionu" value="1" />
                                         <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationc" name="designation"
-                                            required placeholder="Désignation">
+                                        <input class="form-control" type="text" id="designationc" name="designation" required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
+                                        <button type="submit" id="add-quartier" class="btn btn-primary form-control">Enregistrer
                                         </button>
                                     </div>
                                 </form>
@@ -292,8 +289,8 @@ if (isset($_SESSION['idprod_fiche']))
                                     <label>Catégorie produit</label>
                                     <select class="form-control" multiple="" id="list-quartier" style="height:150px">
                                         <?php foreach ($categories as $category) : ?>
-                                        <option value="<?= $category->getIdcat() ?>">
-                                            <?= $category->getDesignationcat() ?> </option>
+                                            <option value="<?= $category->getIdcat() ?>">
+                                                <?= $category->getDesignationcat() ?> </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -316,12 +313,10 @@ if (isset($_SESSION['idprod_fiche']))
                                 <div class="modal-title ibox-title">Ajouter Mesure</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
@@ -331,12 +326,10 @@ if (isset($_SESSION['idprod_fiche']))
                                         <input type="hidden" name="action" value="unite" />
                                         <input type="hidden" name="actionu" value="1" />
                                         <input type="hidden" name="id" value="0" />
-                                        <input class="form-control" type="text" id="designationu" name="designation"
-                                            required placeholder="Désignation">
+                                        <input class="form-control" type="text" id="designationu" name="designation" required placeholder="Désignation">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="add-quartier"
-                                            class="btn btn-primary form-control">Enregistrer
+                                        <button type="submit" id="add-quartier" class="btn btn-primary form-control">Enregistrer
                                         </button>
                                     </div>
                                 </form>
@@ -344,8 +337,8 @@ if (isset($_SESSION['idprod_fiche']))
                                     <label>Unité de Mesure</label>
                                     <select class="form-control" multiple="" id="list-quartier" style="height:150px">
                                         <?php foreach ($unites as $unite) : ?>
-                                        <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
-                                        </option>
+                                            <option value="<?= $unite->getIdu() ?>"><?= $unite->getDesignationu() ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -368,21 +361,15 @@ if (isset($_SESSION['idprod_fiche']))
                                 <div class="modal-title ibox-title">Modifier Produit</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item sweet-8"
-                                            onclick="_gaq.push(['_trackEvent', 'exit', 'footer', 'Lipis']);"
-                                            data-original-title="Supprimer cet article"
-                                            data-toggle="tooltip">Supprimer</a>
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item sweet-8" onclick="_gaq.push(['_trackEvent', 'exit', 'footer', 'Lipis']);" data-original-title="Supprimer cet article" data-toggle="tooltip">Supprimer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                                <form id="form-product2" class="row form-horizontal" method="post"
-                                    novalidate="novalidate">
+                                <form id="form-product2" class="row form-horizontal" method="post" novalidate="novalidate">
                                     <div class="col-md-12">
                                         <input type="hidden" name="action" value="product" />
                                         <input type="hidden" name="actionu" value="2" />
@@ -391,34 +378,30 @@ if (isset($_SESSION['idprod_fiche']))
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Désignation</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" type="text" id="designationprod2"
-                                                    name="designationprod" required placeholder="Désignation">
+                                                <input class="form-control" type="text" id="designationprod2" name="designationprod" required placeholder="Désignation">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">PA/PV</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" type="number" name="prixprod" id="prixprod2"
-                                                    required placeholder="Prix">
+                                                <input class="form-control" type="number" name="prixprod" id="prixprod2" required placeholder="Prix">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Stock alert</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" type="number" name="stalert" id="stalert2"
-                                                    required placeholder="Stock alert">
+                                                <input class="form-control" type="number" name="stalert" id="stalert2" required placeholder="Stock alert">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Catégorie</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control select2_demo_1" style="width:100%"
-                                                    name="refcat" id="refcat2" required>
+                                                <select class="form-control select2_demo_1" style="width:100%" name="refcat" id="refcat2" required>
                                                     <option value="">Choisir une catégorie</option>
                                                     <optgroup label="Catégories">
                                                         <?php foreach ($categories as $category) : ?>
-                                                        <option value="<?= $category->getIdcat() ?>">
-                                                            <?= $category->getDesignationcat() ?></option>
+                                                            <option value="<?= $category->getIdcat() ?>">
+                                                                <?= $category->getDesignationcat() ?></option>
                                                         <?php endforeach; ?>
                                                     </optgroup>
                                                 </select>
@@ -427,13 +410,12 @@ if (isset($_SESSION['idprod_fiche']))
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Uni. mesure</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control select2_demo_1" style="width:100%"
-                                                    name="refunit" id="refunit2" required>
+                                                <select class="form-control select2_demo_1" style="width:100%" name="refunit" id="refunit2" required>
                                                     <option value="">Choisir une unité de mesure</option>
                                                     <optgroup label="Unité de mesure">
                                                         <?php foreach ($unites as $unite) : ?>
-                                                        <option value="<?= $unite->getIdu() ?>">
-                                                            <?= $unite->getDesignationu() ?></option>
+                                                            <option value="<?= $unite->getIdu() ?>">
+                                                                <?= $unite->getDesignationu() ?></option>
                                                         <?php endforeach; ?>
                                                     </optgroup>
                                                 </select>
@@ -442,15 +424,13 @@ if (isset($_SESSION['idprod_fiche']))
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">En Stock</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" disabled type="text" id="stock2"
-                                                    name="stock" required placeholder="Stock" value="0">
+                                                <input class="form-control" disabled type="text" id="stock2" name="stock" required placeholder="Stock" value="0">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label"></label>
                                             <div class="col-sm-9">
-                                                <button class="btn btn-info btn-block"
-                                                    type="submit">Enregistrer</button>
+                                                <button class="btn btn-info btn-block" type="submit">Enregistrer</button>
                                             </div>
                                         </div>
 
@@ -476,24 +456,21 @@ if (isset($_SESSION['idprod_fiche']))
                                 <div class="modal-title ibox-title">Choisir un article/Produit</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-ellipsis-v"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item close-btn" data-dismiss="modal"
-                                            aria-label="Close">Fermer</a>
+                                        <a class="dropdown-item close-btn" data-dismiss="modal" aria-label="Close">Fermer</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
                                 <div class="form-group row">
                                     <div class="col-sm-12">
-                                        <select class="form-control select2_demo_1" style="width:100%" name="refprod"
-                                            id="refprodo" required>
+                                        <select class="form-control select2_demo_1" style="width:100%" name="refprod" id="refprodo" required>
                                             <option value="">Choisir un article/Produit</option>
                                             <optgroup label="Nos articles">
                                                 <?php foreach ($product as $prod) : ?>
-                                                <option value="<?= $prod->getIdprod() ?>">
-                                                    <?= $prod->getDesignationprod() ?></option>
+                                                    <option value="<?= $prod->getIdprod() ?>">
+                                                        <?= $prod->getDesignationprod() ?></option>
                                                 <?php endforeach; ?>
                                             </optgroup>
                                         </select>
@@ -521,7 +498,7 @@ if (isset($_SESSION['idprod_fiche']))
             <footer class="page-footer">
                 <div class="font-13">
                     <script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> © <b>CMS</b> - All rights reserved.
                 </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
@@ -551,89 +528,89 @@ if (isset($_SESSION['idprod_fiche']))
     <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
-    $(function() {
-        $('#example-table').DataTable({
-            pageLength: 15,
-            //"ajax": './assets/demo/data/table_data.json',
-            /*"columns": [
-                { "data": "name" },
-                { "data": "office" },
-                { "data": "extn" },
-                { "data": "start_date" },
-                { "data": "salary" }
-            ]*/
-        });
-    })
+        $(function() {
+            $('#example-table').DataTable({
+                pageLength: 15,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
     </script>
     <script>
-    table = document.getElementById("tab-product");
-    for (i = 0; i < table.rows.length; i++) {
-        table.rows[i].onclick = function() {
-            getOneProduct(this.cells[0].innerText);
-            document.getElementById("idprod").value = this.cells[0].innerText;
-            document.getElementById("designationprod2").value = this.cells[1].innerText;
-            document.getElementById("stock2").value = this.cells[3].innerText;
-        }
-    }
-
-    function getOneProduct(idprod) {
-        $.ajax({
-            url: "models/requests/RequestCbase.php",
-            type: "POST",
-            data: {
-                action: 'oneprod',
-                idprod: idprod
-            },
-            timeout: 5000,
-            success: function(data) {
-                var response = $.parseJSON(data);
-                $("#prixprod2").val(response.prix);
-                $("#stalert2").val(response.alertSt);
-            },
-            error: function() {
-                alert("Echec de la requête sur le serveur.");
+        table = document.getElementById("tab-product");
+        for (i = 0; i < table.rows.length; i++) {
+            table.rows[i].onclick = function() {
+                getOneProduct(this.cells[0].innerText);
+                document.getElementById("idprod").value = this.cells[0].innerText;
+                document.getElementById("designationprod2").value = this.cells[1].innerText;
+                document.getElementById("stock2").value = this.cells[3].innerText;
             }
-        });
-    }
+        }
+
+        function getOneProduct(idprod) {
+            $.ajax({
+                url: "models/requests/RequestCbase.php",
+                type: "POST",
+                data: {
+                    action: 'oneprod',
+                    idprod: idprod
+                },
+                timeout: 5000,
+                success: function(data) {
+                    var response = $.parseJSON(data);
+                    $("#prixprod2").val(response.prix);
+                    $("#stalert2").val(response.alertSt);
+                },
+                error: function() {
+                    alert("Echec de la requête sur le serveur.");
+                }
+            });
+        }
     </script>
     <script>
-    document.querySelector('.sweet-8').onclick = function() {
-        swal({
-            title: "Suppression d'un article.",
-            text: "Voulez-vous supprimer ce produit ?",
-            type: "info",
-            showCancelButton: true,
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-            confirmButtonClass: 'btn-danger',
-            confirmButtonText: 'Oui, supprimer',
-            cancelButtonText: "Non, annuler",
-            closeOnCancel: true
+        document.querySelector('.sweet-8').onclick = function() {
+            swal({
+                title: "Suppression d'un article.",
+                text: "Voulez-vous supprimer ce produit ?",
+                type: "info",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true,
+                confirmButtonClass: 'btn-danger',
+                confirmButtonText: 'Oui, supprimer',
+                cancelButtonText: "Non, annuler",
+                closeOnCancel: true
 
-        }, function() {
-            setTimeout(function() {
-                $.ajax({
-                    url: "models/requests/RequestCbase.php",
-                    type: "POST",
-                    data: {
-                        action: 'product',
-                        actionu: '3',
-                        idprod: $('#idprod').val(),
-                    },
-                    success: function() {
-                        $('#form-product2')[0].reset();
-                        swal("Produit supprimé avec succès !",
-                            "Suppression d'un produit.", "success");
-                    },
-                    error: function() {
-                        // swal("Echec de la requête sur le serveur.",
-                        //     "Suppression d'un produit.", "success");
-                        alert("Echec de la requête sur le serveur.");
-                    }
-                });
-            }, 2000);
-        });
-    };
+            }, function() {
+                setTimeout(function() {
+                    $.ajax({
+                        url: "models/requests/RequestCbase.php",
+                        type: "POST",
+                        data: {
+                            action: 'product',
+                            actionu: '3',
+                            idprod: $('#idprod').val(),
+                        },
+                        success: function() {
+                            $('#form-product2')[0].reset();
+                            swal("Produit supprimé avec succès !",
+                                "Suppression d'un produit.", "success");
+                        },
+                        error: function() {
+                            // swal("Echec de la requête sur le serveur.",
+                            //     "Suppression d'un produit.", "success");
+                            alert("Echec de la requête sur le serveur.");
+                        }
+                    });
+                }, 2000);
+            });
+        };
     </script>
 
 </body>

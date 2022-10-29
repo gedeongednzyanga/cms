@@ -4,6 +4,7 @@ class Carburant
     //Carburant
     private $idcarb;
     private $carbstok;
+    private $carbdesign;
 
     public function __construct(array $data)
     {
