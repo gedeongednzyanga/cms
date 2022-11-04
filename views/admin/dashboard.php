@@ -54,8 +54,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                 <!-- END TOP-LEFT TOOLBAR-->
                 <!-- START TOP-RIGHT TOOLBAR-->
                 <ul class="nav navbar-toolbar">
-                <li class="dropdown dropdown-inbox">
-                    <!-- data-toggle="dropdown" -->
+                    <li class="dropdown dropdown-inbox">
+                        <!-- data-toggle="dropdown" -->
                         <a class="nav-link dropdown-toggle" data-toggle=""><i class="fa fa-envelope-o"></i>
                             <span class="badge badge-primary envelope-badge">9</span>
                         </a>
@@ -134,7 +134,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                                 <span class="badge badge-success badge-big"><i class="fa fa-check"></i></span>
                                             </div>
                                             <div class="media-body">
-                                                <div class="font-13">4 task compiled</div><small class="text-muted">22 mins</small></div>
+                                                <div class="font-13">4 task compiled</div><small class="text-muted">22 mins</small>
+                                            </div>
                                         </div>
                                     </a>
                                     <a class="list-group-item">
@@ -143,7 +144,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                                 <span class="badge badge-default badge-big"><i class="fa fa-shopping-basket"></i></span>
                                             </div>
                                             <div class="media-body">
-                                                <div class="font-13">You have 12 new orders</div><small class="text-muted">40 mins</small></div>
+                                                <div class="font-13">You have 12 new orders</div><small class="text-muted">40 mins</small>
+                                            </div>
                                         </div>
                                     </a>
                                     <a class="list-group-item">
@@ -152,7 +154,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                                 <span class="badge badge-danger badge-big"><i class="fa fa-bolt"></i></span>
                                             </div>
                                             <div class="media-body">
-                                                <div class="font-13">Server #7 rebooted</div><small class="text-muted">2 hrs</small></div>
+                                                <div class="font-13">Server #7 rebooted</div><small class="text-muted">2 hrs</small>
+                                            </div>
                                         </div>
                                     </a>
                                     <a class="list-group-item">
@@ -161,7 +164,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
                                                 <span class="badge badge-success badge-big"><i class="fa fa-user"></i></span>
                                             </div>
                                             <div class="media-body">
-                                                <div class="font-13">New user registered</div><small class="text-muted">2 hrs</small></div>
+                                                <div class="font-13">New user registered</div><small class="text-muted">2 hrs</small>
+                                            </div>
                                         </div>
                                     </a>
                                 </div>

@@ -66,6 +66,124 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                 <!-- END TOP-LEFT TOOLBAR-->
                 <!-- START TOP-RIGHT TOOLBAR-->
                 <ul class="nav navbar-toolbar">
+                    <li class="dropdown dropdown-inbox">
+                        <!-- data-toggle="dropdown" -->
+                        <a class="nav-link dropdown-toggle" data-toggle=""><i class="fa fa-envelope-o"></i>
+                            <span class="badge badge-primary envelope-badge">9</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media">
+                            <li class="dropdown-menu-header">
+                                <div>
+                                    <span><strong>9 New</strong> Messages</span>
+                                    <a class="pull-right" href="mailbox.html">view all</a>
+                                </div>
+                            </li>
+                            <li class="list-group list-group-divider scroller" data-height="240px" data-color="#71808f">
+                                <div>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <img src="./assets/img/users/u1.jpg" />
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-strong"> </div>Jeanne Gonzalez<small class="text-muted float-right">Just now</small>
+                                                <div class="font-13">Your proposal interested me.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <img src="./assets/img/users/u2.jpg" />
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-strong"></div>Becky Brooks<small class="text-muted float-right">18 mins</small>
+                                                <div class="font-13">Lorem Ipsum is simply.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <img src="./assets/img/users/u3.jpg" />
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-strong"></div>Frank Cruz<small class="text-muted float-right">18 mins</small>
+                                                <div class="font-13">Lorem Ipsum is simply.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <img src="./assets/img/users/u4.jpg" />
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-strong"></div>Rose Pearson<small class="text-muted float-right">3 hrs</small>
+                                                <div class="font-13">Lorem Ipsum is simply.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-notification">
+                        <!-- data-toggle="dropdown" -->
+                        <a class="nav-link dropdown-toggle" data-toggle=""><i class="fa fa-bell-o rel"><span class="notify-signal"></span></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media">
+                            <li class="dropdown-menu-header">
+                                <div>
+                                    <span><strong>5 New</strong> Notifications</span>
+                                    <a class="pull-right" href="javascript:;">view all</a>
+                                </div>
+                            </li>
+                            <li class="list-group list-group-divider scroller" data-height="240px" data-color="#71808f">
+                                <div>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <span class="badge badge-success badge-big"><i class="fa fa-check"></i></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-13">4 task compiled</div><small class="text-muted">22 mins</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <span class="badge badge-default badge-big"><i class="fa fa-shopping-basket"></i></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-13">You have 12 new orders</div><small class="text-muted">40 mins</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <span class="badge badge-danger badge-big"><i class="fa fa-bolt"></i></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-13">Server #7 rebooted</div><small class="text-muted">2 hrs</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-img">
+                                                <span class="badge badge-success badge-big"><i class="fa fa-user"></i></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="font-13">New user registered</div><small class="text-muted">2 hrs</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="views/admin/assets/img/admin-avatar.png" />
@@ -90,8 +208,8 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                         <img src="views/admin/assets/img/admin-avatar.png" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong"><?=/* $_SESSION['telephone'] */ 'Gedeon Nzyanga' ?></div>
-                        <small>Administrator</small>
+                        <div class="font-strong"><?= $_SESSION['user']  ?></div>
+                        <small><?= $_SESSION['compte']  ?></small>
                     </div>
                 </div>
                 <ul class="side-menu metismenu">
@@ -185,8 +303,8 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                         <div class="ibox-title">Produits en Stock</div>
                         <div class="ibox-tools">
                             <div class="ibox-tools">
-                                <a data-toggle="modal" data-target="#modal-category">Catégories</a>
-                                <a data-toggle="modal" data-target="#modal-mesure">Mesures</a>
+                                <a class="text-primary" data-toggle="modal" data-target="#modal-category">Catégories</a>
+                                <a class="text-warning" data-toggle="modal" data-target="#modal-mesure">Unités de Mesures</a>
                             </div>
                         </div>
                     </div>
@@ -234,8 +352,10 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                                                 <span><?= $prod->getQuantitest() < $prod->getStalert() ? 'Stock Insuffisant' : 'Stock Suffisant' ?></span>
                                             </td>
                                             <td>
-                                                <button class="btn btn-default btn-sm m-r-5" data-toggle="modal" data-target="#modal-update"><i class="fa fa-pencil font-14" data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
-                                                        produit</i></button>
+                                                <button class="btn btn-default btn-xs m-r-5" data-toggle="modal" title="Modifier" data-target="#modal-update"><i class="fa fa-pencil font-14"></i></button>
+                                                <button class="btn btn-default btn-xs" data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash font-14"></i></button>
+                                                <!-- <button class="btn btn-default btn-sm m-r-5" data-toggle="modal" data-target="#modal-update"><i class="fa fa-pencil font-14" data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
+                                                        produit</i></button> -->
                                                 <!-- <button class="btn btn-default btn-xs"><i class="fa fa-trash font-14"
                                                     ></i></button> -->
                                             </td>
@@ -250,7 +370,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                         <div class="row">
                             <div class="col-md-12">
                                 <button style="margin-right:35px;" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#modal-choose" id="fiche-stock"> Fiche de
-                                    Stock</button>
+                                    Stock Produit</button>
                             </div>
                         </div>
                     </div>
@@ -358,7 +478,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                     <div class="modal-dialog">
                         <div class="modal-content ibox">
                             <div class="modal-header ibox-head">
-                                <div class="modal-title ibox-title">Modifier Produit</div>
+                                <div class="modal-title ibox-title"><i class="sidebar-item-icon fa fa-product-hunt"></i> Modifier Produit</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                                     <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
@@ -369,71 +489,65 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                                <form id="form-product2" class="row form-horizontal" method="post" novalidate="novalidate">
-                                    <div class="col-md-12">
+                            <form id="form-product2" class="form-horizontal" method="post" novalidate="novalidate">
+                                    <h2 class="user-title" style="padding-bottom: 10px; font-size: 16px;">Modification du produit</h2>
+                                    <div>
                                         <input type="hidden" name="action" value="product" />
                                         <input type="hidden" name="actionu" value="2" />
                                         <input type="hidden" id="idprod" name="idprod" value="0" />
                                         <input type="hidden" id="quantitest2" name="quantitest" value="0" />
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Désignation</label>
-                                            <div class="col-sm-9">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Désignation</label>
+                                            <div class="">
                                                 <input class="form-control" type="text" id="designationprod2" name="designationprod" required placeholder="Désignation">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">PA/PV</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="number" name="prixprod" id="prixprod2" required placeholder="Prix">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="prixprod">PA/PV</label>
+                                                    <input class="form-control" type="number" name="prixprod" id="prixprod2" required placeholder="Prix">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="stalert">Stock alert</label>
+                                                <div class="form-group">
+                                                    <input class="form-control" type="number" name="stalert" id="stalert2" required placeholder="Stock alert">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Stock alert</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="number" name="stalert" id="stalert2" required placeholder="Stock alert">
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="refcat">Catégorie</label>
+                                            <select class="form-control select2_demo_1" style="width:100%" name="refcat" id="refcat2" required>
+                                                <option value="">Choisir une catégorie</option>
+                                                <optgroup label="Catégories">
+                                                    <?php foreach ($categories as $category) : ?>
+                                                        <option value="<?= $category->getIdcat() ?>">
+                                                            <?= $category->getDesignationcat() ?></option>
+                                                    <?php endforeach; ?>
+                                                </optgroup>
+                                            </select>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Catégorie</label>
-                                            <div class="col-sm-9">
-                                                <select class="form-control select2_demo_1" style="width:100%" name="refcat" id="refcat2" required>
-                                                    <option value="">Choisir une catégorie</option>
-                                                    <optgroup label="Catégories">
-                                                        <?php foreach ($categories as $category) : ?>
-                                                            <option value="<?= $category->getIdcat() ?>">
-                                                                <?= $category->getDesignationcat() ?></option>
-                                                        <?php endforeach; ?>
-                                                    </optgroup>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Uni. mesure</label>
-                                            <div class="col-sm-9">
-                                                <select class="form-control select2_demo_1" style="width:100%" name="refunit" id="refunit2" required>
-                                                    <option value="">Choisir une unité de mesure</option>
-                                                    <optgroup label="Unité de mesure">
-                                                        <?php foreach ($unites as $unite) : ?>
-                                                            <option value="<?= $unite->getIdu() ?>">
-                                                                <?= $unite->getDesignationu() ?></option>
-                                                        <?php endforeach; ?>
-                                                    </optgroup>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">En Stock</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" disabled type="text" id="stock2" name="stock" required placeholder="Stock" value="0">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label"></label>
-                                            <div class="col-sm-9">
-                                                <button class="btn btn-info btn-block" type="submit">Enregistrer</button>
-                                            </div>
-                                        </div>
+                                        <div class="form-group">
+                                            <label for="refunit">Unité de mesure</label>
+                                            <select class="form-control select2_demo_1" style="width:100%" name="refunit" id="refunit2" required>
+                                                <option value="">Choisir une unité de mesure</option>
+                                                <optgroup label="Unité de mesure">
+                                                    <?php foreach ($unites as $unite) : ?>
+                                                        <option value="<?= $unite->getIdu() ?>">
+                                                            <?= $unite->getDesignationu() ?></option>
+                                                    <?php endforeach; ?>
+                                                </optgroup>
+                                            </select>
 
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="stock">En Stock</label>
+                                            <input class="form-control" disabled type="text" id="stock2" name="stock" required placeholder="Stock" value="0">
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-info" type="submit">Enregistrer les modifications</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
