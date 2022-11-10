@@ -489,7 +489,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                                 </div>
                             </div>
                             <div class="modal-body ibox-body">
-                            <form id="form-product2" class="form-horizontal" method="post" novalidate="novalidate">
+                                <form id="form-product2" class="form-horizontal" method="post" novalidate="novalidate">
                                     <h2 class="user-title" style="padding-bottom: 10px; font-size: 16px;">Modification du produit</h2>
                                     <div>
                                         <input type="hidden" name="action" value="product" />

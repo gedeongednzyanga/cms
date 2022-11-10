@@ -200,8 +200,8 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Commande', 'Pag
                                         <label class="col-sm-2 col-form-label">Client</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" style="width:100%" name="refentc" id="refentc" required>
-                                                <option value="0">Rechercher un client</option>
-                                                <optgroup label="Rechercher un client">
+                                                <optgroup label="Nos clients">
+                                                    <option value="0">Rechercher un client</option>
                                                     <?php foreach ($commandes as $commande) : ?>
                                                         <option value="<?= $commande->getNumcom() ?>">
                                                             <?= $commande->getCustomer() ?> </option>

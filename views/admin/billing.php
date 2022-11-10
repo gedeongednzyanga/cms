@@ -203,7 +203,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Facturation', '
                                     <input type="hidden" name="refentc" id="refentc" value="0" />
                                     <input type="hidden" name="restepaye" id="restepaye" value="0" />
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Recherche cli...</label>
+                                        <label class="col-sm-2 col-form-label">Recherche cli.</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2_demo_1" style="width:100%" name="refentcom" id="refentcom" required>
                                                 <optgroup label="Rechercher un client">

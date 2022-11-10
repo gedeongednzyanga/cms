@@ -62,7 +62,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Utilisateur', '
                 <!-- END TOP-LEFT TOOLBAR-->
                 <!-- START TOP-RIGHT TOOLBAR-->
                 <ul class="nav navbar-toolbar">
-                <li class="dropdown dropdown-inbox">
+                    <li class="dropdown dropdown-inbox">
                         <!-- data-toggle="dropdown" -->
                         <a class="nav-link dropdown-toggle" data-toggle=""><i class="fa fa-envelope-o"></i>
                             <span class="badge badge-primary envelope-badge">9</span>
@@ -581,7 +581,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Utilisateur', '
                                     <label class="ui-checkbox ui-checkbox-info">
                                         <input type="checkbox" name="agree" checked>
                                         <span class="input-span"></span>Pages accessibles</label>
-                                        <span class="pull-right">0</span>
+                                    <span class="pull-right">0</span>
 
                                 </div>
                                 <div class="form-group">
