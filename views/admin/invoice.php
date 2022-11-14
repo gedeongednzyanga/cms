@@ -2,161 +2,200 @@
 if (!isset($_SESSION['user']) || !isset($_SESSION['compte']))
     echo '<script>window.location="login";</script>';
 ?>
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Facture - <?= $_GET['number'] ?></title>
-    <!-- INCONS -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="icon" type="image/png" href="views/pages/assets/images/favicon.png" />
     <!-- Styles -->
     <link href="views/admin/assets/repports/css/bootstrap.min.css" rel="stylesheet" />
     <link href="views/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="views/admin/assets/repports/css/stylesheet.css" />
+    <!-- Custom Style -->
+    <link rel="stylesheet" type="text/css" href="views/admin/assets/repports/css/cssFacture.css" />
+
+    <title>Facture - <?= $_GET['number'] ?></title>
 </head>
 
 <body>
-    <!-- Container -->
-    <div class="container-fluid invoice-container">
-        <div id="facture">
-            <!-- Header -->
-            <header>
-                <div class="row align-items-center">
-                    <div class="col-sm-7 text-center text-sm-start mb-3 mb-sm-0">
-                        <img id="logo" src="views/admin/assets/repports/images/logo.png" title="CMS-Sarl"
-                            alt="CMS-Sarl" />
+    <div class="my-5 page" size="A4" id="facture">
+        <div class="p-5">
+            <?php
+            $_managerCommande = new ManagerCommande();
+            foreach ($_managerCommande->getOneEntCommande($_GET['number']) as $commande) :
+            ?>
+                <section class="top-content bb d-flex justify-content-between">
+                    <div class="logo">
+                        <img src="views/admin/assets/repports/images/logo_f.png" alt="" class="img-fluid">
                     </div>
-                    <div class="col-sm-5 text-center text-sm-end">
-                        <h2 class="text-7 mb-0"><b>FACTURE</b></h2>
+                    <div class="top-left">
+                        <div class="graphic-path">
+                            <p>Non payée</p>
+                        </div>
+                        <div class="position-relative">
+                            <p>Facture N° : <span><?= $_GET['number'] ?></span></p>
+                            <span id="fileName" style="display: none;"><?= 'Facture_' . $_GET['number'] ?></span>
+                        </div>
                     </div>
-                </div>
-                <hr>
-            </header>
+                </section>
 
-            <!-- Main Content -->
+                <section class="store-user mt-4">
+                    <div class="col-12">
+                        <div class="row bb pb-3">
+                            <div class="col-8">
+                                <p>Supplier :</p>
+                                <h2><b>CMS-Sarl</b></h2>
+                                <p class="address"> RCCM : CD/GOM/RCCM/16-B-O467, <br> ID NAT : 5-490-N16077H ITPR N°
+                                    600/ITPR/02, <br>RDC/Nord-Kivu/Goma </p>
+                                <div class="txn mt-2">Ville de Goma/Nord-Kivu</div>
+                            </div>
+                            <div class="col-4">
+                                <p>Client :</p>
+                                <h2><?= $commande->getCustomer() ?></h2>
+                                <p class="address"> 196 Av Bunia, <br> Quartier Kasika, <br>Commune de Goma </p>
+                                <div class="txn mt-2">Ville de Goma/Nord-Kivu</div>
+                            </div>
+                        </div>
 
-            <main>
-                <?php
-                $_managerCommande = new ManagerCommande();
-                foreach ($_managerCommande->getOneEntCommande($_GET['number']) as $commande) :
-                ?>
-                <div class="row">
-                    <div class="col-sm-6"><strong>Date :</strong> <?= $commande->getDatecom() ?></div>
-                    <div class="col-sm-6 text-sm-end"> <strong>Facture N° :</strong> <?= $_GET['number'] ?></div>
-                    <span id="fileName" style="display: none;"><?= 'Facture_' . $_GET['number'] ?></span>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-6 text-sm-end order-sm-1"> <strong>Facturée à :</strong>
-                        <address>
-                            <?= 'Mr, Mme : ' . $commande->getCustomer() ?><br />
-                            Facture payée cash<br />
-                            Quantité commandée : <b><?= $commande->getTotcom() ?></b><br />
-                        </address>
+                        <div class="row extra-info pt-2">
+                            <div class="col-8">
+                                <p>Méthode de Payement : <span>Cash</span></p>
+                                <p>Commande N° : <span>#868</span></p>
+                            </div>
+                            <div class="col-4">
+                                <p>Date: <span><?= $commande->getDatecom() ?></span></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-6 order-sm-0">
-                        <h5> <strong>
-                                CMS-SARL
-                            </strong></h5>
-                        <address>
-                            RCCM : CD/GOM/RCCM/16-B-O467<br />
-                            ID NAT : 5-490-N16077H ITPR N° 600/ITPR/02<br />
-                            N° d’Impôt : A1705137D<br />
-                        </address>
+                </section>
+            <?php endforeach; ?>
+            <section class="product-area">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td>Désignation</td>
+                            <td>Quantité</td>
+                            <td>Prix U.</td>
+                            <td>Prix Tot.</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sTotal = 0;
+                        $tva = 0;
+                        foreach ($_managerCommande->getOneCommande($_GET['number']) as $dtcom) :
+                            $sTotal += round($dtcom->getQuantitecom() *  $dtcom->getPrixprod(), 2);
+                        ?>
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <!-- <img class="mr-3 img-fluid" src="mobile.jpg" alt="Product 01"> -->
+                                        <div class="media-body">
+                                            <p class="mt-0 title"><?= $dtcom->getDesignationprod() ?></p>
+                                            <!-- Cras sit amet nibh libero, in gravida nulla. -->
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><?= $dtcom->getQuantitecom() . '' . $dtcom->getDesignationu() ?></td>
+                                <td><?= $dtcom->getPrixprod() ?>$</td>
+                                <td><?= round($dtcom->getQuantitecom() *  $dtcom->getPrixprod(), 2)  ?>$</td>
+                            </tr>
+                        <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="balance-info">
+                <div class="row">
+                    <div class="col-8">
+                        <p class="m-0 font-weight-bold"> Note : </p>
+                        <p>Les marchandises vendues ne sont ni reprises ni échangées.</p>
                     </div>
-                </div>
-                <?php endforeach; ?>
-                <div class="card">
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table mb-0 ">
-                                <thead class="card-header">
-                                    <tr>
-                                        <td class="col-3"><strong>Quantité</strong></td>
-                                        <td class="col-4"><strong>Désignation</strong></td>
-                                        <td class="col-2 text-center"><strong>Prix Unitaire</strong></td>
-                                        <td class="col-2 text-end"><strong>Prix Total</strong></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $sTotal = 0;
-                                    $tva = 0;
-                                    foreach ($_managerCommande->getOneCommande($_GET['number']) as $dtcom) :
-                                        $sTotal += round($dtcom->getQuantitecom() *  $dtcom->getPrixprod(), 2);
-                                    ?>
-                                    <tr>
-                                        <td class="col-3">
-                                            <?= $dtcom->getQuantitecom() . '' . $dtcom->getDesignationu() ?>
-                                        </td>
-                                        <td class="col-4 text-1"><?= $dtcom->getDesignationprod() ?></td>
-                                        <td class="col-2 text-center"><?= $dtcom->getPrixprod() ?>$</td>
-                                        <td class="col-2 text-end">
-                                            <?= round($dtcom->getQuantitecom() *  $dtcom->getPrixprod(), 2)  ?>
-                                            $</td>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                                <tfoot class="card-footer">
-                                    <tr>
-                                        <td colspan="3" class="text-end"><strong>Sous-Total :</strong></td>
-                                        <td class="text-end"><?= $sTotal ?>$</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="text-end"><strong>TVA (16%) :</strong></td>
-                                        <td class="text-end"><?= round(($sTotal * 16) / 100, 2) ?>$</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="text-end border-bottom-0"><strong>Total à Payer
-                                                :</strong>
-                                        </td>
-                                        <td class="text-end border-bottom-0">
-                                            <?= $sTotal + round(($sTotal * 16) / 100, 2) ?>$</td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                    <div class="col-4">
+                        <table class="table border-0 table-hover">
+                            <!-- <tr>
+                                <td>Sous-Total :</td>
+                                <td>800$</td>
+                            </tr> -->
+                            <!-- <tr>
+                                <td>TVA (16%) : </td>
+                                <td>25$</td>
+                            </tr> -->
+                            <!-- <tr>
+                                <td>Deliver:</td>
+                                <td>10$</td>
+                            </tr> -->
+                            <tfoot>
+                                <tr>
+                                    <td>Total à payer :</td>
+                                    <td><?= $sTotal ?>$</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <!-- Signature -->
+                        <div class="col-12" id="sceau">
+                            <!-- <img src="signature.png" class="img-fluid" alt=""> -->
+                            <p class="text-center m-0"> Sceau de l'entreprise </p>
                         </div>
                     </div>
                 </div>
-            </main>
-            <!-- Footer Facture-->
-            <footer class="text-center mt-4">
-                <p class="text-1"><strong>NOTE :</strong> Les marchandises vendues ne sont ni remboursées ni échangées.
-                </p>
+            </section>
+
+            <!-- Cart BG -->
+            <img src="views/admin/assets/repports/images/cart.jpg" class="img-fluid cart-bg" alt="" style="margin-bottom: 5px;">
+
+            <footer>
+                <!--<p class="text-center">
+                    View THis Invoice Online At - 
+                </p> -->
+                <div class="social pt-3">
+                    <span class="pr-2">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Adresse : ville de Goma, Com. de Goma, Q. Lac Vert, Av. Kabande, </span>
+                    </span>
+                    <span class="pr-2">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-mail : balufaustin@gmail.com, </span>
+                    </span>
+                    <span class="pr-2">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook : CMS-SARL, </span>
+                    </span>
+                    <span class="pr-2">
+                        <i class="fab fa-github"></i>
+                        <span>www.cms-sarl.com</span>
+                    </span>
+                    <a href="" id="print-btn" class="btn btn-primary btn-sm border shadow-none"><i class="fa fa-print"></i> Imprimer</a>
+                </div>
             </footer>
         </div>
-        <!-- Footer -->
-        <footer class="text-center mt-4">
-            <div class="btn-group btn-group-sm d-print-none"> <a href="" id="print-btn"
-                    class="btn btn-light border text-black-50 shadow-none"><i class="fa fa-print"></i> Imprimer</a> <a
-                    href="javascript:;" class="btn btn-light border text-black-50 shadow-none"><i
-                        class="fa fa-download"></i>
-                    Télécharger</a> </div>
-        </footer>
     </div>
 
     <script src="views/admin/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/scripts/html2pdf.bundle.min.js" type="text/javascript"></script>
     <script>
-    btn = document.getElementById("print-btn");
-    nomFichier = document.getElementById("fileName").innerText;
+        btn = document.getElementById("print-btn");
+        nomFichier = document.getElementById("fileName").innerText;
 
-    btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        element = document.getElementById('facture');
-        html2pdf(element, {
-            margin: 20,
-            filename: nomFichier + '.pdf',
-            jsPDF: {
-                unit: 'mm',
-                format: 'a4',
-                orientation: 'portrait'
-            }
-        });
-    }, false);
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            element = document.getElementById('facture');
+            html2pdf(element, {
+                margin: 0,
+                filename: nomFichier + '.pdf',
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait'
+                }
+            });
+        }, false);
     </script>
 </body>
 
