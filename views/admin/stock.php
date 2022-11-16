@@ -353,7 +353,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                                             </td>
                                             <td>
                                                 <button class="btn btn-default btn-xs m-r-5" data-toggle="modal" title="Modifier" data-target="#modal-update"><i class="fa fa-pencil font-14"></i></button>
-                                                <button class="btn btn-default btn-xs" data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash font-14"></i></button>
+                                                <button class="btn btn-default btn-xs" data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash font-14 sweet-8"></i></button>
                                                 <!-- <button class="btn btn-default btn-sm m-r-5" data-toggle="modal" data-target="#modal-update"><i class="fa fa-pencil font-14" data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
                                                         produit</i></button> -->
                                                 <!-- <button class="btn btn-default btn-xs"><i class="fa fa-trash font-14"
@@ -407,7 +407,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                                 </form>
                                 <div class="form-group">
                                     <label>Catégorie produit</label>
-                                    <select class="form-control" multiple="" id="list-quartier" style="height:150px">
+                                    <select class="form-control" multiple="" id="list-categorie" style="height:150px">
                                         <?php foreach ($categories as $category) : ?>
                                             <option value="<?= $category->getIdcat() ?>">
                                                 <?= $category->getDesignationcat() ?> </option>
@@ -417,6 +417,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                <span id="message-category"></span>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -465,6 +466,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                <span id="message-mesure"></span>
                             </div>
                         </div>
                         <!-- /.modal-content -->

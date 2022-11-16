@@ -428,7 +428,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
                                             <td style="display:none;"><?= $product->getQuantitest() ?></td>
                                             <td>
                                                 <button class="btn btn-default btn-xs m-r-5" data-toggle="modal" title="Modifier" data-target="#modal-update"><i class="fa fa-pencil font-14"></i></button>
-                                                <button class="btn btn-default btn-xs" data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash font-14"></i></button>
+                                                <button class="btn btn-default btn-xs" data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash font-14 sweet-8"></i></button>
                                                 <!-- <button class="btn btn-default btn-sm m-r-5" data-toggle="modal" data-target="#modal-update"><i class="fa fa-pencil font-14" data-original-title="Modifier" data-toggle="tooltip"> Modifier ce
                                                         produit
                                                     </i></button> -->
@@ -671,56 +671,6 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
     <script src="views/admin/assets/sweetalert/sweetalert.min.js" type="text/javascript"></script>
     <script src="views/admin/assets/js/request/productRequest.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
-
-    <script type="text/javascript">
-        $("#form-sample-1").validate({
-            rules: {
-                name: {
-                    minlength: 2,
-                    required: !0
-                },
-                email: {
-                    required: !0,
-                    email: !0
-                },
-                url: {
-                    required: !0,
-                    url: !0
-                },
-                number: {
-                    required: !0,
-                    number: !0
-                },
-                min: {
-                    required: !0,
-                    minlength: 3
-                },
-                max: {
-                    required: !0,
-                    maxlength: 4
-                },
-                password: {
-                    required: !0
-                },
-                password_confirmation: {
-                    required: !0,
-                    equalTo: "#password"
-                }
-            },
-            errorClass: "help-block error",
-            highlight: function(e) {
-                $(e).closest(".form-group.row").addClass("has-error")
-            },
-            unhighlight: function(e) {
-                $(e).closest(".form-group.row").removeClass("has-error")
-            },
-        });
-    </script>
-    <script type="text/javascript">
-        $(function() {
-            $('#ex-phone2').mask('+243 999 999 999');
-        })
-    </script>
     <script type="text/javascript">
         $(function() {
             $('#example-table').DataTable({
@@ -770,7 +720,7 @@ if (count($managerPage->testUserAccessPage($_SESSION['iduser'], 'Article', 'Page
     <script>
         document.querySelector('.sweet-8').onclick = function() {
             swal({
-                title: "Suppression d'un article.",
+                title: "Suppression d'un produit.",
                 text: "Voulez-vous supprimer ce produit ?",
                 type: "info",
                 showCancelButton: true,

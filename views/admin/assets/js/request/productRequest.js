@@ -115,4 +115,8 @@ $(function() {
             });
         }
     });
+
+    $("#list-categorie").on('click', ()=>{
+        alert($(this).val())
+    });
 })
